@@ -1,14 +1,14 @@
 jobs:
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
       language: php
       php:
         - 8.1snapshot
       script: true
       
     - os: linux
-      dist: focal
+      dist: bionic
       language: php
       php:
         - 8.1snapshot
