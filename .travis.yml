@@ -4,12 +4,61 @@ jobs:
       dist: xenial
       language: php
       php:
-        - 8.0snapshot
+        - 5.3
       script: true
       
     - os: linux
       dist: bionic
       language: php
       php:
-        - 8.0snapshot
+        - 5.3
+      script: true
+      
+    - os: linux
+      dist: focal
+      language: php
+      php:
+        - 5.3
+      script: true
+      
+    - os: linux
+      dist: xenial
+      language: php
+      php:
+        - 5.4
+      script: true
+      
+    - os: linux
+      dist: bionic
+      language: php
+      php:
+        - 5.4
+      script: true
+      
+    - os: linux
+      dist: focal
+      language: php
+      php:
+        - 5.4
+      script: true
+      
+    - os: linux
+      dist: xenial
+      language: php
+      php:
+        - 5.5
+      script: true
+      
+    - os: linux
+      dist: bionic
+      language: php
+      php:
+        - 5.5
+      script: true
+      
+    - os: linux
+      dist: focal
+      language: php
+      php:
+        - 5.5
       script: true
