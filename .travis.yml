@@ -1,43 +1,26 @@
 jobs:
   include:
-    - os: linux
-      dist: precise
-      language: php
-      php:
-        - 5.3
-      script:
-        - composer self-update
-      
-    - os: linux
-      dist: precise
-      language: php
-      php:
-        - 5.4
-      script:
-        - composer self-update
-      
-    - os: linux
-      dist: trusty
-      language: php
-      php:
-        - 5.4
-      before_install:
-        - composer self-update
+    - arch: arm64-graviton2
+      virt: lxd
+      os: linux
+      dist: focal
+      language: shell
       script: true
-      
-    - os: linux
-      dist: precise
-      language: php
-      php:
-        - 5.5
-      script:
-        - composer self-update
-      
-    - os: linux
+    - arch: arm64-graviton2
+      virt: lxd
+      os: linux
+      dist: bionic
+      language: shell
+      script: true
+    - arch: arm64-graviton2
+      virt: lxd
+      os: linux
+      dist: xenial
+      language: shell
+      script: true
+    - arch: arm64-graviton2
+      virt: lxd
+      os: linux
       dist: trusty
-      language: php
-      php:
-        - 5.5
-      before_install:
-        - composer self-update
+      language: shell
       script: true
