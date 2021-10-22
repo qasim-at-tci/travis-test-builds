@@ -7,4 +7,4 @@ import:
   - source: qasimabdullah404/travis-build-config-import-file:install.yml@main
   if: env(test-var) is present
   
-  script: true
+script: true
