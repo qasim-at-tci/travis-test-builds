@@ -1,25 +1,25 @@
 jobs:
   include:
     - arch: arm64-graviton2
-      virt: lxd
+      #virt: lxd
       os: linux
       dist: focal
       language: shell
       script: true
     - arch: arm64-graviton2
-      virt: lxd
+      #virt: lxd
       os: linux
       dist: bionic
       language: shell
       script: true
     - arch: arm64-graviton2
-      virt: lxd
+      #virt: lxd
       os: linux
       dist: xenial
       language: shell
       script: true
     - arch: arm64-graviton2
-      virt: lxd
+      #virt: lxd
       os: linux
       dist: trusty
       language: shell
