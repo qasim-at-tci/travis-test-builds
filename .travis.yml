@@ -1,10 +1,10 @@
 env:
   global:
     - test-var='test'
-
-- import: qasimabdullah404/travis-build-config-import-file:before_install.yml@main
+import:
+  - source: qasimabdullah404/travis-build-config-import-file:before_install.yml@main
   if: env(test-var) is blank
-- import: qasimabdullah404/travis-build-config-import-file:install.yml@main
+  - source: qasimabdullah404/travis-build-config-import-file:install.yml@main
   if: env(test-var) is present
   
   script: true
