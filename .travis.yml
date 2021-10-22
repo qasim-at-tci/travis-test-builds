@@ -1,6 +1,7 @@
-#env: 
-#  global: 
-#    - test_var='test'
+env: 
+  global: 
+    secure: "MneKgPuKcf2JA3afejL9tkvz5Cpr81IQN+DFb4YuWQD8Mb+GS5F2bj/KjnUlvwiZqOd4THn370FPqQ0zUBYtSBh1fsVy6Xq6HsgpW+rBsBQIp7mCUfoMquSq5aEymhKACObO/v04F8QjDhdfU8g7haJZu3mvA+9PRZX/dHpAFjf0lPHFJX+URIhj2GK45zOHd0w+KJ9jYjScg1USOo4ASn3OjzmfZYJd3Edh4cpRm3rlyJr1ubLxiMOrLtSPdn735GvXuMKYKiP7RDfzhgXQeKQOtT3Qv8EUQ8HYpDcFqJAGoyU91SbYVXp04K6x+sJYu5mlz4MSKApmhmgA5DG11/Khn9xuI2JUS1FXkx8Ag+XTVYgqkPkOrX5x0i1w/ggeMxecwglmt+zvmY3iO+ByxX1fd+14PMs+TUSYQ54SVz5CDFiD+rpO0zqwc5HbCAHDBuMrmTCCa1nW27856ExI9TQueNGhJHa/tBePpWihTIZiJDGcs4oA0VSYJwPRkp252ZlD8J+MY3IShIEf7QaNZMe8GaNK5CsVSovOaW7nK38KJAWyMMEh5Qd3bJoz+pHfDmRdKr5svr+Zgak4KtRX9CmOIQydvgj4SoAcJE7WqRr5nWZEoH7Hk/5uyUz+0iylkQe9OA0rEJFu02sNoxjKhhkIzjPiKgmhdWkKMvzwOsc="
+    
 import: 
   - 
     if: env(test_var) is blank
