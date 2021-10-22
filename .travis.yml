@@ -1,6 +1,6 @@
-env: 
-  global: 
-    - test-var='test'
+#env: 
+#  global: 
+#    - test-var='test'
 import: 
   - 
     if: env(test-var) is blank
