@@ -1,10 +1,48 @@
-env: 
-  global: 
-    - test_var=test
-import: 
-  - 
-    if: env(test_var_defined) is present
-    source: "qasimabdullah404/travis-build-config-import-file:before_install.yml@main"
-  - 
-    if: env(test_var_defined) is blank
-    source: "qasimabdullah404/travis-build-config-import-file:install.yml@main"
+jobs:
+  include:
+    - os: linux
+      dist: precise
+      group: edge
+      language: php
+      php:
+        - 5.3
+      script:
+        - composer self-update
+      
+    - os: linux
+      dist: precise
+      group: edge
+      language: php
+      php:
+        - 5.4
+      script:
+        - composer self-update
+      
+    - os: linux
+      dist: trusty
+      group: edge
+      language: php
+      php:
+        - 5.4
+      before_install:
+        - composer self-update
+      script: true
+      
+    - os: linux
+      dist: precise
+      group: edge
+      language: php
+      php:
+        - 5.5
+      script:
+        - composer self-update
+      
+    - os: linux
+      dist: trusty
+      group: edge
+      language: php
+      php:
+        - 5.5
+      before_install:
+        - composer self-update
+      script: true
