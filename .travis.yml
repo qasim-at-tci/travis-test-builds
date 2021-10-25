@@ -3,5 +3,6 @@ os: linux
 virt: vm
 dist: focal
 language: shell
+group: edge
 script:
-  - uname -a
+  - uname -p
