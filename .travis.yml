@@ -1,18 +1,10 @@
 jobs:
   include:
     - os: linux
-      dist: precise
+      dist: trusty
       language: php
       php:
         - 5.3
-      script:
-        - composer self-update
-      
-    - os: linux
-      dist: precise
-      language: php
-      php:
-        - 5.4
       script:
         - composer self-update
       
@@ -25,14 +17,6 @@ jobs:
       before_install:
         - composer self-update
       script: true
-      
-    - os: linux
-      dist: precise
-      language: php
-      php:
-        - 5.5
-      script:
-        - composer self-update
       
     - os: linux
       dist: trusty
