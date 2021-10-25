@@ -1,8 +1,9 @@
 arch: arm64-graviton2
 os: linux
 virt: vm
-dist: focal
+dist: bionic
 language: shell
-group: edge
+#group: edge
 script:
   - uname -p
+  - uname -a
