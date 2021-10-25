@@ -2,7 +2,6 @@ jobs:
   include:
     - os: linux
       dist: precise
-      group: edge
       language: php
       php:
         - 5.3
@@ -11,7 +10,6 @@ jobs:
       
     - os: linux
       dist: precise
-      group: edge
       language: php
       php:
         - 5.4
@@ -30,7 +28,6 @@ jobs:
       
     - os: linux
       dist: precise
-      group: edge
       language: php
       php:
         - 5.5
