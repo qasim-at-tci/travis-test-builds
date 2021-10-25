@@ -1,25 +1,7 @@
-jobs:
-  include:
-    - arch: arm64-graviton2
-      virt: vm
-      os: linux
-      dist: xenial
-      language: shell
-      script:
-        - uname -a
-        
-    - arch: arm64-graviton2
-      virt: vm
-      os: linux
-      dist: bionic
-      language: shell
-      script:
-        - uname -a
-        
-    - arch: arm64-graviton2
-      os: linux
-      virt: vm
-      dist: focal
-      language: shell
-      script:
-        - uname -a
+arch: arm64-graviton2
+os: linux
+virt: vm
+dist: focal
+language: shell
+script:
+  - uname -a
