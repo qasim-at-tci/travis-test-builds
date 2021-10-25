@@ -1,29 +1,7 @@
-jobs:
-  include:
-    - os: linux
-      dist: trusty
-      language: php
-      php:
-        - 5.3
-      script:
-        - composer self-update
-      
-    - os: linux
-      dist: trusty
-      group: edge
-      language: php
-      php:
-        - 5.4
-      before_install:
-        - composer self-update
-      script: true
-      
-    - os: linux
-      dist: trusty
-      group: edge
-      language: php
-      php:
-        - 5.5
-      before_install:
-        - composer self-update
-      script: true
+arch: arm64-graviton2
+#virt: lxd
+os: linux
+dist: focal
+language: shell
+script:
+  - uname -a
