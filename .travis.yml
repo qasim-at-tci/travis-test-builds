@@ -1,6 +1,6 @@
 arch: arm64-graviton2
 os: linux
-virt: lxd
+virt: vm
 dist: focal
 language: shell
 group: edge
