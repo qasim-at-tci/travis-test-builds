@@ -3,7 +3,7 @@ os: linux
 virt: vm
 dist: bionic
 language: shell
-#group: edge
+group: edge
 script:
   - uname -p
   - uname -a
