@@ -1,16 +1,8 @@
 jobs:
   include:
-    - arch: arm64-graviton2
+    - arch: ppc64le
       os: linux
-      virt: vm
       dist: focal
-      language: shell
-      group: edge
-      script:
-        - uname -p
-        #- uname -a
-    - os: osx
-      osx_image: xcode13.1
       language: shell
       script:
         - uname -p
