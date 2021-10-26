@@ -9,7 +9,7 @@ jobs:
       script:
         - uname -p
         - uname -a
-    - os: os
+    - os: osx
       osx_image: xcode13.1
       language: shell
       script:
