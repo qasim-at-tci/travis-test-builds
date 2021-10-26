@@ -8,7 +8,7 @@ jobs:
       group: edge
       script:
         - uname -p
-        - uname -a
+        #- uname -a
     - os: osx
       osx_image: xcode13.1
       language: shell
