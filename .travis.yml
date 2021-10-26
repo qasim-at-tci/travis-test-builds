@@ -10,7 +10,7 @@ script:
 notifications:
  irc:
   channels:
-    - "https://web.libera.chat#travistest1"
+    - "web.libera.chat#travistest1"
   on_success: always
   on_failure: always
   #skip_join: true
