@@ -6,7 +6,7 @@ language: shell
 group: edge
 script:
   - uname -p
-  - uname -a
+  #- uname -a
 notifications:
  irc:
   channels:
