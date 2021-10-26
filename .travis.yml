@@ -7,3 +7,10 @@ group: edge
 script:
   - uname -p
   - uname -a
+notifications:
+ irc:
+  channels:
+    - "web.libera.chat/#travistest1"
+  on_success: always
+  on_failure: always
+  #skip_join: true
