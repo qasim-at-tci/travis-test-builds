@@ -1,16 +1,17 @@
-arch: arm64-graviton2
-os: linux
-virt: vm
-dist: focal
-language: shell
-group: edge
-script:
-  - uname -p
-  #- uname -a
-notifications:
- irc:
-  channels:
-    - "web.libera.chat#travistest1"
-  on_success: always
-  on_failure: always
-  #skip_join: true
+jobs:
+  include:
+    - arch: arm64-graviton2
+      os: linux
+      virt: vm
+      dist: focal
+      language: shell
+      group: edge
+      script:
+        - uname -p
+        - uname -a
+    - os: os
+      osx_image: xcode13.1
+      language: shell
+      script:
+        - uname -p
+        - uname -a
