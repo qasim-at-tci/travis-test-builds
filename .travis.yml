@@ -6,7 +6,7 @@ jobs:
         - 13
       install:
         - nvs add lts
-        - nvs link lts
+        #- nvs link lts
         - nvs use lts
       script:
         - node -v
