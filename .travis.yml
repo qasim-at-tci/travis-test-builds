@@ -1,12 +1,6 @@
 jobs:
   include:
-    - os: osx
-      osx_image: xcode12.2
-      language: objective-c
-      before_install:
-        - xcodebuild -version
-      install:
-        - make V=1
+    - os: windows
+      language: node_js
       script:
-        - uname -p
-        - uname -a
+        - nvs use lts
