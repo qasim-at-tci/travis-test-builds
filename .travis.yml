@@ -1,9 +1,12 @@
 jobs:
   include:
-    - arch: ppc64le
-      os: linux
-      dist: focal
-      language: shell
+    - os: osx
+      osx_image: xcode12.2
+      language: objective-c
+      before_install:
+        - xcodebuild -version
+      install:
+        - make V=1
       script:
         - uname -p
         - uname -a
