@@ -2,5 +2,10 @@ jobs:
   include:
     - os: windows
       language: node_js
-      node_js: lts
-      script: true
+      node_js:
+        - 13
+      install:
+        - nvs add node/lts
+        - nvs use lts
+      script:
+        - node -v
