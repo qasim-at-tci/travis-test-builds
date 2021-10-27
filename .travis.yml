@@ -5,7 +5,8 @@ jobs:
       node_js:
         - 13
       install:
-        - nvs add node/lts
+        - nvs add lts
+        - nvs link lts
         - nvs use lts
       script:
         - node -v
