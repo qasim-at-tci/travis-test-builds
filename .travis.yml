@@ -1,12 +1,10 @@
 jobs:
   include:
-    - os: windows
-      language: node_js
-      node_js:
-        - 13
-      install:
-        - nvs add lts
-        #- nvs link lts
-        - nvs use lts
+    - os: linux
+      arch: ppc64le
+      dist: focal
+      language: java
+      jdk: openjdk8
+      
       script:
-        - node -v
+        - echo $JAVA_HOME
