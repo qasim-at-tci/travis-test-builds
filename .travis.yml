@@ -4,7 +4,7 @@ jobs:
       arch: ppc64le
       dist: focal
       language: java
-      jdk: openjdk8
+      jdk: openjdk12
       
       addons:
         apt:
@@ -13,7 +13,7 @@ jobs:
             - ruby
             - groovy
       before_script:
-        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-12-hotspot-ppc64el
         - export PATH=$JAVA_HOME/bin:$PATH
 
       script:
