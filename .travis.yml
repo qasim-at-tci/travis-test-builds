@@ -157,7 +157,7 @@ jobs:
       script:
         - groovy --version
         
-   - os: linux
+    - os: linux
       arch: ppc64le
       dist: bionic
       language: java
