@@ -197,7 +197,7 @@ jobs:
     - include:
       os: linux
       arch: ppc64le
-      dist: focal
+      dist: bionic
       language: java
       jdk: openjdk15
       
@@ -216,7 +216,7 @@ jobs:
 
     - os: linux
       arch: ppc64le
-      dist: focal
+      dist: bionic
       language: java
       jdk: openjdk16
       
