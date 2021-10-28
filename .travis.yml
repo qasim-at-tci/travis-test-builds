@@ -38,3 +38,61 @@ jobs:
 
       script:
         - groovy --version
+
+    - os: linux
+      arch: ppc64le
+      dist: focal
+      language: java
+      jdk: openjdk14
+      
+      addons:
+        apt:
+          packages:
+            - xmlstarlet
+            - ruby
+            - groovy
+      before_script:
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-14-hotspot-ppc64el
+        - export PATH=$JAVA_HOME/bin:$PATH
+
+      script:
+        - groovy --version
+        
+    - include:
+      os: linux
+      arch: ppc64le
+      dist: focal
+      language: java
+      jdk: openjdk15
+      
+      addons:
+        apt:
+          packages:
+            - xmlstarlet
+            - ruby
+            - groovy
+      before_script:
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-15-hotspot-ppc64el
+        - export PATH=$JAVA_HOME/bin:$PATH
+
+      script:
+        - groovy --version
+
+    - os: linux
+      arch: ppc64le
+      dist: focal
+      language: java
+      jdk: openjdk16
+      
+      addons:
+        apt:
+          packages:
+            - xmlstarlet
+            - ruby
+            - groovy
+      before_script:
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-16-hotspot-ppc64el
+        - export PATH=$JAVA_HOME/bin:$PATH
+
+      script:
+        - groovy --version
