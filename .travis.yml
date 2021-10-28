@@ -17,5 +17,4 @@ jobs:
           - JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
       
       script:
-        - echo $JAVA_HOME
-        - mvn -version
+        - groovy --version
