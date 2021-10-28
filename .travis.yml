@@ -12,6 +12,9 @@ jobs:
             - xmlstarlet
             - ruby
             - groovy
-      
+      before_script:
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
+        - export PATH=$JAVA_HOME/bin:$PATH
+
       script:
         - groovy --version
