@@ -12,6 +12,9 @@ jobs:
             - xmlstarlet
             - ruby
             - groovy
+      env:
+        global:
+          - JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
       
       script:
         - echo $JAVA_HOME
