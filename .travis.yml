@@ -13,5 +13,5 @@ addons:
 
 
 script:
-  - node -v
-  #- sonar-scanner
+  - npm test
+  - sonar-scanner

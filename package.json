@@ -1,0 +1,23 @@
+{
+  "name": "travis-test-builds",
+  "version": "1.0.0",
+  "description": "`test`",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasim-at-tci/travis-test-builds.git"
+  },
+  "author": "Qasim Abdullah <qasim.abdullag@travis-ci.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qasim-at-tci/travis-test-builds/issues"
+  },
+  "homepage": "https://github.com/qasim-at-tci/travis-test-builds#readme",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}
