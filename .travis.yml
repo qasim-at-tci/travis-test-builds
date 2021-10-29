@@ -8,6 +8,7 @@ node_js:
 addons:
   apt:
     packages:
+      - --install-recommends
       - gcc-arm-none-eabi
   sonarcloud:
     organization: "qasim-at-tci"
