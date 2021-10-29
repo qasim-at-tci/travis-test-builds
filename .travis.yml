@@ -17,6 +17,5 @@ addons:
 
 
 script:
-  - echo Starting
   - npm test
   - sonar-scanner
