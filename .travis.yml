@@ -6,6 +6,9 @@ node_js:
   - lts/*
 
 addons:
+  apt:
+    packages:
+      - gcc-arm-none-eabi
   sonarcloud:
     organization: "qasim-at-tci"
     token:
