@@ -1,11 +1,24 @@
 jobs:
   include:
+  # Focal
     - os: linux
-      dist: xenial
-      language: node_js
-      node_js:
-        - '14'
+      arch: ppc64le
+      dist: focal
+      language: java
+      jdk: openjdk8
+      
       addons:
-        - rethinkdb: '2.3.6'
-        
-      script: true
+        apt:
+          packages:
+            - xmlstarlet
+            - ruby
+            - groovy
+            
+      before_install:
+        - sudo apt-get install ant-optional
+      before_script:
+        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
+        - export PATH=$JAVA_HOME/bin:$PATH
+
+      script:
+        - groovy --version
