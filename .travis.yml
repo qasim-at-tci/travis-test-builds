@@ -13,9 +13,8 @@ jobs:
             - xmlstarlet
             - ruby
             - groovy
+            - ant-optional
             
-      before_install:
-        - sudo apt-get install ant-optional
       before_script:
         - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
         - export PATH=$JAVA_HOME/bin:$PATH
