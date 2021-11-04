@@ -1,6 +1,6 @@
 jobs:
   include:
-    - stage: "SonarCloud Integration"
+    - stage: "SonarCloud Integration and run test on Focal"
       os: linux
       arch: amd64
       dist: focal
@@ -24,38 +24,11 @@ jobs:
         - npm test
         - sonar-scanner
 
-    - stage: "Test again"
-      os: linux
-      arch: amd64
-      dist: focal
+    - stage: "Test again on macOS"
+      os: osx
       language: node_js
       node_js:
         - lts/*
 
       script:
-        - npm test
-
-    - stage: "Deploy"
-      name: "Dummy Deploy to Docker"
-      deploy:
-        - provider: script
-          script: echo "Hello"
-          on:
-            branch: master
-        - provider: script
-          script: echo "Hello"
-          on:
-            tags: true
-
-    - stage: "Deploy"
-      name: "Dummy Deploy to Github Pages"
-      script:
-        - echo "Hello"
-      deploy:
-        - provider: pages
-          skip_cleanup: true
-          github_token: $GITHUB_TOKEN
-          local_dir: "./site"
-          keep_history: true
-          on:
-            branch: master
+        - yarn test
