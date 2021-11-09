@@ -27,7 +27,7 @@ jobs:
       script: true
       
     - os: linux
-      dist: focal
+      dist: bionic
       language: scala
       jdk:
         - openjdk11
