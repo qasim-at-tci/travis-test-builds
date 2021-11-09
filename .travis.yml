@@ -1,31 +1,63 @@
-os: linux
-dist: bionic
-language: scala
-jdk:
-  - openjdk11
-services:
-  - postgresql
-  - docker
-  - redis
-addons:
-  postgresql: "13"
-  apt:
-    packages:
-      - postgresql-13
-      - libssl-dev
-      - python3-setuptools
-      - python3-pip
-env:
-  global:
-    - PGUSER=postgres
-    - PGPORT=5432
-    - PGHOST=localhost
-before_install:
-  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-  - sudo service postgresql restart
-  - sleep 1
-  - postgres --version
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+      language: scala
+      jdk:
+        - openjdk11
+      services:
+        - postgresql
+        - docker
+        - redis
+      addons:
+        postgresql: "13"
+        apt:
+          packages:
+            - postgresql-13
+            - libssl-dev
+            - python3-setuptools
+            - python3-pip
+      env:
+        global:
+          - PGUSER=postgres
+          - PGPORT=5432
+          - PGHOST=localhost
+      before_install:
+        - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+        - sudo service postgresql restart
+        - sleep 1
+        - postgres --version
 
-  - pip3 install --upgrade pip setuptools urllib3
-  - pip3 install credstash
-script: true
+        - pip3 install --upgrade pip setuptools urllib3
+        - pip3 install credstash
+      script: true
+    - os: linux
+      dist: bionic
+      language: scala
+      jdk:
+        - openjdk11
+      services:
+        - docker
+        - redis
+      addons:
+        postgresql: "13"
+        apt:
+          packages:
+            - postgresql-13
+            - libssl-dev
+            - python3-setuptools
+            - python3-pip
+      env:
+        global:
+          - PGUSER=postgres
+          - PGPORT=5432
+          - PGHOST=localhost
+      before_install:
+        - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+        - sudo service postgresql restart
+        - sleep 1
+        - postgres --version
+
+        - pip3 install --upgrade pip setuptools urllib3
+        - pip3 install credstash
+      script: true
