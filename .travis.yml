@@ -27,7 +27,7 @@ jobs:
       script: true
       
     - os: linux
-      dist: xenial
+      dist: bionic
       language: scala
       jdk:
         - openjdk11
@@ -40,6 +40,9 @@ jobs:
         apt:
           packages:
             - postgresql-13
+            - libssl-dev
+            - python3-setuptools
+            - python3-pip
       env:
         global:
           - PGUSER=postgres
