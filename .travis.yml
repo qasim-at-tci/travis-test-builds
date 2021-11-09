@@ -27,7 +27,7 @@ jobs:
       script: true
       
     - os: linux
-      dist: bionic
+      dist: xenial
       language: scala
       jdk:
         - openjdk11
@@ -53,4 +53,6 @@ jobs:
         #- sudo systemctl restart postgresql
         #- sleep 2
         - postgres --version
-      script: true
+      script:
+        - psql -c 'create database travis_ci_test;' -U postgres
+        - echo done
