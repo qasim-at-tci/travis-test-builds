@@ -2,7 +2,7 @@ jobs:
   include:
     - os: linux
       dist: focal
-      language: scala
+      language: shell
       jdk:
         - openjdk11
       services:
