@@ -27,7 +27,7 @@ jobs:
       script: true
       
     - os: linux
-      dist: bionic
+      dist: xenial
       language: scala
       jdk:
         - openjdk11
