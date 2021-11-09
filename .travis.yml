@@ -1,24 +1,31 @@
-jobs:
-  include:
-  # Focal
-    - os: linux
-      arch: ppc64le
-      dist: focal
-      language: java
-      jdk: openjdk8
-      
-      addons:
-        apt:
-          packages:
-            - xmlstarlet
-            - ruby
-            - groovy
-            - ant-optional
-            
-      before_script:
-        - export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-ppc64el
-        - export PATH=$JAVA_HOME/bin:$PATH
+os: linux
+dist: bionic
+language: scala
+jdk:
+  - openjdk11
+services:
+  - postgresql
+  - docker
+  - redis
+addons:
+  postgresql: "13"
+  apt:
+    packages:
+      - postgresql-13
+      - libssl-dev
+      - python3-setuptools
+      - python3-pip
+env:
+  global:
+    - PGUSER=postgres
+    - PGPORT=5432
+    - PGHOST=localhost
+before_install:
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
+  - postgres --version
 
-      script:
-        - groovy --version
-        - ant -version
+  - pip3 install --upgrade pip setuptools urllib3
+  - pip3 install credstash
+script: true
