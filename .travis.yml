@@ -36,9 +36,6 @@ jobs:
       language: scala
       jdk:
         - openjdk11
-      services:
-        - docker
-        - redis
       addons:
         postgresql: "13"
         apt:
