@@ -72,10 +72,7 @@ jobs:
       script:
         - yarn test
       deploy:
-        - provider: pages
+        - provider: script
           skip_cleanup: true
-          github_token: $GITHUB_TOKEN
-          local_dir: "./site"
-          keep_history: true
           on:
             branch: master
