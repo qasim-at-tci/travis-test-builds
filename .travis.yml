@@ -24,8 +24,44 @@ jobs:
         - npm test
         - sonar-scanner
 
+    - stage: "Tests on macOS"
+      os: osx
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+    - stage: "Tests on macOS"
+      os: osx
+      osx_image: xcode8
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
     - stage: "Test again on macOS"
       os: osx
+      osx_image: xcode9.2
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+    - stage: "Test again on macOS"
+      os: osx
+      osx_image: xcode10.1
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+    - stage: "Test again on macOS"
+      os: osx
+      osx_image: xcode12.5
       language: node_js
       node_js:
         - lts/*
