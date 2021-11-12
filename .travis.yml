@@ -41,7 +41,7 @@ jobs:
 
       script:
         - yarn test
-    - stage: "Test again on macOS"
+    - stage: "Tests on macOS"
       os: osx
       osx_image: xcode9.2
       language: node_js
@@ -50,7 +50,7 @@ jobs:
 
       script:
         - yarn test
-    - stage: "Test again on macOS"
+    - stage: "Tests on macOS"
       os: osx
       osx_image: xcode10.1
       language: node_js
@@ -59,7 +59,7 @@ jobs:
 
       script:
         - yarn test
-    - stage: "Test again on macOS"
+    - stage: "Tests on macOS"
       os: osx
       osx_image: xcode12.5
       language: node_js
