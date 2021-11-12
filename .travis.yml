@@ -26,41 +26,6 @@ jobs:
 
     - stage: "Tests on macOS"
       os: osx
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-    - stage: "Tests on macOS"
-      os: osx
-      osx_image: xcode8
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-    - stage: "Tests on macOS"
-      os: osx
-      osx_image: xcode9.2
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-    - stage: "Tests on macOS"
-      os: osx
-      osx_image: xcode10.1
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-    - stage: "Tests on macOS"
-      os: osx
       osx_image: xcode12.5
       language: node_js
       node_js:
@@ -68,3 +33,49 @@ jobs:
 
       script:
         - yarn test
+        
+    - stage: "Tests on macOS"
+      os: osx
+      osx_image: xcode13.1
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+        
+    - stage: "Deploy"
+      os: linux
+      dist: focal
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+      deploy:
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          local_dir: "./site"
+          keep_history: true
+          on:
+            branch: master
+          
+    - stage: "Deploy"
+      os: linux
+      dist: focal
+      language: node_js
+      node_js:
+        - lts/*
+
+      script:
+        - yarn test
+      deploy:
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          local_dir: "./site"
+          keep_history: true
+          on:
+            branch: master
