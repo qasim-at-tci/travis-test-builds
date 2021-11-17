@@ -4,10 +4,7 @@ jobs:
       os: linux
       dist: focal
       language: shell
-      script:
-        - free -m
-        - nproc
-        - echo done!
+      script: false
     - stage: "Two"
       os: linux
       dist: focal
