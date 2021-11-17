@@ -8,3 +8,4 @@ jobs:
       script:
         - free -m
         - nproc
+        - echo done!
