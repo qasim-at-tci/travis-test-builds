@@ -14,9 +14,9 @@ jobs:
         size: x-large
       script: true
       
-    - os: linux
-      dist: focal
-      language: shell
-      vm:
-        size: 2x-large
-      script: true
+    #- os: linux
+    #  dist: focal
+    #  language: shell
+    #  vm:
+    #    size: 2x-large
+    #  script: true
