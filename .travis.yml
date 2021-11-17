@@ -4,6 +4,13 @@ jobs:
       dist: focal
       language: shell
       vm:
+        size: medium
+      script: true
+      
+    - os: linux
+      dist: focal
+      language: shell
+      vm:
         size: large
       script: true
       
@@ -13,10 +20,3 @@ jobs:
       vm:
         size: x-large
       script: true
-      
-    #- os: linux
-    #  dist: focal
-    #  language: shell
-    #  vm:
-    #    size: 2x-large
-    #  script: true
