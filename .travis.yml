@@ -1,6 +1,31 @@
 jobs:
   include:
-    - os: linux
+    - stage: "One"
+      os: linux
+      dist: focal
+      language: shell
+      script:
+        - free -m
+        - nproc
+        - echo done!
+    - stage: "Two"
+      os: linux
+      dist: focal
+      language: shell
+      script:
+        - free -m
+        - nproc
+        - echo done!
+    - stage: "Three"
+      os: linux
+      dist: focal
+      language: shell
+      script:
+        - free -m
+        - nproc
+        - echo done!
+    - stage: "Four"
+      os: linux
       dist: focal
       language: shell
       script:
