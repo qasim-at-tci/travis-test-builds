@@ -32,3 +32,11 @@ jobs:
         - free -m
         - nproc
         - echo done!
+    - stage: "Five"
+      os: linux
+      dist: focal
+      language: shell
+      script:
+        - free -m
+        - nproc
+        - echo done!
