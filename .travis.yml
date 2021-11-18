@@ -6,5 +6,5 @@ jobs:
     language: shell
     script: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_90e72a4bf65a_key -iv $encrypted_90e72a4bf65a_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_f26e077a6941_key -iv $encrypted_f26e077a6941_iv
+  -in test_key.enc -out ~\/.ssh/test_key -d
