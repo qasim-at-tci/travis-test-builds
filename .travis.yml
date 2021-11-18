@@ -4,8 +4,7 @@ jobs:
     os: linux
     dist: focal
     language: shell
-    script:
-      - cat test.txt
+    script: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_7fb24ff9c70c_key -iv $encrypted_7fb24ff9c70c_iv
-  -in test.txt.enc -out ./test.txt -d
+- openssl aes-256-cbc -K $encrypted_90e72a4bf65a_key -iv $encrypted_90e72a4bf65a_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
