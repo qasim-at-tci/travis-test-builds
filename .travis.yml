@@ -4,39 +4,8 @@ jobs:
     os: linux
     dist: focal
     language: shell
-    script: false
-  - stage: Two
-    os: linux
-    dist: focal
-    language: shell
     script:
-    - free -m
-    - nproc
-    - echo done!
-  - stage: Three
-    os: linux
-    dist: focal
-    language: shell
-    script:
-    - free -m
-    - nproc
-    - echo done!
-  - stage: Four
-    os: linux
-    dist: focal
-    language: shell
-    script:
-    - free -m
-    - nproc
-    - echo done!
-  - stage: Five
-    os: linux
-    dist: focal
-    language: shell
-    script:
-    - free -m
-    - nproc
-    - echo done!
+      - cat test.txt
 before_install:
 - openssl aes-256-cbc -K $encrypted_7fb24ff9c70c_key -iv $encrypted_7fb24ff9c70c_iv
   -in test.txt.enc -out ./test.txt -d
