@@ -19,7 +19,7 @@ before_install:
   - eval "$(ssh-agent -s)"
   - ssh-add /tmp/test_key
 
-#env:
-#  global:
-#    - SERVICE_NAME=test-service
-#    - DOCKER_CONTEXT=./
+env:
+  global:
+    - SERVICE_NAME=test-service
+    - DOCKER_CONTEXT=./
