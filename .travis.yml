@@ -3,7 +3,6 @@ jobs:
   - os: linux
     dist: xenial
     language: go
-    edge: false
     services:
       - docker
     go:
@@ -20,9 +19,3 @@ before_install:
   - chmod 600 /tmp/test_key
   - eval "$(ssh-agent -s)"
   - ssh-add /tmp/test_key
-
-env:
-  global:
-    - SERVICE_NAME=test-service
-    - DOCKER_CONTEXT=docker-context
-edge: false
