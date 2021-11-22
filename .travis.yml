@@ -2,7 +2,9 @@ jobs:
   include:
   - os: linux
     dist: focal
-    language: shell
+    language: go
+    go:
+      - 1.12.1
     git:
       submodules: false
     script:
