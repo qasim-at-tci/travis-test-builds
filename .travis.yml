@@ -3,6 +3,7 @@ jobs:
   - os: linux
     dist: xenial
     language: go
+    edge: false
     services:
       - docker
     go:
@@ -24,3 +25,4 @@ env:
   global:
     - SERVICE_NAME=test-service
     - DOCKER_CONTEXT=docker-context
+edge: false
