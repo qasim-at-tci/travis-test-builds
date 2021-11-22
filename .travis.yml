@@ -1,9 +1,10 @@
 jobs:
   include:
-  - stage: One
-    os: linux
+  - os: linux
     dist: focal
     language: shell
+    git:
+      submodules: false
     script:
       - echo done
 before_install:
