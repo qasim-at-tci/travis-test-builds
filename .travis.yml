@@ -3,9 +3,16 @@ jobs:
     - os: linux
       dist: xenial
       language: ruby
+      env:
+        global:
+          - SERVICE_NAME=test
+          - DOCKER_FILE_PATH=./Dockerfile
+          - DOCKER_CONTEXT=./
       ruby:
         - 2.6.6
       services:
         - docker
       script:
-        - cat /etc/docker/daemon.json
+        - eval $(docker-machine env --unset)
+        - docker version
+        - docker --version
