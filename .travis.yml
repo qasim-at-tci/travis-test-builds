@@ -2,11 +2,22 @@ jobs:
   include:
     - os: linux
       dist: focal
+      env:
+        global:
+          - PGPORT=5433
+          - PGUSER=travis
       language: ruby
       ruby:
         - 2.6.6
       services:
         - postgresql
+      addons:
+        postgresql: 12
+      apt:
+        update: true
+        packages:
+          - postgresql-12
+          - postgresql-client-12
       before_script:
         - psql -c max_locks_per_transaction=1024
         - sudo systemctl restart postgresql.service
