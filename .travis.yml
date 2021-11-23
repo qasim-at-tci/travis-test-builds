@@ -19,6 +19,6 @@ jobs:
             - postgresql-12
             - postgresql-client-12
       before_script:
-        - postgres -c max_locks_per_transaction=1024 --config-file=/var/lib/postgresql/12/postgresql.auto.conf
+        - postgres -c max_locks_per_transaction=1024 --config-file=/etc/postgresql/12/postgresql.auto.conf
         - sudo services restart postgresql
       script: true
