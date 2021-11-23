@@ -5,7 +5,6 @@ jobs:
       language: objective-c
       before_install:
         - brew tap homebrew/cask
-        - brew install android-sdk --cask
         - brew install --cask android-commandlinetools
         - brew install --cask android-platform-tools
         - export ANDROID_HOME=/usr/local/share/android-sdk
