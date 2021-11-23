@@ -1,11 +1,11 @@
 jobs:
   include:
-    - os: osx
-      osx_image: xcode13.1
-      language: objective-c
-      before_install:
-        - brew tap homebrew/cask
-        - brew install --cask android-commandlinetools
-        - brew install --cask android-platform-tools
-        - export ANDROID_HOME=/usr/local/share/android-sdk
-      script: true
+    - os: linux
+      dist: xenial
+      language: ruby
+      ruby:
+        - 2.6.6
+      services:
+        - docker
+      script:
+        - cat ~/.docker/config.json
