@@ -19,8 +19,6 @@ jobs:
             - postgresql-12
             - postgresql-client-12
       before_script:
-        - sudo chmod 777 /etc/postgresql/12/main/postgresql.conf
-        - sudo chmod 777 /etc/postgresql/12/main
-        - postgres -c max_locks_per_transaction=1024 --config-file=/etc/postgresql/12/main/postgresql.conf
+        - sudo bash -c "sed -i 's/#max_locks_per_transaction=64/max_locks_per_transaction=1024/g' /etc/postgresql/12/main/postgresql.conf"
         - sudo services restart postgresql
       script: true
