@@ -1,25 +1,10 @@
 jobs:
   include:
-    - os: linux
-      dist: focal
-      env:
-        global:
-          - PGPORT=5433
-          - PGUSER=travis
-      language: ruby
-      ruby:
-        - 2.6.6
-      services:
-        - postgresql
-      addons:
-        postgresql: 12
-        apt:
-          update: true
-          packages:
-            - postgresql-12
-            - postgresql-client-12
-      before_script:
-        - sudo bash -c "sed -i 's/#max_locks_per_transaction = 64/max_locks_per_transaction = 1024/g' /etc/postgresql/12/main/postgresql.conf"
-        - sudo bash -c "cat /etc/postgresql/12/main/postgresql.conf"
-        - sudo systemctl restart postgresql@12-main
+    - os: osx
+      osx_image: xcode13.1
+      language: objective-c
+      before_install:
+        - brew tap homebrew/cask
+        - brew install android-sdk --cask
+        - export ANDROID_HOME=/usr/local/share/android-sdk
       script: true
