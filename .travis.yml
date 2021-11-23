@@ -8,4 +8,4 @@ jobs:
       services:
         - docker
       script:
-        - cat ~/.docker/config.json
+        - cat /etc/docker/daemon.json
