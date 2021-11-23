@@ -13,6 +13,4 @@ jobs:
       services:
         - docker
       script:
-        - eval $(docker-machine env --unset)
-        - docker version
         - docker --version
