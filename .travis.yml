@@ -3,14 +3,14 @@ jobs:
     - os: linux
       dist: xenial
       language: ruby
-      env:
-        global:
-          - SERVICE_NAME=test
-          - DOCKER_FILE_PATH=./Dockerfile
-          - DOCKER_CONTEXT=./
       ruby:
         - 2.6.6
       services:
         - docker
       script:
         - docker --version
+env:
+  global:
+    - SERVICE_NAME=test
+    - DOCKER_FILE_PATH=./Dockerfile
+    - DOCKER_CONTEXT=./
