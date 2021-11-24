@@ -7,10 +7,8 @@ jobs:
         - 2.6.6
       services:
         - docker
+      vm:
+        size: 2x-large
       script:
-        - docker --version
-env:
-  global:
-    - SERVICE_NAME=test
-    - DOCKER_FILE_PATH=./Dockerfile
-    - DOCKER_CONTEXT=./
+        - free -m
+        - nproc
