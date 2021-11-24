@@ -12,3 +12,7 @@ jobs:
       script:
         - free -m
         - nproc
+    - os: linux
+      dist: focal
+      arch: ppc64le
+      script: true
