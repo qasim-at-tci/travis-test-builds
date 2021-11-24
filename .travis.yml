@@ -7,8 +7,6 @@ jobs:
         - 2.6.6
       services:
         - docker
-      vm:
-        size: 2x-large
       script:
         - free -m
         - nproc
