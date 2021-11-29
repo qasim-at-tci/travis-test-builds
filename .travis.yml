@@ -29,7 +29,14 @@ jobs:
       script:
         - npm i -g yarn
     - os: osx
-      osx_image: xcode9
+      osx_image: xcode8
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode9.2
       language: node_js
       node_js:
         - '12'
@@ -37,13 +44,6 @@ jobs:
         - npm i -g yarn
     - os: osx
       osx_image: xcode10.1
-      language: node_js
-      node_js:
-        - '12'
-      script:
-        - npm i -g yarn
-    - os: osx
-      osx_image: xcode11.3
       language: node_js
       node_js:
         - '12'
