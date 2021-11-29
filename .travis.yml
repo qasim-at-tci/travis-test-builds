@@ -36,7 +36,7 @@ jobs:
             - --install-recommends
             - gcc-arm-none-eabi
       script:
-        - npm test
+        - yarn test
         
     - stage: "TESTS on linux arch: amd64"
       os: linux
@@ -52,7 +52,7 @@ jobs:
             - --install-recommends
             - gcc-arm-none-eabi
       script:
-        - npm test
+        - yarn test
         
     - stage: "TESTS on linux arch: arm64"
       os: linux
@@ -69,7 +69,7 @@ jobs:
             - gcc-arm-none-eabi
 
       script:
-        - npm test
+        - yarn test
 
     - stage: "TESTS on linux arch: arm64"
       os: linux
@@ -86,7 +86,7 @@ jobs:
             - gcc-arm-none-eabi
 
       script:
-        - npm test
+        - yarn test
         
     - stage: "TESTS on OSX"
       os: osx
