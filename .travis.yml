@@ -36,7 +36,7 @@ jobs:
       script:
         - npm i -g yarn
     - os: osx
-      osx_image: xcode10
+      osx_image: xcode10.1
       language: node_js
       node_js:
         - '12'
