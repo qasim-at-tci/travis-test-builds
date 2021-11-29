@@ -1,16 +1,65 @@
 jobs:
   include:
     - os: linux
-      dist: xenial
-      language: ruby
-      ruby:
-        - 2.6.6
-      services:
-        - docker
+      dist: trusty
+      language: node_js
+      node_js:
+        - '12'
       script:
-        - free -m
-        - nproc
+        - npm i -g yarn
+    - os: linux
+      dist: xenial
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: linux
+      dist: bionic
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
     - os: linux
       dist: focal
-      arch: ppc64le
-      script: true
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode9
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode10
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode11
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode12
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
+    - os: osx
+      osx_image: xcode13
+      language: node_js
+      node_js:
+        - '12'
+      script:
+        - npm i -g yarn
