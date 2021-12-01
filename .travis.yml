@@ -1,15 +1,21 @@
 jobs:
   include:
-    - stage: warm_cache
+    - stage: create_file
+      os: linux
+      dist: focal
+      language: minimal
       script:
         - echo "foo" > foo.txt
       workspaces:
         create:
-          name: ws1
+          name: foospace
           paths:
             - foo.txt
-    - stage: use_cache
+    - stage: use_file
+      os: osx
+      osx_image: xcode13.1
+      language: minimal
       workspaces:
-        use: ws1
+        use: foospace
       script:
         - cat foo.txt || true
