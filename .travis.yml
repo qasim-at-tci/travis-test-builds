@@ -1,6 +1,7 @@
 os: linux
 dist: xenial
-
+jdk:
+  - openjdk11
 language: android
 android:
   components:
@@ -11,5 +12,6 @@ android:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
-    
+before_script:
+  - android list target
 script: true
