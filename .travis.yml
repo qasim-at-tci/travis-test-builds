@@ -1,7 +1,10 @@
 os: linux
 dist: xenial
-language: minimal
+language: java
+jdk:
+  - openjdk11
 
 script:
+  - java -version
   - nproc
   - free -m
