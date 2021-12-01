@@ -5,7 +5,7 @@ jdk:
 language: android
 android:
   components:
-    - build-tools-30.0.2
+    - build-tools-30.0.0
     - android-30
     - extra
   licenses:
