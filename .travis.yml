@@ -1,108 +1,15 @@
-dist: focal # Ubuntu 20.04
-
-language: minimal
-
-services:
-  - docker
-
-env:
-  global:
-    - SERVICE_NAME=dummy_project
-    - RUBYGEMS_VERSION=3.2.27
-    - COMPOSE_WAIT_VER=2.9.0
-    - DB_VERSION=5.7.33
-    - DB_PASSWORD=db_password
-    - NODE_VERSION=v14.17.2
-    - RUBY_VERSION=3.0.0
-    - VERSION=latest
-    - CI=true
-
-git:
-  clone: false
-
-before_install: skip
-
-install: skip
-
-before_script:
-  - docker load --input ${TRAVIS_BUILD_DIR}/${TRAVIS_BUILD_ID}-wait-ci.tar
-
-  - docker load --input ${TRAVIS_BUILD_DIR}/${TRAVIS_BUILD_ID}-app-ci.tar
-
-  - docker network create ${SERVICE_NAME}-bridge-docker-network
-
-  - |
-    echo "Run Database Container" && \
-    docker run --rm --detach \
-      --name ${SERVICE_NAME}-db \
-      --env MYSQL_ROOT_PASSWORD=${DB_PASSWORD} \
-      --network=${SERVICE_NAME}-bridge-docker-network \
-      mysql:${DB_VERSION}
-  - |
-    echo "Run Wait Container" && \
-    docker run --rm \
-      --env WAIT_HOSTS=${SERVICE_NAME}-db:3306 \
-      --network=${SERVICE_NAME}-bridge-docker-network \
-      ${SERVICE_NAME}/wait:${COMPOSE_WAIT_VER}
-  - |
-    echo "Run App Docker Container" && \
-    docker run --detach \
-      --name ${SERVICE_NAME}-app-ci \
-      --env DB_HOST=${SERVICE_NAME}-db \
-      --env DB_PASSWORD=${DB_PASSWORD} \
-      --env DB_PORT=3306 \
-      --env CI=true \
-      --network=${SERVICE_NAME}-bridge-docker-network \
-        -t ${SERVICE_NAME}/app-ci:${VERSION} /bin/bash
-  - |
-    echo "Prepare Test Env" && \
-    docker exec \
-      ${SERVICE_NAME}-app-ci bash -c "bin/rails db:prepare"
-after_script:
-  - |
-    echo "Kill Docker Containers" && \
-      docker kill $(docker ps -q)
 jobs:
   include:
-    - stage: Build Docker images
-
-      git:
-        clone: true
-        depth: 1
-
-      before_script: skip
-      after_script: skip
-
+    - stage: warm_cache
       script:
-        - |
-            echo "Build Docker Image from Source Code" && \
-            docker build \
-            . \
-            --build-arg ARG_RUBY_VERSION=${RUBY_VERSION} \
-            --build-arg ARG_NODE_VERSION=${NODE_VERSION} \
-            --build-arg ARG_RUBYGEMS_VERSION=${RUBYGEMS_VERSION} \
-            --tag ${SERVICE_NAME}/app-ci:${VERSION} \
-            -f dockerfiles/Dockerfile-ci
-        - docker save --output ${TRAVIS_BUILD_ID}-app-ci.tar ${SERVICE_NAME}/app-ci:${VERSION}
-
-        - |
-          echo "Build Wait Image" && \
-          docker build . \
-            --build-arg ARG_COMPOSE_WAIT_VER=${COMPOSE_WAIT_VER} \
-            --tag ${SERVICE_NAME}/wait:${COMPOSE_WAIT_VER} \
-            -f dockerfiles/Dockerfile.wait
-        - docker save --output ${TRAVIS_BUILD_ID}-wait-ci.tar ${SERVICE_NAME}/wait:${COMPOSE_WAIT_VER}
-
+        - echo "foo" > foo.txt
       workspaces:
         create:
-          name: docker-build-images
+          name: ws1
           paths:
-            - ${TRAVIS_BUILD_ID}-app-ci.tar
-            - ${TRAVIS_BUILD_ID}-wait-ci.tar
-
-    - stage: Application Correctness
-      script:
-        - docker exec ${SERVICE_NAME}-app-ci bash -c "bin/rails test"
+            - foo.txt
+    - stage: use_cache
       workspaces:
-        use:
-          - docker-build-images
+        use: ws1
+      script:
+        - cat foo.txt || true
