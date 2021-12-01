@@ -12,8 +12,7 @@ jobs:
           paths:
             - foo.txt
     - stage: use_file
-      os: osx
-      osx_image: xcode13.1
+      os: FreeBSD
       language: minimal
       workspaces:
         use: foospace
