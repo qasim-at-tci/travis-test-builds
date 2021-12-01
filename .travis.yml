@@ -1,6 +1,8 @@
 os: linux
 dist: xenial
-language: minimal
+language: java
+jdk:
+  - openjdk11
 
 <<<<<<< HEAD
 # Using Xcode 9.3 to get Java 8, based on the build matrix in 
@@ -51,6 +53,7 @@ before_script:
 scripit: true
 =======
 script:
+  - java -version
   - nproc
   - free -m
 >>>>>>> 7143651 (...)
