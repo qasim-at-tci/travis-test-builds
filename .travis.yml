@@ -6,7 +6,7 @@ language: android
 android:
   components:
     - build-tools-29.0.3
-    - android-29
+    - android-31
     - extra
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
