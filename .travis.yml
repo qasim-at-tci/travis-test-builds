@@ -1,7 +1,7 @@
 os: linux
 dist: xenial
-vm:
-  size: 2x-large
-script:
-  - free -m
-  - nproc
+language: python
+python:
+  - 3.9
+  - 3.10
+script: true
