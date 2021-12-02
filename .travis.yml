@@ -8,8 +8,11 @@ before_script:
   - echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
   - sudo apt-get update
   - sudo apt-get purge -y -f mongo*
+  - sudo apt-get update
   - sudo apt-get install -y mongodb-org
+  - chown -R mongodb:mongodb /var/lib/mongodb
+  - chown mongodb:mongodb /tmp/mongodb-27017.sock
   - sudo systemctl start mongod
-  - sleep 15
+  - sleep 20
 script:
   - sudo systemctl status mongod
