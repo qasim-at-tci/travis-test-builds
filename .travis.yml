@@ -8,5 +8,6 @@ services:
 script:
   - mongod --version
   - mongo --version
+  - mongod --upgrade
   - sudo systemctl status mongod
   - echo done
