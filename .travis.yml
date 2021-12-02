@@ -17,3 +17,4 @@ before_script:
   - sleep 20
 script:
   - sudo systemctl status mongod
+  - echo done
