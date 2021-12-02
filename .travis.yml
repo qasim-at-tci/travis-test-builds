@@ -5,20 +5,6 @@ node_js:
   - 14
 services:
   - mongodb
-before_script:
-  - wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-  - echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-  - sudo apt-get update
-  - sudo systemctl stop mongod
-  - sudo rm -r /var/log/mongodb
-  - sudo rm -r /var/lib/mongodb
-  - sudo apt-get purge -y -f mongo*
-  - sudo apt-get update
-  - sudo apt-get install -y mongodb-org
-  - sudo chown -R $USER:mongodb /var/lib/mongodb
-  - sudo systemctl enable mongod
-  - sudo systemctl start mongod
-  - sleep 20
 script:
   - mongod --version
   - mongo --version
