@@ -12,6 +12,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y mongodb-org
   - sudo systemctl restart mongod
+  - sleep 20
 script:
   - mongod --version
   - mongo --version
