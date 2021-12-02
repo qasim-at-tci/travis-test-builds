@@ -1,10 +1,8 @@
 os: linux
 dist: focal
-language: python
-python:
-  - 3.6
-  - 3.7
-  - 3.8
-  - 3.9
-  - 3.10.0
+language: node_js
+node_js:
+  - 14
+services:
+  - mongodb
 script: true
