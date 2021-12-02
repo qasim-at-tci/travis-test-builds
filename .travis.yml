@@ -11,7 +11,6 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install -y mongodb-org
   - sudo chown -R mongodb:mongodb /var/lib/mongodb
-  - sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
   - sudo systemctl start mongod
   - sleep 20
 script:
