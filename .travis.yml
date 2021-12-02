@@ -2,4 +2,6 @@ os: linux
 dist: xenial
 vm:
   size: 2x-large
-script: true
+script:
+  - free -m
+  - nproc
