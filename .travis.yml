@@ -9,5 +9,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y mongodb-org=4.2.13 mongodb-org-server=4.2.13 mongodb-org-shell=4.2.13 mongodb-org-mongos=4.2.13 mongodb-org-tools=4.2.13
   - sudo systemctl start mongod
+  - sleep 15
   - mongod --version
+  - sudo systemctl status mongod
 script: true
