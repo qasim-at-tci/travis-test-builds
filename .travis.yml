@@ -11,4 +11,5 @@ before_install:
 - pyenv global 3.9.0
 - pip install -U pip
 - pip install awscli
-script: true
+script:
+  - python --version
