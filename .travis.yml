@@ -7,8 +7,8 @@ before_install:
 - sudo rm -fr /opt/pyenv/
 - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 - pyenv update
-- pyenv install 3.9.0
-- pyenv global 3.9.0
+- pyenv install 3.8.0
+- pyenv global 3.8.0
 - pip install -U pip
 - pip install awscli
 script:
