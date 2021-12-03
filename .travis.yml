@@ -3,6 +3,9 @@ node_js: '13'
 language: node_js
 dist: xenial
 before_install:
+- curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+- exec $SHELL
+- pyenv update
 - pyenv global 3.9.0
 - pip install -U pip
 - pip install awscli
