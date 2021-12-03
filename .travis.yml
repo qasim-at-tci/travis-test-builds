@@ -4,6 +4,7 @@ language: node_js
 dist: xenial
 before_install:
 - sudo rm -fr ~/.pyenv
+- sudo rm -fr /opt/pyenv/
 - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 - exec $SHELL
 - pyenv update
