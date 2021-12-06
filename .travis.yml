@@ -17,10 +17,17 @@ before_install:
 env:
   global:
     - SERVICE_NAME=test
-    - SECOND_SERVICE_NAME=subscription-notification
+    - SECOND_SERVICE_NAME=test-notification
     - DOCKER_FILE_PATH=./Dockerfile
     - DOCKER_CONTEXT=./
+addons:
+  apt:
+    packages:
+      - sshpass
 
+before_script:
+# ...
+# ....
 jobs:
   include:
     - script:
