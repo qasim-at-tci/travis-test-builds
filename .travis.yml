@@ -12,10 +12,10 @@ before_install:
 - pyenv install 3.8.0
 - pyenv global 3.8.0
 - sudo apt remove docker*
-- curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - \
-    && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" \
-    && sudo apt-get update \
-    && sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
+- curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+- sudo apt-get update
+- sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
 script:
   - python --version
   - docker version
