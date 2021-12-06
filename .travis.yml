@@ -5,12 +5,6 @@ dist: xenial
 services:
   - docker
 before_install:
-- sudo rm -fr ~/.pyenv
-- sudo rm -fr /opt/pyenv/
-- curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-- pyenv update
-- pyenv install 3.8.0
-- pyenv global 3.8.0
 - sudo apt remove docker*
 - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
