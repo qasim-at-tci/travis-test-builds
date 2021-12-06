@@ -18,10 +18,12 @@ jobs:
         - python --version
         - docker version  # Verify docker downgrade.
         - echo $FOO
+        - echo "This should run"
       if: env(FOO)=BAR
       
     - script:
         - python --version
         - docker version  # Verify docker downgrade.
         - echo $FOO
+        - echo "This should not run"
       if: env(FOO)=SAMENAMEVAR
