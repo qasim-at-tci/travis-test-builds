@@ -12,18 +12,15 @@ before_install:
 - sudo apt-get install docker-ce=18.06.0~ce~3-0~ubuntu containerd.io
 - sudo chmod 666 /var/run/docker.sock # Dcoker daemon permission setting
 
+env:
+  global:
+    - SERVICE_NAME=test
+    - SECOND_SERVICE_NAME=subscription-notification
+    - DOCKER_FILE_PATH=./Dockerfile
+    - DOCKER_CONTEXT=./
+
 jobs:
   include:
     - script:
         - python --version
         - docker version  # Verify docker downgrade.
-        - echo $FOO
-        - echo "This should run"
-      if: env(FOO)=BAR
-      
-    - script:
-        - python --version
-        - docker version  # Verify docker downgrade.
-        - echo $FOO
-        - echo "This should not run"
-      if: env(FOO)=SAMENAMEVAR
