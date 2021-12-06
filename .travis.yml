@@ -1,22 +1,7 @@
-jobs:
-  include:
-    - stage: create_file
-      os: linux
-      dist: focal
-      language: minimal
-      script:
-        - echo "foo" > foo.txt
-      if: env(FOO) is present
-      workspaces:
-        create:
-          name: foospace
-          paths:
-            - foo.txt
-    - stage: use_file
-      os: FreeBSD
-      language: minimal
-      workspaces:
-        use: foospace
-      script:
-        - cat foo.txt || true
-      if: env(FOO) is present
+os: linux
+dist: xenial
+language: minimal
+
+script:
+  - echo $FOO
+if: env(FOO) is present
