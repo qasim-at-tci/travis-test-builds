@@ -33,3 +33,8 @@ jobs:
         - python --version
         - docker version  # Verify docker downgrade.
         - docker-compose --version
+        
+    - script:
+        - docker version  # Verify docker downgrade.
+        - sleep 20
+        - docker-compose --version
