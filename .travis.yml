@@ -17,9 +17,11 @@ jobs:
     - script:
         - python --version
         - docker version  # Verify docker downgrade.
-      if: env(FOO)=BAR
+        - echo $FOO
+      if: $FOO=BAR
       
     - script:
         - python --version
         - docker version  # Verify docker downgrade.
-      if: env(FOO)=SAMENAMEVAR
+        - echo $FOO
+      if: $FOO=SAMENAMEVAR
