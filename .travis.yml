@@ -5,7 +5,7 @@ dist: xenial
 services:
   - docker
 before_install:
-- sudo apt remove docker*
+- sudo apt-get remove docker docker-engine docker.io containerd runc
 - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 - sudo apt-get update
