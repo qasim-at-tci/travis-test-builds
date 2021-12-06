@@ -6,6 +6,7 @@ jobs:
       language: minimal
       script:
         - echo "foo" > foo.txt
+      if: env(FOO) is present
       workspaces:
         create:
           name: foospace
@@ -18,3 +19,4 @@ jobs:
         use: foospace
       script:
         - cat foo.txt || true
+      if: env(FOO) is present
