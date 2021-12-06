@@ -24,3 +24,4 @@ jobs:
     - script:
         - python --version
         - docker version  # Verify docker downgrade.
+        - docker-compose --version
