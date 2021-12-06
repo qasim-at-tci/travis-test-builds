@@ -4,4 +4,4 @@ language: minimal
 
 script:
   - echo $FOO
-if: env(FOO) is present
+if: env(FOO)=SAMENAMEVAR
