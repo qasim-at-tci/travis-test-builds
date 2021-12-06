@@ -10,6 +10,7 @@ before_install:
 - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 - sudo apt-get update
 - sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
+- sudo chmod 666 /var/run/docker.sock
 script:
   - python --version
   - docker version
