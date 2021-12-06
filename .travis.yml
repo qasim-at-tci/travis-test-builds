@@ -1,7 +1,11 @@
 os: linux
 dist: xenial
 language: minimal
-
-script:
-  - echo $FOO
-if: env(FOO)=SAMENAMEVAR
+jobs:
+  include:
+    - script:
+        - echo $FOO
+      if: env(FOO)=SAMENAMEVAR
+    - script:
+        - echo $FOO
+      if: env(FOO)=BAR
