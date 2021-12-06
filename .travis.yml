@@ -11,7 +11,15 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install docker-ce=18.06.0~ce~3-0~ubuntu containerd.io
 - sudo chmod 666 /var/run/docker.sock # Dcoker daemon permission setting
-script:
-  - python --version
-  - docker version  # Verify docker downgrade.
-if: env(FOO) is present
+
+jobs:
+  include:
+    - script:
+        - python --version
+        - docker version  # Verify docker downgrade.
+      if: env(FOO)=BAR
+      
+    - script:
+        - python --version
+        - docker version  # Verify docker downgrade.
+      if: env(FOO)=SAMENAMEVAR
