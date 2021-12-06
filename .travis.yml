@@ -1,5 +1,4 @@
 os: linux
-node_js: '13'
 language: shell
 dist: xenial
 services:
