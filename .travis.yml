@@ -9,8 +9,8 @@ before_install:
 - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 - sudo apt-get update
-- sudo apt-get install docker-ce=18.03.1~ce-0~ubuntu -yq
-- sudo chmod 666 /var/run/docker.sock
+- sudo apt-get install docker-ce=18.06.0~ce-0~ubuntu -yq
+- sudo chmod 666 /var/run/docker.sock # Dcoker daemon permission setting
 script:
   - python --version
-  - docker version
+  - docker version  # Verify docker downgrade.
