@@ -2,6 +2,8 @@ os: linux
 node_js: '13'
 language: node_js
 dist: xenial
+services:
+  - docker
 before_install:
 - sudo rm -fr ~/.pyenv
 - sudo rm -fr /opt/pyenv/
