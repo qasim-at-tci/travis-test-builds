@@ -2,7 +2,7 @@ os: linux
 language: shell
 dist: xenial
 before_script:
-  - pyenv global 3.7.2
+  - pyenv global 3.7.1
 jobs:
   include:
     - script:
