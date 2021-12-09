@@ -4,7 +4,6 @@ jobs:
       node_js: '13'
       language: node_js
       dist: xenial
-      group: dev
       script:
         - pyenv global 3.7.1
         - python -V
@@ -12,7 +11,6 @@ jobs:
       node_js: '13'
       language: node_js
       dist: xenial
-      group: dev
       script:
         - pyenv global 3.7.2
         - python -V
