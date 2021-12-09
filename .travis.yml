@@ -1,8 +1,13 @@
 os: linux
 language: shell
 dist: xenial
-before_script:
-  - pyenv global 3.7.1
+before_install:
+  - sudo rm -fr ~/.pyenv
+  - sudo rm -fr /opt/pyenv/
+  - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+  - pyenv update
+  - pyenv install 3.7.2
+  - pyenv global 2.7.2
 jobs:
   include:
     - script:
