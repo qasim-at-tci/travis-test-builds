@@ -1,35 +1,11 @@
 os: linux
 language: shell
 dist: xenial
-services:
-  - docker
-before_install:
-- sudo apt-get remove docker docker-engine docker.io containerd runc
-- curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
-- sudo apt-get update
-- sudo apt-get install -y --allow-downgrades docker-ce=18.06.0~ce~3-0~ubuntu containerd.io
-- sudo chmod 666 /var/run/docker.sock # Dcoker daemon permission setting
-- sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-- sudo chmod +x /usr/local/bin/docker-compose
-- sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-env:
-  global:
-    - SERVICE_NAME=test
-    - SECOND_SERVICE_NAME=test-notification
-    - DOCKER_FILE_PATH=./Dockerfile
-    - DOCKER_CONTEXT=./
-addons:
-  apt:
-    packages:
-      - sshpass
-
 before_script:
-# ...
-# ....
+  - pyenv global 3.7.2
 jobs:
   include:
     - script:
         - python --version
-        - docker version  # Verify docker downgrade.
-        - docker-compose --version
+        #- docker version  # Verify docker downgrade.
+        #- docker-compose --version
