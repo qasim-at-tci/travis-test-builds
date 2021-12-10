@@ -1,15 +1,11 @@
 jobs:
   include:
     - stage: "TESTS"
-      name: "TEST 1"
       os: linux
       node_js: '13'
       language: node_js
       dist: xenial
       script: true
-    - name: "TEST 1"
-      script: true
-    - name: "TEST 1"
-      script: true
-    - name: "TEST 1"
-      script: true
+    - script: true
+    - script: true
+    - script: true
