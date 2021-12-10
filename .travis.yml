@@ -1,26 +1,18 @@
+os: linux
+dist: xenial
+language: node_js
+
 jobs:
   include:
     - stage: "TESTS"
-      os: linux
       node_js: '12'
-      language: node_js
-      dist: xenial
       script: true
     - stage: "TESTS"
-      os: linux
       node_js: '13'
-      language: node_js
-      dist: xenial
       script: true
     - stage: "TESTS Continual"
-      os: linux
       node_js: '14'
-      language: node_js
-      dist: xenial
       script: true
     - stage: "TESTS Continual"
-      os: linux
       node_js: '15'
-      language: node_js
-      dist: xenial
       script: true
