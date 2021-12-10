@@ -10,9 +10,9 @@ jobs:
     - stage: "TESTS"
       node_js: '13'
       script: true
-    - stage: "TESTS Continual"
+    - stage: "TESTS"
       node_js: '14'
       script: true
-    - stage: "TESTS Continual"
+    - stage: "TESTS"
       node_js: '15'
       script: true
