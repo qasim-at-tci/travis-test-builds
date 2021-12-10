@@ -1,9 +1,17 @@
-os: linux
-dist: bionic
-language: php
-
 jobs:
   include:
-    - stage: "TESTS"
+    - os: linux
+      dist: xenial
+      language: php
+      php: 8.1.0
+      script: true
+    - os: linux
+      dist: bionic
+      language: php
+      php: 8.1.0
+      script: true
+    - os: linux
+      dist: focal
+      language: php
       php: 8.1.0
       script: true
