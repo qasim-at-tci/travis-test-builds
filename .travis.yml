@@ -3,5 +3,28 @@ jobs:
     - os: linux
       dist: trusty
       language: shell
-      script:
+      before_install:
+        - sudo rm -fr ~/.pyenv
+        - sudo rm -fr /opt/pyenv/
+        - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+        - pyenv update
+        - pyenv install 3.7.1
         - pyenv global 3.7.1
+        - pip install -U pip
+        - pip install awscli
+      script:
+        - python -V
+    - os: linux
+      dist: trusty
+      language: shell
+      before_install:
+        - sudo rm -fr ~/.pyenv
+        - sudo rm -fr /opt/pyenv/
+        - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+        - pyenv update
+        - pyenv install 3.7.2
+        - pyenv global 3.7.2
+        - pip install -U pip
+        - pip install awscli
+      script:
+        - python -V
