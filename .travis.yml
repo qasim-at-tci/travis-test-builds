@@ -6,6 +6,9 @@ jobs:
       language: node_js
       dist: xenial
       script: true
-    - script: true
-    - script: true
-    - script: true
+    - 
+      script: true
+    - 
+      script: true
+    - 
+      script: true
