@@ -7,9 +7,9 @@ jobs:
       language: node_js
       dist: xenial
       script: true
-      name: "TEST 1"
+    - name: "TEST 1"
       script: true
-      name: "TEST 1"
+    - name: "TEST 1"
       script: true
-      name: "TEST 1"
+    - name: "TEST 1"
       script: true
