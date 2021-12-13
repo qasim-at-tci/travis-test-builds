@@ -2,9 +2,16 @@ jobs:
   include:
     - os: linux
       dist: xenial
-      language: shell
-      script: true
+      language: java
+      script:
+        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
     - os: linux
       dist: bionic
-      language: shell
-      script: true
+      language: java
+      script:
+        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
+    - os: linux
+      dist: focal
+      language: java
+      script:
+        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
