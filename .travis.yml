@@ -1,32 +1,10 @@
 jobs:
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
       language: shell
-      before_install:
-        - sudo rm -fr ~/.pyenv
-        - sudo rm -fr /opt/pyenv/
-        - sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget libssl1.0-dev curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
-        - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-        - pyenv update
-        - pyenv install 3.7.1
-        - pyenv global 3.7.1
-        - pip install -U pip
-        - pip install awscli
-      script:
-        - python -V
+      script: true
     - os: linux
-      dist: trusty
+      dist: bionic
       language: shell
-      before_install:
-        - sudo rm -fr ~/.pyenv
-        - sudo rm -fr /opt/pyenv/
-        - - sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget libssl1.0-dev curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
-        - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-        - pyenv update
-        - pyenv install 3.7.2
-        - pyenv global 3.7.2
-        - pip install -U pip
-        - pip install awscli
-      script:
-        - python -V
+      script: true
