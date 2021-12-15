@@ -4,7 +4,7 @@ jobs:
       dist: xenial
       language: shell
       script:
-        - eval "$(pyenv init -)"
-        - pyenv install 3.7.1
+        - eval "$(pyenv init --path)"
+        #- pyenv install 3.7.1
         - pyenv global 3.7.1
         - python -V
