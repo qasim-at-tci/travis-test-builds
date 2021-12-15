@@ -6,7 +6,7 @@ jobs:
       node_js: 'lts/*'
       before_script:
         - eval "$(pyenv init --path)"
-        - pyenv install 3.7.2
-        - pyenv global 3.7.2
+        - pyenv install 3.9.6
+        - pyenv global 3.9.6
       script:
         - python -V
