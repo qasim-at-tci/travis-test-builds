@@ -37,5 +37,5 @@ install:
   - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-${TARGET_SDK_VERSION}"
 
 script:
-  - export SDKMANAGER_OPTS="--add-modules java.se.ee"
+  - export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
   - $ANDROID_HOME/tools/bin/sdkmanager --list
