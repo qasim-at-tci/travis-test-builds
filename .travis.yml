@@ -1,4 +1,4 @@
-dist: trusty
+dist: focal
 language: java
 jdk: openjdk11
 
@@ -37,4 +37,4 @@ install:
   - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-${TARGET_SDK_VERSION}"
 
 script:
-  - $HOME/android-sdk/tools/bin/sdkmanager --list
+  - $ANDROID_HOME/tools/bin/sdkmanager --list
