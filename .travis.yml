@@ -2,16 +2,8 @@ jobs:
   include:
     - os: linux
       dist: xenial
-      language: java
+      language: shell
       script:
-        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
-    - os: linux
-      dist: bionic
-      language: java
-      script:
-        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
-    - os: linux
-      dist: focal
-      language: java
-      script:
-        - wget https://raw.githubusercontent.com/rubo77/log4j_checker_beta/main/log4j_checker_beta.sh -q -O - |bash
+        - echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+        - pyenv global 3.7.1
+        - python -V
