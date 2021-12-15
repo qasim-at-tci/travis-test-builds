@@ -19,6 +19,7 @@ android:
     - sys-img-armeabi-v7a-android-22
  
 before_install:
+  - touch $HOME/.android/repositories.cfg
   - yes | sdkmanager "platforms;android-30"
 
 #before_script:
