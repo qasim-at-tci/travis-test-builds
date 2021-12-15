@@ -5,5 +5,5 @@ jobs:
       language: shell
       script:
         - echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-        - pyenv global 3.7.1
+        - pyenv global 3.7.2
         - python -V
