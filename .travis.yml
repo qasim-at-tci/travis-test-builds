@@ -2,13 +2,9 @@ jobs:
   include:
     - os: linux
       dist: xenial
+      before_script:
+        - eval "$(pyenv init --path)"
+        - pyenv install 3.7.10
+        - pyenv global 3.7.10
       script:
-        - echo FOO
-    - os: linux
-      dist: bionic
-      script:
-        - echo BAR
-    - os: linux
-      dist: focal
-      script:
-        - echo FOO
+        - python -V
