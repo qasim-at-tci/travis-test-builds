@@ -1,12 +1,14 @@
-language: node_js
-
-node_js:
-- "node"
-- "lts"
-
-os:
-- linux
-- osx
-- windows
-
-script: true
+jobs:
+  include:
+    - os: linux
+      dist: xenial
+      script:
+        - echo FOO
+    - os: linux
+      dist: bionic
+      script:
+        - echo BAR
+    - os: linux
+      dist: focal
+      script:
+        - echo FOO
