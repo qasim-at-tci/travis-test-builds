@@ -4,6 +4,6 @@ jobs:
       dist: xenial
       language: shell
       script:
-        - echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+        - eval "$(pyenv init -)"
         - pyenv global 3.7.2
         - python -V
