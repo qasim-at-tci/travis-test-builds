@@ -1,5 +1,8 @@
 os: linux
-jdk: openjdk9
+jdk: 
+   - openjdk8
+   - openjdk9
+   - openjdk11
 language: java
 dist: xenial
 services:
