@@ -8,7 +8,7 @@ jobs:
         - python -V
     - os: linux
       dist: xenial
-      language: java
+      language: shell
       before_script:
         - eval "$(pyenv init --path)"
         - pyenv global 3.6.7
