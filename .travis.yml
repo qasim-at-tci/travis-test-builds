@@ -1,136 +1,61 @@
+branches:
+  only:
+    - sonarcloud-intregation
+arch:
+  - arm64
+  - ppc64le
+  - s390x
+os: linux
+dist: bionic
+language: node_js
+node_js: [10, 12, 14, 16, 17]
+env:
+  - NPM_MAJOR_VERSION=0
+  - NPM_MAJOR_VERSION=6
+  - NPM_MAJOR_VERSION=7
+  - NPM_MAJOR_VERSION=8
+#addons:
+#  apt:
+#    packages:
+#      - --install-recommends
+#      - gcc-arm-none-eabi
+#  sonarcloud:
+#    organization: "qasim-at-tci"
+#    token:
+#      secure: "DFsmqajSEy8hHC62iX+yg8YtCg23z2g3yhwK7NFZBioYzpoLdsY/2kELOPJu0ywcTdccQh3azyU6KQipbKIbEol2i4OqV1O1wJwDP6EibcSfj3Q1Uis/t4JCO+t6wvrU1IfplwsJDAaulaa2KPTQCQXoy9shzR59yGZVbKz5oJqXQVGa670n3vXO7Oq6nJvFGwe1t9xC3iMjIGaxVRxl55JRu6WEkQE1oazK8MLHytNIsBUY9r6QDZDCkc6vCwJaMjb7oKWMwrcsUf+kIiI6bKkoGG1w7+aT7cFT/SwH1QU0PRwStuy//48Wzasx4D9qWa8Lis8D6+kohCCTKtqvE/VjKtx4XsiiA61wS0KAW8tDB3Dn6sXpHjc+j9oy58MVk993ZUHV2cCoihk7PedZ8m+NETEJmmGM+WaDuLTVp3jldvrx80Pe0JnkdkK8+qBq8lfvW0PZKkPRqY2PNmLmuiage/CMWqpebTVQLdacIR1Uzh5y/WnVA5JaoDeu/UPyNkvl1xToXfIQEIYJILj2IFQC+FLwqZkGlgSLhR8Twn07jUbZ+3Y1vQmQidDuAzAic5Hd4GAZwmP1fuVE4i2PmEErqvZHgEGY/rGpy9kbZEZ8HNMck1/6FMo9jxwdmbD/mp3EsyVZOSru+pYAUjQKf3hO1JJtfjUthv12DzD08zA="
+
 jobs:
-  include:
-    - stage: "SonarCloud Check"
-      os: linux
-      arch: amd64
-      dist: focal
-      language: node_js
-      node_js:
-        - lts/*
+  exclude:
+    - node_js: 10
+      env: NPM_MAJOR_VERSION=8
+before_install: |
+  if [ '0' != "$NPM_MAJOR_VERSION" ]
+  then
+    npm install --global npm@$NPM_MAJOR_VERSION
+  fi
+script: npm test
 
-      addons:
-        apt:
-          packages:
-            - --install-recommends
-            - gcc-arm-none-eabi
-        sonarcloud:
-          organization: "qasim-at-tci"
-          token:
-            secure: "DFsmqajSEy8hHC62iX+yg8YtCg23z2g3yhwK7NFZBioYzpoLdsY/2kELOPJu0ywcTdccQh3azyU6KQipbKIbEol2i4OqV1O1wJwDP6EibcSfj3Q1Uis/t4JCO+t6wvrU1IfplwsJDAaulaa2KPTQCQXoy9shzR59yGZVbKz5oJqXQVGa670n3vXO7Oq6nJvFGwe1t9xC3iMjIGaxVRxl55JRu6WEkQE1oazK8MLHytNIsBUY9r6QDZDCkc6vCwJaMjb7oKWMwrcsUf+kIiI6bKkoGG1w7+aT7cFT/SwH1QU0PRwStuy//48Wzasx4D9qWa8Lis8D6+kohCCTKtqvE/VjKtx4XsiiA61wS0KAW8tDB3Dn6sXpHjc+j9oy58MVk993ZUHV2cCoihk7PedZ8m+NETEJmmGM+WaDuLTVp3jldvrx80Pe0JnkdkK8+qBq8lfvW0PZKkPRqY2PNmLmuiage/CMWqpebTVQLdacIR1Uzh5y/WnVA5JaoDeu/UPyNkvl1xToXfIQEIYJILj2IFQC+FLwqZkGlgSLhR8Twn07jUbZ+3Y1vQmQidDuAzAic5Hd4GAZwmP1fuVE4i2PmEErqvZHgEGY/rGpy9kbZEZ8HNMck1/6FMo9jxwdmbD/mp3EsyVZOSru+pYAUjQKf3hO1JJtfjUthv12DzD08zA="
-
-
-      script:
-        - sonar-scanner
-        
-    - stage: "TESTS on linux arch: amd64"
-      os: linux
-      arch: amd64
-      dist: focal
-      language: node_js
-      node_js:
-        - lts/*
-
-      addons:
-        apt:
-          packages:
-            - --install-recommends
-            - gcc-arm-none-eabi
-      script:
-        - yarn test
-        
-    - stage: "TESTS on linux arch: amd64"
-      os: linux
-      arch: amd64
-      dist: bionic
-      language: node_js
-      node_js:
-        - lts/*
-
-      addons:
-        apt:
-          packages:
-            - --install-recommends
-            - gcc-arm-none-eabi
-      script:
-        - yarn test
-    - stage: "TESTS on linux arch: amd64"
-      os: linux
-      arch: amd64
-      dist: xenial
-      language: node_js
-      node_js:
-        - lts/*
-
-      addons:
-        apt:
-          packages:
-            - --install-recommends
-            - gcc-arm-none-eabi
-      script:
-        - yarn test
-    - stage: "TESTS on linux arch: amd64"
-      os: linux
-      arch: amd64
-      dist: trusty
-      language: node_js
-      node_js:
-        - lts/*
-
-      addons:
-        apt:
-          packages:
-            - --install-recommends
-            - gcc-arm-none-eabi
-      script:
-        - yarn test
-    - stage: "TESTS on OSX"
-      os: osx
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-        
-    - stage: "TESTS on OSX"
-      os: osx
-      osx_image: xcode11.6
-      language: node_js
-      node_js:
-        - lts/*
-      cache: npm
-      script:
-        - yarn test
-        
-    - stage: "Deploy"
-      os: linux
-      dist: focal
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-      deploy:
-        - provider: pages
-          skip_cleanup: true
-          github_token: $GITHUB_TOKEN
-          local_dir: "./site"
-          keep_history: true
-          on:
-            branch: master
-          
-    - stage: "Deploy"
-      os: osx
-      osx_image: xcode11.3
-      language: node_js
-      node_js:
-        - lts/*
-
-      script:
-        - yarn test
-      deploy:
-        - provider: script
-          skip_cleanup: true
-          on:
-            branch: master
+#jobs:
+#  include:
+#    - stage: "SonarCloud Check"
+#      os: linux
+#      arch: amd64
+#      dist: focal
+#      language: node_js
+#      node_js:
+#        - lts/*
+#
+#      addons:
+#        apt:
+#          packages:
+#            - --install-recommends
+#            - gcc-arm-none-eabi
+#        sonarcloud:
+#          organization: "qasim-at-tci"
+#          token:
+#            secure: "DFsmqajSEy8hHC62iX+yg8YtCg23z2g3yhwK7NFZBioYzpoLdsY/2kELOPJu0ywcTdccQh3azyU6KQipbKIbEol2i4OqV1O1wJwDP6EibcSfj3Q1Uis/t4JCO+t6wvrU1IfplwsJDAaulaa2KPTQCQXoy9shzR59yGZVbKz5oJqXQVGa670n3vXO7Oq6nJvFGwe1t9xC3iMjIGaxVRxl55JRu6WEkQE1oazK8MLHytNIsBUY9r6QDZDCkc6vCwJaMjb7oKWMwrcsUf+kIiI6bKkoGG1w7+aT7cFT/SwH1QU0PRwStuy//48Wzasx4D9qWa8Lis8D6+kohCCTKtqvE/VjKtx4XsiiA61wS0KAW8tDB3Dn6sXpHjc+j9oy58MVk993ZUHV2cCoihk7PedZ8m+NETEJmmGM+WaDuLTVp3jldvrx80Pe0JnkdkK8+qBq8lfvW0PZKkPRqY2PNmLmuiage/CMWqpebTVQLdacIR1Uzh5y/WnVA5JaoDeu/UPyNkvl1xToXfIQEIYJILj2IFQC+FLwqZkGlgSLhR8Twn07jUbZ+3Y1vQmQidDuAzAic5Hd4GAZwmP1fuVE4i2PmEErqvZHgEGY/rGpy9kbZEZ8HNMck1/6FMo9jxwdmbD/mp3EsyVZOSru+pYAUjQKf3hO1JJtfjUthv12DzD08zA="
+#
+#
+#      script:
+#        - sonar-scanner
+#
