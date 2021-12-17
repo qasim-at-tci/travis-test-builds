@@ -11,6 +11,7 @@ jobs:
       language: shell
       before_script:
         - eval "$(pyenv init --path)"
+        - pyenv install 3.6.7
         - pyenv global 3.6.7
       script:
         - python -V
