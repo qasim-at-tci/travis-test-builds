@@ -1,35 +1,16 @@
 jobs:
   include:
     - os: linux
-      dist: trusty
-      language: java
-      jdk: openjdk9
-      script: true
+      dist: xenial
+      language: shell
+      script:
+        - pyenv global 3.6.7
+        - python -V
     - os: linux
       dist: xenial
       language: java
-      jdk: openjdk9
-      script: true
-    - os: linux
-      dist: bionic
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: linux
-      dist: focal
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: freebsd
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: osx
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: osx
-      osx_image: xcode13.1
-      language: java
-      jdk: openjdk9
-      script: true
+      before_script:
+        - eval "$(pyenv init --path)"
+        - pyenv global 3.6.7
+      script:
+        - python -V
