@@ -5,6 +5,6 @@ jdk:
    - openjdk11
 language: java
 dist: xenial
-services:
-   - docker
+#services:
+#   - docker
 script: true
