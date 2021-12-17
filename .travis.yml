@@ -2,13 +2,15 @@ jobs:
   include:
     - os: linux
       dist: xenial
-      language: shell
+      language: node_js
+      node_js: lts/*
       script:
         - pyenv global 3.6.7
         - python -V
     - os: linux
       dist: xenial
-      language: shell
+      language: node_js
+      node_js: lts/*
       before_script:
         - eval "$(pyenv init --path)"
         - pyenv install 3.6.7
