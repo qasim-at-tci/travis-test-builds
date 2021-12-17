@@ -20,3 +20,16 @@ jobs:
       language: java
       jdk: openjdk9
       script: true
+    - os: freebsd
+      language: java
+      jdk: openjdk9
+      script: true
+    - os: osx
+      language: java
+      jdk: openjdk9
+      script: true
+    - os: osx
+      osx_image: xcode13.1
+      language: java
+      jdk: openjdk9
+      script: true
