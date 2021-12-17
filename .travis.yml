@@ -1,6 +1,10 @@
 os: linux
 dist: xenial
 language: java
+addons:
+  apt:
+    packages:
+      - bzip2
 jdk: 
    - openjdk8
    - openjdk9
