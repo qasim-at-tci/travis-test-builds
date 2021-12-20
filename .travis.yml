@@ -3,10 +3,9 @@ branches:
     - sonarcloud-intregation
 arch:
   - arm64
-  - ppc64le
-  - s390x
+  - amd64
 os: linux
-dist: bionic
+dist: xenial
 language: node_js
 node_js: [12, 14, node, lts/*]
 env:
