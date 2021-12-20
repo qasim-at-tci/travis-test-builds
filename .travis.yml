@@ -7,9 +7,7 @@ arch: amd64
 language: node_js
 node_js: lts/*
 env:
-  - NPM_MAJOR_VERSION=8
-  - test_app=testapp
-  - AWS_STACK_NAME="${test_app}-db"
+  - NPM_MAJOR_VERSION=8 test_app=testapp AWS_STACK_NAME="${test_app}-db"
 cache:
   npm: true
   directories:
