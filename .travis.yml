@@ -5,6 +5,7 @@ android:
       - tools
       - platform-tools
       - tools
+      - android-22
       - extra-google-google_play_services
       - extra-android-m2repository
    licenses:
