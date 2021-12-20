@@ -8,7 +8,7 @@ arch:
 os: linux
 dist: bionic
 language: node_js
-node_js: [12, 14, 16, 17, node, lts/*]
+node_js: [12, 14, node, lts/*]
 env:
   - NPM_MAJOR_VERSION=8
 cache:
