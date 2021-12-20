@@ -31,4 +31,5 @@ cache:
       - $HOME/.android/build-cache
 
 script:
+   - sdkmanager --update
    - sdkmanager --list
