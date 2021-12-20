@@ -25,7 +25,9 @@ cache:
 
 before_install:
   - npm install --global npm@$NPM_MAJOR_VERSION
-script: yarn test
+script:
+  - yarn test
+  - echo done
 
 #jobs:
 #  include:
