@@ -1,18 +1,34 @@
-jobs:
-  include:
-    - os: linux
-      dist: xenial
-      language: node_js
-      node_js: lts/*
-      script:
-        - pyenv global 3.6.7
-        - python -V
-    - os: linux
-      dist: xenial
-      language: node_js
-      node_js: lts/*
-      before_script:
-        - eval "$(pyenv init --path)"
-        - pyenv global 3.6.7
-      script:
-        - python -V
+language: android
+dist: trusty
+android:
+   components:
+      - tools
+      - platform-tools
+      - tools
+      - extra-google-google_play_services
+      - extra-android-m2repository
+   licenses:
+      - 'android-sdk-preview-license-.+'
+      - 'android-sdk-license-.+'
+      - 'google-gdk-license-.+'
+
+before_install:
+   - touch $HOME/.android/repositories.cfg
+   - yes | sdkmanager "platforms;android-30"
+   - yes | sdkmanager "build-tools;30.0.2"
+   - yes | sdkmanager "platforms;android-31"
+   - yes | sdkmanager "build-tools;31.0.0"
+   - yes | sdkmanager "platforms;android-32"
+   - yes | sdkmanager "build-tools;32.0.0"
+
+
+before_cache:
+   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+   directories:
+      - $HOME/.android/build-cache
+
+script:
+   - sdkmanager --list
