@@ -2,7 +2,7 @@ branches:
   only:
     - sonarcloud-intregation
 arch:
-  - arm64
+  - s390x
   - amd64
 os: linux
 dist: xenial
