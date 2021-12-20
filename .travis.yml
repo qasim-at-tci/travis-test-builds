@@ -27,7 +27,6 @@ before_install:
 script:
 #  - sonar-scanner
   - yarn test
-  - echo "done"
 
 #jobs:
 #  include:
