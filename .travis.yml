@@ -1,15 +1,16 @@
 branches:
   only:
     - sonarcloud-intregation
-arch:
-  - s390x
-  - amd64
 os: linux
 dist: focal
+arch: amd64
 language: node_js
-node_js: [12, 14, node, lts/*]
+node_js: lts/*
 env:
-  - NPM_MAJOR_VERSION=8
+  global:
+    - NPM_MAJOR_VERSION=8
+    - test_app=testapp
+    - AWS_STACK_NAME="${test_app}-db"
 cache:
   npm: true
   directories:
@@ -27,9 +28,21 @@ cache:
 before_install:
   - npm install --global npm@$NPM_MAJOR_VERSION
   - bundle install --deployment
-script:
-#  - sonar-scanner
-  - yarn test
+  
+jobs:
+  include:
+    - env: 
+        - test_app=overridenappname
+        - AWS_STACK_NAME="${test_app}-db"
+      script: echo "${AWS_STACK_NAME}"
+    - env: 
+        - test_app=overridenappname
+        - AWS_STACK_NAME=${test_app}-db
+      script: echo "${AWS_STACK_NAME}"
+    - env: 
+        - test_app=overridenappname
+        - AWS_STACK_NAME="${test_app}-db"
+      script: echo "${AWS_STACK_NAME}"
 
 #jobs:
 #  include:
