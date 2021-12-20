@@ -5,7 +5,7 @@ arch:
   - s390x
   - amd64
 os: linux
-dist: xenial
+dist: focal
 language: node_js
 node_js: [12, 14, node, lts/*]
 env:
