@@ -11,7 +11,9 @@ node_js: [12, 14, node, lts/*]
 env:
   - NPM_MAJOR_VERSION=8
 cache:
-  - npm: true
+  npm: true
+  directories:
+    - vendor/bundle
 #addons:
 #  apt:
 #    packages:
