@@ -1,35 +1,27 @@
 jobs:
   include:
     - os: linux
-      dist: trusty
-      language: java
-      jdk: openjdk9
-      script: true
+      dist: xenial
+      language: node_js
+      node_js: lts/*
+      group: dev
+      script:
+        - pyenv global 3.7.1
+        - python -V
     - os: linux
       dist: xenial
-      language: java
-      jdk: openjdk9
-      script: true
+      language: node_js
+      node_js: lts/*
+      group: dev
+      script:
+        - pyenv global 3.7.2
+        - python -V
     - os: linux
-      dist: bionic
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: linux
-      dist: focal
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: freebsd
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: osx
-      language: java
-      jdk: openjdk9
-      script: true
-    - os: osx
-      osx_image: xcode13.1
-      language: java
-      jdk: openjdk9
-      script: true
+      dist: xenial
+      language: node_js
+      node_js: lts/*
+      group: dev
+      script:
+        - pyenv install 3.7.10
+        - pyenv global 3.7.10
+        - python -V
