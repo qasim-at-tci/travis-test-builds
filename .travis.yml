@@ -4,7 +4,7 @@ jobs:
       dist: xenial
       language: node_js
       node_js: lts/*
-      group: dev
+      #group: dev
       script:
         - pyenv global 3.7.1
         - python -V
@@ -12,7 +12,7 @@ jobs:
       dist: xenial
       language: node_js
       node_js: lts/*
-      group: dev
+      #group: dev
       script:
         - pyenv global 3.7.2
         - python -V
@@ -20,7 +20,7 @@ jobs:
       dist: xenial
       language: node_js
       node_js: lts/*
-      group: dev
+      #group: dev
       script:
         - pyenv install 3.7.10
         - pyenv global 3.7.10
