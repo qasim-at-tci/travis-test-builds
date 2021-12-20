@@ -11,6 +11,8 @@ language: node_js
 node_js: [12, 14, 16, 17, node, lts/*]
 env:
   - NPM_MAJOR_VERSION=8
+cache:
+  - npm: true
 #addons:
 #  apt:
 #    packages:
