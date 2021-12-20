@@ -24,6 +24,7 @@ cache:
 
 before_install:
   - npm install --global npm@$NPM_MAJOR_VERSION
+  - bundle
 script:
 #  - sonar-scanner
   - yarn test
