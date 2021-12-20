@@ -12,20 +12,20 @@ env:
   - NPM_MAJOR_VERSION=8
 cache:
   - npm: true
-addons:
-  apt:
-    packages:
-      - --install-recommends
-      - gcc-arm-none-eabi
-  sonarcloud:
-    organization: "qasim-at-tci"
-    token:
-      secure: "DFsmqajSEy8hHC62iX+yg8YtCg23z2g3yhwK7NFZBioYzpoLdsY/2kELOPJu0ywcTdccQh3azyU6KQipbKIbEol2i4OqV1O1wJwDP6EibcSfj3Q1Uis/t4JCO+t6wvrU1IfplwsJDAaulaa2KPTQCQXoy9shzR59yGZVbKz5oJqXQVGa670n3vXO7Oq6nJvFGwe1t9xC3iMjIGaxVRxl55JRu6WEkQE1oazK8MLHytNIsBUY9r6QDZDCkc6vCwJaMjb7oKWMwrcsUf+kIiI6bKkoGG1w7+aT7cFT/SwH1QU0PRwStuy//48Wzasx4D9qWa8Lis8D6+kohCCTKtqvE/VjKtx4XsiiA61wS0KAW8tDB3Dn6sXpHjc+j9oy58MVk993ZUHV2cCoihk7PedZ8m+NETEJmmGM+WaDuLTVp3jldvrx80Pe0JnkdkK8+qBq8lfvW0PZKkPRqY2PNmLmuiage/CMWqpebTVQLdacIR1Uzh5y/WnVA5JaoDeu/UPyNkvl1xToXfIQEIYJILj2IFQC+FLwqZkGlgSLhR8Twn07jUbZ+3Y1vQmQidDuAzAic5Hd4GAZwmP1fuVE4i2PmEErqvZHgEGY/rGpy9kbZEZ8HNMck1/6FMo9jxwdmbD/mp3EsyVZOSru+pYAUjQKf3hO1JJtfjUthv12DzD08zA="
+#addons:
+#  apt:
+#    packages:
+#      - --install-recommends
+#      - gcc-arm-none-eabi
+#  sonarcloud:
+#    organization: "qasim-at-tci"
+#    token:
+#      secure: "DFsmqajSEy8hHC62iX+yg8YtCg23z2g3yhwK7NFZBioYzpoLdsY/2kELOPJu0ywcTdccQh3azyU6KQipbKIbEol2i4OqV1O1wJwDP6EibcSfj3Q1Uis/t4JCO+t6wvrU1IfplwsJDAaulaa2KPTQCQXoy9shzR59yGZVbKz5oJqXQVGa670n3vXO7Oq6nJvFGwe1t9xC3iMjIGaxVRxl55JRu6WEkQE1oazK8MLHytNIsBUY9r6QDZDCkc6vCwJaMjb7oKWMwrcsUf+kIiI6bKkoGG1w7+aT7cFT/SwH1QU0PRwStuy//48Wzasx4D9qWa8Lis8D6+kohCCTKtqvE/VjKtx4XsiiA61wS0KAW8tDB3Dn6sXpHjc+j9oy58MVk993ZUHV2cCoihk7PedZ8m+NETEJmmGM+WaDuLTVp3jldvrx80Pe0JnkdkK8+qBq8lfvW0PZKkPRqY2PNmLmuiage/CMWqpebTVQLdacIR1Uzh5y/WnVA5JaoDeu/UPyNkvl1xToXfIQEIYJILj2IFQC+FLwqZkGlgSLhR8Twn07jUbZ+3Y1vQmQidDuAzAic5Hd4GAZwmP1fuVE4i2PmEErqvZHgEGY/rGpy9kbZEZ8HNMck1/6FMo9jxwdmbD/mp3EsyVZOSru+pYAUjQKf3hO1JJtfjUthv12DzD08zA="
 
 before_install:
   - npm install --global npm@$NPM_MAJOR_VERSION
 script:
-  - sonar-scanner
+#  - sonar-scanner
   - yarn test
   - echo "done"
 
