@@ -37,7 +37,7 @@ jobs:
       script: echo "${AWS_STACK_NAME}"
     - env: 
         - test_app=overridesnappname
-        - AWS_STACK_NAME=${test_app}-db
+        - AWS_STACK_NAME="${test_app}-db"
       script: echo "${AWS_STACK_NAME}"
     - script: echo "${AWS_STACK_NAME}"
 
