@@ -9,8 +9,8 @@ node_js: lts/*
 env:
   global:
   - NPM_MAJOR_VERSION=8
-  - test_app=testapp
-  - AWS_STACK_NAME=${test_app}-db
+  - test_app="testapp"
+  - AWS_STACK_NAME="${test_app}-db"
 cache:
   npm: true
   directories:
@@ -32,12 +32,12 @@ before_install:
 jobs:
   include:
     - env: 
-        - test_app="overridenappname"
-        - AWS_STACK_NAME="${test_app}-db"
-      script: echo "${AWS_STACK_NAME}"
+        - test_app=overridenappname
+        - AWS_STACK_NAME="${test_app}-db
+      script: echo ${AWS_STACK_NAME}"
     - env: 
-        - test_app="overriden"
-        - AWS_STACK_NAME="${test_app}-db"
+        - test_app=overriden
+        - AWS_STACK_NAME=${test_app}-db
       script: echo "${AWS_STACK_NAME}"
     - script: echo "${AWS_STACK_NAME}"
 
