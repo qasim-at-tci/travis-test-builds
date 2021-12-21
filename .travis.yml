@@ -1,27 +1,9 @@
 jobs:
   include:
     - os: linux
-      dist: xenial
+      dist: trusty
       language: node_js
-      node_js: lts/*
+      node_js: 14
       #group: dev
       script:
-        - pyenv global 3.7.1
-        - python -V
-    - os: linux
-      dist: xenial
-      language: node_js
-      node_js: lts/*
-      #group: dev
-      script:
-        - pyenv global 3.7.2
-        - python -V
-    - os: linux
-      dist: xenial
-      language: node_js
-      node_js: lts/*
-      #group: dev
-      script:
-        - pyenv install 3.7.10
-        - pyenv global 3.7.10
-        - python -V
+        - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | /bin/bash
