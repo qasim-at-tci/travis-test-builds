@@ -37,19 +37,19 @@ jobs:
         - AWS_STACK_NAME=${test_app}-db
       script:
         - echo "${AWS_STACK_NAME}"
-        - yarn ci
+        - npm test
     - env:
         - CACHE_NAME=TEST2
         - test_app=overriden
         - AWS_STACK_NAME=${test_app}-db
       script:
         - echo "${AWS_STACK_NAME}"
-        - yarn ci
+        - npm test
     - env:
         - CACHE_NAME=TEST3
       script:
         - echo "${AWS_STACK_NAME}"
-        - yarn ci
+        - npm test
 
 #jobs:
 #  include:
