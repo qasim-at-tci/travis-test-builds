@@ -31,11 +31,13 @@ before_install:
   
 jobs:
   include:
-    - env: 
+    - env:
+        - CACHE_NAME=TEST1
         - test_app=overridenappname
         - AWS_STACK_NAME=${test_app}-db
       script: echo "${AWS_STACK_NAME}"
-    - env: 
+    - env:
+        - CACHE_NAME=TEST2
         - test_app=overriden
         - AWS_STACK_NAME=${test_app}-db
       script: echo "${AWS_STACK_NAME}"
