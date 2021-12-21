@@ -41,7 +41,9 @@ jobs:
         - test_app=overriden
         - AWS_STACK_NAME=${test_app}-db
       script: echo "${AWS_STACK_NAME}"
-    - script: echo "${AWS_STACK_NAME}"
+    - env:
+        - CACHE_NAME=TEST3
+      script: echo "${AWS_STACK_NAME}"
 
 #jobs:
 #  include:
