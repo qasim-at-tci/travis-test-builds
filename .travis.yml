@@ -9,6 +9,6 @@ before_install:
   - pyenv local 3.6
   - pip install -U pip
   - pip install awscli
-  - wget -O - https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+  - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | /bin/bash
   - helm plugin install https://github.com/datreeio/helm-datree
 script: true
