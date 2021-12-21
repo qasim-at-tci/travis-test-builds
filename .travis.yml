@@ -1,11 +1,10 @@
 sudo: required
-dist: trusty
+dist: xenial
 language: node_js
 services: docker
 node_js: '14'
 #group: dev
 before_install:
-  - sudo apt-get update && sudo apt-get -y upgrade
   - pyenv local 3.6
   - pip install -U pip
   - pip install awscli
