@@ -9,7 +9,7 @@ node_js: lts/*
 env:
   global:
   - NPM_MAJOR_VERSION=8
-  - test_app="testapp"
+  - test_app=testapp
   - AWS_STACK_NAME="${test_app}-db"
 cache:
   npm: true
