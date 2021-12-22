@@ -1,11 +1,11 @@
 sudo: required
-dist: xenial
+dist: trusty
 language: node_js
 services: docker
 node_js: '14'
 #group: dev
 before_install:
-  - pyenv local 3.7.1
+  - pyenv local 3.6
   - pip install -U pip
   - pip install awscli
   - curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | /bin/bash
