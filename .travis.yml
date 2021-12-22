@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 services: docker
-node_js: '14'
+node_js: '16'
 #group: dev
 before_install:
   - pyenv local 3.6
