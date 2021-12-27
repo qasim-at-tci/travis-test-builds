@@ -1,13 +1,5 @@
-sudo: required
 dist: xenial
-language: node_js
-group: dev
+language: java
+jdk: openjdk9
 services: docker
-node_js: '14'
-#group: dev
-before_install:
-  - pyenv global 3.7.1
-  - python -V
-  - pip install -U pip
-  - pip install awscli
 script: true
