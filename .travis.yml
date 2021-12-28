@@ -1,21 +1,18 @@
 jobs:
   iclude:
-    - stage:
-      name: TEST A
+    - stage: TEST A
       dist: xenial
       language: java
       services: docker
       script:
         - sleep 20
-    - stage:
-      name: TEST B
+    - stage: TEST B
       dist: xenial
       language: java
       services: docker
       script:
         - sleep 30
-    - stage:
-      name: TEST C
+    - stage: TEST C
       dist: xenial
       language: java
       services: docker
