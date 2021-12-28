@@ -1,5 +1,20 @@
-dist: xenial
-language: java
-jdk: openjdk9
-services: docker
-script: true
+jobs:
+  iclude:
+    - dist: xenial
+      language: java
+      jdk: openjdk9
+      services: docker
+      script:
+        - sleep 20
+    - dist: xenial
+      language: java
+      jdk: openjdk9
+      services: docker
+      script:
+        - sleep 30
+    - dist: xenial
+      language: java
+      jdk: openjdk9
+      services: docker
+      script:
+        - sleep 50
