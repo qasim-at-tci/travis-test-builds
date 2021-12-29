@@ -17,7 +17,9 @@ android:
 
 before_install:
    - touch $HOME/.android/repositories.cfg
-   - export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.xml.bind'
+   - export ANDROID_HOME=~/android-sdk
+   - wget "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O commandlinetools.zip
+   - unzip commandlinetools.zip -d $ANDROID_HOME/
    - sdkmanager "cmdline-tools;latest"
    - yes | sdkmanager "platforms;android-30"
    - yes | sdkmanager "build-tools;30.0.2"
