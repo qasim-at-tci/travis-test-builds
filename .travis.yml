@@ -1,20 +1,33 @@
-jobs:
-  iclude:
-    - stage: TEST A
-      dist: xenial
-      language: java
-      services: docker
-      script:
-        - sleep 20
-    - stage: TEST B
-      dist: xenial
-      language: java
-      services: docker
-      script:
-        - sleep 30
-    - stage: TEST C
-      dist: xenial
-      language: java
-      services: docker
-      script:
-        - sleep 50
+language: android
+dist: trusty
+jdk: openjdk11
+android:
+   components:
+      - tools
+      - platform-tools
+      - tools
+      - extra-google-m2repository
+      - extra-google-google_play_services
+      - extra-android-m2repository
+      - sys-img-armeabi-v7a-android-22
+   licenses:
+      - 'android-sdk-preview-license-.+'
+      - 'android-sdk-license-.+'
+      - 'google-gdk-license-.+'
+
+before_install:
+   - touch $HOME/.android/repositories.cfg
+   - yes | sdkmanager "platforms;android-30"
+   - yes | sdkmanager "build-tools;30.0.2"
+
+
+before_cache:
+   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+   directories:
+      - $HOME/.android/build-cache
+
+script:
+   - sdkmanager --list
