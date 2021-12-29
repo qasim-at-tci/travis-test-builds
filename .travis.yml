@@ -18,6 +18,7 @@ before_install:
    - touch $HOME/.android/repositories.cfg
    - yes | sdkmanager "platforms;android-30"
    - yes | sdkmanager "build-tools;30.0.2"
+   - yes | sdkmanager --update
 
 
 before_cache:
