@@ -16,11 +16,11 @@ env:
 
 before_install:
   - touch $HOME/.android/repositories.cfg
-  - wget "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O commandlinetools.zip
+  - wget "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip" -O commandlinetools.zip
   - unzip commandlinetools.zip -d $ANDROID_HOME/
-  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
-  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
+  - yes | sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
+  - yes | sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
 
 script:
    - java -version
-   - $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --list
+   - sdkmanager --list
