@@ -23,4 +23,4 @@ before_install:
 
 script:
    - java -version
-   - $ANDROID_HOME/cmdline-tools/bin/sdkmanager --list
+   - sdkmanager --list
