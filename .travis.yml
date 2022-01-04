@@ -1,14 +1,14 @@
 jobs:
  include:
-  - os: linux
+  - arch: ppc64le
+    os: linux
     dist: bionic
-    language: php
-    php: 8.1.0
-    script:
-     - php -v
-  - os: linux
+    script: true
+  - arch: arm64
+    os: linux
     dist: focal
-    language: php
-    php: 8.1.0
-    script:
-     - php -v
+    script: true
+  - arch: s390x
+    os: linux
+    dist: focal
+    script: true
