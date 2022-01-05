@@ -12,3 +12,7 @@ jobs:
     os: linux
     dist: focal
     script: true
+  - arch: amd64
+    os: linux
+    dist: focal
+    script: true
