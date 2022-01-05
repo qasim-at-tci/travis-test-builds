@@ -9,13 +9,11 @@ jobs:
      - ruby -v
   - os: osx
     osx_image: xcode13.1
-    addons:
-     homebrew:
-      update: true
     language: ruby
     before_install:
      - gem update --system
      - rvm install 3.0.3
+     - rvm ruby-3.0.3 do rvm gemset create
      - rvm use 3.0.3
     script:
      - ruby -v
