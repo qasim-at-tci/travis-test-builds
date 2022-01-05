@@ -13,8 +13,9 @@ jobs:
      homebrew:
       update: true
     language: ruby
-    ruby: 3.0
     before_install:
      - gem update --system
+     - rvm install 3.0.3
+     - rvm use 3.0.3
     script:
      - ruby -v
