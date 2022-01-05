@@ -1,23 +1,15 @@
 jobs:
  include:
-  - arch: ppc64le
-    os: linux
-    dist: bionic
-    script: true
-  - arch: arm64
-    os: linux
-    dist: focal
-    script: true
-  - arch: s390x
-    os: linux
-    dist: focal
-    script: true
   - arch: amd64
     os: linux
     dist: focal
-    script: true
+    language: ruby
+    ruby: 3.0
+    script:
+     - ruby -v
   - os: osx
     osx_image: xcode13.1
     language: ruby
     ruby: 3.0
-    script: true
+    script:
+     - ruby -v
