@@ -9,6 +9,9 @@ jobs:
      - ruby -v
   - os: osx
     osx_image: xcode13.1
+    addons:
+     homebrew:
+      update: true
     language: ruby
     ruby: 3.0
     script:
