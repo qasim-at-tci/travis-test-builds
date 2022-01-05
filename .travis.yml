@@ -14,5 +14,7 @@ jobs:
       update: true
     language: ruby
     ruby: 3.0
+    before_install:
+     - gem update --system
     script:
      - ruby -v
