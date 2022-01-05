@@ -10,6 +10,6 @@ jobs:
   - os: osx
     osx_image: xcode13.1
     language: ruby
-    ruby: 3.0.3
+    ruby: 3.0.2
     script:
      - ruby -v
