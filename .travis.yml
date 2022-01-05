@@ -16,3 +16,8 @@ jobs:
     os: linux
     dist: focal
     script: true
+  - os: osx
+    osx_image: xcode13.1
+    language: ruby
+    ruby: 3.0
+    script: true
