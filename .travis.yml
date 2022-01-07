@@ -7,5 +7,5 @@ jobs:
     php: 7.2
     script:
      - gcloud version
-     - gcloud components update
+     - Y | gcloud components update
      - gcloud version
