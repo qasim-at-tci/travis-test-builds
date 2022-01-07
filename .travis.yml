@@ -2,10 +2,33 @@ jobs:
  include:
   - arch: amd64
     os: linux
+    dist: trusty
+    language: php
+    php: 7.2
+    script:
+     - gcloud version
+    deploy:
+    - provider: gae
+      skip_cleanup: true
+      keyfile: test.json
+      project: test
+      no_stop_previous_version: true
+      verbosity: warning
+      config: dev.yaml
+      no_promote: true
+  - arch: amd64
+    os: linux
     dist: xenial
     language: php
     php: 7.2
     script:
      - gcloud version
-     - Y | gcloud components update
-     - gcloud version
+    deploy:
+    - provider: gae
+      skip_cleanup: true
+      keyfile: test.json
+      project: test
+      no_stop_previous_version: true
+      verbosity: warning
+      config: dev.yaml
+      no_promote: true
