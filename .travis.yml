@@ -2,9 +2,9 @@ jobs:
  include:
   - arch: amd64
     os: linux
-    dist: focal
-    language: ruby
-    ruby: 3.0
+    dist: trusty
+    language: php
+    php: 7.2
     script:
      - if [ ! -d "$HOME/google-cloud-sdk" ]; then
         export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)";
@@ -12,3 +12,4 @@ jobs:
         curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - ;
         sudo apt-get update && sudo apt-get install google-cloud-sdk;
        fi
+     - gcloud version
