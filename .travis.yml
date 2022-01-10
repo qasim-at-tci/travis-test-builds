@@ -1,7 +1,6 @@
 jobs:
  include:
-  - arch: amd64
-    os: linux
+  - os: linux
     dist: trusty
     language: php
     php: 7.2
