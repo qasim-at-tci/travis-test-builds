@@ -17,7 +17,7 @@ before_install:
     - sudo apt-get install postgresql-12-postgis-2.5-scripts
 before_script:
     - 'sudo bash -c "sed -i ''s/#max_locks_per_transaction = 64/max_locks_per_transaction = 1024/g'' /etc/postgresql/12/main/postgresql.conf"'
-    - 'sudo bash -c "sed -i ''s/#max_connections = 255/max_connections = 1000/g'' /etc/postgresql/12/main/postgresql.conf"'
+    - 'sudo bash -c "sed -i ''s/max_connections = 100/max_connections = 1000/g'' /etc/postgresql/12/main/postgresql.conf"'
     - 'sudo bash -c "cat /etc/postgresql/12/main/postgresql.conf"'
     - "sudo systemctl restart postgresql@12-main"
     - sleep 15
