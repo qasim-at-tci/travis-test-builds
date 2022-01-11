@@ -10,14 +10,12 @@ addons:
          - postgresql-client-12
       update: true
 before_install:
-    #- "sudo mount -o remount,size=$TRAVIS_RAMFS_SIZE /var/ramfs"
-    - "google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
-    - "sudo apt install -y postgresql-common"
-    - "sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y"
-    - "sudo apt-get install postgresql-12-postgis-2.5"
-    - "sudo apt-get install postgresql-12-postgis-2.5-scripts"
+    - sudo mount -o remount,size=50% /var/ramfs
+    - sudo apt install -y postgresql-common
+    - sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+    - sudo apt-get install postgresql-12-postgis-2.5
+    - sudo apt-get install postgresql-12-postgis-2.5-scripts
 before_script:
-    - 'psql -U travis -c "create extension postgis"'
     - 'sudo bash -c "sed -i ''s/#max_locks_per_transaction = 64/max_locks_per_transaction = 1024/g'' /etc/postgresql/12/main/postgresql.conf"'
     - 'sudo bash -c "cat /etc/postgresql/12/main/postgresql.conf"'
     - "sudo systemctl restart postgresql@12-main"
