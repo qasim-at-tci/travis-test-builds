@@ -3,4 +3,8 @@ jobs:
   - os: linux
     dist: focal
     language: elixir
+    elixir:
+     - '1.2.2'
+    otp_release:
+     - '18.2.1'
     script: true
