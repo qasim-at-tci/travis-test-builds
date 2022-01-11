@@ -1,39 +1,6 @@
 jobs:
  include:
   - os: linux
-    dist: trusty
-    language: php
-    php: 7.2
-    script:
-     - gcloud version
-     - pyenv global 2.7
-     - pip install pip --upgrade
-    deploy:
-    - provider: gae
-      skip_cleanup: true
-      keyfile: test.json
-      project: test
-      no_stop_previous_version: true
-      verbosity: warning
-      config: dev.yaml
-      on:
-       branch: main
-      no_promote: true
-  - arch: amd64
-    os: linux
-    dist: xenial
-    language: php
-    php: 7.2
-    script:
-     - gcloud version
-    deploy:
-    - provider: gae
-      skip_cleanup: true
-      keyfile: test.json
-      project: test
-      no_stop_previous_version: true
-      verbosity: warning
-      config: dev.yaml
-      on:
-       branch: main
-      no_promote: true
+    dist: focal
+    language: elixir
+    script: true
