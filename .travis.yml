@@ -10,7 +10,7 @@ addons:
          - postgresql-client-12
       update: true
 before_install:
-    - "sudo mount -o remount,size=$TRAVIS_RAMFS_SIZE /var/ramfs"
+    #- "sudo mount -o remount,size=$TRAVIS_RAMFS_SIZE /var/ramfs"
     - "google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
     - "sudo apt install -y postgresql-common"
     - "sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y"
