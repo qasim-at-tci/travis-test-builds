@@ -11,5 +11,7 @@ before_install:
 - source $HOME/google-cloud-sdk/path.bash.inc
 - gcloud components update kubectl
 - gcloud version
+- gcloud components update --version 350.0.0
+- gcloud version
 install: true
 script: true
