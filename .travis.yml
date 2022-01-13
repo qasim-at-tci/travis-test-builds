@@ -10,5 +10,6 @@ addons:
       - postgresql-client-13
     update: true
 before_script:
+- sudo systemctl restart postgresql@13-main
 - psql -c 'create database travis_ci_test;' -U postgres
 script: true
