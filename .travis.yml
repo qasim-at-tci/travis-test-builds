@@ -1,6 +1,11 @@
 jobs:
   include:
     - os: linux
+      dist: precise
+      language: ruby
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: linux
       dist: trusty
       language: ruby
       script:
