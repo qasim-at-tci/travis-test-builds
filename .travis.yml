@@ -1,10 +1,37 @@
-dist: focal
-language: ruby
-rvm: 2.7.4
-services:
-- postgresql
-before_script:
-- sudo systemctl restart postgresql@13-main
-- sleep 10
-- psql -c 'create database travis_ci_test;' -U postgres
-script: true
+jobs:
+  include:
+    - os: linux
+      dist: trusty
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: linux
+      dist: xenial
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: linux
+      dist: bionic
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: linux
+      dist: focal
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: osx
+      osx_image: xcode9.4
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+    - os: osx
+      language: ruby
+      rvm: 2.7.4
+      script:
+        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
