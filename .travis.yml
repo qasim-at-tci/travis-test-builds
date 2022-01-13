@@ -3,12 +3,6 @@ language: ruby
 rvm: 2.7.4
 services:
 - postgresql
-addons:
-  apt:
-    packages:
-      - postgresql-13
-      - postgresql-client-13
-    update: true
 before_script:
 - sudo systemctl restart postgresql@13-main
 - sleep 10
