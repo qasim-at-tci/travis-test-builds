@@ -31,7 +31,6 @@ jobs:
     - os: osx
       osx_image: xcode11.6
       language: ruby
-      rvm: 2.7.4
       script:
         - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
     - os: osx
