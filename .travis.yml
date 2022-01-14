@@ -5,8 +5,10 @@ jobs:
     - os: linux
       dist: focal
       language: ruby
+      before_script:
+        - sudo systemctl restart postgresql@13-main
+        - sleep 5
       script:
         - psql -c 'create database travis_ci_test;' -U postgres
-        - sleep 5
         - psql -c "create role travis login;" -U postgres
         - psql -c 'create database travis_ci_test;' -U travis
