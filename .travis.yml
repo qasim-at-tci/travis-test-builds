@@ -1,10 +1,11 @@
 services:
-  - docker
+  - postgresql
 jobs:
   include:
-    - os: osx
-      osx_image: xcode13.2
+    - os: linux
+      dist: focal
       language: ruby
       script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
+        - psql -c 'create database travis_ci_test;' -U postgres
         - sleep 5
+        - psql -c 'create database travis_ci_test;' -U travis
