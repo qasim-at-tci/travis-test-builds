@@ -10,4 +10,5 @@ jobs:
         - sleep 10
       script:
         - psql -c 'create database travis_ci_test_1;' -U postgres
+        - psql -c "create role travis login;" -U postgres
         - psql -c 'create database travis_ci_test_2;' -U travis
