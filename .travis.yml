@@ -1,47 +1,8 @@
 jobs:
   include:
-    - os: linux
-      dist: precise
-      language: ruby
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
-    - os: linux
-      dist: trusty
-      language: ruby
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
-    - os: linux
-      dist: xenial
-      language: ruby
-      rvm: 2.7.4
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
-    - os: linux
-      dist: bionic
-      language: ruby
-      rvm: 2.7.4
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
-    - os: linux
-      dist: focal
-      language: ruby
-      rvm: 2.7.4
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
     - os: osx
-      osx_image: xcode11.6
+      osx_image: xcode13.2
       language: ruby
-      script:
-        - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
-        - sleep 5
-    - os: osx
-      language: ruby
-      rvm: 2.7.4
       script:
         - curl -X GET 'https://jsonplaceholder.typicode.com/posts'
         - sleep 5
