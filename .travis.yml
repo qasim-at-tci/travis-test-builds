@@ -1,4 +1,5 @@
 os: linux
 dist: xenial
+arch: amd64
 language: ruby
 script: true
