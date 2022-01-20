@@ -1,5 +1,7 @@
-os: linux
-dist: xenial
-arch: amd64
-language: ruby
-script: true
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      script: true
+    - os: osx
+      script: true
