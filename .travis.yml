@@ -8,6 +8,6 @@ jobs:
     - os: linux
       dist: bionic
       arch: arm64
-      virt: vm
+      virt: lxd
       language: shell
       script: true
