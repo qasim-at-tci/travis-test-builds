@@ -1,8 +1,13 @@
 jobs:
   include:
     - os: linux
-      dist: focal
+      dist: bionic
+      arch: arm64
+      language: shell
       script: true
-    - os: osx
-      osx_image: xcode13.1
+    - os: linux
+      dist: bionic
+      arch: arm64
+      virt: vm
+      language: shell
       script: true
