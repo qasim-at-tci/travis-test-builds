@@ -3,6 +3,7 @@ jobs:
     - os: linux
       dist: bionic
       arch: arm64
+      virt: lxd
       language: shell
       script: true
     - os: linux
