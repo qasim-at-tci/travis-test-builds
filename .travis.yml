@@ -1,7 +1,19 @@
 jobs:
   include:
     - os: linux
+      dist: trusty
+      arch: arm64
+      virt: lxd
+      language: shell
+      script: true
+    - os: linux
       dist: xenial
+      arch: arm64
+      virt: lxd
+      language: shell
+      script: true
+    - os: linux
+      dist: bionic
       arch: arm64
       virt: lxd
       language: shell
