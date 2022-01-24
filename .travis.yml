@@ -6,7 +6,6 @@ jobs:
       language: shell
       script: true
     - os: linux
-      dist: xenial
       arch: arm64
       language: shell
       script: true
