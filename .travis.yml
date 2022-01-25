@@ -1,11 +1,6 @@
 jobs:
   include:
     - os: linux
-      dist: trusty
-      arch: s390x
-      language: shell
-      script: true
-    - os: linux
       arch: s390x
       language: shell
       script: true
