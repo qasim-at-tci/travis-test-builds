@@ -2,5 +2,5 @@ jobs:
   include:
     - os: osx
       osx_image: xcode13.2
-      rvm: '2.5'
+      language: ruby
       script: true
