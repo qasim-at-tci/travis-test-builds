@@ -23,6 +23,8 @@ jobs:
         - sudo service elasticsearch restart
         - sudo lsof -i -P -n
       before_script:
+        - sudo service elasticsearch restart
+        - sleep 20
         - until curl --silent -XGET --fail http://localhost:9200; do printf '.'; sleep 1;
           done
       script: true
