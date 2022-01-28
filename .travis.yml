@@ -6,11 +6,6 @@ jobs:
       language: shell
       script: true
     - os: linux
-      dist: bionic
-      arch: arm64
-      language: shell
-      script: true
-    - os: linux
       dist: focal
       arch: arm64
       language: shell
