@@ -1,11 +1,9 @@
-jobs:
-  include:
-    - os: osx
-      osx_image: xcode13.2
-      language: objective-c
-      before_script:
-        - sleep 5
-        - export PATH=${PATH}:/Users/travis/Library/Python/2.7/bin
-        - pip install tox
-        - sleep 5
-      script: true
+services:
+  - elasticsearch
+before_install:
+  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0-amd64.deb -o elasticsearch.deb
+  - sudo dpkg -i --force-confnew elasticsearch.deb
+  - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo service elasticsearch restart
+  - sleep 25
+script: true
