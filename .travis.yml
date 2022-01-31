@@ -1,12 +1,7 @@
 jobs:
   include:
-    - os: linux
-      dist: xenial
-      arch: arm64
-      language: shell
-      script: true
-    - os: linux
-      dist: bionic
-      arch: arm64
-      language: shell
+    - os: osx
+      osx_image: xcode13.2
+      before_script:
+        - pip install tox
       script: true
