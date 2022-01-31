@@ -6,6 +6,6 @@ jobs:
       before_script:
         - sleep 5
         - python -V
-        - pip install tox
+        - pip3 install tox
         - sleep 5
       script: true
