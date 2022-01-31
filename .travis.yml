@@ -4,13 +4,10 @@ jobs:
       osx_image: xcode13.2
       language: objective-c
       before_script:
-        #- sleep 5
-        #- python -V
-        #- pip3 install tox
-        #- sleep 5
-        - sleep 2
-        - curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
-        - python get-pip.py
+        - sleep 5
+        - if [ "$TRAVIS_OS_NAME" = 'osx' ]; then
+            export PATH=${PATH}:/Users/travis/Library/Python/2.7/bin
+          fi
         - pip install tox
-        - sleep 2
+        - sleep 5
       script: true
