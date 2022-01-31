@@ -5,5 +5,6 @@ before_install:
   - sudo dpkg -i --force-confnew elasticsearch.deb
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
   - sudo service elasticsearch restart
-  - sleep 25
+  - until curl --silent -XGET --fail http://localhost:9200; do printf '.'; sleep 1;
+    done
 script: true
