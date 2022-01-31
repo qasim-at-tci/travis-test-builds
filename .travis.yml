@@ -12,7 +12,7 @@ before_install:
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
   - sudo rm -rf /var/lib/elasticsearch/nodes
   - sudo service elasticsearch restart
-  - until curl --silent -XGET --fail http://localhost:9200; do printf '...'; sleep 2;
+  - until curl --silent -XGET --fail http://localhost:9200; do printf '...\n'; sleep 2;
     done
 
 script: true
