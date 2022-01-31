@@ -4,8 +4,13 @@ jobs:
       osx_image: xcode13.2
       language: objective-c
       before_script:
-        - sleep 5
-        - python -V
-        - pip3 install tox
-        - sleep 5
+        #- sleep 5
+        #- python -V
+        #- pip3 install tox
+        #- sleep 5
+        - sleep 2
+        - curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+        - python get-pip.py
+        - pip install tox
+        - sleep 2
       script: true
