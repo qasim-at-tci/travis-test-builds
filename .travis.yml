@@ -9,7 +9,7 @@ jobs:
         #- pip3 install tox
         #- sleep 5
         - sleep 2
-        - curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+        - curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
         - python get-pip.py
         - pip install tox
         - sleep 2
