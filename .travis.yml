@@ -4,6 +4,8 @@ jobs:
       osx_image: xcode13.2
       language: objective-c
       before_script:
+        - sleep 5
         - python -V
         - pip install tox
+        - sleep 5
       script: true
