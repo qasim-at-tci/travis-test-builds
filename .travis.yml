@@ -3,16 +3,13 @@ dist: xenial
 language: shell
 arch: amd64
 
-services:
-  - elasticsearch
-
-before_install:
-  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb -o elasticsearch.deb
-  - sudo dpkg -i --force-confnew elasticsearch.deb
-  - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
-  - sudo rm -rf /var/lib/elasticsearch/nodes
-  - sudo service elasticsearch restart
-  - until curl --silent -XGET --fail http://localhost:9200; do printf '...\n'; sleep 2;
-    done
-
-script: true
+jobs:
+  include:
+    - stage: A
+      script: true
+    - stage: B
+      script:
+        - echo DONE
+    - stage: C
+      script:
+        - echo "DONE"
