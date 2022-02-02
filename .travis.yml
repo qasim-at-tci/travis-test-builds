@@ -10,6 +10,5 @@ jobs:
     - os: osx
       osx_image: xcode13.2
       language: objective-c
-      install:
-        - pip3 install tox
+      install: skip
       script: true
