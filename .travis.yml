@@ -11,4 +11,6 @@ jobs:
       osx_image: xcode13.2
       language: objective-c
       install: skip
-      script: true
+      script:
+        - echo "DONE"
+        - sleep 1
