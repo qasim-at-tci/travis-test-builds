@@ -1,18 +1,13 @@
 os: linux
-dist: focal
-arch: amd64
-
-services:
-  - elasticsearch
-
-#before_install:
-  #- curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb -o elasticsearch.deb
-  #- sudo dpkg -i --force-confnew elasticsearch.deb
-  #- sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
-  #- sudo rm -rf /var/lib/elasticsearch/nodes
-  #- sudo service elasticsearch restart
-  
-
-script:
-  - until curl --silent -XGET --fail http://localhost:9200; do printf '.'; sleep 1;
-    done
+dist: bionic
+language: python
+python:
+  - '3.7'
+install:
+  - pip install tox
+jobs:
+  include:
+    - os: osx
+      osx_image: xcode13.2
+      language: objective-c
+      script: true
