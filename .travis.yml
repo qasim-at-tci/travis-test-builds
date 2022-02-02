@@ -8,6 +8,7 @@ install:
       export PATH=${PATH}:/Users/travis/Library/Python/2.7/bin
     fi
   - pip install tox
+  - sleep 1
 jobs:
   include:
     - os: osx
