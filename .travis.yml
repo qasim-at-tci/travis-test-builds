@@ -5,6 +5,7 @@ rvm:
 before_install:
   #- sudo rm -rf /var/lib/elasticsearch/nodes
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo chown -R elasticsearch:elasticsearch /usr/local/bin/elasticsearch-env
   - sudo service elasticsearch restart
   - gem install bundler -v '1.17.3'
 before_script:
