@@ -11,7 +11,7 @@ before_install:
 before_script:
 - sleep 20
 - curl -XGET 'http://localhost:9200'
-- elasticsearch --version
+- sudo elasticsearch --version
 services:
   - postgresql
   - mysql
