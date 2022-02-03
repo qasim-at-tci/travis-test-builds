@@ -3,7 +3,7 @@ language: ruby
 rvm:
   - 2.5.7
 before_install:
-  #- sudo rm -rf /var/lib/elasticsearch/nodes
+  - sudo rm -rf /var/lib/elasticsearch/nodes
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
   - sudo chown -R elasticsearch:elasticsearch /usr/local/bin/elasticsearch-env
   - sudo service elasticsearch restart
