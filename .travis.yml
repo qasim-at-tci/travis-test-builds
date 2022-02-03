@@ -1,24 +1,11 @@
-os: linux
-dist: bionic
-language: python
-python:
-  - '3.7'
-install:
-  - pip install tox
 jobs:
   include:
-    - os: osx
-      osx_image: xcode13.2
-      language: objective-c
-      install: skip
-      script:
-        - echo "DONE"
-        - sleep 1
     - os: linux
       dist: focal
+      arch: arm64
+      vm:
+        size: x-large
       language: shell
       install: skip
       script:
-        - sudo apt-get update
-        - sudo apt-get upgrade
-        - sleep 1
+        - free -m
