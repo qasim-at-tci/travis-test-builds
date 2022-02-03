@@ -1,11 +1,9 @@
 jobs:
   include:
     - os: linux
-      dist: xenial
-      language: python
-      python:
-        - 3.10-dev
+      dist: focal
+      group: dev
       script:
-        - free -m
-        - python -V
+        - sudo apt update
+        - sudo apt upgrade
         - sleep 2
