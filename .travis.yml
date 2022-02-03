@@ -1,8 +1,25 @@
-jobs:
-  include:
-    - os: linux
-      dist: focal
-      script:
-        - sudo apt update
-        - sudo apt upgrade
-        - sleep 2
+dist: bionic
+language: ruby
+rvm:
+  - 2.5.7
+before_install:
+  #- sudo rm -rf /var/lib/elasticsearch/nodes
+  - gem install bundler -v '1.17.3'
+before_script:
+- sleep 20
+- curl -XGET 'http://localhost:9200'
+- "elasticsearch --version"
+services:
+  - postgresql
+  - mysql
+  - elasticsearch
+  - redis-server
+script:
+  - sleep 5
+addons:
+  postgresql: "9.4"
+  apt:
+    sources:
+      - elasticsearch-2.x
+    packages:
+      elasticsearch
