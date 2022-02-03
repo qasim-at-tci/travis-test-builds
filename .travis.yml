@@ -1,11 +1,11 @@
 jobs:
   include:
     - os: linux
-      dist: focal
-      arch: arm64
-      vm:
-        size: x-large
-      language: shell
-      install: skip
+      dist: xenial
+      language: python
+      python:
+        - 3.10
       script:
         - free -m
+        - python -V
+        - sleep 2
