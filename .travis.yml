@@ -6,7 +6,7 @@ before_install:
   - gem install bundler -v '1.17.3'
 before_script:
 - sleep 5
-- sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+- sudo chown -R $USER:elasticsearch /etc/default/elasticsearch
 - sudo service elasticsearch restart
 - curl -XGET 'http://localhost:9200'
 - elasticsearch --version
