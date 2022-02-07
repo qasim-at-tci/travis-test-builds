@@ -11,10 +11,10 @@ global:
 - AWS_DEFAULT_REGION=eu-north-1
 
 before_script:
-- pip install pip --upgrade --user
-- pip install awscli --upgrade --user
+- python3 -m pip install --upgrade pip --user
+- pip3 install awscli --upgrade --user
 - export PATH=$PATH:$HOME/.local/bin
-- pip install --user aws-sam-cli
+- pip3 install --user aws-sam-cli
 
 
 script: true
