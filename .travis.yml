@@ -1,26 +1,24 @@
-dist: bionic
-language: ruby
-rvm:
-  - 2.5.7
-before_install:
-  - gem install bundler -v '1.17.3'
+language: node_js
+
+node_js:
+- "14"
+
+matrix:
+fast_finish: true
+
+env:
+global:
+- AWS_DEFAULT_REGION=eu-north-1
+
 before_script:
-- sudo chown -R $USER:elasticsearch /etc/default/elasticsearch
-#- sudo chown -R $USER:elasticsearch /etc/elasticsearch
-- sudo service elasticsearch restart
-- curl -XGET 'http://localhost:9200'
-- elasticsearch --version
-services:
-  - postgresql
-  - mysql
-  - elasticsearch
-  - redis-server
-script:
-  - sleep 5
-addons:
-  postgresql: "9.4"
-  apt:
-    sources:
-      - elasticsearch-2.x
-    packages:
-      elasticsearch
+- pip install pip --upgrade --user
+- pip install awscli --upgrade --user
+- export PATH=$PATH:$HOME/.local/bin
+- pip install --user aws-sam-cli
+
+
+script: true
+
+notifications:
+email:
+on_failure: always
