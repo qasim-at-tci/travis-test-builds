@@ -7,7 +7,8 @@ before_install:
 before_script:
 #- sudo chown -R $USER:elasticsearch /etc/default/elasticsearch
 #- sudo chown -R $USER:elasticsearch /etc/elasticsearch
-#- sudo service elasticsearch restart
+- sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+- sudo service elasticsearch restart
 - curl -XGET 'http://localhost:9200'
 - elasticsearch --version
 services:
