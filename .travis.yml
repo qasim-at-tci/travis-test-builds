@@ -17,6 +17,7 @@ before_script:
 
 script:
   - free -m
+  - nproc
 
 notifications:
 email:
