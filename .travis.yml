@@ -1,23 +1,43 @@
+jobs:
+  fast_finish: true
+  include:
+    - env: SCRIPT_NAME=style.php
+      name: "PHP Style"
+    - env: SCRIPT_NAME=phan.php
+      name: "PHP Phan"
+    - env: SCRIPT_NAME=psalm.php
+      name: "PHP Psalm"
+    - env: SCRIPT_NAME=integrationTestsImage.php
+      name: "PHP Integration Tests - Image"
+      vm:
+        size: 2x-large
+    - env: SCRIPT_NAME=integrationTestsEmail.php
+      name: "PHP Integration Tests - Email"
+      vm:
+        size: 2x-large
+    - env: SCRIPT_NAME=integrationTestsPDFsAtoE.php
+      name: "PHP Integration Tests - A to E"
+      vm:
+        size: 2x-large
+    - env: SCRIPT_NAME=integrationTestsPDFsFtoR.php
+      name: "PHP Integration Tests - F to R"
+      vm:
+        size: 2x-large
+    - env: SCRIPT_NAME=integrationTestsPDFsStoZ.php
+      name: "PHP Integration Tests - S to Z"
+      vm:
+        size: 2x-large
 language: php
-
-dist: focal
-
-vm:
-  size: 2x-large
-
-before_script:
-- pyenv install 3.9.7
-- pyenv local 3.9.7
-- pip install pip --upgrade --user
-- pip install awscli --upgrade --user
-- export PATH=$PATH:$HOME/.local/bin
-- pip install --user aws-sam-cli
-
-
+php:
+- 7.4.22
 script:
   - free -m
   - nproc
-
 notifications:
-email:
-on_failure: always
+  email:
+    on_success: never
+sudo: false
+dist: focal
+branches:
+  except:
+  - main
