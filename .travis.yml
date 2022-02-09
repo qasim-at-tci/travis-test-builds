@@ -6,13 +6,6 @@ node_js:
 vm:
   size: 2x-large
 
-matrix:
-fast_finish: true
-
-env:
-global:
-- AWS_DEFAULT_REGION=eu-north-1
-
 before_script:
 - pyenv install 3.9.7
 - pyenv local 3.9.7
@@ -22,7 +15,8 @@ before_script:
 - pip install --user aws-sam-cli
 
 
-script: true
+script:
+  - free -m
 
 notifications:
 email:
