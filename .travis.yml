@@ -1,7 +1,6 @@
-language: node_js
+language: php
 
-node_js:
-- "14"
+dist: focal
 
 vm:
   size: 2x-large
