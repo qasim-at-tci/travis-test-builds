@@ -7,6 +7,4 @@ jobs:
      if [ $CURRENT_STATUS == 0 ];then echo "----" fi
 os: linux
 dist: xenial
-env:
-  - tier=stack current=0
 language: shell
