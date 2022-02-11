@@ -4,11 +4,10 @@ jobs:
       script:
         - echo "--"
         - if: env(tier) == "stack"
-          script:
-            - |
-              if [ $CURRENT_STATUS == 0 ];then
-                echo "---"
-              fi
+        - |
+            if [ $CURRENT_STATUS == 0 ];then
+              echo "---"
+            fi
 os: linux
 dist: focal
 language: shell
