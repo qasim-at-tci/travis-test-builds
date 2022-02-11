@@ -1,15 +1,18 @@
 jobs:
   include:
-    - stage: setup
+    - stage: Tests
+      script: true
+    - &stuff
+      stage: Deploy
+      if: env(tier)=stack
       script:
-        - echo "--"
-        - if: env(tier)="stack"
-        - |
-            if [ $CURRENT_STATUS == 0 ];then
-              echo "---"
-            fi
+        - echo "---"
+    - <<: *stuff
+      if: env(current)=0
+      script:
+        - echo "----"
 os: linux
-dist: focal
-language: shell
+dist: xenial
 env:
-  - tier=stack CURRENT_STATUS=0
+  - tier=stack current=0
+language: shell
