@@ -1,9 +1,7 @@
 jobs:
   include:
-    - stage: Tests
-      script: true
     - &stuff
-      stage: Deploy
+      stage: some
       if: env(tier)=stack
       script:
         - echo "---"
