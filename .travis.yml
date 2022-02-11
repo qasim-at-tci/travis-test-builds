@@ -1,9 +1,9 @@
 jobs:
   include:
-  - stage: one
+  - stage: test
     script:
       - echo "--"
-  - stage: two
+  - stage: test
     if: env(tier) = stack
     script:
       - |
