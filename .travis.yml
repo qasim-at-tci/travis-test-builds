@@ -1,16 +1,21 @@
+dist: bionic
+language: node_js
+node_js:
+  - 14
+git:
+  quiet: true
+branches:
+  only:
+  - /.*/
+before_install:
+  - sleep 2
+before_script:
+  - sleep 2
+
 jobs:
   include:
-  - stage: test
-    script:
-      - echo "--"
-  - stage: test
-    if: env(tier) = stack
-    script:
+    - stage: Performance test
+      script:
       - sleep 2
-      - |
-        if [ $current == 0 ];then
-            echo "---"
-        fi
-os: linux
-dist: xenial
-language: shell
+      name: "Performance tests"
+      if: type = api
