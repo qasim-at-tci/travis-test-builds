@@ -6,6 +6,7 @@ jobs:
   - stage: test
     if: env(tier) = stack
     script:
+      - sleep 2
       - |
         if [ $current == 0 ];then
             echo "---"
