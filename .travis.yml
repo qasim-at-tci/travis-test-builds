@@ -1,11 +1,12 @@
 jobs:
   include:
-  - stage: setup
+  - stage: one
     script:
-    - echo "--"
+      - echo "--"
+  - stage: two
     if: env(tier) = stack
-     - |
-        if [ $CURRENT_STATUS == 0 ];then echo "----" fi
+    script:
+      - echo "---"
 os: linux
 dist: xenial
 language: shell
