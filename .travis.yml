@@ -3,8 +3,7 @@ jobs:
   - stage: setup
     script:
     - echo "--"
-  if: env(tier) = stack
-  - stage: env-stack
+    if: env(tier) = stack
     script: if [ $CURRENT_STATUS == 0 ];then echo "----" fi
 os: linux
 dist: xenial
