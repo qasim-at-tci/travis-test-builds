@@ -6,7 +6,10 @@ jobs:
   - stage: two
     if: env(tier) = stack
     script:
-      - echo "---"
+      - |
+        if [ $current == 0 ];then
+            echo "---"
+        fi
 os: linux
 dist: xenial
 language: shell
