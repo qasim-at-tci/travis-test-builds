@@ -1,21 +1,15 @@
 include:
   - stage: setup
     script:
-      - reset_mock notification
-      - reset_mock rave_open
-      - reset_mock combomatch
-      - reset_mock myelomatch
-      - reset_mock csms
+      - echo "--"
       - if: env(tier) == "stack"
         script:
-          - deploy_stack $stack_name
           - |
             if [ $CURRENT_STATUS == 0 ];then
-              gather_stack_info $stack_name
-              create_and_confirm_http_subscription
-              create_cognito_client
-              echo $CLIENT_DETAILS > CLIENT_DETAILS.txt
+              echo "---"
             fi
 os: linux
 dist: focal
 language: shell
+env:
+  - tier=stack CURRENT_STATUS=0
