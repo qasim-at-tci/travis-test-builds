@@ -3,7 +3,7 @@ jobs:
     - stage: setup
       script:
         - echo "--"
-        - if: env(tier) == "stack"
+        - if: env(tier)="stack"
         - |
             if [ $CURRENT_STATUS == 0 ];then
               echo "---"
