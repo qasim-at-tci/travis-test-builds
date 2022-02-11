@@ -16,6 +16,6 @@ include:
               create_cognito_client
               echo $CLIENT_DETAILS > CLIENT_DETAILS.txt
             fi
- os: linux
- dist: focal
- language: shell
+os: linux
+dist: focal
+language: shell
