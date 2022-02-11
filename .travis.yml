@@ -1,13 +1,14 @@
-include:
-  - stage: setup
-    script:
-      - echo "--"
-      - if: env(tier) == "stack"
-        script:
-          - |
-            if [ $CURRENT_STATUS == 0 ];then
-              echo "---"
-            fi
+jobs:
+  include:
+    - stage: setup
+      script:
+        - echo "--"
+        - if: env(tier) == "stack"
+          script:
+            - |
+              if [ $CURRENT_STATUS == 0 ];then
+                echo "---"
+              fi
 os: linux
 dist: focal
 language: shell
