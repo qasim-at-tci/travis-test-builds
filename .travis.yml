@@ -1,40 +1,21 @@
-jobs:
-  fast_finish: true
-  include:
-    - env: SCRIPT_NAME=style.php
-      name: "PHP Style"
-    - env: SCRIPT_NAME=phan.php
-      name: "PHP Phan"
-    - env: SCRIPT_NAME=psalm.php
-      name: "PHP Psalm"
-    - env: SCRIPT_NAME=integrationTestsImage.php
-      name: "PHP Integration Tests - Image"
-      vm:
-        size: 2x-large
-    - env: SCRIPT_NAME=integrationTestsEmail.php
-      name: "PHP Integration Tests - Email"
-      vm:
-        size: 2x-large
-    - env: SCRIPT_NAME=integrationTestsPDFsAtoE.php
-      name: "PHP Integration Tests - A to E"
-      vm:
-        size: 2x-large
-    - env: SCRIPT_NAME=integrationTestsPDFsFtoR.php
-      name: "PHP Integration Tests - F to R"
-      vm:
-        size: 2x-large
-    - env: SCRIPT_NAME=integrationTestsPDFsStoZ.php
-      name: "PHP Integration Tests - S to Z"
-      vm:
-        size: 2x-large
-language: php
-php:
-- 7.4.22
-script:
-  - free -m
-  - nproc
-notifications:
-  email:
-    on_success: never
-sudo: false
-dist: focal
+include:
+  - stage: setup
+    script:
+      - reset_mock notification
+      - reset_mock rave_open
+      - reset_mock combomatch
+      - reset_mock myelomatch
+      - reset_mock csms
+      - if: env(tier) == "stack"
+        script:
+          - deploy_stack $stack_name
+          - |
+            if [ $CURRENT_STATUS == 0 ];then
+              gather_stack_info $stack_name
+              create_and_confirm_http_subscription
+              create_cognito_client
+              echo $CLIENT_DETAILS > CLIENT_DETAILS.txt
+            fi
+ os: linux
+ dist: focal
+ language: shell
