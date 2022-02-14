@@ -19,3 +19,13 @@ jobs:
       - sleep 2
       name: "Performance tests"
       #if: type = api
+
+notifications:
+    webhooks:
+        urls:
+            - https://benjollyidera.webhook.office.com/webhookb2/d4d3b103-5019-4e8c-ba4c-f6f2a59c8aa6@84981200-0704-4e2c-82ff-c288b51bc012/IncomingWebhook/ad752528a1e6408ca5719017201b6c8a/330147e6-a31a-4406-9cc4-117ceac8a0e4
+        on_success: always
+        on_failure: always
+        on_start: always
+        on_cancel: always
+        on_error: always
