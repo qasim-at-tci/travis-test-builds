@@ -18,11 +18,11 @@ jobs:
       script:
       - sleep 2
       name: "Performance tests"
-    - stage: Performance test
+    - stage: Performance test - 2
       script:
       - sleep 2
       name: "Performance tests - 2"
-    - stage: Performance test
+    - stage: Performance test - 3
       script:
       - sleep 2
       name: "Performance tests - 3"
