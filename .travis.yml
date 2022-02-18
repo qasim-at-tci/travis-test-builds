@@ -1,42 +1,34 @@
-os: linux
-dist: xenial
-jdk:
-  - openjdk11
-language: android
-android:
-  components:
-    - build-tools-30.0.0
-    - android-29
-    - extra
-  licenses:
-    - "android-sdk-preview-license-52d11cd2"
-    - "android-sdk-license-.+"
-    - "google-gdk-license-.+"
+language: objective-c
+os:
+  - osx
+osx_image:
+  - xcode11.6
+before_install:
+  - brew tap adoptopenjdk/openjdk
+  - brew install --cask adoptopenjdk8
+  - brew install --cask android-sdk
+  - brew install jq ninja
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
+    - "$HOME/.android/build-cache"
+env:
+  global:
+    - HOMEBREW_NO_INSTALL_CLEANUP: "1"
+    - ANDROID_HOME: "/usr/local/share/android-sdk"
+    - ANDROID_NDK_HOME: "/usr/local/share/android-ndk"
+    - JAVA_HOME: "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+    - TERM: dumb
 before_script:
-  - sleep 3
+  - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28" > /dev/null
+  - yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses > /dev/null
+  - curl --silent -o ndk.zip https://dl.google.com/android/repository/android-ndk-r16b-darwin-x86_64.zip
+  - unzip -qq ndk.zip > /dev/null
+  - rm ndk.zip
+  - mv android-ndk-r16b $ANDROID_NDK_HOME
 
-jobs:
-  include:
-    - stage: Performance test
-      script:
-        - sleep 2
-      name: "Performance tests"
-    - stage: Performance test - 2
-      script:
-        - sleep 2
-      name: "Performance tests - 2"
-    - stage: Performance test - 3
-      script:
-        - sleep 2
-      name: "Performance tests - 3"
-      #if: type = api
-
-notifications:
-  webhooks:
-    urls:
-      - https://benjollyidera.webhook.office.com/webhookb2/d4d3b103-5019-4e8c-ba4c-f6f2a59c8aa6@84981200-0704-4e2c-82ff-c288b51bc012/TravisCI/905f89c3a9954aeb8a4260c3d3aa076c/330147e6-a31a-4406-9cc4-117ceac8a0e4
-    on_success: always
-    on_failure: always
-    on_start: always
-    on_cancel: always
-    on_error: always
+script: true
