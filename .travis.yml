@@ -5,9 +5,35 @@ jobs:
       language: java
       jdk:
         - openjdk11
-# Using Xcode 9.3 to get Java 8, based on the build matrix in
-# https://docs.travis-ci.com/user/reference/osx/#jdk-and-macos
-#
-# >  In practical terms, if your Mac build requires Java 8 and below, use
-# xcode9.3 (or below); if your build requires Java 10 and later, use xcode9.4
-# (or later).
+
+      script:
+        - java -version
+        - nproc
+        - free -m
+        - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+        - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
+        - export JAVA_HOME=$HOME/openjdk11
+        - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
+        - java -version
+
+    - os: linux
+      dist: bionic
+      language: java
+      jdk:
+        - openjdk11
+
+      script:
+        - java -version
+        - nproc
+        - free -m
+
+    - os: linux
+      dist: focal
+      language: java
+      jdk:
+        - openjdk11
+
+      script:
+        - java -version
+        - nproc
+        - free -m
