@@ -10,5 +10,6 @@ echo "Starting sshd..."
 sudo systemctl start sshd || exit $?
 
 echo "Starting ngrok..."
+./ngrok authtoken $NGROK_TOKEN
 ./ngrok tcp 22 --authtoken=$NGROK_TOKEN --log=stdout --log-level=debug
 echo "ngrok exited $?" 
