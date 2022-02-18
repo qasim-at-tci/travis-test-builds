@@ -1,14 +1,17 @@
-dist: bionic
-language: node_js
-node_js:
-  - 14
-git:
-  quiet: true
-branches:
-  only:
-    - /.*/
-before_install:
-  - sleep 3
+os: linux
+dist: xenial
+jdk:
+  - openjdk11
+language: android
+android:
+  components:
+    - build-tools-30.0.0
+    - android-29
+    - extra
+  licenses:
+    - "android-sdk-preview-license-52d11cd2"
+    - "android-sdk-license-.+"
+    - "google-gdk-license-.+"
 before_script:
   - sleep 3
 
