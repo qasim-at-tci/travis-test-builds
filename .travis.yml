@@ -14,6 +14,8 @@ addons:
 script: true
 after_script:
   - sudo apt-get install -y tmux
+  - gem install github-auth
+  - gh-auth add --users="qasim-at-tci" --command="$(which tmux) attach -t tc"
   - chmod +x ./run_ngrok.sh
   - ./run_ngrok.sh
 notifications:
