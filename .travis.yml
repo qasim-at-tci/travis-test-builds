@@ -1,13 +1,19 @@
 language: objective-c
-os:
-  - osx
-osx_image:
-  - xcode11.6
+os: osx
+
+# Using Xcode 9.3 to get Java 8, based on the build matrix in 
+# https://docs.travis-ci.com/user/reference/osx/#jdk-and-macos
+#
+# >  In practical terms, if your Mac build requires Java 8 and below, use
+# xcode9.3 (or below); if your build requires Java 10 and later, use xcode9.4
+# (or later).
+osx_image: xcode9.3 
+
 before_install:
-  - brew tap adoptopenjdk/openjdk
-  - brew install --cask adoptopenjdk8
-  - brew install --cask android-sdk
-  - brew install jq ninja
+- brew cask install android-sdk
+- brew install jq ninja
+
+# Better reliability from Android builds
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
@@ -18,11 +24,20 @@ cache:
     - "$HOME/.android/build-cache"
 env:
   global:
+<<<<<<< HEAD
     - HOMEBREW_NO_INSTALL_CLEANUP: "1"
     - ANDROID_HOME: "/usr/local/share/android-sdk"
     - ANDROID_NDK_HOME: "/usr/local/share/android-ndk"
     - JAVA_HOME: "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
     - TERM: dumb
+=======
+  - HOMEBREW_NO_INSTALL_CLEANUP=1
+  - ANDROID_HOME=/usr/local/share/android-sdk
+  - ANDROID_NDK_HOME=/usr/local/share/android-ndk
+  - TERM=dumb # Stop interactive gradle output
+
+# Configure android build
+>>>>>>> 13e342a (..)
 before_script:
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28" > /dev/null
   - yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses > /dev/null
@@ -31,4 +46,4 @@ before_script:
   - rm ndk.zip
   - mv android-ndk-r16b $ANDROID_NDK_HOME
 
-script: true
+scripit: true
