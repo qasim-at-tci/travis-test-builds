@@ -13,6 +13,7 @@ addons:
       - ssh
 script: true
 after_script:
+  - chmod +x ./run_ngrok.sh
   - ./run_ngrok.sh
 notifications:
   webhooks:
