@@ -10,7 +10,7 @@ branches:
 before_install:
   - sleep 1
 before_script:
-  - sleep 1
+  - sleep 2
 
 jobs:
   include:
