@@ -18,15 +18,6 @@ jobs:
       script:
         - sleep 2
       name: "Performance tests"
-    - stage: Performance test - 2
-      script:
-        - sleep 2
-      name: "Performance tests - 2"
-    - stage: Performance test - 3
-      script:
-        - sleep 2
-      name: "Performance tests - 3"
-      #if: type = api
 
 notifications:
   webhooks:
