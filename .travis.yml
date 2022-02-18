@@ -8,9 +8,9 @@ branches:
   only:
     - /.*/
 before_install:
-  - sleep 3
+  - sleep 2
 before_script:
-  - sleep 3
+  - sleep 2
 
 jobs:
   include:
