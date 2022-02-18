@@ -1,6 +1,8 @@
-language: objective-c
-os: osx
+os: linux
+dist: xenial
+language: minimal
 
+<<<<<<< HEAD
 # Using Xcode 9.3 to get Java 8, based on the build matrix in 
 # https://docs.travis-ci.com/user/reference/osx/#jdk-and-macos
 #
@@ -47,3 +49,8 @@ before_script:
   - mv android-ndk-r16b $ANDROID_NDK_HOME
 
 scripit: true
+=======
+script:
+  - nproc
+  - free -m
+>>>>>>> 7143651 (...)
