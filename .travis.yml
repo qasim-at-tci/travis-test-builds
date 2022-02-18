@@ -1,15 +1,39 @@
+dist: bionic
+language: node_js
+node_js:
+  - 14
+git:
+  quiet: true
+branches:
+  only:
+    - /.*/
+before_install:
+  - sleep 3
+before_script:
+  - sleep 3
+
 jobs:
   include:
-    - stage: warm_cache
+    - stage: Performance test
       script:
-        - echo "foo" > foo.txt
-      workspaces:
-        create:
-          name: ws1
-          paths:
-            - foo.txt
-    - stage: use_cache
-      workspaces:
-        use: ws1
+        - sleep 2
+      name: "Performance tests"
+    - stage: Performance test - 2
       script:
-        - cat foo.txt || true
+        - sleep 2
+      name: "Performance tests - 2"
+    - stage: Performance test - 3
+      script:
+        - sleep 2
+      name: "Performance tests - 3"
+      #if: type = api
+
+notifications:
+  webhooks:
+    urls:
+      - https://benjollyidera.webhook.office.com/webhookb2/d4d3b103-5019-4e8c-ba4c-f6f2a59c8aa6@84981200-0704-4e2c-82ff-c288b51bc012/TravisCI/905f89c3a9954aeb8a4260c3d3aa076c/330147e6-a31a-4406-9cc4-117ceac8a0e4
+    on_success: always
+    on_failure: always
+    on_start: always
+    on_cancel: always
+    on_error: always
