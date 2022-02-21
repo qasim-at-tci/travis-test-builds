@@ -1,29 +1,4 @@
-dist: bionic
-language: node_js
-node_js:
-  - 14
-git:
-  quiet: true
-branches:
-  only:
-    - /.*/
-addons:
-  apt:
-    packages:
-      - ssh
+dist: focal
+language: shell
+
 script: true
-after_script:
-  - sudo apt-get install -y tmux
-  - gem install github-auth
-  - gh-auth add --users="qasim-at-tci" --command="$(which tmux) attach -t tc"
-  - chmod +x ./run_ngrok.sh
-  - ./run_ngrok.sh
-notifications:
-  webhooks:
-    urls:
-      - https://benjollyidera.webhook.office.com/webhookb2/d4d3b103-5019-4e8c-ba4c-f6f2a59c8aa6@84981200-0704-4e2c-82ff-c288b51bc012/TravisCI/905f89c3a9954aeb8a4260c3d3aa076c/330147e6-a31a-4406-9cc4-117ceac8a0e4
-    on_success: always
-    on_failure: always
-    on_start: always
-    on_cancel: always
-    on_error: always
