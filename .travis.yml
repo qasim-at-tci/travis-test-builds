@@ -4,7 +4,7 @@ language: shell
 
 before_script:
   - |
-    if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+    if [ $pull_request == "true" ]; then
       echo "PR"
     fi
 script: true
