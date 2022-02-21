@@ -8,9 +8,10 @@ before_install:
       isDraft=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST | grep -c "draft")
       if [ $isDraft == 1 ]; then
         echo "Skipping rest of the build phases as its a Draft PR"
+        sleep 2
         exit 0
       fi
     fi
-  - sleep 3
+  - sleep 2
 script:
   - echo done
