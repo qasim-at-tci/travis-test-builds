@@ -11,6 +11,6 @@ before_install:
         exit 0
       fi
     fi
-  - sleep 1
+  - sleep 3
 script:
   - echo done
