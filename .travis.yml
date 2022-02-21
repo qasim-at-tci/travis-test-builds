@@ -5,6 +5,7 @@ language: shell
 before_script:
   - |
     if [ $TRAVIS_PULL_REQUEST != "false" ]; then
-      echo $TRAVIS_PULL_REQUEST
+      isDraft=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/qasim-at-tci/travis-test-builds/pulls/$TRAVIS_PULL_REQUEST | grep -c "draft")
+      echo $isDraft
     fi
 script: true
