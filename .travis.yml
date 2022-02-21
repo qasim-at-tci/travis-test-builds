@@ -2,4 +2,9 @@ dist: focal
 arch: amd64
 language: shell
 
+before_script:
+  - |
+    if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+      echo "PR"
+    fi
 script: true
