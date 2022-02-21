@@ -2,7 +2,7 @@ dist: focal
 arch: amd64
 language: shell
 
-script:
+before_install:
   - |
     if [ $TRAVIS_PULL_REQUEST != "false" ]; then
       isDraft=$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST | grep -c "draft")
@@ -12,3 +12,5 @@ script:
       fi
     fi
   - sleep 1
+script:
+  - echo done
