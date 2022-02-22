@@ -3,6 +3,7 @@ language: node_js
 node_js:
   - 14
 env:
+  global:
   - CONFIG=Debug Platform=macos
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
