@@ -11,11 +11,7 @@ jobs:
   include:
     - os: linux
       dist: focal
-      env:
-        <<: *env
-        test=1
+      <<: *env
     - os: linux
       dist: focal
-      env:
-        <<: *env
-        test=1
+      <<: *env
