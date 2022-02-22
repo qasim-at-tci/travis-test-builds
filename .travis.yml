@@ -2,7 +2,8 @@ dist: bionic
 language: node_js
 node_js:
   - 14
-env: &env
+env:
+  global:
   - CONFIG=Debug Platform=macos
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
@@ -11,7 +12,10 @@ jobs:
   include:
     - os: linux
       dist: focal
-      <<: *env
+      env:
+        - test=1
     - os: linux
       dist: focal
-      <<: *env
+      env:
+        - test=2
+script: true
