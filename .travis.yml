@@ -1,3 +1,5 @@
+os: osx
+osx_image: xcode12.5
 language: node_js
 node_js:
   - 14
@@ -9,11 +11,9 @@ env:
   - CONFIG=Release PLATFORM=iOS
   global:
     - if [$TRAVIS_OS_NAME == "osx"]; then test=1 fi
-    - if [$TRAVIS_OS_NAME == "linux"]; then test=2 PLATFORM=macos fi
+    - if [$TRAVIS_OS_NAME == "linux"]; then test=2 fi
 jobs:
   include:
-    - os: osx
-      osx_image: xcode12.5
     - os: linux
       dist: focal
 script: true
