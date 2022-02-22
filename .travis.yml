@@ -1,12 +1,16 @@
+os:
+  - linux
+  - osx
 dist: bionic
+osx_image: xcode12.5
 language: node_js
 node_js:
   - 14
 env:
-  - CONFIG=Debug Platform=macos
-  - CONFIG=Release PLATFORM=macos
-  - CONFIG=Debug PLATFORM=iOS
-  - CONFIG=Release PLATFORM=iOS
+  - if [$TRAVIS_OS_NAME == "osx"]; then CONFIG=Debug Platform=macos fi
+  - if [$TRAVIS_OS_NAME == "osx"]; then CONFIG=Release PLATFORM=macos fi
+  - if [$TRAVIS_OS_NAME == "osx"]; then CONFIG=Debug PLATFORM=iOS fi
+  - if [$TRAVIS_OS_NAME == "osx"]; then CONFIG=Release PLATFORM=iOS fi
 jobs:
   include:
     - os: linux
