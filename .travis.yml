@@ -7,4 +7,6 @@ env:
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
   - CONFIG=Release PLATFORM=iOS
-script: true
+script:
+  - echo $CONFIG
+  - echo $Platform
