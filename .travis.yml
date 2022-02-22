@@ -4,7 +4,7 @@ language: node_js
 node_js:
   - 14
 env:
-  jobs:
+  global:
   - CONFIG=Debug Platform=macos
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
