@@ -10,8 +10,14 @@ env:
   - CONFIG=Debug PLATFORM=iOS
   - CONFIG=Release PLATFORM=iOS
   global:
-    - if [$TRAVIS_OS_NAME == "osx"]; then test=1 fi
-    - if [$TRAVIS_OS_NAME == "linux"]; then test=2 fi
+    - |
+      if [$TRAVIS_OS_NAME == "osx"]; then
+        test=1
+      fi
+    - |
+      if [$TRAVIS_OS_NAME == "linux"]; then
+        test=2
+      fi
 jobs:
   include:
     - os: linux
