@@ -4,7 +4,7 @@ language: node_js
 node_js:
   - 14
 env:
-  global:
+  jobs:
   - CONFIG=Debug Platform=macos
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
@@ -23,5 +23,4 @@ jobs:
       dist: focal
       env:
         - test=3
-
 script: true
