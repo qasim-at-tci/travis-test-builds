@@ -11,7 +11,7 @@ env:
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
   - CONFIG=Release PLATFORM=iOS
-  global:
+  - global:
     - if [$TRAVIS_OS_NAME == "osx"]; then test=1 fi
     - if [$TRAVIS_OS_NAME == "linux"]; then test=2 PLATFORM=macos fi
 script: true
