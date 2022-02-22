@@ -7,6 +7,13 @@ env:
   - CONFIG=Release PLATFORM=macos
   - CONFIG=Debug PLATFORM=iOS
   - CONFIG=Release PLATFORM=iOS
-script:
-  - echo $CONFIG
-  - echo $Platform
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      env:
+        - test=1
+    - os: linux
+      dist: focal
+      env:
+        - test=2
