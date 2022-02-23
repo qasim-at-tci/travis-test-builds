@@ -1,26 +1,11 @@
-os: osx
-osx_image: xcode12.5
-language: node_js
-node_js:
-  - 14
+os:
+  - linux
+  - osx
 env:
-  jobs:
-  - CONFIG=Debug Platform=macos
-  - CONFIG=Release PLATFORM=macos
-  - CONFIG=Debug PLATFORM=iOS
-  - CONFIG=Release PLATFORM=iOS
-jobs:
-  include:
-    - os: linux
-      dist: focal
-      env:
-        - test=1
-    - os: linux
-      dist: focal
-      env:
-        - test=2
-    - os: linux
-      dist: focal
-      env:
-        - test=3
-script: true
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=macOS"; fi
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Debug"; else echo "CONFIG=Debug PLATFORM=macOS"; fi
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=ios"; fi
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Debug PLATFORM=ios"; fi
+script:
+  - echo $CONFIG
+  - echo $PLATFORM
