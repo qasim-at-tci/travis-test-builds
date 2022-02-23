@@ -2,10 +2,10 @@ os:
   - linux
   - osx
 env:
-  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=macOS"; fi
-  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Debug"; else echo "CONFIG=Debug PLATFORM=macOS"; fi
-  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=ios"; fi
-  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Debug PLATFORM=ios"; fi
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=macOS"; fi)
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Debug"; else echo "CONFIG=Debug PLATFORM=macOS"; fi)
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Release PLATFORM=ios"; fi)
+  - ENV=$(if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo "CONFIG=Release"; else echo "CONFIG=Debug PLATFORM=ios"; fi)
 script:
   - echo $CONFIG
   - echo $PLATFORM
