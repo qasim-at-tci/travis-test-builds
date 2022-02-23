@@ -4,8 +4,6 @@ os:
 env:
   - CONFIG="Release" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "macos"; fi)
   - CONFIG="Debug" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "ios"; fi)
-  - CONFIG="Release" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "macos"; fi)
-  - CONFIG="Debug" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "ios"; fi)
 script:
   - echo $CONFIG
   - echo $PLATFORM
