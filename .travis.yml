@@ -1,9 +1,34 @@
-os:
-  - linux
-  - osx
+os: osx
+
+osx_image: xcode12.4
+
+language: cpp
+
 env:
-  - CONFIG="Release" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "macos"; fi)
-  - CONFIG="Debug" PLATFORM=$(if [ "$TRAVIS_OS_NAME" = "osx" ]; then echo "ios"; fi)
-script:
-  - echo $CONFIG
-  - echo $PLATFORM
+  global:
+  - VULKAN_SDK_VER="1.2.176.1"
+  # This is just to tell the install script where to install.
+  - VULKAN_INSTALL_DIR="$HOME/VulkanSDK/$VULKAN_SDK_VER"
+  - VULKAN_SDK="$VULKAN_INSTALL_DIR/macOS"
+  jobs:
+  - CONFIG=Debug PLATFORM=macos arch=x86-64
+  - CONFIG=Release PLATFORM=macos arch=x86_64
+  - CONFIG=Debug PLATFORM=macos arch=arm64
+  - CONFIG=Release PLATFORM=macos arch=arm64
+  - CONFIG=Debug PLATFORM=iOS
+  - CONFIG=Release PLATFORM=iOS
+
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      compiler: gcc # clang is tested by macOS build
+      env:
+        # NB: This must not have the fourth component of the version number.
+        - VULKAN_SDK_VER="1.2.176"
+        - CONFIG=Debug
+      script:
+        - echo $VULKAN_SDK_VER
+        - echo $VULKAN_INSTALL_DIR
+        - echo $VULKAN_SDK
+script: true
