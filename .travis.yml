@@ -2,9 +2,8 @@ jobs:
   include:
     - os: linux
       dist: focal
-      compiler: gcc # clang is tested by macOS build
+      compiler: gcc
       env:
-        # NB: This must not have the fourth component of the version number.
         - VULKAN_SDK_VER="1.2.176"
         - CONFIG=Debug
       script: true
