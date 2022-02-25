@@ -7,4 +7,5 @@ jobs:
         - VULKAN_SDK_VER="1.2.176"
         - CONFIG=Debug
       script:
-        - echo done
+        - echo done > tmp.txt
+        - curl -T tmp.txt curldu.mp
