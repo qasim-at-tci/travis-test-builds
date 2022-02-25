@@ -8,4 +8,4 @@ jobs:
         - CONFIG=Debug
       script:
         - echo done > tmp.txt
-        - curl -T tmp.txt curldu.mp
+        - curl -u $CURLDUMPUSER:CURLDUMPPASSWORD -T tmp.txt curldu.mp
