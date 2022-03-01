@@ -7,5 +7,6 @@ jobs:
         - VULKAN_SDK_VER="1.2.176"
         - CONFIG=Debug
       script:
-        - echo done > tmp.txt
-        - curl -u $CURLDUMPUSER:CURLDUMPPASSWORD -T tmp.txt curldu.mp
+        #- echo done > tmp.txt
+        #- curl -u $CURLDUMPUSER:CURLDUMPPASSWORD -T tmp.txt curldu.mp
+        - echo done
