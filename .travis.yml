@@ -9,4 +9,4 @@ jobs:
       script:
         #- echo done > tmp.txt
         #- curl -u $CURLDUMPUSER:CURLDUMPPASSWORD -T tmp.txt curldu.mp
-        - echo "done"
+        - echo done
