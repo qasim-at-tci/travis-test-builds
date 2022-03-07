@@ -1,24 +1,10 @@
-language: java
+language: scala
 sudo: required
 dist: trusty
-env:
-  global:
-    - ANDROID_HOME=$HOME/android-sdk
-    - ASSEMBLE_DEBUG='assembleDebug'
-    - ASSEMBLE_RELEASE='assembleRelease'
-    - TARGET_VERSION=30
-    - ANDROID_BUILD_TOOLS_VERSION=30.0.2
 before_install:
   - curl -s "https://get.sdkman.io" | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - sdk install java 11.0.12-open
   - java -version
-install:
-  - mkdir $HOME/android-sdk-dl
-  - mkdir $HOME/android-sdk
-  - curl https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip > $HOME/android-sdk-dl/sdk-tools.zip
-  - unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
-  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
-  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
 script:
   - java -version
