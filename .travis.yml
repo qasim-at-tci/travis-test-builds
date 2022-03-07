@@ -21,6 +21,6 @@ jobs:
       - sudo apt -y autoremove
       - curl -s "https://get.sdkman.io" | bash
       - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install java 1.13.0-open
+      - sdk install java 13.0.2-open
       - java -version
       script: true
