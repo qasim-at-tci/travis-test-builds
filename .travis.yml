@@ -3,20 +3,14 @@ jobs:
     - os: linux
       dist: trusty
       language: android
+      jdk: openjdk11
       before_install:
-      - curl -s "https://get.sdkman.io" | bash
-      - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install java 11.0.12-open
       - java -version
       script: true
     - os: linux
       dist: xenial
       language: java
+      jdk: openjdk13
       before_install:
-      - sudo apt-get -y remove default-jdk
-      - sudo apt -y autoremove
-      - curl -s "https://get.sdkman.io" | bash
-      - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install java 9.0.4-open
       - java -version
       script: true
