@@ -10,11 +10,9 @@ jobs:
       - java -version
       script: true
     - os: linux
-      dist: focal
+      dist: trusty
       language: java
       before_install:
-      - sudo apt-get -y remove default-jdk
-      - sudo apt -y autoremove
       - curl -s "https://get.sdkman.io" | bash
       - source "$HOME/.sdkman/bin/sdkman-init.sh"
       - sdk install java 15.0.2-open
