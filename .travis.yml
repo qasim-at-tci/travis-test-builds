@@ -15,7 +15,7 @@ jobs:
       - java -version
       script: true
     - os: linux
-      dist: bionic
+      dist: xenial
       language: java
       jdk: openjdk13
       before_install:
