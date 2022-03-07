@@ -1,8 +1,8 @@
 jobs:
   include:
     - os: linux
-      dist: xenial
-      language: java
+      dist: trusty
+      language: android
       before_install:
       - sudo apt-get -y remove default-jdk
       - sudo apt -y autoremove
