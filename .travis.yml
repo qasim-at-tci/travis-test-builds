@@ -15,7 +15,7 @@ jobs:
       - java -version
       script: true
     - os: linux
-      dist: xenial
+      dist: focal
       language: java
       jdk: openjdk11
       before_install:
