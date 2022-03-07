@@ -15,6 +15,6 @@ jobs:
       before_install:
       - curl -s "https://get.sdkman.io" | bash
       - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install java 15.0.2-open
+      - sdk install java 11.0.12-open
       - java -version
       script: true
