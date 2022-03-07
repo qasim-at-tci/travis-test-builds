@@ -1,12 +1,23 @@
 jobs:
   include:
     - os: linux
-      dist: focal
-      compiler: gcc
-      env:
-        - VULKAN_SDK_VER="1.2.176"
-        - CONFIG=Debug
-      script:
-        #- echo done > tmp.txt
-        #- curl -u $CURLDUMPUSER:CURLDUMPPASSWORD -T tmp.txt curldu.mp
-        - echo done
+      dist: xenial
+      language: java
+      jdk: openjdk9
+      before_install:
+      - java -version
+      script: true
+    - os: linux
+      dist: trusty
+      language: android
+      jdk: openjdk11
+      before_install:
+      - java -version
+      script: true
+    - os: linux
+      dist: bionic
+      language: java
+      jdk: openjdk13
+      before_install:
+      - java -version
+      script: true
