@@ -10,7 +10,7 @@ jobs:
       - java -version
       script: true
     - os: linux
-      dist: xenial
+      dist: focal
       language: java
       before_install:
       - sudo apt-get -y remove default-jdk
