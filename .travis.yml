@@ -9,6 +9,6 @@ jobs:
       - sudo apt -y update
       - sudo apt install -y openjdk-13-jdk
       - sudo  update-java-alternatives --list
-      #- sudo  update-java-alternatives --set openjdk-13-jdk
+      - sudo  update-java-alternatives --set java-1.13.0-openjdk-amd64
       - java -version
       script: true
