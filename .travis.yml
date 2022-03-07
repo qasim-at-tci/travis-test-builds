@@ -6,7 +6,8 @@ jobs:
       before_install:
       - curl -s "https://get.sdkman.io" | bash
       - source "$HOME/.sdkman/bin/sdkman-init.sh"
-      - sdk install 11.0.12-open
+      - sdk list java
+      - sdk install 11.0.12-openjdk
       - java -version
       script: true
     - os: linux
