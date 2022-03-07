@@ -17,7 +17,7 @@ jobs:
     - os: linux
       dist: xenial
       language: java
-      jdk: openjdk13
       before_install:
+      - sudo apt install -y openjdk-13-jdk
       - java -version
       script: true
