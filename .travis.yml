@@ -1,6 +1,13 @@
 language: java
 sudo: required
 dist: trusty
+env:
+  global:
+    - ANDROID_HOME=$HOME/android-sdk
+    - ASSEMBLE_DEBUG='assembleDebug'
+    - ASSEMBLE_RELEASE='assembleRelease'
+    - TARGET_VERSION=30
+    - ANDROID_BUILD_TOOLS_VERSION=30.0.2
 before_install:
   - curl -s "https://get.sdkman.io" | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
