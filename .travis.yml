@@ -8,7 +8,8 @@ jobs:
       script:
         - echo "Tagged build"
         - echo $TRAVIS_TAG
-    - before_install:
+    - if: tag IS blank
+      before_install:
       - |
         if [[ -n $TRAVIS_TAG ]]; then
           git fetch origin main:main   
