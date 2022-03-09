@@ -9,13 +9,5 @@ jobs:
         - echo "Tagged build"
         - echo $TRAVIS_TAG
     - if: tag IS blank
-      before_install:
-      - |
-        if [[ -n $TRAVIS_TAG ]]; then
-          git fetch origin main:main   
-          if ! (git branch --contains "$TRAVIS_TAG" | grep -qxE '. main'); then
-            travis_terminate 0
-          fi
-        fi
       script:
-        - echo "Branch build"
+        - echo "Branch build" 
