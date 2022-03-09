@@ -4,9 +4,9 @@ language: shell
 
 jobs:
   include:
-    - if: branch=$TRAVIS_TAG AND tag IS present
+    - if: tag IS present
       script:
         - echo "Tagged build"
     - if: branch=main AND tag IS blank
       script:
-        - echo "Untagged build"
+        - echo "Untagged branch build"
