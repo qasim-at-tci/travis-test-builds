@@ -1,13 +1,26 @@
-os: linux
-dist: focal
-language: shell
+language: generic
+conditions: v1
+
+services:
+  - docker
 
 jobs:
+  fast_finish: true
   include:
-    - if: tag IS present
-      script:
-        - echo "Tagged build"
-        - echo $TRAVIS_TAG
-    - if: tag IS blank
-      script:
-        - echo "Branch build" 
+    - os: linux
+      name: PPC64
+      arch: ppc64le
+      dist: focal
+    - os: linux
+      name: S390X
+      arch: s390x
+      dist: focal
+    - os: linux
+      name: ARM64
+      arch: arm64
+      dist: focal
+  allow_failures:
+    # Linux with GCC on System Z
+    - os: linux
+      arch: s390x
+script: true
