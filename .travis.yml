@@ -7,6 +7,3 @@ jobs:
     - if: tag IS present
       script:
         - echo "Tagged build"
-    - if: branch=main AND tag IS blank
-      script:
-        - echo "Untagged branch build"
