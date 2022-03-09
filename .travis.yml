@@ -23,4 +23,5 @@ jobs:
     # Linux with GCC on System Z
     - os: linux
       arch: s390x
-script: true
+script:
+  - echo done
