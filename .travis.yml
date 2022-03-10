@@ -1,26 +1,13 @@
-language: generic
-conditions: v1
-
-services:
-  - docker
-
+language: shell
 jobs:
-  fast_finish: true
   include:
     - os: linux
-      name: PPC64
-      arch: ppc64le
       dist: focal
+      jdk: openjdk17
     - os: linux
-      name: S390X
-      arch: s390x
       dist: focal
+      jdk: openjdk13
     - os: linux
-      name: ARM64
-      arch: arm64
       dist: focal
-  allow_failures:
-    # Linux with GCC on System Z
-    - os: linux
-      arch: s390x
+      jdk: openjdk11
 script: true
