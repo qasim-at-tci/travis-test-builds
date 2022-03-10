@@ -1,8 +1,6 @@
 os: linux
 dist: focal
 language: ruby
-ruby: 3.1.0
-script: true
 before_deploy:
   - export APP_CHANGELOG=$(cat README.md)
   #- export APP_CHANGELOG=CHANGED
@@ -19,3 +17,14 @@ deploy:
     branch: main
     tags: true
   skip_cleanup: 'true'
+
+jobs:
+  include:
+    - language: ruby
+      script:
+        - rvm install 3.1.0
+        - ruby -v
+    - language: ruby
+      ruby: 3.1.0
+      script:
+        - ruby -v
