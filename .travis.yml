@@ -1,20 +1,12 @@
+os: linux
+dist: focal
+language: shell
 jobs:
   include:
-    - os: linux
-      dist: focal
-      arch: ppc64le
-      jdk: openjdk17
+    - if: tag IS present
       script:
-        - sleep 1
-    - os: linux
-      dist: focal
-      arch: s390x
-      jdk: openjdk13
+        - echo "Tagged build"
+        - echo $TRAVIS_TAG
+    - if: tag IS blank AND type IS NOT push
       script:
-        - sleep 2
-    - os: linux
-      dist: focal
-      arch: arm64
-      jdk: openjdk11
-      script:
-        - sleep 3
+        - echo "Branch build"
