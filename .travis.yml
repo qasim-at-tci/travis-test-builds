@@ -3,7 +3,7 @@ dist: focal
 language: shell
 jobs:
   include:
-    - if: tag IS present
+    - if: tag IS present AND type IS NOT push
       script:
         - echo "Tagged build"
         - echo $TRAVIS_TAG
