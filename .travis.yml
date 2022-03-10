@@ -3,10 +3,9 @@ dist: focal
 language: shell
 jobs:
   include:
-    - if: tag IS present AND type IS NOT push
+    - if: type IS push
       script:
-        - echo "Tagged build"
-        - echo $TRAVIS_TAG
-    - if: tag IS blank AND type IS NOT push
+        - echo "Build on Travis tag"
+    - if: type IS pull_request
       script:
-        - echo "Branch build"
+        - echo "Pull request builds"
