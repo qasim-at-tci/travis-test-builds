@@ -2,7 +2,8 @@ os: linux
 dist: focal
 language: shell
 script:
-  - export APP_CHANGELOG=$(cat README.md)
+  #- export APP_CHANGELOG=$(cat README.md)
+  - export APP_CHANGELOG=SOMETHING CHANGED
   - echo $APP_CHANGELOG
 deploy:
   provider: releases
