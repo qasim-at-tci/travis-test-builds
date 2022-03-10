@@ -1,15 +1,17 @@
-language: shell
 jobs:
   include:
     - os: linux
       dist: focal
       jdk: openjdk17
-      script: true
+      script:
+        - sleep 1
     - os: linux
       dist: focal
       jdk: openjdk13
-      script: true
+      script:
+        - sleep 2
     - os: linux
       dist: focal
       jdk: openjdk11
-      script: true
+      script:
+        - sleep 3
