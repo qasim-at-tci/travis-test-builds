@@ -4,10 +4,12 @@ jobs:
     - os: linux
       dist: focal
       jdk: openjdk17
+      script: true
     - os: linux
       dist: focal
       jdk: openjdk13
+      script: true
     - os: linux
       dist: focal
       jdk: openjdk11
-script: true
+      script: true
