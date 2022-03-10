@@ -3,7 +3,7 @@ dist: focal
 language: shell
 jobs:
   include:
-    - if: type IS api
+    - if: tag IS present
       script:
         - echo "Build on Travis tag"
     - if: type IS pull_request
