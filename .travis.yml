@@ -1,8 +1,4 @@
 os: linux
 dist: focal
 language: shell
-jobs:
-  include:
-      script:
-        - echo "Build on Travis tag"
-        - sleep 1
+script: true
