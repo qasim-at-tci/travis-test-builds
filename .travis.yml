@@ -1,9 +1,10 @@
 os: linux
 dist: focal
 language: shell
-script:
-  #- export APP_CHANGELOG=$(cat README.md)
-  - export APP_CHANGELOG=SOMETHING CHANGED
+script: true
+before_deploy:
+  - export APP_CHANGELOG=$(cat README.md)
+  #- export APP_CHANGELOG=CHANGED
   - echo $APP_CHANGELOG
 deploy:
   provider: releases
@@ -15,4 +16,5 @@ deploy:
   on:
     repo: qasim-at-tci/travis-test-builds
     branch: main
+    tags: true
   skip_cleanup: 'true'
