@@ -1,6 +1,7 @@
 os: linux
 dist: focal
-language: shell
+language: ruby
+ruby: 3.1.0
 script: true
 before_deploy:
   - export APP_CHANGELOG=$(cat README.md)
