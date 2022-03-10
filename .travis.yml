@@ -6,6 +6,3 @@ jobs:
       script:
         - echo "Build on Travis tag"
         - sleep 1
-      script:
-        - echo "Pull request builds"
-        - sleep 2
