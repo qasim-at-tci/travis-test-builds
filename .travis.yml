@@ -21,6 +21,7 @@ deploy:
 jobs:
   include:
     - language: ruby
+      install: skip
       script:
         - rvm install 3.1.0
         - ruby -v
