@@ -15,7 +15,7 @@ deploy:
     repo: qasim-at-tci/travis-test-builds
     branch: main
     tags: true
-  skip_cleanup: 'true'
+  cleanup: 'false'
 
 jobs:
   include:
