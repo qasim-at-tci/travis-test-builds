@@ -1,6 +1,7 @@
 os: linux
 dist: focal
-language: ruby
+language: php
+php: 7.4
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -17,10 +18,5 @@ deploy:
     tags: true
   cleanup: 'false'
 
-jobs:
-  include:
-    - language: ruby
-      ruby: 2.7.1
-      script:
-        - ruby -v
-        - sleep 1
+script:
+  - php --version
