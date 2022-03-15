@@ -1,5 +1,5 @@
 os: linux
-dist: focal
+dist: xenial
 language: php
 php: 7.4
 before_deploy:
