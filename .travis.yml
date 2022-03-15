@@ -18,5 +18,11 @@ deploy:
     tags: true
   cleanup: 'false'
 
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
 script:
   - php --version
