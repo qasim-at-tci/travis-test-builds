@@ -1,6 +1,10 @@
 os: linux
 dist: xenial
 language: php
+php: 7.4
+addons:
+  apt:
+    update: true
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -16,11 +20,5 @@ deploy:
     branch: main
     tags: true
   cleanup: 'false'
-before_script:
-  - sudo /sbin/ldconfig -v
-  - sudo apt-get update -qq && sudo apt-get upgrade -y
-  - git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
-  - phpenv install 7.4
-  - phpenv global 7.4
 script:
   - php --version
