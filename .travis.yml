@@ -18,7 +18,7 @@ deploy:
   cleanup: 'false'
 before_script:
   - sudo /sbin/ldconfig -v
-  - sudo apt-get install -y libonig-dev
+  - sudo apt-get install -y libonig-dev libzip
   - git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
   - phpenv install 7.4.28
   - phpenv global 7.4.28
