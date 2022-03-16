@@ -18,6 +18,7 @@ deploy:
   cleanup: 'false'
 before_script:
   - sudo /sbin/ldconfig -v
+  - git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
   - phpenv install 7.4.0
   - phpenv global 7.4.0
 script:
