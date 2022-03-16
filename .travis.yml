@@ -4,7 +4,8 @@ language: php
 php: 7.4
 addons:
   apt:
-    sources: ppa:ondrej/php
+    sources:
+      - ppa:ondrej/php
     packages:
       - libargon2
       - libargon2-devel
