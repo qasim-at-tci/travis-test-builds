@@ -1,15 +1,6 @@
 os: linux
 dist: xenial
 language: php
-php: 7.4
-addons:
-  apt:
-    sources:
-      - ppa:ondrej/php
-    packages:
-      - libargon2
-      - libargon2-devel
-    update: true
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
