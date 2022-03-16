@@ -17,4 +17,5 @@ deploy:
     branch: main
     tags: true
   cleanup: 'false'
-script: true
+script:
+  - uname -a
