@@ -1,7 +1,11 @@
 os: linux
-dist: xenial
-arch: arm64-graviton2
+dist: trusty
 language: shell
+addons:
+  apt:
+    packages:
+      - git
+    update: true
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
