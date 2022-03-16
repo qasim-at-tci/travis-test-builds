@@ -1,6 +1,7 @@
 os: linux
 dist: xenial
 arch: arm64-graviton2
+virt: vm
 language: shell
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
