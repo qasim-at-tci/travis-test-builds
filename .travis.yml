@@ -4,6 +4,8 @@ language: php
 php: 7.4
 addons:
   apt:
+    packages:
+      - libargon2-0
     update: true
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
