@@ -5,7 +5,6 @@ addons:
   apt:
     packages:
       - git
-    update: true
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
