@@ -1,7 +1,6 @@
 os: linux
-dist: trusty
+dist: xenial
 language: php
-php: 7.4
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -17,12 +16,5 @@ deploy:
     branch: main
     tags: true
   cleanup: 'false'
-
-jobs:
-  include:
-    - dist: trusty
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
 script:
   - php --version
