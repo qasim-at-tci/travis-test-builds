@@ -1,6 +1,7 @@
 os: linux
 dist: xenial
-language: php
+arch: arm64-graviton2
+language: shell
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -16,12 +17,4 @@ deploy:
     branch: main
     tags: true
   cleanup: 'false'
-before_script:
-  - sudo /sbin/ldconfig -v
-  - sudo apt -y install software-properties-common
-  - sudo apt-get install -y libonig-dev libzip
-  - git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
-  - phpenv install 7.4.28
-  - phpenv global 7.4.28
-script:
-  - php --version
+script: true
