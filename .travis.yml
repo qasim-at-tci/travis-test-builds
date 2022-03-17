@@ -1,9 +1,6 @@
 os: linux
 language: shell
-addons:
-  apt:
-    packages:
-      - git
+arch: arm64-graviton2
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -19,17 +16,5 @@ deploy:
     branch: main
     tags: true
   cleanup: 'false'
-jobs:
-  include:
-    - dist: trusty
-      script:
-        - git --version
-        - sleep 2
-    - dist: trusty
-      script:
-        - git --version
-        - sleep 1
-    - dist: trusty
-      script:
-        - git --version
-        - sleep 3
+script:
+  - uname -a
