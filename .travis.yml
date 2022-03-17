@@ -1,6 +1,7 @@
 os: linux
-language: php
-php: 7.4.22
+dist: focal
+language: shell
+arch: arm64-graviton2
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -17,4 +18,4 @@ deploy:
     tags: true
   cleanup: "false"
 script:
-  - php --version
+  - uname -a
