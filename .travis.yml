@@ -2,6 +2,7 @@ os: linux
 dist: focal
 language: shell
 arch: arm64-graviton2
+group: edge
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
