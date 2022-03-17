@@ -1,8 +1,6 @@
 os: linux
-language: node_js
-node_js: 14
-install:
-  - npm i mocha
+language: php
+php: 7.4.22
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
@@ -17,6 +15,6 @@ deploy:
     repo: qasim-at-tci/travis-test-builds
     branch: main
     tags: true
-  cleanup: 'false'
+  cleanup: "false"
 script:
-  - uname -a
+  - php --version
