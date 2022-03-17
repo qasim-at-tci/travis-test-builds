@@ -1,6 +1,8 @@
 os: linux
 language: node_js
 node_js: 14
+install:
+  - npm i mocha
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
   - echo $CHANGELOG
