@@ -1,6 +1,7 @@
 os: linux
 dist: xenial
-language: shell
+language: php
+php: 7.4
 #arch: arm64-graviton2
 #group: edge
 #virt: vm
@@ -19,11 +20,5 @@ deploy:
     branch: main
     tags: true
   cleanup: "false"
-before_install:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 11.0.2-open
-  - sdk use java 11.0.2-open
 script:
-  - echo $JAVA_HOME
-  - java -version
+  - php -version
