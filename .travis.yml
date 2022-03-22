@@ -24,7 +24,6 @@
 #  - php -version
 
 os: linux
-dist: focal
 arch:
   #  - ppc64le
   - s390x
