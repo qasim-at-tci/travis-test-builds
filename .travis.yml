@@ -32,11 +32,13 @@ language:
   - bash
 #env:
 #  global:
-#    - SHELL=/bin/sh
+#    - CONFIG_SHELL=/bin/bash
 services:
   - docker
   - postgresql
 before_install:
+  - bash --version
+  - echo $CONFIG_SHELL
   - docker build -t testimage .
 script:
   - docker run -ti --rm --name=testcontainer testimage /bin/bash
