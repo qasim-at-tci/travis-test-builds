@@ -29,12 +29,14 @@ arch:
   #  - ppc64le
   - s390x
 language: shell
+addons:
+  apt:
+    packages:
+      - docker-ce
+    update: true
 services:
   - docker
 before_install:
-  - sudo apt install -y zsh
-  - chsh -s $(which zsh)
-  - zsh --version
   - docker build -t testimage .
 script:
   - docker run -ti --rm --name=testcontainer testimage /bin/bash
