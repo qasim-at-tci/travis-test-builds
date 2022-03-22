@@ -33,6 +33,9 @@ language:
 services:
   - docker
   - postgresql
+addons:
+  apt:
+    update: true
 before_install:
   - bash --version
   - echo $CONFIG_SHELL
