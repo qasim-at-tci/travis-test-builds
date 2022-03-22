@@ -35,6 +35,7 @@ language:
 #    - SHELL=/bin/sh
 services:
   - docker
+  - postgresql
 before_install:
   - docker build -t testimage .
 script:
