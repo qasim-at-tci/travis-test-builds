@@ -34,7 +34,9 @@ services:
   - docker
   - postgresql
 before_install:
+  - bash --version
   - sudo apt-get install -y --only-upgrade bash
+  - bash --version
   - docker build -t testimage .
 script:
   - docker run -ti --rm --name=testcontainer testimage /bin/bash
