@@ -24,14 +24,13 @@
 #  - php -version
 
 os: linux
+dist: focal
+sudo: required
 arch:
   #  - ppc64le
   - s390x
 language:
   - bash
-env:
-  global:
-    - CONFIG_SHELL=/bin/bash
 services:
   - docker
   - postgresql
