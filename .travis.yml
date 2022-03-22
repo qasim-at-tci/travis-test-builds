@@ -30,9 +30,6 @@ arch:
   - s390x
 language:
   - bash
-env:
-  global:
-    - CONFIG_SHELL=/bin/sh
 services:
   - docker
   - postgresql
@@ -41,5 +38,5 @@ before_install:
   - echo $CONFIG_SHELL
   - docker build -t testimage .
 script:
-  - docker run -ti --rm --name=testcontainer testimage /bin/sh
+  - docker run -ti --rm --name=testcontainer testimage /bin/bash
   #- export

@@ -15,7 +15,7 @@ RUN useradd -m -d "/home/${USER_NAME}" -l -G wheel ${USER_NAME} \
     && chmod 0440 "/etc/sudoers.d/${USER_NAME}"
 
 USER "${USER_NAME}"
-
+SHELL ["/bin/bash", "-c"]
 # PostgreSQL installation
 ARG POSTGRES_BUILD_DEPS="bison flex zlib-devel readline-devel openssl-devel"
 RUN test "x${POSTGRES_BUILD_DEPS}" = "x" \
