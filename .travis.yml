@@ -28,15 +28,14 @@ dist: focal
 arch:
   #  - ppc64le
   - s390x
-language:
-  - bash
+language: shell
 services:
   - docker
   - postgresql
 before_install:
-  - bash --version
-  - sudo apt-get install -y --only-upgrade bash
-  - bash --version
+  - sudo apt install -y zsh
+  - chsh -s $(which zsh)
+  - zsh --version
   - docker build -t testimage .
 script:
   - docker run -ti --rm --name=testcontainer testimage /bin/bash
