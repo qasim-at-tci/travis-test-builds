@@ -30,9 +30,9 @@ arch:
   - s390x
 language:
   - bash
-#env:
-#  global:
-#    - CONFIG_SHELL=/bin/bash
+env:
+  global:
+    - CONFIG_SHELL=/bin/bash
 services:
   - docker
   - postgresql
