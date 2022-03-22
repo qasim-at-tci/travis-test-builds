@@ -22,7 +22,7 @@ RUN test "x${POSTGRES_BUILD_DEPS}" = "x" \
     || sudo dnf install -y ${POSTGRES_BUILD_DEPS}
 
 ARG POSTGRES_VERSION=REL_10_17
-RUN curl -sSLf "https://github.com/postgres/postgres/archive/${POSTGRES_VERSION}.tar.gz" \
+RUN curl -sSLf "https://github.com/postgres/postgres/releases/tags/${POSTGRES_VERSION}.tar.gz" \
     | tar -C "/home/${USER_NAME}" -xz
     
 ARG POSTGRES_PREFIX=/usr/local
