@@ -31,7 +31,7 @@ ARG POSTGRES_CONFIGURE_OPTIONS
 ARG POSTGRES_MAKE_OPTIONS
 RUN export
 RUN cd ~/postgres-"${POSTGRES_VERSION}" \
-    && CONFIG_SHELL=/bin/bash ./configure --prefix="${POSTGRES_PREFIX}" --includedir=/usr/local/include \
+    && ./configure --prefix="${POSTGRES_PREFIX}" --includedir=/usr/local/include \
        --with-openssl ${POSTGRES_CONFIGURE_OPTIONS} \
     && make ${POSTGRES_MAKE_OPTIONS}
 RUN cd ~/postgres-"${POSTGRES_VERSION}" \
