@@ -33,12 +33,8 @@ language:
 services:
   - docker
   - postgresql
-addons:
-  apt:
-    update: true
 before_install:
-  - bash --version
-  - echo $CONFIG_SHELL
+  - sudo apt update && sudo apt upgrade -y
   - docker build -t testimage .
 script:
   - docker run -ti --rm --name=testcontainer testimage /bin/bash
