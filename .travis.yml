@@ -28,4 +28,6 @@ python:
 install:
   - pip install numpy
   - pip list
+  - ls -lt /home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages
+  - ls -lt /home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages/setuptools*
 script: true
