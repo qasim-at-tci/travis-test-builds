@@ -26,7 +26,6 @@ python:
   - "3.7"
 
 install:
-  # multiple versions of setuptools, pip, wheel
-  - ls -lt /home/travis/virtualenv/python3.7.6/lib/python3.7/site-packages/
-  - ls -lt /home/travis/virtualenv/python3.7.6/lib/python3.7/site-packages/setuptools*
+  - pip install numpy
+  - pip list
 script: true
