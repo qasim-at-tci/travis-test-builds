@@ -25,6 +25,7 @@ python: '3.7'
 language: python
 dist: xenial
 
+install: skip
 before_script:
 - pyenv install 3.9.7
 - pyenv local 3.9.7
