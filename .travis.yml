@@ -27,7 +27,8 @@ dist: xenial
 
 before_script:
 - pyenv install 3.9.7
-- pyenv global 3.9.7
+- pyenv local 3.9.7
+- python -V
 - pip install pip --upgrade --user
 - pip install awscli --upgrade --user
 script: true
