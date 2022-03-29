@@ -20,14 +20,9 @@
 #script:
 #  - php -version
 
-language: python
+os: linux
+arch: arm64-graviton2
+virt: lxd
+language: shell
 
-python:
-  - "3.7"
-
-install:
-  - pip install numpy
-  - pip list
-  - ls -lt /home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages
-  - ls -lt /home/travis/virtualenv/python3.7.1/lib/python3.7/site-packages/setuptools*
 script: true
