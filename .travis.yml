@@ -21,14 +21,14 @@
 #  - php -version
 
 os: linux
-python: '3.9.7'
+python: '3.7'
 language: python
 dist: xenial
 
 install: skip
 before_script:
-#- pyenv install 3.9.7
-#- pyenv local 3.9.7
+- pyenv install 3.9.7
+- pyenv local 3.9.7
 - python -V
 - python -m pip install pip --upgrade --user
 - pip install awscli --upgrade --user
