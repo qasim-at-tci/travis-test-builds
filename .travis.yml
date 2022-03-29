@@ -21,9 +21,13 @@
 #  - php -version
 
 os: linux
-arch: arm64-graviton2
-virt: lxd
-group: edge
-language: shell
+python: '3.7'
+language: python
+dist: xenial
 
+before_script:
+- pyenv install 3.9.7
+- pyenv local 3.9.7
+- pip install pip --upgrade --user
+- pip install awscli --upgrade --user
 script: true
