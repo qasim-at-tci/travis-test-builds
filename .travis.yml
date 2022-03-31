@@ -37,4 +37,4 @@ before_install:
 script: true
 group: stable
 env:
-- URL: https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+- URL: https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
