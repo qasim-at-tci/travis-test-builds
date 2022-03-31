@@ -21,16 +21,20 @@
 #  - php -version
 
 os: linux
-python: '3.7'
-language: python
-dist: xenial
-
-install: skip
-before_script:
-- eval "$(pyenv init --path)"
-- pyenv install 3.9.7
-- pyenv local 3.9.7
-- python -V
-- python -m pip install pip --upgrade --user
-- pip install awscli --upgrade --user
+rvm: '2.2'
+language: ruby
+dist: trusty
+sudo: true
+cache: false
+git:
+  submodules: false
+before_install:
+- export SFDX_AUTOUPDATE_DISABLE=true
+- export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
+- export SFDX_DOMAIN_RETRY=300
+- export SFDX_JSON_TO_STDOUT=true
+- wget -qO- $URL | tar xJf -
 script: true
+group: stable
+env:
+- URL: https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
