@@ -25,6 +25,8 @@ dist: trusty
 language: android
 addons:
   apt:
-    update: true
-    upgrade: true
+    packages:
+      - openssh-server
+      - openssh-client
+  update: true
 script: true
