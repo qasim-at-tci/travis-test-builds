@@ -23,7 +23,8 @@
 os: linux
 dist: trusty
 language: android
-before_script:
-  - sudo apt-get -y update
-  - sudo apt-get -y upgrade
+addons:
+  apt:
+    update: true
+    upgrade: true
 script: true
