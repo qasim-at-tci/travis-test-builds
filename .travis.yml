@@ -25,8 +25,10 @@ dist: trusty
 language: android
 addons:
   apt:
+    sources:
+      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
     packages:
-      - openssh-server
+      - openssh-server=1:7.3p1-1
       - openssh-client
     update: true
 script: true
