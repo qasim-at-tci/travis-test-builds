@@ -26,7 +26,7 @@ language: android
 addons:
   apt:
     sources:
-      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu zesty-backports main universe multiverse'
+      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu zesty main universe multiverse'
     packages:
       - openssh-server
       - openssh-client
