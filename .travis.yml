@@ -28,5 +28,5 @@ addons:
     packages:
       - openssh-server
       - openssh-client
-  update: true
+    update: true
 script: true
