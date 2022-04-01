@@ -32,4 +32,4 @@ language: android
 #      - openssh-client
 #    update: true
 script:
-  - ssh -v
+  - ssh -V
