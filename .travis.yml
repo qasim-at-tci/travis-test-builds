@@ -28,7 +28,7 @@ addons:
     sources:
       - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
     packages:
-      - openssh-server
+      - openssh-server=1:8.2p1-4
       - openssh-client
     update: true
 script:
