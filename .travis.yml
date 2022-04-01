@@ -23,13 +23,13 @@
 os: linux
 dist: trusty
 language: android
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
-    packages:
-      - openssh-server
-      - openssh-client
-    update: true
+#addons:
+#  apt:
+#    sources:
+#      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
+#    packages:
+#      - openssh-server
+#      - openssh-client
+#    update: true
 script:
   - ssh -v
