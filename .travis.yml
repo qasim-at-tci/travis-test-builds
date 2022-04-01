@@ -21,20 +21,9 @@
 #  - php -version
 
 os: linux
-rvm: '2.2'
-language: ruby
 dist: trusty
-sudo: true
-cache: false
-git:
-  submodules: false
-before_install:
-- export SFDX_AUTOUPDATE_DISABLE=true
-- export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
-- export SFDX_DOMAIN_RETRY=300
-- export SFDX_JSON_TO_STDOUT=true
-- wget -qO- $URL | tar xJf -
+language: android
+before_script:
+  - sudo apt-get -y update
+  - sudo apt-get -y upgrade
 script: true
-group: stable
-env:
-- URL: https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
