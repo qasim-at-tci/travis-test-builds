@@ -1,28 +1,30 @@
-os: linux
-dist: xenial
-language: php
-php: 7.4
+language: android
+dist: trusty
+jdk: openjdk11
+android:
+   components:
+      - tools
+      - platform-tools
+      - tools
+      - extra-google-google_play_services
+      - extra-android-m2repository
+   licenses:
+      - 'android-sdk-preview-license-.+'
+      - 'android-sdk-license-.+'
+      - 'google-gdk-license-.+'
+
 before_install:
-   - nvm install --lts
-   - nvm use --lts
-script:
-  - php -version
-  - node -v
-  - npm -v
-
-before_deploy:
-  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
-  - echo $CHANGELOG
-
-deploy:
-  provider: releases
-  edge: true
-  api_key:
-    secure: kLkms74NFsA3KUE5+7/hMnqQZH50c9MQYzi6Bk7dFIfyFQsQ4KKDmy6ohJEU6H5aVZbg8E4oxeus0z2AQJFqH9DMTImhp8g/LJzRrNPQhUR+4zSWi3GAy0ztxFfC1vea9ej/agB0XAQ2RkbGg8eIQMJEjBUPzqblgxyJ23y/AzLAqfb84tq1AUdF8/eWP3ocR1yopLXNy+l+nTnuGeAXaxwL2ftWP7KL4Htxxth+XmIfMl45EEugH64Bct4NjtmMdnG6ABK03LBNpyKBqvU/1PBUf8L3v+1JcjGxXCjYrKuhi8eyX2tjASJg/YutiiV4Jr72rE1ewjXrel+WZZ7D9QhJIkfYyUmPrUkT+2S0j6a0z3OZnWN/gKXQm4Lfvzt16N+2hNjC7GEHhDctjWIWP/mqTkXvrOfQPJ2v8N4czXF9dD4pvjW3OZtfeNTijS31+hFIi4tJwHXGfioEc0+Tu6Q0HcMpB8NtSVdADQJML9T7kg031ekV6AsH7FOFJWPlvHbw3nJfJzm9XgxImZ+A9b+v/PaJHt7vSE+dr3gT7eicMUGFK0aB1t5Q+VCp+CgJuqXTtGw7oZhSZp2/yhccXeTnzIjuseZW/sVIC5m+Fk21hEsadqHrWPyBWE8lcyXdh3cOUf+lYNHTg38MmlgwCsmJcJMb7duUFDVIeABCW4c=
-  file: README.md
-  release_notes: "$CHANGELOG"
-  on:
-    repo: qasim-at-tci/travis-test-builds
-    branch: main
-    tags: true
-  cleanup: "false"
+   - touch $HOME/.android/repositories.cfg
+   # Android API Level 31
+   - yes | sdkmanager "platforms;android-31"
+   - yes | sdkmanager "build-tools;31.0.0"
+   - yes | sdkmanager "build-tools;31.0.0"
+   - ls $ANDROID_HOME/build-tools/31.0.0
+   - ls $ANDROID_HOME/build-tools/31.0.0/lib
+   - mv $ANDROID_HOME/build-tools/31.0.0/d8 $ANDROID_HOME/build-tools/31.0.0/dx 
+   - mv $ANDROID_HOME/build-tools/31.0.0/lib/d8.jar $ANDROID_HOME/build-tools/31.0.0/lib/dx.jar
+   - ls $ANDROID_HOME/build-tools/31.0.0
+   - ls $ANDROID_HOME/build-tools/31.0.0/lib
+   - sdkmanager --update
+   - sdkmanager --list
+script: true
