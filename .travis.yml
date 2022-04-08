@@ -40,7 +40,7 @@ before_install:
    - yes | sdkmanager "platforms;android-31"
    - yes | sdkmanager "build-tools;31.0.0"
    - yes | sdkmanager "build-tools;31.0.0"
-   - cd $ANDROID_HOME/build-tools/31.0.0 && ln -s d8 dx && ln -s lib/d8.jar lib/dx.jar 
+   - cd $ANDROID_HOME/build-tools/31.0.0 && ln -s d8 dx && ln -s lib/d8.jar lib/dx.jar && cd $TRAVIS_BUILD_DIR && ls -a
    - sdkmanager --update
    - sdkmanager --list
 script: true
