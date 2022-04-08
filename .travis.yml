@@ -1,6 +1,5 @@
 language: android
 dist: trusty
-jdk: oraclejdk11
 android:
    components:
       - tools
@@ -14,6 +13,11 @@ android:
       - 'google-gdk-license-.+'
 
 before_install:
+   - curl -s "https://get.sdkman.io" | bash
+   - source "$HOME/.sdkman/bin/sdkman-init.sh"
+   - sdk install java 11.0.2-open
+   - sdk use java 11.0.2-open
+   - java -version
    - touch $HOME/.android/repositories.cfg
    # Android API Level 31
    - yes | sdkmanager "platforms;android-31"
