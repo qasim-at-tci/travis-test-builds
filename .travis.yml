@@ -19,22 +19,28 @@
 #  cleanup: "false"
 #script:
 #  - php -version
-
-language: python
-
-os: Linux
-
-python:
-  - "3.8"
-  - "3.9"
+language: android
+dist: trusty
+android:
+   components:
+      - tools
+      - platform-tools
+      - tools
+      - extra-google-google_play_services
+      - extra-android-m2repository
+   licenses:
+      - 'android-sdk-preview-license-.+'
+      - 'android-sdk-license-.+'
+      - 'google-gdk-license-.+'
 
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install libopenmpi-dev
-  - sudo apt-get -y install openmpi-bin
-
-install:
-   - pip install mpi4py
-
-script:
-   - mpirun -n 4 python comm.py
+   - touch $HOME/.android/repositories.cfg
+   # Android API Level 31
+   - yes | sdkmanager "platforms;android-31"
+   - yes | sdkmanager "build-tools;31.0.0"
+   - yes | sdkmanager "build-tools;31.0.0"
+   - ls $ANDROID_HOME/build-tools/31.0.0
+   - ls $ANDROID_HOME/build-tools/31.0.0/lib
+   - sdkmanager --update
+   - sdkmanager --list
+script: true
