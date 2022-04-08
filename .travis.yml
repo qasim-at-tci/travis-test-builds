@@ -7,6 +7,8 @@ before_install:
    - nvm use --lts
 script:
   - php -version
+  - node -v
+  - npm -v
 
 before_deploy:
   - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
