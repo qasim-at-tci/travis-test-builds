@@ -20,28 +20,23 @@
 #script:
 #  - php -version
 
-os: linux
-dist: trusty
 language: android
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu zesty main universe multiverse'
-    packages:
-      - openssh-server
-      - openssh-client
-    update: true
-jobs:
-  include:
-    - stage: ONE
-      script:
-        - ssh -V
-        - sleep 1
-    - stage: TWO
-      script:
-        - ssh -V
-        - sleep 2
-    - stage: THREE
-      script:
-        - ssh -V
-        - sleep 3
+dist: trusty
+android:
+   components:
+      - tools
+      - platform-tools
+      - tools
+      - extra-google-google_play_services
+      - extra-android-m2repository
+   licenses:
+      - 'android-sdk-preview-license-.+'
+      - 'android-sdk-license-.+'
+      - 'google-gdk-license-.+'
+
+before_install:
+   - touch $HOME/.android/repositories.cfg
+   # Android API Level 31
+   - yes | sdkmanager "platforms;android-31"
+   - yes | sdkmanager "build-tools;31.0.0"
+script: true
