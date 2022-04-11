@@ -1,6 +1,7 @@
-os: osx
-osx_image: xcode13.3
-
-language: objective-c
+arch:
+  - arm64-graviton2
+os: linux
+virt: vm
+group: edge
 
 script: true
