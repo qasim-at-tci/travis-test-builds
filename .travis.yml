@@ -1,8 +1,20 @@
+language: node_js
+
+sudo: required
+
+services:
+    - docker
+
+node_js:
+    - "14"
+
 arch:
   - arm64-graviton2
 os: linux
-dist: focal
-virt: vm
+virt: lxd
 group: edge
 
+addons:
+  snaps:
+    - yq
 script: true
