@@ -7,7 +7,7 @@ node_js:
 arch:
 - arm64-graviton2
 os: linux
-virt: lxd
+virt: vm
 group: edge
 addons:
   snaps:
