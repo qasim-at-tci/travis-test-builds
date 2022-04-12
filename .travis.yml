@@ -1,20 +1,19 @@
 language: node_js
-
 sudo: required
-
 services:
-    - docker
-
+- docker
 node_js:
-    - "14"
-
+- '14'
 arch:
-  - arm64-graviton2
+- arm64-graviton2
 os: linux
 virt: lxd
 group: edge
-
 addons:
   snaps:
-    - yq
-script: true
+  - yq
+script:
+  - echo $SECRET_ENV_VAR
+env:
+  global:
+    secure: eYKoqo5naze63G4/d6Xr6Tf7jk1HK9YyEmsX3/USu4/8kHiE7G70T7zrq/38mwOqKJBiaOZmairlODitC0UJQSLxjmuchF10Wud0vgZlDlVdhP00wI6xcmWRptl0Kf8uEOTgHhqnz/sunoSyn2Qm9u/3LE36ilc96Z47RyGxRWk7zLUbdxrxmkhN/4oYIWDJIKIXrIT+eoUsRGOq6Bp6ndUdl9MFt6SZH/NAWFWVEq2Qsb4DqKhBUf+dQCORdWaWXIzfedxLaNYl4xRbHM1tf88ui0m7vHRd/DIIcMtRnOSV6SSB8QaFENrPerYVzq2Pq7BQHgkughI6Nz3GDLluAnvP1R2RQCHulxqySBiAddb31AGtTjaN6D4NnbsIAzenCmIz+Oyr4aLcAEErmVsuHyNW4vH/92Cj/+nl/gluAE9CVJL9PCASwTSpWcwRB9p4uYzziuJpAmcVOqVF5LKEzXxsDKQZgjih5HOQ1H3KDAWn1DM/WD49wKYdnTzUe6N8E/kp/VcavP0l263yBqGLEuErk8QLhhM1+E5wmH+L4aJgTwxcFVo0PLoGyK5TsBX/EKIqy1kbZ7/x23CwuCyIceqZffUIcVKkGSIoBT1iSJZLOovWgSHz5H7e2UfQzY+NBaFC82f0k0++WdfBABSrytZpvzYgEtMYqBWX4UDZoUA=
