@@ -1,34 +1,24 @@
+os: linux
 language: android
-dist: trusty
+jdk: openjdk11
+
 android:
-   components:
-      - tools
-      - platform-tools
-      - tools
-      - extra-google-google_play_services
-      - extra-android-m2repository
-   licenses:
-      - 'android-sdk-preview-license-.+'
-      - 'android-sdk-license-.+'
-      - 'google-gdk-license-.+'
+ components:
+   - tools
+   - platform-tools
+   - tools
+   - extra-android-m2repository
+env:
+  global:
+    - TARGET_VERSION=31
+    - ANDROID_BUILD_TOOLS_VERSION=31.0.0
+    - ANDROID_HOME=~/android-sdk
 
 before_install:
-   - curl -s "https://get.sdkman.io" | bash
-   - source "$HOME/.sdkman/bin/sdkman-init.sh"
-   - sdk install java 11.0.2-open
-   - sdk use java 11.0.2-open
-   - java -version
-   - touch $HOME/.android/repositories.cfg
-   # Android API Level 31
-   - yes | sdkmanager "platforms;android-31"
-   - yes | sdkmanager "build-tools;31.0.0"
-   - yes | sdkmanager "build-tools;31.0.0"
-   - ls $ANDROID_HOME/build-tools/31.0.0
-   - ls $ANDROID_HOME/build-tools/31.0.0/lib
-   - mv $ANDROID_HOME/build-tools/31.0.0/d8 $ANDROID_HOME/build-tools/31.0.0/dx 
-   - mv $ANDROID_HOME/build-tools/31.0.0/lib/d8.jar $ANDROID_HOME/build-tools/31.0.0/lib/dx.jar
-   - ls $ANDROID_HOME/build-tools/31.0.0
-   - ls $ANDROID_HOME/build-tools/31.0.0/lib
-   - sdkmanager --update
-   - sdkmanager --list
+  - touch $HOME/.android/repositories.cfg
+  - wget "https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip" -O commandlinetools.zip
+  - unzip commandlinetools.zip -d $ANDROID_HOME/
+  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
+  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
+
 script: true
