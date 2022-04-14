@@ -6,7 +6,7 @@ dist: bionic
 osx_image: xcode13.2
 branches:
   only:
-  - master
+  - macos
 before_install:
 - gem install bundler
 script: true
