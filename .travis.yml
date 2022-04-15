@@ -5,4 +5,5 @@ services:
   - docker
 before_install:
   - sudo systemctl restart docker
+  - cat /etc/docker/daemon.json
 script: true
