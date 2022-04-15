@@ -3,8 +3,5 @@ dist: focal
 services:
   - docker
 before_install:
-  - sudo systemctl stop docker
-  - sudo dockerd --max-concurrent-downloads 1
-  - sudo dockerd --max-concurrent-uploads 1
-  - sudo systemctl start docker
+  - sudo systemctl restart docker
 script: true
