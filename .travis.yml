@@ -29,5 +29,3 @@ script:
  - $ANDROID_HOME/cmdline-tools/bin/sdkmanager --version --sdk_root=$ANDROID_HOME
  - $ANDROID_HOME/cmdline-tools/bin/sdkmanager --list --sdk_root=$ANDROID_HOME
  - echo done
-notifications:
-  webhooks: https://eni8yf2ojfd6c.x.pipedream.net/
