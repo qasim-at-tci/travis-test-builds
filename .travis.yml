@@ -6,7 +6,7 @@ services:
 before_install:
   - sudo systemctl restart docker
   - cat /etc/docker/daemon.json
-  - echo '{"max-concurrent-downloads": 1}' | sudo tee /etc/docker/daemon.json
-  - echo '{"max-concurrent-uploads": 1}' | sudo tee /etc/docker/daemon.json
+  - echo '"max-concurrent-downloads": 1' | sudo tee /etc/docker/daemon.json
+  - echo '"max-concurrent-uploads": 1' | sudo tee /etc/docker/daemon.json
   - cat /etc/docker/daemon.json
 script: true
