@@ -2,12 +2,7 @@ os: linux
 dist: focal
 language: shell
 services:
-  - docker
-before_install:
-  - sudo systemctl restart docker
-  - cat /etc/docker/daemon.json
-  - sudo touch /etc/docker/daemon.json
-  - echo '{"max-concurrent-downloads":1, "max-concurrent-uploads":1}' | sudo tee /etc/docker/daemon.json
-  - sudo systemctl restart docker
-  - cat /etc/docker/daemon.json
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 script: true
