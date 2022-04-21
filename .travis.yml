@@ -14,5 +14,6 @@ before_script:
 script:
   - pg_lsclusters
   - sudo pg_createcluster 11 travis_test
+  - sudo pg_ctlcluster 11 travis_test start
   - sudo systemctl daemon-reload
   - pg_lsclusters
