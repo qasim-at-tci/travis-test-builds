@@ -4,16 +4,16 @@ language: shell
 services:
   - postgresql
 addons:
-  postgresql: "11"
+  postgresql: "13"
   apt:
     packages:
-    - postgresql-11
-    - postgresql-client-11
+    - postgresql-13
+    - postgresql-client-13
 before_script:
   - psql -c 'create database travis_ci_test;' -U travis
 script:
   - pg_lsclusters
-  - sudo pg_createcluster 11 travis_test
-  - sudo pg_ctlcluster 11 travis_test start
+  - sudo pg_createcluster 13 travis_test
+  - sudo pg_ctlcluster 13 travis_test start
   - sudo systemctl daemon-reload
   - pg_lsclusters
