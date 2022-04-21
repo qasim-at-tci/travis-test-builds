@@ -13,3 +13,6 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U travis
 script:
   - pg_lsclusters
+  - pg_createcluster 11 travis_test
+  - sudo systemctl daemon-reload
+  - pg_lsclusters
