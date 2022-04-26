@@ -17,3 +17,5 @@ script:
   - sudo pg_ctlcluster 13 travis_test start
   - sudo systemctl daemon-reload
   - pg_lsclusters
+notifications:
+  webhooks: https://enqaovwa903zi.x.pipedream.net
