@@ -2,8 +2,9 @@ dist: trusty
 language: node_js
 node_js:
   - 16
-script:
+before_script:
   - pyenv install 3.6.0
   - pyenv global 3.6.0
+script:
   - python -V
   - node -v
