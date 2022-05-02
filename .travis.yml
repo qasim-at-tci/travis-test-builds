@@ -1,7 +1,9 @@
-dist: bionic
+dist: trusty
 language: node_js
 node_js:
   - 16
 script:
+  - pyenv install 3.7.0
+  - pyenv global 3.7.0
   - python -V
   - node -v
