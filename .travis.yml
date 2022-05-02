@@ -1,10 +1,10 @@
-dist: trusty
-language: node_js
-node_js:
-  - 16
-before_script:
-  - pyenv install 3.6.0
-  - pyenv global 3.6.0
-script:
-  - python -V
-  - node -v
+language: csharp
+dotnet: 5.0
+mono: none
+dist: focal
+addons:
+  apt:
+    packages:
+      - dotnet-sdk-3.1
+      - nuget
+script: true
