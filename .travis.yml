@@ -26,16 +26,12 @@ jobs:
     - <<: *testStage
       stage: previous-lts
       node_js: 14
-      #if: branch = fc-400-temp-ensure-skeleton-build-ci-passes
     - <<: *buildStage
       stage: previous-lts
       node_js: 14
-      #if: branch = fc-400-temp-ensure-skeleton-build-ci-passes
     - <<: *testStage
       stage: current
       node_js: 17
-      #if: branch = fc-400-temp-ensure-skeleton-build-ci-passes
     - <<: *buildStage
       stage: current
       node_js: 17
-      #if: branch = fc-400-temp-ensure-skeleton-build-ci-passes
