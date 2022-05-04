@@ -23,7 +23,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: README.md
-  release-notes: "$CHANGELOG"
+  release_notes: "$CHANGELOG"
   edge: true
   on:
     repo: qasim-test-org/travis-test-builds
