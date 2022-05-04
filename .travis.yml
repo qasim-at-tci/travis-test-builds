@@ -22,4 +22,5 @@ deploy:
   on:
     repo: qasim-test-org/travis-test-builds
     branch: main
+    tags: true
   skip_cleanup: true
