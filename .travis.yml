@@ -13,14 +13,12 @@ script:
 #before_deploy:
 #  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
 #  - echo $CHANGELOG
-before_deploy:
-   - export RN="Release Notes"
 deploy:
   provider: releases
   token: $GITHUB_TOKEN
   file: README.md
   #release_notes: "$CHANGELOG"
-  body: "$RN"
+  body: "Release Notes"
   on:
     repo: qasim-test-org/travis-test-builds
     branch: main
