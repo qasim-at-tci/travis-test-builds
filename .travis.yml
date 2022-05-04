@@ -10,15 +10,15 @@ script:
   - node -v
   - npm -v
 
-before_deploy:
-  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
-  - echo $CHANGELOG
+#before_deploy:
+#  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
+#  - echo $CHANGELOG
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: README.md
-  release_notes: "Test releases."
+  body: "Test releases."
   on:
     repo: qasim-test-org/travis-test-builds
     branch: main
