@@ -1,10 +1,4 @@
-dist: trusty
-language: node_js
-node_js:
-  - 16
-before_script:
-  - pyenv install 3.6.7
-  - pyenv global 3.6.7
-script:
-  - python -V
-  - node -v
+os: windows
+arch: arm64
+
+script: true
