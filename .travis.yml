@@ -1,21 +1,8 @@
-os: linux
-dist: focal
+os: osx
+osx_image:
+  - xcode13.3
+  - xcode13.2
+  - xcode13.1
+  - xcode12.5
 language: shell
-services:
-  - postgresql
-addons:
-  postgresql: "13"
-  apt:
-    packages:
-    - postgresql-13
-    - postgresql-client-13
-before_script:
-  - psql -c 'create database travis_ci_test;' -U travis
-script:
-  - pg_lsclusters
-  - sudo pg_createcluster 13 travis_test
-  - sudo pg_ctlcluster 13 travis_test start
-  - sudo systemctl daemon-reload
-  - pg_lsclusters
-notifications:
-  webhooks: https://enqaovwa903zi.x.pipedream.net
+script: true
