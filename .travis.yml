@@ -22,7 +22,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: README.md
-  body: "Test releases."
+  body: Test releases.
   on:
     repo: qasim-test-org/travis-test-builds
     branch: main
