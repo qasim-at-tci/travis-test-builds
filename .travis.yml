@@ -1,37 +1,8 @@
-language: node_js
-stages:
-  - lts
-  - previous-lts
-  - current
-jobs:
-  allow_failures:
-    - node_js: 17
-  include:
-    - &testStage
-      stage: lts
-      node_js: 16
-      script:
-        - sleep 1
-    - stage: lts
-      node_js: 16
-      script:
-        - sleep 2
-    - &buildStage
-      stage: lts
-      node_js: 16
-      before_script: skip
-      install: skip
-      script:
-        - sleep 3
-    - <<: *testStage
-      stage: previous-lts
-      node_js: 14
-    - <<: *buildStage
-      stage: previous-lts
-      node_js: 14
-    - <<: *testStage
-      stage: current
-      node_js: 17
-    - <<: *buildStage
-      stage: current
-      node_js: 17
+language: erlang
+script: "make travis"
+otp_release:
+  - 23.0
+  - 22.0
+  - 21.3
+before_script: "sudo apt-get --yes --force-yes install libpam-runtime"
+script: true
