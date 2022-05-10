@@ -8,5 +8,8 @@ jobs:
   include:
     - os: linux
       dist: focal
-      virt: vm
+      arch: arm64-graviton2
+      virt: lxd
       group: edge
+    - os: linux
+      dist: focal
