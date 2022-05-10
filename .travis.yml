@@ -6,4 +6,5 @@ arch:
 - amd64
 - arm64-graviton2
 
-script: true
+script:
+  - sleep 1
