@@ -1,7 +1,7 @@
 language: shell
 
 script:
-  - sleep 2
+  - sleep 1
 jobs:
   include:
     - os: linux
