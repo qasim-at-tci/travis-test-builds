@@ -1,5 +1,3 @@
-os: linux
-dist: focal
 language: shell
 
 script:
@@ -13,3 +11,5 @@ jobs:
       group: edge
     - os: linux
       dist: focal
+      arch: amd64
+      virt: vm
