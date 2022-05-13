@@ -1,5 +1,5 @@
 arch: arm64-graviton2
-virt: vm
+virt: lxd
 os: linux
 dist: focal
 group: edge
@@ -22,3 +22,4 @@ before_install:
 - sudo df -h
 script:
   - docker build
+  - docker ps
