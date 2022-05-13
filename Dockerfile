@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN df -h
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install nginx –y
+RUN apt-get install nginx
 
 RUN df -h
 
