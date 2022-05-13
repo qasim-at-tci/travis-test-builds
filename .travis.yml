@@ -4,4 +4,4 @@ os: linux
 dist: focal
 group: edge
 script:
-  - sleep 2
+  - df -lh
