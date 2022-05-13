@@ -1,4 +1,4 @@
-FROM komljen/ubuntu
+FROM arm64v8/ubuntu
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
 RUN df -h
