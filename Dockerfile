@@ -1,6 +1,7 @@
 FROM komljen/ubuntu
 MAINTAINER Alen Komljen <alen.komljen@live.com>
 
+RUN df -h
 ENV PG_VERSION 9.3
 ENV USER docker
 ENV PASS SiHRDZ3Tt13uVVyH0ZST
@@ -18,7 +19,10 @@ RUN \
 
 COPY start.sh start.sh
 
+RUN df -h
 RUN rm /usr/sbin/policy-rc.d
 CMD ["/start.sh"]
+
+RUN df -h
 
 EXPOSE 5432
