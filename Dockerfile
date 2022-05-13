@@ -1,6 +1,8 @@
 FROM arm64v8/ubuntu:latest
 MAINTAINER demousr@gmail.com
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN df -h
 
 RUN apt-get update -y && apt-get upgrade -y
