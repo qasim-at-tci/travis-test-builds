@@ -7,6 +7,7 @@ ENV USER docker
 ENV PASS SiHRDZ3Tt13uVVyH0ZST
 
 RUN \
+  apt-get install gnupg2 \
   echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" \
        > /etc/apt/sources.list.d/pgdg.list && \
   curl -sL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
