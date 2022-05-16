@@ -1,25 +1,16 @@
-arch: arm64-graviton2
-virt: lxd
-os: linux
-dist: focal
-group: edge
-language: minimal
+language: node_js
+node_js:
+  - 14
+cache:
+  npm: false
+
 before_install:
-- echo "checking disk space before install"
-- sudo df -h
-- sudo du -h /var/lib/docker
-- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-- sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-- sudo apt-get update
-- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce docker-ce-cli
-- sudo df -h
-- echo "cleaning apt"
-- sudo apt-get clean
-- sudo df -h
-- sudo service docker start
-- echo "pruning docker"
-- docker system prune -a -f
-- sudo df -h
+  - npm install -g npm@6.14.7
+  - sudo pip install --upgrade pip
+
+install:
+  - npm install -g travis-ci-cloudfront-invalidation
+  - npm install
+
 script:
-  - docker build .
-  - docker ps
+  - sleep 1
