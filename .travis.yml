@@ -10,7 +10,7 @@ before_install:
 
 install:
   - npm install -g travis-ci-cloudfront-invalidation
-  - npm ci
+  - npm install
 
 script:
   - sleep 1
