@@ -1,23 +1,16 @@
-os: osx
-osx_image:
-  - xcode13.3
-  - xcode13.2
-  - xcode13.1
-  - xcode12.4
-  - xcode12.2
-  - xcode12
-  - xcode11.5
-  - xcode11
-  - xcode10.3
-  - xcode10
-  - xcode9.4
+os: linux
+dist:
+  - focal
+  - bionic
+  - xenial
 language: node_js
 node_js:
+  - 16
   - 14
-cache:
-  npm: false
-addons:
-  artifacts: true
+  - 12
+  - 10
+  - 9
+  - 8
 before_install:
   #- git config --global url."ssh://git@".insteadOf git://
   - npm install -g npm@8.10.0
@@ -27,5 +20,95 @@ install:
   - npm install -g travis-ci-cloudfront-invalidation
   - npm install
 
-script:
-  - sleep 1
+jobs:
+  include:
+    - script:
+        - sleep 1
+    - script:
+        - sleep 2
+    - script:
+        - sleep 3
+    - script:
+        - sleep 4
+    - script:
+        - sleep 5
+    - script:
+        - sleep 6
+    - script:
+        - sleep 7
+    - script:
+        - sleep 8
+    - script:
+        - sleep 9
+    - script:
+        - sleep 10
+    - script:
+        - sleep 11
+    - script:
+        - sleep 12
+    - script:
+        - sleep 13
+    - script:
+        - sleep 14
+    - script:
+        - sleep 15
+    - script:
+        - sleep 16
+    - script:
+        - sleep 17
+    - script:
+        - sleep 18
+    - script:
+        - sleep 19
+    - script:
+        - sleep 20
+    - script:
+        - sleep 21
+    - script:
+        - sleep 22
+    - script:
+        - sleep 23
+    - script:
+        - sleep 24
+    - script:
+        - sleep 25
+    - script:
+        - sleep 26
+    - script:
+        - sleep 27
+    - script:
+        - sleep 28
+    - script:
+        - sleep 29
+    - script:
+        - sleep 30
+    - script:
+        - sleep 31
+    - script:
+        - sleep 32
+    - script:
+        - sleep 33
+    - script:
+        - sleep 34
+    - script:
+        - sleep 35
+    - script:
+        - sleep 36
+    - script:
+        - sleep 37
+    - script:
+        - sleep 38
+    - script:
+        - sleep 39
+    - script:
+        - sleep 40
+    - script:
+        - sleep 41
+    - script:
+        - sleep 42
+    - script:
+        - sleep 42
+    - script:
+        - sleep 44
+    - script:
+        - sleep 45
