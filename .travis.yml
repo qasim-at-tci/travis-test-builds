@@ -1,9 +1,12 @@
 os: osx
 osx_image:
   - xcode13.3
+  - xcode13.2
   - xcode13.1
-  - xcode12.2
   - xcode12.4
+  - xcode12.2
+  - xcode11.5
+  - xcode11
 language: node_js
 node_js:
   - 14
