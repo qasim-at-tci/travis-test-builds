@@ -6,7 +6,7 @@ cache:
 
 before_install:
   #- git config --global url."ssh://git@".insteadOf git://
-  - npm install -g npm@8.10.0
+  - npm install -g npm@7.24.2
   - sudo pip install --upgrade pip
 
 install:
