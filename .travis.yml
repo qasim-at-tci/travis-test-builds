@@ -17,7 +17,6 @@ before_install:
   #- sudo pip install --upgrade pip
 
 install:
-  - npm install -g travis-ci-cloudfront-invalidation
   - npm install
 
 jobs:
