@@ -19,6 +19,9 @@
   "homepage": "https://github.com/qasim-test-org/travis-test-builds#readme",
   "dependencies": {
     "@hapi/address": "^2.1.4",
+    "@hapi/bourne": "^1.3.2",
+    "@hapi/hoek": "^8.5.1",
+    "@hapi/topo": "^3.1.6",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^4.18.1",
