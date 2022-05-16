@@ -1,8 +1,5 @@
 os: linux
-dist:
-  - focal
-  - bionic
-  - xenial
+dist: focal
 language: node_js
 node_js:
   - 16
@@ -106,8 +103,98 @@ jobs:
     - script:
         - sleep 42
     - script:
-        - sleep 42
+        - sleep 43
     - script:
         - sleep 44
     - script:
         - sleep 45
+    - script:
+        - sleep 46
+    - script:
+        - sleep 47
+    - script:
+        - sleep 48
+    - script:
+        - sleep 49
+    - script:
+        - sleep 50
+    - script:
+        - sleep 51
+    - script:
+        - sleep 52
+    - script:
+        - sleep 53
+    - script:
+        - sleep 54
+    - script:
+        - sleep 55
+    - script:
+        - sleep 56
+    - script:
+        - sleep 57
+    - script:
+        - sleep 58
+    - script:
+        - sleep 59
+    - script:
+        - sleep 60
+    - script:
+        - sleep 61
+    - script:
+        - sleep 62
+    - script:
+        - sleep 63
+    - script:
+        - sleep 64
+    - script:
+        - sleep 65
+    - script:
+        - sleep 66
+    - script:
+        - sleep 67
+    - script:
+        - sleep 68
+    - script:
+        - sleep 69
+    - script:
+        - sleep 70
+    - script:
+        - sleep 71
+    - script:
+        - sleep 72
+    - script:
+        - sleep 73
+    - script:
+        - sleep 74
+    - script:
+        - sleep 75
+    - script:
+        - sleep 76
+    - script:
+        - sleep 77
+    - script:
+        - sleep 78
+    - script:
+        - sleep 79
+    - script:
+        - sleep 80
+    - script:
+        - sleep 81
+    - script:
+        - sleep 82
+    - script:
+        - sleep 83
+    - script:
+        - sleep 84
+    - script:
+        - sleep 85
+    - script:
+        - sleep 86
+    - script:
+        - sleep 87
+    - script:
+        - sleep 88
+    - script:
+        - sleep 89
+    - script:
+        - sleep 90
