@@ -1,21 +1,12 @@
-language: android
-jdk: oraclejdk8
-dist: trusty
-android:
-  components:
-    - tools
-    - build-tools-29.0.2
-    - android-29
-    - extra-android-m2repository
+language: java
+jdk: openjdk11
+dist: focal
 env:
   global:
     - GRADLE_HOME="$PWD/gradle-7.4"
     - PATH=$GRADLE_HOME/bin:$PATH
-before_install:
-  - yes | sdkmanager "platforms;android-29"
-  - yes | sdkmanager "build-tools;29.0.2"
 before_script:
-  - wget https://services.gradle.org/distributions/gradle-7.4-bin.zip
-  - unzip -qq gradle-7.4-bin.zip || true
+  - wget https://services.gradle.org/distributions/gradle-7.4.2-bin.zip
+  - unzip -qq gradle-7.4.2-bin.zip
 script:
-  - gradle -v
+  - ./gradlew run
