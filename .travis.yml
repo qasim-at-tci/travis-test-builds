@@ -9,15 +9,13 @@ android:
     - extra-android-m2repository
 env:
   global:
-    - GRADLE_HOME="$PWD/gradle-7.2"
+    - GRADLE_HOME="$PWD/gradle-7.4"
     - PATH=$GRADLE_HOME/bin:$PATH
 before_install:
-  #- git submodule update --init --recursive
-  - git submodule update --recursive --remote
   - yes | sdkmanager "platforms;android-29"
   - yes | sdkmanager "build-tools;29.0.2"
 before_script:
-  - wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
-  - unzip -qq gradle-7.2-bin.zip || true
+  - wget https://services.gradle.org/distributions/gradle-7.4-bin.zip
+  - unzip -qq gradle-7.4-bin.zip || true
 script:
   - gradle -v
