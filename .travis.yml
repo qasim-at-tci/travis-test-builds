@@ -1,14 +1,23 @@
-os: linux
-arch: s390x
-dist: focal
-language: node_js
-node_js: 14
+language: android
+jdk: oraclejdk8
+dist: trusty
+android:
+  components:
+    - tools
+    - build-tools-29.0.2
+    - android-29
+    - extra-android-m2repository
+env:
+  global:
+    - GRADLE_HOME="$PWD/gradle-7.2"
+    - PATH=$GRADLE_HOME/bin:$PATH
 before_install:
-  #- git config --global url."ssh://git@".insteadOf git://
-  - npm install -g npm@8.10.0
-  #- sudo pip install --upgrade pip
-
-install:
-  - npm install
-
-script: true
+  #- git submodule update --init --recursive
+  - git submodule update --recursive --remote
+  - yes | sdkmanager "platforms;android-29"
+  - yes | sdkmanager "build-tools;29.0.2"
+before_script:
+  - wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
+  - unzip -qq gradle-7.2-bin.zip || true
+script:
+  - gradle -v
