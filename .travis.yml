@@ -6,6 +6,5 @@ services:
 before_script:
   - docker build . -t node-hello
   - docker run -d -p 3000:3000 --name node-hello-world node-hello
-script: true
-notifications:
-  webhooks: https://benjollyidera.webhook.office.com/webhookb2/5e6e22da-f804-4c50-82a5-592a8bf5853e@84981200-0704-4e2c-82ff-c288b51bc012/IncomingWebhook/2136092989fe4e67a5096cb041447586/330147e6-a31a-4406-9cc4-117ceac8a0e4
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
