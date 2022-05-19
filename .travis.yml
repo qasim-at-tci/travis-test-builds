@@ -1,5 +1,10 @@
 os: linux
 dist: focal
 language: minimal
-
-script: true
+services:
+  - docker
+before_script:
+  - docker build . -t node-hello
+  - docker run -d -p 3000:3000 --name node-hello-world node-hello
+script:
+  - curl http://127.0.0.1:3000

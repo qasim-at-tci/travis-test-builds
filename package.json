@@ -1,0 +1,24 @@
+{
+  "name": "travis-test-builds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qasim-test-org/travis-test-builds.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qasim-test-org/travis-test-builds/issues"
+  },
+  "homepage": "https://github.com/qasim-test-org/travis-test-builds#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "d2l-fetch": "github:Brightspace/d2l-fetch"
+  }
+}
