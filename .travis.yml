@@ -17,5 +17,5 @@ script:
   - ./gradlew run
   - git clone https://github.com/qasim-test-org/travis-test-build.git
   - cd travis-test-build
-  - cat test.txt
+  - ls -la
   - sleep 2
