@@ -5,6 +5,6 @@ services:
   - docker
 before_script:
   - docker build . -t node-hello
-  - docker run -d -p 3000:3000 --name node-hello-world node-hello
+  - docker run -d -p 3000:3000 --network host --name node-hello-world node-hello
 script:
   - curl http://127.0.0.1:3000
