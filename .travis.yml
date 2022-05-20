@@ -6,3 +6,4 @@ before_install:
   - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
 script:
   - sc --version
+  - ls -la
