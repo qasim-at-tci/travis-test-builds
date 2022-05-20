@@ -1,6 +1,7 @@
-language: minimal
+language: generic
 os: linux
 dist: focal
 before_install:
   - pyenv install --list
+  - pyenv versions
 script: true
