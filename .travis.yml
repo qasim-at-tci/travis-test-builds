@@ -2,7 +2,7 @@ language: generic
 os: linux
 dist: xenial
 before_install:
-  - curl -s https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz | tar xvf - -C $HOME/
+  - curl -s https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz | tar xvf - $HOME/
   - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
 script:
   - sc --version
