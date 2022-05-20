@@ -1,6 +1,6 @@
 language: generic
 os: linux
-dist: focal
+dist: xenial
 before_install:
   - cd $HOME && curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
   - tar xvf $HOME/sc-4.8.0-linux.tar.gz
