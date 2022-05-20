@@ -2,8 +2,9 @@ language: generic
 os: linux
 dist: focal
 before_install:
-  - curl -o $HOME -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
+  - cd $HOME && curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
   - tar xvf $HOME/sc-4.8.0-linux.tar.gz
   - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
+  - cd $TRAVIS_BUILD_DIR
 script:
   - sc version
