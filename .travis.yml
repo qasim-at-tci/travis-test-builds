@@ -3,5 +3,5 @@ node_js: 12
 os: linux
 dist: xenial
 before_install:
-  - npm -v
+  - npm i npm@latest -g
 script: true
