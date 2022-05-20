@@ -2,7 +2,7 @@ language: generic
 os: linux
 dist: xenial
 before_install:
-  - curl -s https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz | tar xvf - $HOME/
+  - cd $HOME && curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz && tar xvf $HOME/sc-4.8.0-linux.tar.gz && cd $TRAVIS_BUILD_DIR
   - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
 script:
   - sc --version
