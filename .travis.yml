@@ -2,6 +2,8 @@ language: generic
 os: linux
 dist: focal
 before_install:
-  - pyenv install --list
-  - pyenv versions
-script: true
+  - curl -o $HOME -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz
+  - tar xvf $HOME/sc-4.8.0-linux.tar.gz
+  - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
+script:
+  - sc version
