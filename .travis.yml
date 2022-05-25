@@ -1,9 +1,22 @@
-language: generic
 os: linux
 dist: xenial
-before_install:
-  - cd $HOME && curl -LO https://saucelabs.com/downloads/sc-4.8.0-linux.tar.gz && tar xvf $HOME/sc-4.8.0-linux.tar.gz && cd $TRAVIS_BUILD_DIR
-  - export PATH="$HOME/sc-4.8.0-linux/bin:$PATH"
+language: python
+cache:
+  pip: true
+  yarn: true
+  directories:
+  - node_modules
+python:
+- '3.8'
+addons:
+  postgresql: '12'
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+env:
+  global:
+  - PGVER=12
+  - PGPORT=5433
 script:
-  - sc --version
-  - ls -la
+  - node -v
