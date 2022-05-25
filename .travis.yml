@@ -17,5 +17,5 @@ env:
   - PGVER=12
   - PGPORT=5433
 script:
-  - nvm use 12
+  - nvm use "12.18.2"
   - node -v
