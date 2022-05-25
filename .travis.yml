@@ -19,4 +19,6 @@ env:
 script:
   - nvm install 14.19.1
   - nvm use 14.19.1
+  - npm i yarn
   - node -v
+  - yarn -v
