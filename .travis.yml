@@ -5,18 +5,9 @@ env:
   global:
     - GRADLE_HOME="$PWD/gradle-7.4"
     - PATH=$GRADLE_HOME/bin:$PATH
-git:
-  submodules: false
-before_install:
-  - echo -e "\n\nmachine github.com\n login $CI_USER_TOKEN\n" >~/.netrc
-  - git submodule update --init --recursive
 install: skip
 before_script:
   - wget https://services.gradle.org/distributions/gradle-7.4.2-bin.zip
   - unzip -qq gradle-7.4.2-bin.zip
 script:
   - ./gradlew run
-  - git clone https://github.com/qasim-test-org/travis-test-build.git
-  - cd travis-test-build
-  - ls -la
-  - sleep 2
