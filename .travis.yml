@@ -7,9 +7,5 @@ cache:
   pip: true
   directories:
     - node_modules
-before_script:
-  - nvm install 14
-  - nvm use 14
-  - npm i yarn -g
 script:
-  - yarn install
+  - echo done
