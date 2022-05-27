@@ -3,9 +3,9 @@ dist: xenial
 language: python
 python: 3.8
 cache:
-  yarn: true
-  pip
-  directories:
-    - node_modules
+  - yarn
+    directories:
+      - node_modules
+  - pip
 script:
   - echo done
