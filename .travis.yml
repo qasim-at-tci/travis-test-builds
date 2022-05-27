@@ -4,7 +4,7 @@ language: python
 python: 3.8
 cache:
   yarn: true
-  pip: true
+  pip
   directories:
     - node_modules
 script:
