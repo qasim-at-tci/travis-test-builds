@@ -14,5 +14,4 @@ before_script:
   - nvm use 14
   - npm i yarn -g
   - yarn install
-script:
-  - echo done
+script: true
