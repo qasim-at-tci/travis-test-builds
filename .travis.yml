@@ -9,5 +9,10 @@ cache:
   pip: true
   directories:
     - $HOME/.cache/pip
+before_script:
+  - nvm install 14
+  - nvm use 14
+  - npm i yarn -g
+  - yarn install
 script:
   - echo done
