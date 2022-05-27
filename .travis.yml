@@ -10,7 +10,7 @@ cache:
 before_install:
   - nvm install 14
   - nvm use 14
- - npm i yarn -g
+  - npm i yarn -g
 install:
   - pip install -r requirements.txt
   - yarn install
