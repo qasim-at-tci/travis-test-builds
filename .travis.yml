@@ -9,9 +9,11 @@ cache:
   pip: true
   directories:
     - $HOME/.cache/pip
-before_script:
+before_install:
   - nvm install 14
   - nvm use 14
   - npm i yarn -g
+install:
+  - pip install -r requirements.txt
   - yarn install
 script: true
