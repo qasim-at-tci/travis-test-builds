@@ -9,6 +9,7 @@ script:
   - php -version
   - node -v
   - npm -v
+  - echo "test by Mustafa"
 
 #before_deploy:
 #  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
