@@ -1,6 +1,6 @@
 language: java
 jdk: openjdk8
-dist: focal
+dist: xenial
 env:
   global:
     - GRADLE_HOME="$PWD/gradle-7.4"
