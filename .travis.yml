@@ -14,9 +14,9 @@ jobs:
   include:
     - jdk: openjdk8
       dist: trusty
-    - jdk: openjdk8
+    - jdk: openjdk11
       dist: trusty
-    - jdk: openjdk8
+    - jdk: openjdk15
       dist: trusty
     - jdk: openjdk8
       dist: xenial
