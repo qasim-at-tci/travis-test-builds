@@ -12,6 +12,8 @@ script:
 
 jobs:
   include:
+    - jdk: openjdk7
+      dist: trusty
     - jdk: openjdk8
       dist: trusty
     - jdk: openjdk9
@@ -32,7 +34,9 @@ jobs:
       dist: trusty
     - jdk: openjdk17
       dist: trusty
-    
+      
+    - jdk: openjdk7
+      dist: xenial
     - jdk: openjdk8
       dist: xenial
     - jdk: openjdk9
@@ -54,6 +58,8 @@ jobs:
     - jdk: openjdk17
       dist: xenial
       
+    - jdk: openjdk7
+      dist: bionic  
     - jdk: openjdk8
       dist: bionic
     - jdk: openjdk9
@@ -75,6 +81,8 @@ jobs:
     - jdk: openjdk17
       dist: bionic
       
+    - jdk: openjdk7
+      dist: focal  
     - jdk: openjdk8
       dist: focal
     - jdk: openjdk9
