@@ -1,5 +1,5 @@
 os: linux
-dist: focal
+jdk: openjdk11
 language: android
 
 script: true
