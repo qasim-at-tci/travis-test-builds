@@ -3,11 +3,4 @@ os: linux
 language: android
 jdk: openjdk11
 
-jobs:
-  include:
-    - group: edge
-      language: android
-    - language: android
-      before_install:
-        - echo done
 script: true
