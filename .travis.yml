@@ -1,5 +1,5 @@
 os: linux
-dist: focal
+dist: trusty
 language: android
 jdk: openjdk11
 
