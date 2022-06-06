@@ -105,35 +105,35 @@ jobs:
       dist: focal
       
     - jdk: openjdk7
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk8
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk9
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk10
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk11
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk12
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk13
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk14
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk15
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk16
-      dist: jimmy
+      dist: jammy
       group: edge
     - jdk: openjdk17
-      dist: jimmy
+      dist: jammy
       group: edge
