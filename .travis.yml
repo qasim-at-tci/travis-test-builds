@@ -1,6 +1,4 @@
 os: linux
-dist: trusty
 language: android
-jdk: openjdk11
 
 script: true
