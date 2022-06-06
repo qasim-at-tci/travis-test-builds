@@ -1,10 +1,5 @@
 os: linux
 dist: focal
-language: python
-python:
-  - 3.7-dev
-  - 3.8-dev
-  - 3.9-dev
-  - 3.10-dev
-  - 3.11-dev
+language: android
+jdk: openjdk11
 script: true
