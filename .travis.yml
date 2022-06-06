@@ -1,26 +1,14 @@
 os: linux
 language: python
+python:
+  - 3.7-dev
+  - 3.8-dev
+  - 3.9-dev
+  - 3.10-dev
+  - 3.11-dev
 jobs:
   include:
     - dist: xenial
-      python:
-        - 3.7-dev
-        - 3.8-dev
-        - 3.9-dev
-        - 3.10-dev
-        - 3.11-dev
     - dist: bionic
-      python:
-        - 3.7-dev
-        - 3.8-dev
-        - 3.9-dev
-        - 3.10-dev
-        - 3.11-dev
     - dist: focal
-      python:
-        - 3.7-dev
-        - 3.8-dev
-        - 3.9-dev
-        - 3.10-dev
-        - 3.11-dev
 script: true
