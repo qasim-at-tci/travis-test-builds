@@ -1,24 +1,14 @@
 os: linux
-dist: xenial
 language: python
-cache:
-  directories:
-  - node_modules
 python:
-- '3.8'
-addons:
-  postgresql: '12'
-  apt:
-    packages:
-    - postgresql-12
-    - postgresql-client-12
-env:
-  global:
-  - PGVER=12
-  - PGPORT=5433
-script:
-  - nvm install 14.19.1
-  - nvm use 14.19.1
-  - npm i yarn -g
-  - node -v
-  - yarn -v
+  - 3.7-dev
+  - 3.8-dev
+  - 3.9-dev
+  - 3.10-dev
+  - 3.11-dev
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+script: true
