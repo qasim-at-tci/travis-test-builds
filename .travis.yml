@@ -1,4 +1,3 @@
-# test
 branches:
   only:
     - sonarcloud-intregation
@@ -9,10 +8,6 @@ node_js:
   - node
   - lts/*
 addons:
-  apt:
-    packages:
-      - --install-recommends
-      - gcc-arm-none-eabi
   sonarcloud:
     organization: "qasim-test-org"
     token: $SONAR
