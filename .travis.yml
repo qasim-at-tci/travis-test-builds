@@ -2,7 +2,6 @@ branches:
   only:
     - sonarcloud-intregation
 os: linux
-dist: focal
 language: node_js
 jdk: openjdk8
 node_js:
@@ -11,7 +10,12 @@ addons:
   sonarcloud:
     organization: "qasim-test-org"
     token: $SONAR
-  
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
 script:
   - npm test
 after_success:
