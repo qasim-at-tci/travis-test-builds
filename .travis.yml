@@ -19,6 +19,8 @@ addons:
   
 script:
   - npm test
+after_success:
+  - sonar-scanner
 
 #jobs:
 #  include:
