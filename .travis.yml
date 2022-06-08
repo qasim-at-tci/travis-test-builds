@@ -4,11 +4,11 @@ language: ruby
 ruby: 2.7.5
 
 before_script:
-  - elasticsearch --version
+  - bin/elasticsearch --version
   - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb -o elasticsearch.deb
   - sudo dpkg -i --force-confnew elasticsearch.deb
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
   - sudo service elasticsearch restart
   - sleep 10
-  - elasticsearch --version
+  - bin/elasticsearch --version
 script: true
