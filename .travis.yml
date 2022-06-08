@@ -2,8 +2,10 @@ os: linux
 dist: focal
 language: ruby
 ruby: 2.7.5
-
+services:
+  - elasticsearch
 before_script:
+  - sleep 10
   - bin/elasticsearch --version
   - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.deb -o elasticsearch.deb
   - sudo dpkg -i --force-confnew elasticsearch.deb
