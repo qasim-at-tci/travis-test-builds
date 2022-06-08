@@ -2,10 +2,7 @@ os: linux
 dist: focal
 language: ruby
 ruby: 2.7.5
-services:
-  - elasticsearch
 before_script:
-  - sleep 10
   - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.deb -o elasticsearch.deb
   - sudo dpkg -i --force-confnew elasticsearch.deb
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
