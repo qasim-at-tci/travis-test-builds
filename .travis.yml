@@ -2,12 +2,6 @@ dist: xenial
 
 os: linux
 
-services:
-  - rabbitmq
-
-addons:
-  apt:
-    packages:
-    - rabbitmq-server
+arch: Arm64
 
 script: true
