@@ -2,14 +2,6 @@ dist: xenial
 
 os: linux
 
-arch: arm64
-virt: lxd
-
-language: php
-
-php:
-  - 8.0
-
 services:
   - rabbitmq
 
