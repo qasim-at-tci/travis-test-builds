@@ -3,6 +3,7 @@ dist: xenial
 os: linux
 
 arch: arm64
+virt: lxd
 
 language: php
 
