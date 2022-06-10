@@ -5,6 +5,8 @@ jobs:
   allow_failures:
     - script:
         - echo Done
+    - script:
+        - false
   include:
     - stage: Run tests
       script:
@@ -16,7 +18,7 @@ jobs:
           paths:
             - examine.txt
     - script:
-        - true
+        - false
     - script:
         - echo done
     - stage: Run Failure Script
