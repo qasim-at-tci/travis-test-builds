@@ -12,8 +12,7 @@ jobs:
       workspaces:
         create:
           name: qa_ws
-          paths:
-            - examine.txt
+          paths: .
     - stage: EXAMINE
       workspaces:
         use: qa_ws
