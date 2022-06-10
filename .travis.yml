@@ -4,11 +4,11 @@ os: linux
 jobs:
   allow_failures:
     - script:
-        - false
+        - echo Done
   include:
     - stage: Run tests
       script:
-        - false
+        - echo Done
     - script:
         - true
     - script:
