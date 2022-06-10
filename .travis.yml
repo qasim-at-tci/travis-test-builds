@@ -1,7 +1,29 @@
 dist: focal
-
 os: linux
 
-arch: Arm64
-
-script: true
+jobs:
+  include:
+    - stage: Run tests
+      script: true
+      after_success:
+        - echo "PASSED" > examine.txt
+      after_failure:
+        - echo "FAILED" > examine.txt
+      workspaces:
+        create:
+          name: qa_ws
+          paths:
+            - examine.txt
+    - stage: EXAMINE
+      workspaces:
+        use: qa_ws
+      script:
+        - export status=`cat examine.txt`
+        - if [[ $status == "PASSED" ]]; then 
+            echo $status
+          fi
+        - if [[ $status == "FAILED" ]]; then 
+            echo $status
+          fi
+        - sleep 2
+        
