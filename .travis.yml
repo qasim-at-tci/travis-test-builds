@@ -1,21 +1,15 @@
-dist: focal
-os: linux
-
 jobs:
   include:
-    - stage: Run tests
-      script: true
-      after_success:
-        - echo "PASSED" > examine.txt
-      after_failure:
-        - echo "FAILED" > examine.txt
+    - stage: warm_cache
+      script:
+        - echo "foo" > foo.txt
       workspaces:
         create:
-          name: qa_ws
+          name: ws1
           paths:
-            - ./examine.txt
-    - stage: EXAMINE
+            - foo.txt
+    - stage: use_cache
       workspaces:
-        use: qa_ws
+        use: ws1
       script:
-        - cat examine.txt || true        
+        - cat foo.txt || true
