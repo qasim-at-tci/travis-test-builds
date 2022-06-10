@@ -16,9 +16,7 @@ deploy:
     zip: .
     environment:
       ENV=$ENV
-    environment:
       SENTRY_DSN=$SENTRY_DSN
-    environment:
       STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
     edge: true
     on:
