@@ -26,5 +26,5 @@ jobs:
         - export status=$( cat examine.txt )
         - echo $status
         - if [ $status == 1 ]; then
-            echo "done"
+            echo "done";
           fi
