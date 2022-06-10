@@ -17,8 +17,11 @@ jobs:
           name: qa_test
           paths:
             - examine.txt
-    - script:
+    - workspaces:
+        use: qa_test
+      script:
         - false
+        - echo $TRAVIS_TEST_RESULT > examine.txt
     - script:
         - echo done
     - stage: Run Failure Script
