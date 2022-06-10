@@ -3,12 +3,12 @@ os: linux
 
 jobs:
   allow_failures:
-    - script:
-        - echo Done
-    - script:
-        - false
+    env:
+      - ALLOW_FAIL=true
   include:
     - stage: Run tests
+      env:
+        - ALLOW_FAIL=true
       script:
         - echo Done
         - echo $TRAVIS_TEST_RESULT > examine.txt
@@ -19,6 +19,8 @@ jobs:
             - examine.txt
     - workspaces:
         use: qa_test
+      env:
+        - ALLOW_FAIL=true
       script:
         - false
         - echo $TRAVIS_TEST_RESULT > examine.txt
