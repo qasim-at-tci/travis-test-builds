@@ -25,7 +25,6 @@ jobs:
       script:
         - export status=$( cat examine.txt )
         - echo $status
-        - |
-          if [ $status == 1 ]; then
-            echo "done";
+        - if [ "$status" =~ ^(?=.*1)[01]+$ ]; then
+            echo "RUN FAILURE SCRIPT";
           fi
