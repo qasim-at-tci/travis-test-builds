@@ -9,10 +9,19 @@ jobs:
     - stage: Run tests
       script:
         - echo Done
+        - echo $TRAVIS_TEST_RESULT > examine.txt
+      workspaces:
+        create:
+          name: qa_test
+          paths:
+            - examine.txt
     - script:
         - true
     - script:
         - echo done
     - stage: Run Failure Script
+      workspaces:
+        use: qa_test
       script:
-        - true   
+        - export status = $( cat examine.txt )
+        - echo $status
