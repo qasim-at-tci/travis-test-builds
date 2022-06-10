@@ -12,6 +12,7 @@ jobs:
       script:
         - echo Done
         - echo $TRAVIS_TEST_RESULT > examine.txt
+        - cat examine.txt
       workspaces:
         create:
           name: qa_test
@@ -24,6 +25,7 @@ jobs:
       script:
         - false
         - echo $TRAVIS_TEST_RESULT >> examine.txt
+        - cat examine.txt
     - script:
         - echo done
     - stage: Run Failure Script
