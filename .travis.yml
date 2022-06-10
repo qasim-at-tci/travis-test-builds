@@ -23,5 +23,5 @@ jobs:
       workspaces:
         use: qa_test
       script:
-        - export status = $( cat examine.txt )
+        - export status=$( cat examine.txt )
         - echo $status
