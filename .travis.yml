@@ -18,7 +18,7 @@ jobs:
       workspaces:
         use: qa_ws
       script:
-        - export status=`cat examine.txt`
+        - export status=$( cat examine.txt )
         - echo $status
         - if [[ $status == "PASSED" ]]; then 
             echo $status
