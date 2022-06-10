@@ -9,17 +9,6 @@ jobs:
     - stage: Run tests
       script:
         - false
-      after_success:
-        - echo "PASSED" > examine.txt
-      after_failure:
-        - echo "FAILED" > examine.txt
-      workspaces:
-        create:
-          name: qa_ws
-          paths:
-            - examine.txt
     - stage: EXAMINE
-      workspaces:
-        use: qa_ws
       script:
-        - cat examine.txt || true        
+        - true        
