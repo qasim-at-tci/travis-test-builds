@@ -12,11 +12,10 @@ jobs:
       workspaces:
         create:
           name: qa_ws
-          paths: .
+          paths:
+            - examine.txt
     - stage: EXAMINE
       workspaces:
         use: qa_ws
       script:
-        - cat examine.txt || true
-        - cat examine.txt
-        
+        - cat examine.txt || true        
