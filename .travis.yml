@@ -15,9 +15,9 @@ deploy:
     timeout: 10
     zip: .
     environment:
-      ENV=$ENV
-      SENTRY_DSN=$SENTRY_DSN
-      STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
+      - ENV=$ENV
+      - SENTRY_DSN=$SENTRY_DSN
+      - STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
     edge: true
     on:
       all_branches: true
