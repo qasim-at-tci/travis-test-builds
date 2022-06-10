@@ -2,10 +2,12 @@ dist: focal
 os: linux
 
 jobs:
+  allow_failures:
+    - script:
+        - false
   include:
     - stage: Run tests
       script:
-        - touch examine.txt
         - false
       after_success:
         - echo "PASSED" > examine.txt
