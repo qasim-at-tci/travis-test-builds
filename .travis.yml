@@ -25,6 +25,7 @@ jobs:
       script:
         - export status=$( cat examine.txt )
         - echo $status
-        - if [ $status == 1 ]; then
+        - |
+          if [ $status == 1 ]; then
             echo "done";
           fi
