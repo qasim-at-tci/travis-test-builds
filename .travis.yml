@@ -9,6 +9,10 @@ jobs:
     - stage: Run tests
       script:
         - false
-    - stage: EXAMINE
+    - script:
+        - true
+    - script:
+        - echo done
+    - stage: Run Failure Script
       script:
-        - true        
+        - true   
