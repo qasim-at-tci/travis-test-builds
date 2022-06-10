@@ -6,6 +6,7 @@ jobs:
     - stage: Run tests
       script:
         - touch examine.txt
+        - false
       after_success:
         - echo "PASSED" > examine.txt
       after_failure:
