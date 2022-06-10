@@ -11,7 +11,7 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - echo Done
-        - echo $TRAVIS_TEST_RESULT > examine.txt
+        - echo -n $TRAVIS_TEST_RESULT > examine.txt
         - cat examine.txt
       workspaces:
         create:
@@ -24,7 +24,7 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - false
-        - echo $TRAVIS_TEST_RESULT >> examine.txt
+        - echo -n $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
     - script:
         - echo done
