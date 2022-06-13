@@ -8,8 +8,7 @@ jobs:
       - ALLOW_FAIL=true
   include:
     - stage: Workspace init.
-      script:
-        - touch examine.txt
+      script: true
       workspaces:
         create:
           name: qa_test
