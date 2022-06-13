@@ -28,7 +28,9 @@ jobs:
         - false
         - echo $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
-    - script:
+    - arch: s390x
+      dist: bionic
+      script:
         - echo done
     - stage: Run Failure Script
       workspaces:
