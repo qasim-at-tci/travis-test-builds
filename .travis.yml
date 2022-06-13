@@ -10,7 +10,7 @@ jobs:
     env:
       - ALLOW_FAIL=true
   include:
-    - stage: Get file ready
+    - stage: Get file ready to catch subsequent stage jobs results
       script:
         - touch results.txt
         - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
@@ -19,14 +19,22 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - echo Done
+        # Download the file from remote server to build VM
         - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e root@172.105.39.242 rm -f /home/temp/results.txt
+        
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
         - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
     - env:
         - ALLOW_FAIL=true
       script:
+        # Download the file from remote server to build VM
         - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e root@172.105.39.242 rm -f /home/temp/results.txt
+        
         - false
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
