@@ -29,6 +29,10 @@ jobs:
         - echo $TRAVIS_TEST_RESULT
         - echo $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
+    - workspaces:
+        use: qa_test
+      script:
+        - cat examine.txt
     - script:
         - echo done
     - stage: Run Failure Script
