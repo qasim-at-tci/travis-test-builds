@@ -34,7 +34,8 @@ jobs:
       workspaces:
         use: qa_test
       script:
-        - export status=$( cat examine.txt )
+        - cat examine.txt
+        - status=$( cat examine.txt )
         - echo $status
         - if [[ "$status" =~ [1] ]]; then
             echo "RUN FAILURE SCRIPT";
