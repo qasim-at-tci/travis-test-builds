@@ -14,10 +14,7 @@ deploy:
     runtime: nodejs16.x
     timeout: 10
     zip: build/package.zip
-    environment:
-      - ENV=$ENV
-      - SENTRY_DSN=$SENTRY_DSN
-      - STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
+    environment: ENV=$ENV SENTRY_DSN=$SENTRY_DSN STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
     edge: true
     on:
       all_branches: true
