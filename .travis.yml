@@ -24,6 +24,7 @@ jobs:
       env:
         - ALLOW_FAIL=true
       script:
+        - cat examine.txt
         - false
         - echo -n $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
