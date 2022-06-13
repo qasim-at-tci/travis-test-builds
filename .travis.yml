@@ -7,6 +7,14 @@ jobs:
     env:
       - ALLOW_FAIL=true
   include:
+    - stage: Workspace init.
+      script:
+        - tocuh examine.txt
+      workspaces:
+        create:
+          name: qa_test
+          paths:
+            - examine.txt
     - stage: Run tests
       env:
         - ALLOW_FAIL=true
@@ -15,10 +23,7 @@ jobs:
         - echo $TRAVIS_TEST_RESULT > examine.txt
         - cat examine.txt
       workspaces:
-        create:
-          name: qa_test
-          paths:
-            - examine.txt
+        use: qa_test
     - workspaces:
         use: qa_test
       env:
