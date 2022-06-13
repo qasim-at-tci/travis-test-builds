@@ -13,7 +13,7 @@ jobs:
     - stage: Get file ready
       script:
         - touch results.txt
-        - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
+        - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
     - stage: Run tests
       env:
         - ALLOW_FAIL=true
