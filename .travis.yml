@@ -8,7 +8,8 @@ jobs:
       - ALLOW_FAIL=true
   include:
     - stage: Workspace init.
-      script: true
+      script:
+        - chmod 777 ./examine.txt
       workspaces:
         create:
           name: qa_test
