@@ -12,7 +12,7 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - echo Done
-        - printf $TRAVIS_TEST_RESULT > examine.txt
+        - echo -n $TRAVIS_TEST_RESULT > examine.txt
         - cat examine.txt
       workspaces:
         create:
@@ -25,7 +25,7 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - false
-        - printf $TRAVIS_TEST_RESULT >> examine.txt
+        - echo -n $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
     - script:
         - echo done
@@ -35,6 +35,6 @@ jobs:
       script:
         - export status=$( cat examine.txt )
         - echo $status
-        - if [[ "$status" =~ ^(?=.*1)[01]+$ ]]; then
+        - if [[ "$status" =~ [1] ]]; then
             echo "RUN FAILURE SCRIPT";
           fi
