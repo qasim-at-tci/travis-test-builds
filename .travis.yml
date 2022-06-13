@@ -19,23 +19,23 @@ jobs:
         - ALLOW_FAIL=true
       script:
         - echo Done
-        - sshpass -e scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
-        - sshpass -e scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
+        - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
     - env:
         - ALLOW_FAIL=true
       script:
-        - sshpass -e scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - false
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
-        - sshpass -e scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
+        - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
     - script:
         - echo done
     - stage: Run Failure Script
       script:
-        - sshpass -e scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - cat results.txt
         - status=$( cat results.txt )
         - echo $status
