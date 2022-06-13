@@ -1,51 +1,45 @@
 dist: focal
 os: linux
 language: minimal
+before_install:
+  # Install sshpass to pass linode creds
+  - sudo apt-get install -y sshpass
 
 jobs:
   allow_failures:
     env:
       - ALLOW_FAIL=true
   include:
-    - stage: Workspace init.
+    - stage: Get file ready
       script:
-        - chmod 777 ./examine.txt
-      workspaces:
-        create:
-          name: qa_test
-          paths:
-            - examine.txt
+        - touch results.txt
+        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
     - stage: Run tests
       env:
         - ALLOW_FAIL=true
       script:
         - echo Done
-        - echo $TRAVIS_TEST_RESULT > examine.txt
-        - cat examine.txt
-      workspaces:
-        use: qa_test
-    - workspaces:
-        use: qa_test
-      env:
+        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - echo $TRAVIS_TEST_RESULT > results.txt
+        - cat results.txt
+        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
+    - env:
         - ALLOW_FAIL=true
       script:
-        - cat examine.txt
+        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - false
-        - echo $TRAVIS_TEST_RESULT
-        - echo $TRAVIS_TEST_RESULT >> examine.txt
-        - cat examine.txt
-    - workspaces:
-        use: qa_test
-      script:
-        - cat examine.txt
+        - echo $TRAVIS_TEST_RESULT > results.txt
+        - cat results.txt
+        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
     - script:
         - echo done
     - stage: Run Failure Script
       workspaces:
         use: qa_test
       script:
-        - cat examine.txt
-        - status=$( cat examine.txt )
+        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - cat results.txt
+        - status=$( cat results.txt )
         - echo $status
         - if [[ "$status" =~ [1] ]]; then
             echo "RUN FAILURE SCRIPT";
