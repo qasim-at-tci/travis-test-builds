@@ -1,42 +1,23 @@
-dist: focal
 os: linux
-language: minimal
+dist: xenial
+language: node_js
+node_js: 16
 
-jobs:
-  allow_failures:
-    env:
-      - ALLOW_FAIL=true
-  include:
-    - stage: Run tests
-      env:
-        - ALLOW_FAIL=true
-      script:
-        - echo Done
-        - echo $TRAVIS_TEST_RESULT > examine.txt
-        - cat examine.txt
-      workspaces:
-        create:
-          name: qa_test
-          paths:
-            - examine.txt
-    - workspaces:
-        use: qa_test
-      env:
-        - ALLOW_FAIL=true
-      script:
-        - cat examine.txt
-        - false
-        - echo $TRAVIS_TEST_RESULT >> examine.txt
-        - cat examine.txt
-    - script:
-        - echo done
-    - stage: Run Failure Script
-      workspaces:
-        use: qa_test
-      script:
-        - cat examine.txt
-        - status=$( cat examine.txt )
-        - echo $status
-        - if [[ "$status" =~ [1] ]]; then
-            echo "RUN FAILURE SCRIPT";
-          fi
+script: true
+
+deploy:
+  - provider: lambda
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    region: $AWS_DEFAULT_REGION
+    function_name: figma-parser-$ENV
+    runtime: nodejs16.x
+    timeout: 10
+    zip: build/package.zip
+    environment:
+      - ENV=$ENV
+      - SENTRY_DSN=$SENTRY_DSN
+      - STUDIO_AUTHORIZATION_KEY=$STUDIO_AUTHORIZATION_KEY
+    edge: true
+    on:
+      all_branches: true
