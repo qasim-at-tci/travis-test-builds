@@ -22,7 +22,7 @@ jobs:
         # Download the file from remote server to build VM
         - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
         # Delete the file from remote server
-        - sshpass -e root@172.105.39.242 rm -f /home/temp/results.txt
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
         
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
@@ -33,7 +33,7 @@ jobs:
         # Download the file from remote server to build VM
         - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
         # Delete the file from remote server
-        - sshpass -e root@172.105.39.242 rm -f /home/temp/results.txt
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
         
         - false
         - echo $TRAVIS_TEST_RESULT > results.txt
