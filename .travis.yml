@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: Workspace init.
       script:
-        - tocuh examine.txt
+        - touch examine.txt
       workspaces:
         create:
           name: qa_test
