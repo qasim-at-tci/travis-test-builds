@@ -13,31 +13,31 @@ jobs:
     - stage: Get file ready
       script:
         - touch results.txt
-        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
+        - sshpass -p "$QA_LINODE_INSTANCE" scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
     - stage: Run tests
       env:
         - ALLOW_FAIL=true
       script:
         - echo Done
-        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -p "$QA_LINODE_INSTANCE" scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
-        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
+        - sshpass -p "$QA_LINODE_INSTANCE" scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
     - env:
         - ALLOW_FAIL=true
       script:
-        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -p "$QA_LINODE_INSTANCE" scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - false
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
-        - sshpass -p $QA_LINODE_INSTANCE scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
+        - sshpass -p "$QA_LINODE_INSTANCE" scp $TRAVIS_BUILD_DIR/examine.txt root@172.105.39.242:/home/Documents
     - script:
         - echo done
     - stage: Run Failure Script
       workspaces:
         use: qa_test
       script:
-        - sshpass -p $QA_LINODE_INSTANCE scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
+        - sshpass -p "$QA_LINODE_INSTANCE" scp root@172.105.39.242:/home/Documents $TRAVIS_BUILD_DIR/examine.txt
         - cat results.txt
         - status=$( cat results.txt )
         - echo $status
