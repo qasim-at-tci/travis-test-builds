@@ -38,7 +38,7 @@ jobs:
         - false
         - echo $TRAVIS_TEST_RESULT >> results.txt
         - cat results.txt
-        - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/Documents
+        - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
     - script:
         - echo done
     - stage: Run Failure Script
