@@ -26,6 +26,7 @@ jobs:
       script:
         - cat examine.txt
         - false
+        - echo $TRAVIS_TEST_RESULT
         - echo $TRAVIS_TEST_RESULT >> examine.txt
         - cat examine.txt
     - script:
