@@ -1,5 +1,6 @@
 dist: focal
 os: linux
+language: minimal
 
 jobs:
   allow_failures:
