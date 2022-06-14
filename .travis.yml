@@ -55,8 +55,8 @@ jobs:
         # Delete the file from linode server
         - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
         
-        #- false # intentional failure here to test the use case
-        - true
+        - false # intentional failure here to test the use case
+        #- true
         - echo $TRAVIS_TEST_RESULT >> results.txt
         - cat results.txt
         # Upload the populated file to linode server
