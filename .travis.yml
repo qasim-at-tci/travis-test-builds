@@ -56,6 +56,7 @@ jobs:
         - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
         
         - false # intentional failure here to test the use case
+        #- true
         - echo $TRAVIS_TEST_RESULT >> results.txt
         - cat results.txt
         # Upload the populated file to linode server
@@ -71,7 +72,7 @@ jobs:
         - cat results.txt
         # Upload the populated file to linode server
         - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
-    - stage: Run Failure Script
+    - stage: Execute script based on the build stages jobs results!
       script:
         # Download the file from linode server to build VM
         - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
@@ -81,8 +82,13 @@ jobs:
         - cat results.txt
         - status=$( cat results.txt )
         - echo $status
+        
+        # Any stage job failed?
         - if [[ "$status" =~ [1] ]]; then
             echo "Run a script if any job is failed.";
-          else
-            echo "Run some desired logic script if all jobs pass."
+          fi
+        
+        # All jobs within stages passed?
+        - if [[ "$status" =~ ^0*$ ]]; then
+            echo "Run a script if any job is failed.";
           fi
