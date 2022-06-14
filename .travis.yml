@@ -1,3 +1,19 @@
+########################################################
+# Custom .travis.yml config that uses a linode
+# instance to catch the build stages jobs result
+# from TRAVIS_TEST_RESULT (0|1) environment variable
+# and populates the text file.
+# Based on that file text string(0's and 1's), if there
+# is a 1 within the string, a failure script is executed.
+
+# > TRAVIS_TEST_RESULT: 0 if all commands in the script section
+#   (up to the point this environment variable is referenced)
+#   have exited with zero; 1 otherwise.
+
+# RegEx can be enhanced to run multiple scripts based on
+# the desired use case.
+########################################################
+
 dist: focal
 os: linux
 language: minimal
@@ -24,6 +40,11 @@ jobs:
       env:
         - ALLOW_FAIL=true
       script:
+        # Download the file from remote server to build VM
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
+        
         - echo Done
         - echo $TRAVIS_TEST_RESULT > results.txt
         - cat results.txt
@@ -31,14 +52,32 @@ jobs:
     - env:
         - ALLOW_FAIL=true
       script:
-        - false
+        # Download the file from remote server to build VM
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
+        
+        - false # intentional failure here to test the use case
         - echo $TRAVIS_TEST_RESULT >> results.txt
         - cat results.txt
         - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
     - script:
+        # Download the file from remote server to build VM
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
+        
         - echo done
+        - echo $TRAVIS_TEST_RESULT >> results.txt
+        - cat results.txt
+        - sshpass -e scp $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
     - stage: Run Failure Script
       script:
+        # Download the file from remote server to build VM
+        - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
+        # Delete the file from remote server
+        - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
+        
         - cat results.txt
         - status=$( cat results.txt )
         - echo $status
