@@ -1,6 +1,6 @@
 os: linux
 arch: ppc64le
-language: shell
+language: minimal
 script: true
 
 jobs:
