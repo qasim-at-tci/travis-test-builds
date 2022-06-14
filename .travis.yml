@@ -40,7 +40,7 @@ jobs:
         - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
         
         - echo Done
-        - echo $TRAVIS_TEST_RESULT > results.txt
+        - echo $TRAVIS_TEST_RESULT >> results.txt
         - cat results.txt
         - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
     - env:
