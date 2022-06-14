@@ -84,4 +84,8 @@ jobs:
         - echo $status
         
         # Run scripts based on results from stage jobs
-        - [ "$status" =~ [1] ] && echo "Run failure script" || echo "Run passing script"
+        - if [ "$status" =~ [1] ]; then
+            echo "Run failure script"; 
+        else 
+            echo "Run passing script"; 
+        fi
