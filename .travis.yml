@@ -1,5 +1,10 @@
 os: linux
-dist: bionic
-arch: s390x
-
+arch: ppc64le
+language: shell
 script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
