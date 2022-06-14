@@ -20,11 +20,6 @@ language: minimal
 before_install:
   # Install sshpass to pass linode creds
   - sudo apt-get install -y sshpass
-before_script:
-  # Download the file from remote server to build VM
-  - sshpass -e scp -o "StrictHostKeyChecking=no" root@172.105.39.242:/home/temp/results.txt $TRAVIS_BUILD_DIR
-  # Delete the file from remote server
-  - sshpass -e ssh root@172.105.39.242 rm -f /home/temp/results.txt
 
 jobs:
   allow_failures:
@@ -32,7 +27,6 @@ jobs:
       - ALLOW_FAIL=true
   include:
     - stage: Get file ready to catch subsequent stage jobs results
-      before_script: skip
       script:
         - touch results.txt
         - sshpass -e scp -o "StrictHostKeyChecking=no" $TRAVIS_BUILD_DIR/results.txt root@172.105.39.242:/home/temp
