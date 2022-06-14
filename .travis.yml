@@ -83,12 +83,5 @@ jobs:
         - status=$( cat results.txt )
         - echo $status
         
-        # Any stage job failed?
-        - if [[ "$status" =~ [1] ]]; then
-            echo "Run a script if any job is failed.";
-          fi
-        
-        # All jobs within stages passed?
-        - if [[ "$status" =~ ^0*$ ]]; then
-            echo "Run a script if any job is failed.";
-          fi
+        # Run scripts based on results from stage jobs
+        - [[ "$status" =~ [1] ]] && echo "Run failure script" || echo "Run passing script"
