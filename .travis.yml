@@ -1,4 +1,4 @@
-########################################################
+###############################################################
 # Custom .travis.yml config that uses a linode
 # instance to catch the build stages jobs results text
 # file populated from TRAVIS_TEST_RESULT (0|1) environment
@@ -13,7 +13,7 @@
 #
 # RegEx can be enhanced to run multiple scripts based on
 # the desired use case.
-########################################################
+###############################################################
 
 dist: focal
 os: linux
