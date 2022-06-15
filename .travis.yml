@@ -2,5 +2,6 @@ os: linux
 dist: xenial
 language: minimal
 script:
+  - git checkout docker
   - git show-ref
   - cat .git/refs/head/docker
