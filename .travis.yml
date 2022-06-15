@@ -1,7 +1,10 @@
 os: linux
-dist: xenial
+arch: ppc64le
 language: minimal
-script:
-  - git checkout docker
-  - git show-ref
-  - cat .git/refs/head/docker
+script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
