@@ -1,10 +1,4 @@
 os: linux
-arch: ppc64le
-language: minimal
+language: ruby
+ruby: 2.7.4
 script: true
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
