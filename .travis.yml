@@ -4,7 +4,7 @@ osx_image:
   - xcode13.2
   - xcode13.1
   - xcode12.5
-language: shell
+language: minimal
 addons:
   chrome: stable
 script:
