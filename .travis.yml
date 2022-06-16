@@ -1,4 +1,21 @@
-language: android
-dist: trusty
-jdk: oraclejdk8
+language: ruby
+ruby: 2.7.4
+dist: focal
+
+before_install:
+  - curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+  - echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+  - sudo apt update
+  - sudo apt install -y elasticsearch
+  - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-stempel
+  - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-ukrainian
+  - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-kuromoji
+  - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-icu
+  - sudo systemctl enable --now elasticsearch.service
+  - sudo systemctl start elasticsearch.service
+  - curl -X GET "http://localhost:9200"
+  - until curl --silent -XGET --fail http://localhost:9200; do printf 'waiting for ES to start...\n'; sleep 2;
+    done
+
 script: true
