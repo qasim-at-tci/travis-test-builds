@@ -1,6 +1,6 @@
 language: ruby
 ruby: 2.7.4
-dist: focal
+dist: xenial
 
 before_install:
   - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.0-amd64.deb -o elasticsearch.deb
