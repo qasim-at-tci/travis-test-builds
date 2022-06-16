@@ -10,7 +10,7 @@ before_install:
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-ukrainian
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-kuromoji
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-icu
-  - sudo systemctl restart elasticsearch.service
+  - sudo service elasticsearch restart
   - until curl --silent -XGET --fail http://localhost:9200; do printf 'waiting for ES to start...\n'; sleep 2;
     done
 
