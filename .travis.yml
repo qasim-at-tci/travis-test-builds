@@ -1,4 +1,4 @@
-os: linux
-language: ruby
-ruby: 2.7.4
+language: android
+dist: trusty
+jdk: oraclejdk8
 script: true
