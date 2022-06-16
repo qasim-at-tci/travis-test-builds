@@ -1,6 +1,5 @@
 os: osx
 osx_image: xcode13.4
 language: ruby
-ruby: 2.7.4
 
 script: true
