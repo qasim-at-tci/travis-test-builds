@@ -3,15 +3,19 @@ ruby: 2.7.4
 dist: xenial
 
 before_install:
-  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.0-amd64.deb -o elasticsearch.deb
+  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.deb -o elasticsearch.deb
   - sudo dpkg -i --force-confnew elasticsearch.deb
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo rm -rf /var/lib/elasticsearch/nodes
+  - sudo service elasticsearch restart
+  - sleep 10
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-stempel
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-ukrainian
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-kuromoji
   - sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install --batch analysis-icu
-  - sudo service elasticsearch start
-  - until curl --silent -XGET --fail http://localhost:9200; do printf 'waiting for ES to start...\n'; sleep 2;
+  - sudo service elasticsearch restart
+  - sleep 10
+  - until curl --silent -XGET --fail http://localhost:9200; do printf '...\n'; sleep 2;
     done
 
 script: true
