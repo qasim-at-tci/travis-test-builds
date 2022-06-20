@@ -106,34 +106,23 @@ jobs:
       
     - jdk: openjdk7
       dist: jammy
-      group: edge
     - jdk: openjdk8
       dist: jammy
-      group: edge
     - jdk: openjdk9
       dist: jammy
-      group: edge
     - jdk: openjdk10
       dist: jammy
-      group: edge
     - jdk: openjdk11
       dist: jammy
-      group: edge
     - jdk: openjdk12
       dist: jammy
-      group: edge
     - jdk: openjdk13
       dist: jammy
-      group: edge
     - jdk: openjdk14
       dist: jammy
-      group: edge
     - jdk: openjdk15
       dist: jammy
-      group: edge
     - jdk: openjdk16
       dist: jammy
-      group: edge
     - jdk: openjdk17
       dist: jammy
-      group: edge
