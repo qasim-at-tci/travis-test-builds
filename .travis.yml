@@ -1,4 +1,6 @@
 os: linux
-dist: jammy
-language: shell
-script: true
+dist: bionic
+language: ruby
+ruby: 3.0.4
+script:
+  - ruby -v
