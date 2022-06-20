@@ -1,11 +1,4 @@
-os: osx
-osx_image:
-  - xcode13.3
-  - xcode13.2
-  - xcode13.1
-  - xcode12.5
+os: linux
+dist: jammy
 language: shell
-addons:
-  chrome: stable
-script:
-  - /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+script: true
