@@ -1,11 +1,6 @@
-os: osx
-osx_image:
-  - xcode13.3
-  - xcode13.2
-  - xcode13.1
-  - xcode12.5
-language: minimal
-addons:
-  chrome: stable
+os: linux
+dist: bionic
+language: ruby
+ruby: 3.0.4
 script:
-  - /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+  - ruby -v
