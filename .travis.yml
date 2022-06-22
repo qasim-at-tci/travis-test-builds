@@ -2,6 +2,7 @@ os: linux
 dist: bionic
 language: ruby
 addons:
+  postgresql: "14"
   apt:
     packages:
       - postgresql-14
