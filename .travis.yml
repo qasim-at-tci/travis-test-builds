@@ -9,7 +9,7 @@ addons:
 env:
   global:
     - PGPORT=5433
-    - PGUSER=travis
+    - PGUSER=postgres
 before_script:
   - bundle exec rake db:create db:migrate
 script:
