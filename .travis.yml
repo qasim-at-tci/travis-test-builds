@@ -1,0 +1,17 @@
+os: linux
+dist: bionic
+language: ruby
+addons:
+  apt:
+    packages:
+      - postgresql-14
+      - postgresql-client-14
+env:
+  global:
+    - PGPORT=5433
+    - PGUSER=travis
+before_script:
+  - bundle exec rake db:create db:migrate
+script:
+  - bundle exec rspec --format documentation
+  - psql --version
