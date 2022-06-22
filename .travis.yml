@@ -1,6 +1,6 @@
 os: linux
 dist: trusty
 language: ruby
-ruby: 3.0.0
+rvm: 3.0.0
 script:
   - ruby -v
