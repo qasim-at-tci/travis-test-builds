@@ -12,7 +12,7 @@ env:
     - PGUSER=postgres
 before_install:
   - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-  - /usr/lib/postgresql/14/bin/initdb -D /var/lib/postgresql/14/main restart
+  - sudo systemctl reload postgresql
   - sleep 5
   - postgres --version
 before_script:
