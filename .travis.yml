@@ -6,8 +6,6 @@ addons:
     packages:
       - postgresql-14
       - postgresql-client-14
-services:
-  - postgresql
 env:
   global:
     - PGPORT=5433
