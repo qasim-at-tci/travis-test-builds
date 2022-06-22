@@ -2,7 +2,6 @@ os: linux
 dist: bionic
 language: ruby
 addons:
-  postgresql: "14"
   apt:
     packages:
       - postgresql-14
@@ -13,7 +12,7 @@ env:
     - PGUSER=postgres
 before_install:
   - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-  - sudo service postgresql restart
+  - pg_ctlcluster restart
   - sleep 5
   - postgres --version
 before_script:
