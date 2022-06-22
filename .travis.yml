@@ -1,6 +1,6 @@
 os: linux
-dist: bionic
+dist: trusty
 language: ruby
-ruby: 3.0.4
+ruby: 3.0.0
 script:
   - ruby -v
