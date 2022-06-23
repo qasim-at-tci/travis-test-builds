@@ -1,14 +1,7 @@
 os: linux
-dist: bionic
+dist: jammy
 language: ruby
-addons:
-  apt:
-    packages:
-      - postgresql-14
-      - postgresql-client-14
-env:
-  global:
-    - PGPORT=5433
-    - PGUSER=travis
+services:
+  - postgresql
 script:
   - psql --version
