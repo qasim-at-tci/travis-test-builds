@@ -7,3 +7,4 @@ jobs:
   include:
     - virt: lxd
     - virt: vm
+      dist: focal
