@@ -1,6 +1,6 @@
 language: shell
 os: linux
 arch: arm64-graviton2
-virt: vm
+virt: lxd
 group: edge
 script: sleep 1
