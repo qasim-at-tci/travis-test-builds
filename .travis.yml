@@ -20,6 +20,8 @@ before_script:
   - bundle exec rake db:migrate
 script:
   - bundle exec rspec --format documentation
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.9.3
 deploy:
   provider: heroku
   api_key: $API_KEY
