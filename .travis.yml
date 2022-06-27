@@ -3,4 +3,4 @@ os: linux
 arch: arm64-graviton2
 virt: lxd
 group: edge
-script: sleep 1
+script: sleep 2
