@@ -25,8 +25,8 @@ deploy:
   api_key: $API_KEY
   app: tci-test-runs
   run:
-    - "rake db:migrate"
-    - sleep 1
+    #- "rake db:migrate"
+    - restart
   On:
     branch: rails-app
   edge: true
