@@ -1,5 +1,5 @@
 os: linux
-dist: focal
+dist: bionic
 language: ruby
 addons:
   apt:
@@ -27,4 +27,4 @@ deploy:
   run: rake db:migrate
   On:
     branch: rails-app
-  edge: true
+  #edge: true
