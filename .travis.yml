@@ -22,8 +22,8 @@ script:
   - bundle exec rspec --format documentation
   - gem install dpl --pre
   - dpl --api_key=$API_KEY --app="tci-test-runs" --provider="heroku" --run="rake db:migrate" --strategy="api"
-before_deploy:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.9.3
+#before_deploy:
+#  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.9.3
 #deploy:
 #  provider: heroku
 #  api_key: $API_KEY
