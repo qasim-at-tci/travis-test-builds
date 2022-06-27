@@ -1,6 +1,6 @@
 os: linux
-dist: jammy
-language: ruby
+dist: xenial
+language: shell
 services:
   - postgresql
 script:
