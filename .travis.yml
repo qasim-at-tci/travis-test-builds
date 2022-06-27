@@ -1,7 +1,6 @@
+language: shell
 os: linux
-dist: xenial
-language: python
-services:
-  - postgresql
-script:
-  - psql --version
+arch: arm64-graviton2
+virt: vm
+group: edge
+script: sleep 1
