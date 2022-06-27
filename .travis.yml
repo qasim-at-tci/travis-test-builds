@@ -27,6 +27,9 @@ deploy:
   run:
     #- "rake db:migrate"
     - restart
+    - sleep 20
+    - "rake db:migrate"
+    - sleep 20
   On:
     branch: rails-app
   edge: true
