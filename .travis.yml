@@ -1,6 +1,6 @@
 os: linux
 dist: xenial
-language: shell
+language: python
 services:
   - postgresql
 script:
