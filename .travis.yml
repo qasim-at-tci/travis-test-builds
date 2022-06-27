@@ -24,12 +24,7 @@ deploy:
   provider: heroku
   api_key: $API_KEY
   app: tci-test-runs
-  run:
-    #- "rake db:migrate"
-    - restart
-    - sleep 20
-    - "rake db:migrate"
-    - sleep 20
+  run: "rake db:migrate"
   On:
     branch: rails-app
   edge: true
