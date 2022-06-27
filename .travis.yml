@@ -26,6 +26,7 @@ deploy:
   app: tci-test-runs
   run:
     - "rake db:migrate"
+    - sleep 1
   On:
     branch: rails-app
   edge: true
