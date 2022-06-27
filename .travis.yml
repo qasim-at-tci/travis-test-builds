@@ -24,7 +24,8 @@ deploy:
   provider: heroku
   api_key: $API_KEY
   app: tci-test-runs
-  run: rake db:migrate
+  run:
+    - "rake db:migrate"
   On:
     branch: rails-app
-  #edge: true
+  edge: true
