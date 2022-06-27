@@ -20,3 +20,9 @@ before_script:
   - bundle exec rake db:migrate
 script:
   - bundle exec rspec --format documentation
+deploy:
+  provider: heroku
+  api_key: $API_KEY
+  app: tci-test-runs
+  run: rake db:migrate
+  edge: true
