@@ -1,6 +1,8 @@
 language: ruby
-ruby: 2.7.6
 os: linux
 dist: jammy
+before_script:
+  - rvm install 2.7.6
+  - rvm use 2.7.6
 script:
   - ruby -v
