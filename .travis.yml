@@ -1,37 +1,32 @@
 os: linux
-dist: jammy
+dist: bionic
 language: ruby
-ruby: 2.7.6
-services:
-  - postgresql
-#addons:
-#  apt:
-#    packages:
-#      - postgresql-14
-#      - postgresql-client-14
+addons:
+ apt:
+   packages:
+     - postgresql-14
+     - postgresql-client-14
 env:
   global:
     - PGPORT=5433
     - PGUSER=postgres
-#before_install:
-#  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-#  - sudo systemctl reload postgresql
-#  - sleep 5
-#  - psql --version
 before_install:
-  - gem install bundler:2.1.4
+ - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+ - sudo systemctl reload postgresql
+ - sleep 5
+ - psql --version
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:migrate
 script:
   - bundle exec rspec --format documentation
-before_deploy:
-  - sudo apt-get -y update && sudo apt-get -y upgrade
-deploy:
-  provider: heroku
-  api_key: $API_KEY
-  app: tci-test-runs
-  run: "rake db:migrate"
-  On:
-    branch: rails-app
-  edge: true
+# before_deploy:
+#   - sudo apt-get -y update && sudo apt-get -y upgrade
+# deploy:
+#   provider: heroku
+#   api_key: $API_KEY
+#   app: tci-test-runs
+#   run: "rake db:migrate"
+#   on:
+#     branch: rails-app
+#   edge: true
