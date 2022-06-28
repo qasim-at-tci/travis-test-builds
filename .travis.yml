@@ -21,13 +21,7 @@ before_script:
 script:
   - bundle exec rspec --format documentation
 before_deploy:
-  - openssl version
-  - curl -o openssl-1.1.1g.tar.gz https://www.openssl.org/source/openssl-1.1.1g.tar.gz
-  - tar -zxf openssl-1.1.1g.tar.gz && cd openssl-1.1.1g && ./config
-  - sudo make install
-  - sudo ln -sf /usr/local/bin/openssl /usr/bin/openssl
-  - sudo ldconfig
-  - openssl version
+  - sudo apt-get -y update && sudo apt-get -y upgrade
 deploy:
   provider: heroku
   api_key: $API_KEY
