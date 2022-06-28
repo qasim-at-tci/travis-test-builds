@@ -5,3 +5,4 @@ dist: jammy
 script:
   - git rev-parse HEAD
   - sleep 3
+  - cat test.txt
