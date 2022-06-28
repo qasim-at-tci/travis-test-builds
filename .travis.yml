@@ -4,3 +4,4 @@ os: linux
 dist: jammy
 script:
   - ruby -v
+  - sleep 2
