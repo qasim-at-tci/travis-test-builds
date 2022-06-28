@@ -1,6 +1,5 @@
-language: ruby
-ruby: 2.7.6
+language: python
+python: pypy3
 os: linux
-dist: jammy
 script:
-  - ruby -v
+  - python --version
