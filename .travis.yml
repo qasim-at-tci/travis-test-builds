@@ -2,7 +2,8 @@ language: ruby
 os: linux
 dist: jammy
 before_script:
-  - rvm install 2.7.6
+  - rvm pkg install openssl
+  - rvm install 2.7.6 --with-openssl-dir=/home/$(whoami)/.rvm/usr
   - rvm use 2.7.6
 script:
   - ruby -v
