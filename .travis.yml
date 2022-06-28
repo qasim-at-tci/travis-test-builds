@@ -20,15 +20,19 @@ before_script:
   - bundle exec rake db:migrate
 script:
   - bundle exec rspec --format documentation
-  - gem install dpl --pre
-  - dpl --api_key=$API_KEY --app="tci-test-runs" --provider="heroku" --run="rake db:migrate" --strategy="api"
-#before_deploy:
-#  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.9.3
-#deploy:
-#  provider: heroku
-#  api_key: $API_KEY
-#  app: tci-test-runs
-#  run: "rake db:migrate"
-#  On:
-#    branch: rails-app
-#  edge: true
+before_deploy:
+  - openssl version
+  - curl -o openssl-1.1.1g.tar.gz https://www.openssl.org/source/openssl-1.1.1g.tar.gz
+  - tar -zxf openssl-1.1.1g.tar.gz && cd openssl-1.1.1g && ./config
+  - sudo make install
+  - sudo ln -s /usr/local/bin/openssl /usr/bin/openssl
+  - sudo ldconfig
+  - openssl version
+deploy:
+  provider: heroku
+  api_key: $API_KEY
+  app: tci-test-runs
+  run: "rake db:migrate"
+  On:
+    branch: rails-app
+  edge: true
