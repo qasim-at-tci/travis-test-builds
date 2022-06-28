@@ -3,5 +3,5 @@ ruby: 2.7.6
 os: linux
 dist: jammy
 script:
-  - ruby -v
+  - git rev-parse HEAD
   - sleep 2
