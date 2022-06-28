@@ -1,10 +1,6 @@
-language: shell
+language: ruby
+ruby: 2.7.6
 os: linux
-arch: arm64-graviton2
-group: edge
-script: sleep 2
-jobs:
-  include:
-    - virt: lxd
-    - virt: vm
-      dist: focal
+dist: jammy
+script:
+  - ruby -v
