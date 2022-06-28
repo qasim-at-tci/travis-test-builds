@@ -4,4 +4,4 @@ os: linux
 dist: jammy
 script:
   - git rev-parse HEAD
-  - sleep 1
+  - sleep 2
