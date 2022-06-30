@@ -7,5 +7,5 @@ osx_image:
   - xcode11.4
   - xcode11.5
   
-  script:
-    - sleep 5
+script:
+  - sleep 5
