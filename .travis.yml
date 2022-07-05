@@ -4,4 +4,4 @@ language: ruby
 services:
   - mysql
 script:
-  - mysql --user='root' --password='' --execute='CREATE DATABASE test_db;'
+  - mysql --user='root' --password='' --execute='SHOW DATABASES;'
