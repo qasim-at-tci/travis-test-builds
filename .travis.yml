@@ -1,58 +1,7 @@
-jobs:
-  include:
-  - name: Run Wholesale Tests
-    language: python
-    python:
-      - "3.8"
-    services:
-      - mysql
-      - redis
-      - docker
-    env:
-      - MYSQL_HOST=127.0.0.1 MYSQL_REPLICA_HOST=127.0.0.1 REDIS_HOSTNAME=127.0.0.1 LOG_LEVEL=50
-    script:
-      - sleep 1
-  - name: Run Treez Tests
-    language: python
-    python:
-      - "3.8"
-    services:
-      - mysql
-      - redis
-      - docker
-    env:
-      - MYSQL_HOST=127.0.0.1 MYSQL_REPLICA_HOST=127.0.0.1 REDIS_HOSTNAME=127.0.0.1 LOG_LEVEL=50
-    script:
-      - sleep 2
-  - name: Run qr-taskbot Tests
-    language: python
-    python:
-      - "3.8"
-    services:
-      - mysql
-      - redis
-      - docker
-    env:
-      - MYSQL_HOST=127.0.0.1 MYSQL_REPLICA_HOST=127.0.0.1 REDIS_HOSTNAME=127.0.0.1 LOG_LEVEL=50
-    script:
-      - sleep 3
-  - name: Run qr-metrcpackage Tests
-    language: python
-    python:
-      - "3.8"
-    services:
-      - mysql
-      - redis
-      - docker
-    env:
-      - MYSQL_HOST=127.0.0.1 MYSQL_REPLICA_HOST=127.0.0.1 REDIS_HOSTNAME=127.0.0.1 LOG_LEVEL=50
-    script:
-      - sleep 4
-  - name: Check Migrations
-    language: python
-    python:
-      - "3.8"
-    services: {}
-    before_install:
-    script:
-      - sleep 5
+os: linux
+dist: bionic
+language: ruby
+services:
+  - mysql
+script:
+  - netstat -tln | grep mysql
