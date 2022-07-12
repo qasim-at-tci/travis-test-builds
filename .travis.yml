@@ -1,7 +1,5 @@
 os: linux
-dist: bionic
 language: ruby
 services:
   - mysql
-script:
-  - mysql --user='root' --password='' --execute='SHOW DATABASES;'
+script: true
