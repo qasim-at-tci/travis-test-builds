@@ -1,5 +1,7 @@
 os: linux
 language: node_js
+node_js:
+  - "14"
 script: true
 
 jobs:
@@ -7,9 +9,4 @@ jobs:
     - dist: xenial
       node_js:
         - "14"
-    - dist: bionic
-      node_js:
-        - "14"
-    - dist: focal
-      node_js:
-        - "14"
+    - dist: xenial
