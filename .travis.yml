@@ -8,5 +8,5 @@ jobs:
   include:
     - dist: xenial
       node_js:
-        - "14"
+        - "lts/*"
     - dist: xenial
