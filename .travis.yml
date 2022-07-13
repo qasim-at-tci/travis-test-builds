@@ -1,5 +1,15 @@
 os: linux
-language: ruby
-services:
-  - mysql
+language: node_js
 script: true
+
+jobs:
+  include:
+    - dist: xenial
+      node_js:
+        - "14"
+    - dist: bionic
+      node_js:
+        - "14"
+    - dist: focal
+      node_js:
+        - "14"
