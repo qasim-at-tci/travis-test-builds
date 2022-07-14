@@ -1,12 +1,14 @@
 os: linux
-language: node_js
-node_js:
-  - "14"
-script: true
-
-jobs:
-  include:
-    - dist: xenial
-      node_js:
-        - "lts/*"
-    - dist: xenial
+language: minimal
+env:
+  global:
+    - MONGODB_VERSION=4.0.28
+install:
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+  - tar xfz mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+  - export PATH=`pwd`/mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
+  - mkdir -p data/db
+  - mongod --dbpath=data/db &
+  - sleep 5
+script:
+  - mongo --eval 'db.hostInfo()'
