@@ -1,15 +1,13 @@
 os: linux
 dist: focal
 language: minimal
-env:
-  global:
-    - MONGODB_VERSION=4.2.21
-install:
-  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
-  - tar xfz mongodb-linux-x86_64-$MONGODB_VERSION.tgz
-  - export PATH=`pwd`/mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
-  - mkdir -p data/db
-  - mongod --dbpath=data/db &
+
+before_install:
+  - curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+  - echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+  - sudo apt update
+  - sudo apt install mongodb-org
+  - sudo systemctl start mongod.service
   - sleep 5
 script:
   - mongo --eval 'db.hostInfo()'
