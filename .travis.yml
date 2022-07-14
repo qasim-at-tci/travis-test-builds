@@ -10,4 +10,4 @@ before_install:
   - sudo systemctl start mongod.service
   - sleep 5
 script:
-  - mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+  - mongo --version
