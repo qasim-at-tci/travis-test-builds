@@ -11,6 +11,9 @@ services:
   - redis
 
 before_install:
+  - sudo apt-get purge mongodb-org*
+  - sudo rm -r /var/log/mongodb
+  - sudo rm -r /var/lib/mongodb
   - curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
   - echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
   - sudo apt update
