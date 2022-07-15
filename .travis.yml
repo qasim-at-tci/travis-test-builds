@@ -13,10 +13,10 @@ services:
 jobs:
   include:
     - dist: focal
-      #before_install:
-      #  - mongo --version
-      #  - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
-      #  - sudo apt-get install -y mongodb-org
+      before_install:
+        - mongo --version
+        - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
+        - sudo apt-get install -y mongodb-org
     - dist: bionic
 script:
   - mongo --version
