@@ -12,7 +12,7 @@ services:
   - mongodb
 before_install:
   - mongo --version
-  - sudo apt-get update -y
+  - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
   - sudo apt-get install -y mongodb-org
 script:
   - mongo --version
