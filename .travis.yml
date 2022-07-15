@@ -9,7 +9,6 @@ addons:
 
 services:
   - redis
-  - mongodb
 before_install:
   - mongo --version
   - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
