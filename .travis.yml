@@ -1,22 +1,9 @@
+language: scala
+dist: jammy
 os: linux
-dist: focal
-rvm: 2.6.7
-
-addons:
-  apt:
-    packages:
-      - ca-certificates
 
 services:
-  - redis
-  - mongo --version
-jobs:
-  include:
-    - dist: focal
-      before_install:
-        - mongo --version
-        - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
-        - sudo apt-get install -y mongodb-org
-    - dist: bionic
+  - postgresql
 script:
-  - mongo --version
+  - sleep 2
+  - psql --version
