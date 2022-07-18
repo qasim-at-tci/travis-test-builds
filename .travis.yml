@@ -1,14 +1,18 @@
-dist: jammy
 os: linux
-
-services:
-  - postgresql
+dist: bionic
+language: scala
+addons:
+  apt:
+    packages:
+      - postgresql-14
+      - postgresql-client-14
+env:
+  global:
+    - PGPORT=5433
+    - PGUSER=postgres
+before_install:
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo systemctl reload postgresql
+  - sleep 5
 script:
-  - sleep 2
   - psql --version
-
-jobs:
-  include:
-    - language: scala
-    - language: ruby
-    - language: node_js
