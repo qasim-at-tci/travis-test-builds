@@ -6,3 +6,9 @@ services:
 script:
   - sleep 2
   - psql --version
+
+jobs:
+  include:
+    - language: scala
+    - language: ruby
+    - language: node_js
