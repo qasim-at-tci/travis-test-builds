@@ -1,26 +1,20 @@
-jobs:
-  include:  
-    - os: linux
-      dist: bionic
-      language: scala
-      jdk:
-        - openjdk11
-      services:
-        - docker
-        - redis
-      addons:
-        postgresql: "13"
-        apt:
-          packages:
-            - postgresql-13
-      env:
-        global:
-          - PGUSER=postgres
-          - PGPORT=5432
-          - PGHOST=localhost
-      before_install:
-        - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-        - sudo service postgresql restart
-        - sleep 1
-        - postgres --version
-      script: true
+os: linux
+dist: bionic
+language: scala
+jdk:
+  - openjdk11
+addons:
+  apt:
+    packages:
+      - postgresql-14
+      - postgresql-client-14
+env:
+  global:
+    - PGPORT=5433
+    - PGUSER=postgres
+before_install:
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo systemctl reload postgresql
+  - sleep 5
+script:
+  - psql --version
