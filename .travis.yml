@@ -6,7 +6,6 @@ jobs:
       jdk:
         - openjdk11
       services:
-        - postgresql
         - docker
         - redis
       addons:
