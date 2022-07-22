@@ -15,7 +15,8 @@ jobs:
         - sudo apt-get -y purge mongodb-server-core
         - sudo rm -rf /var/lib/mongodb /var/log/mongodb
         - sudo apt-get -y install mongodb-org
-        - sudo systemctl start mongod
-        - sudo systemctl status mongod
-
+before_script:
+  - sudo systemctl start mongod
+  - sleep 5
+  - sudo systemctl status mongod
 script: mongo --version
