@@ -1,15 +1,21 @@
 os: linux
 language: ruby
-services:
-  - mongodb
-script: true
 
 jobs:
   include:
     - dist: xenial
     - dist: bionic
     - dist: focal
+      addons:
+        apt:
+          sources:
+          - sourceline: deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
+            key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
       before_install:
-        - sudo apt remove -y mongodb && sudo apt purge -y mongodb && sudo apt autoremove
-        - sudo apt-get install -y mongodb-org
-    
+        - sudo apt-get -y purge mongodb-server-core
+        - sudo rm -rf /var/lib/mongodb /var/log/mongodb
+        - sudo apt-get -y install mongodb-org
+        - sudo systemctl start mongod
+        - sudo systemctl status mongod
+
+script: mongo --version
