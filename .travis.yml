@@ -1,21 +1,9 @@
-language: ruby
+language: shell
 
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-      addons:
-        apt:
-          sources:
-          - sourceline: deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
-            key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
-      before_install:
-        - sudo apt-get -y purge mongodb-server-core
-        - sudo rm -rf /var/lib/mongodb /var/log/mongodb
-        - sudo apt-get -y install mongodb-org
-before_script:
-  - sudo systemctl start mongod
-  - sleep 5
-  - sudo systemctl status mongod
-script: mongo --version
+os: linux
+dist: focal
+arch: ppc64le
+
+install: skip
+
+script: true
