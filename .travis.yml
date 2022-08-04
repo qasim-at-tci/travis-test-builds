@@ -3,8 +3,10 @@ dist: focal
 install: skip
 before_script:
   - mysql --version
+  - sudo systemctl start mysql
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
+  - sudo systemctl stop mysql
   - mysqld --innodb-page-size=32768
-  - sudo systemctl restart mysql
+  - sudo systemctl start mysql
 script:
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
