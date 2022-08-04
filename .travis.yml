@@ -6,7 +6,7 @@ before_script:
   - sudo systemctl start mysql
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
   - sudo systemctl stop mysql
-  - sudo mysqld --innodb-page-size=32768
+  - mysqld --innodb-page-size=32768
   - sudo systemctl start mysql
 script:
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
