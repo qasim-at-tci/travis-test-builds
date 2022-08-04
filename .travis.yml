@@ -1,21 +1,7 @@
-jobs:
-  include:
-    - language: minimal
-
-      os: linux
-      dist: trusty
-      language: node_js
-      node_js: node
-      install: skip
-
-      script: true
-    - language: minimal
-
-      os: linux
-      dist: focal
-      language: node_js
-      node_js: node
-
-      install: skip
-
-      script: true
+os: linux
+dist: focal
+services:
+  - mysql
+install: skip
+script:
+  - mysql --version
