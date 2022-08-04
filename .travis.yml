@@ -8,7 +8,7 @@ before_script:
   - sudo systemctl stop mysql
   - sudo chmod 777 /var/lib/mysql/
   - sudo chown mysql:mysql /var/log/mysql
-  - touch /var/log/mysql/error.log
+  - sudo touch /var/log/mysql/error.log
   - mysqld --innodb-page-size=32768
   - sudo systemctl start mysql
 script:
