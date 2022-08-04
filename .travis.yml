@@ -2,7 +2,7 @@ os: linux
 dist: focal
 install: skip
 vm:
-  size: 2x-large
+  size: x-large
 before_script:
   - mysql --version
   - sudo systemctl start mysql
