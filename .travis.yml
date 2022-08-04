@@ -7,3 +7,4 @@ script:
   - mysql --version
   #- mysql -u root -p "" -c "show global status;"
   - mysql --verbose --help | grep my.cnf
+  - cat /etc/my.cnf
