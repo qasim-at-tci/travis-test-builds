@@ -1,11 +1,16 @@
 version: ~> 1.0
 sudo: none
 os: linux
+dist: xenial
 language: java
+branches:
+  only:
+    - minimal-build-check
 install: skip
 stages:
   - name: test
   - name: release
+    if: branch = minimal-build-check AND type != pull_request
 jobs:
   include:
     - script: sleep 1
