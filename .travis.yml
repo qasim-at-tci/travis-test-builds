@@ -1,5 +1,8 @@
 os: linux
-arch: arm64
 language: shell
 install: skip
 script: true
+jobs:
+  include:
+    - arch: arm64
+    - arch: amd64
