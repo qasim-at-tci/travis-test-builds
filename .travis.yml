@@ -15,12 +15,15 @@ jobs:
   include:
     - script: sleep 1
     - stage: release
+      name: "Build on arm64"
       arch: arm64
       script: sleep 2
     - stage: release
+      name: "Build on amd64"
       arch: amd64
       script: sleep 3
     - stage: release
+      name: "Build on arm64-graviton2"
       arch: amd64-graviton2
       virt: lxd
       group: edge
