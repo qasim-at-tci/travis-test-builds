@@ -1,3 +1,5 @@
+version: ~> 1.0
+sudo: none
 os: linux
 language: shell
 install: skip
