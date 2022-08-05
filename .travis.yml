@@ -1,10 +1,17 @@
 version: ~> 1.0
 sudo: none
 os: linux
-language: shell
+language: java
 install: skip
-script: true
+stages:
+  - name: test
+  - name: release
 jobs:
   include:
-    - arch: arm64
-    - arch: amd64
+    - script: sleep 1
+    - stage: release
+      arch: arm64
+      script: sleep 2
+    - stage: release
+      arch: amd64
+      script: sleep 3
