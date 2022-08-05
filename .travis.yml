@@ -1,14 +1,5 @@
 os: linux
-dist: focal
+arch: arm64
+language: shell
 install: skip
-before_script:
-  - mysql --version
-  - sudo systemctl start mysql
-  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
-  - sudo systemctl stop mysql
-  - sudo chmod 777 /var/lib/mysql/
-  - sudo chmod 777 /var/log/mysql && sudo chmod 777 /var/log/mysql/error.log
-  - sudo mysqld --verbose --innodb-page-size=32768
-  - sudo systemctl start mysql
-script:
-  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
+script: true
