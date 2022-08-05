@@ -15,3 +15,7 @@ jobs:
     - stage: release
       arch: amd64
       script: sleep 3
+    - stage: release
+      arch: amd64-graviton2
+      virt: lxd # this key is must for arm64-graviton2
+      script: sleep 3
