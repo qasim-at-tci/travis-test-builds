@@ -10,6 +10,7 @@ before_deploy:
   - ruby -v
 deploy:
   provider: script
+  script: true
   on:
     all_branches: true
 after_deploy:
