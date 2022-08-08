@@ -1,6 +1,8 @@
 os: linux
 dist: focal
 language: node_js
+node_js:
+  - 12
 install: skip
 script: true
 before_deploy:
