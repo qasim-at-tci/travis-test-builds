@@ -6,7 +6,7 @@ before_script:
   - sudo systemctl start mysql
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
   - sudo systemctl stop mysql
-  - echo -e "[mysqld]\nmax_allowed_packet = 1G\ninnodb_log_file_size = 2G\ninnodb_log_buffer_size = 512M" >> ~travis/.my.cnf
+  - echo -e "[mysqld]\ninnodb-page-size = 32768" >> ~travis/.my.cnf
   - sudo systemctl start mysql
 script:
   - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
