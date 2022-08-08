@@ -1,30 +1,12 @@
-version: ~> 1.0
-sudo: none
 os: linux
-dist: xenial
-language: java
-branches:
-  only:
-    - minimal-build-check
+dist: focal
 install: skip
-stages:
-  - name: test
-  - name: release
-    if: branch = minimal-build-check AND type != pull_request
-jobs:
-  include:
-    - script: sleep 1
-    - stage: release
-      name: "Build on arm64"
-      arch: arm64
-      script: sleep 2
-    - stage: release
-      name: "Build on amd64"
-      arch: amd64
-      script: sleep 3
-    - stage: release
-      name: "Build on arm64-graviton2"
-      arch: amd64-graviton2
-      virt: lxd
-      group: edge
-      script: sleep 3
+before_script:
+  - mysql --version
+  - sudo systemctl start mysql
+  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
+  - sudo systemctl stop mysql
+  - echo -e "[mysqld]\nmax_allowed_packet = 1G\ninnodb_log_file_size = 2G\ninnodb_log_buffer_size = 512M" >> /etc/mysql/my.cnf
+  - sudo systemctl start mysql
+script:
+  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
