@@ -10,7 +10,8 @@ before_deploy:
   - ruby -v
 deploy:
   provider: script
-  script:
-    - gem list dpl
   on:
     all_branches: true
+after_deploy:
+  - ruby -v
+  - gem list dpl
