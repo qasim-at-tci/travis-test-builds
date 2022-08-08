@@ -8,4 +8,8 @@ before_deploy:
   - rvm install 2.7.1
   - rvm use 2.7.1
   - ruby -v
-deploy: skip
+deploy:
+  provider: script
+  script: true
+  on:
+    all_branches: true
