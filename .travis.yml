@@ -1,12 +1,11 @@
 os: linux
 dist: focal
+language: node_js
 install: skip
-before_script:
-  - mysql --version
-  - sudo systemctl start mysql
-  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
-  - sudo systemctl stop mysql
-  - echo -e "[mysqld]\ninnodb-page-size = 32768" >> $HOME/.my.cnf
-  - sudo systemctl start mysql
-script:
-  - mysql -uroot -e "SHOW VARIABLES LIKE 'innodb_page_size';"
+script: true
+before_deploy:
+  - ruby -v
+  - rvm install 2.7.1
+  - rvm use 2.7.1
+  - ruby -v
+deploy: skip
