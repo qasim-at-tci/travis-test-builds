@@ -1,7 +1,12 @@
 os: linux
 dist: trusty
-jdk: openjdk17
 language: android
+before_install:
+  - sudo apt-get -y remove default-jdk
+  - sudo apt -y autoremove
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk install java 17.0.2-open
 install: skip
 script:
    - java -version
