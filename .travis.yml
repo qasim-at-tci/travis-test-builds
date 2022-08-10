@@ -1,6 +1,6 @@
 os: linux
 dist: trusty
-jdk: openjdk11
+jdk: openjdk17
 language: android
 install: skip
 script:
