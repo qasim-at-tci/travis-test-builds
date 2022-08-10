@@ -1,11 +1,10 @@
 os: linux
-dist: trusty
-language: android
-before_install:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 17.0.2-open
-  - sdk use 17.0.2-open
+dist: xenial
+language: shell
+services:
+  - docker
 install: skip
 script:
-   - java -version
+  - docker build . -t qa-test-image
+  - docker images
+  - sleep 5
