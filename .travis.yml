@@ -1,29 +1,7 @@
 os: linux
-dist: xenial
-language: php
-php: 7.4
-before_install:
-   - nvm install --lts
-   - nvm use --lts
+dist: trusty
+jdk: openjdk11
+language: android
+install: skip
 script:
-  - php -version
-  - node -v
-  - npm -v
-  - echo "test by Mustafaeee"
-
-#before_deploy:
-#  - export CHANGELOG=$(cat CHANGELOG-EXAMPLE.md)
-#  - echo $CHANGELOG
-deploy:
-  provider: releases
-  token: $GITHUB_TOKEN
-  file: README.md
-  #release_notes: "$CHANGELOG"
-  body: "Release Notes"
-  on:
-    repo: qasim-test-org/travis-test-builds
-    branch: main
-    tags: true
-  draft: true
-  prerelease: true
-  skip_cleanup: true
+   - java -version
