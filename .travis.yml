@@ -1,9 +1,17 @@
 os: linux
-dist: trusty
-language: android
-jdk: openjdk11
-
+language: node_js
+sudo: required
+node_js:
+- 16
 install: skip
-
 script:
-  - java -version
+  - df -h
+
+jobs:
+  include:
+    - arch: arm64-graviton2
+      virt: lxd
+      group: edge
+    - arch: arm64-graviton2
+      virt: vm
+      group: edge
