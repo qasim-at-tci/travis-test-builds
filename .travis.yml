@@ -1,4 +1,5 @@
 language: go
+dist: xenial
 os: linux
 env:
 - GIMME_DEBUG=true GIMME_TYPE=source
@@ -9,9 +10,3 @@ go:
 - master
 install: skip
 script: true
-jobs:
-  include:
-    - dist: trusty
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
