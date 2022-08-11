@@ -8,6 +8,7 @@ install: skip
 script: true
 jobs:
   include:
+    - dist: trusty
     - dist: xenial
     - dist: bionic
     - dist: focal
