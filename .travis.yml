@@ -1,17 +1,9 @@
+dist: bionic
+language: go
 os: linux
-language: node_js
-sudo: required
-node_js:
-- 16
+go:
+  - stable
+  - oldstable
+  - tip
 install: skip
-script:
-  - df -h
-
-jobs:
-  include:
-    - arch: arm64-graviton2
-      virt: lxd
-      group: edge
-    - arch: arm64-graviton2
-      virt: vm
-      group: edge
+script: true
