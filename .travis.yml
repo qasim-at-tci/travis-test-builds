@@ -1,20 +1,9 @@
 os: linux
-dist: focal
-language: node_js
-node_js:
-  - 12
+dist: trusty
+language: android
+jdk: openjdk11
+
 install: skip
-script: true
-before_deploy:
-  - ruby -v
-  - rvm install 2.7.1
-  - rvm use 2.7.1
-  - ruby -v
-deploy:
-  provider: script
-  script: true
-  on:
-    all_branches: true
-after_deploy:
-  - ruby -v
-  - gem list dpl
+
+script:
+  - java -version
