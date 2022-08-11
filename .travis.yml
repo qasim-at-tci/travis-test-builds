@@ -3,7 +3,7 @@ os: linux
 env:
 - GIMME_DEBUG=true
 go:
-- master
+- tip
 install: skip
 script: true
 jobs:
