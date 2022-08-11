@@ -3,6 +3,7 @@ os: linux
 arch: Arm64
 env:
 - GIMME_DEBUG=true
+- GIMME_TYPE=binary
 go:
 - master
 install: skip
