@@ -1,9 +1,10 @@
 language: go
 os: linux
+arch: arm
 env:
 - GIMME_DEBUG=true
 go:
-- tip
+- master
 install: skip
 script: true
 jobs:
