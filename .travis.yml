@@ -6,6 +6,6 @@ services:
   - docker
 install: skip
 script:
-  - docker build . -t qa-test-image
+  - docker build --security-opt seccomp=unconfined . -t qa-test-image
   - docker images
   - sleep 5
