@@ -1,9 +1,10 @@
 dist: bionic
 language: go
 os: linux
+env:
+- GIMME_DEBUG=true
 go:
-  - stable
-  - oldstable
-  - tip
+- master
 install: skip
+before_script: echo $GIMME_DOWNLOAD_BASE $GIMME_TYPE
 script: true
