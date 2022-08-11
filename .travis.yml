@@ -1,7 +1,7 @@
 language: go
 os: linux
 env:
-- GIMME_DEBUG=true GIMME_TYPE=binary
+- GIMME_DEBUG=true
 go:
 - stable
 install: skip
@@ -11,3 +11,4 @@ jobs:
     - dist: xenial
     - dist: bionic
     - dist: focal
+    - dist: jammy
