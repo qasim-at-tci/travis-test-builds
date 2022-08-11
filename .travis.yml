@@ -1,6 +1,7 @@
 os: linux
 dist: focal
-language: shell
+language: java
+jdk: openjdk8
 services:
   - docker
 install: skip
