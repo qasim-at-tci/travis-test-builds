@@ -4,8 +4,12 @@ language: java
 jdk: openjdk8
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
 install: skip
 script:
-  - docker build --security-opt seccomp=unconfined . -t qa-test-image
+  - docker build . -t qa-test-image
   - docker images
   - sleep 5
