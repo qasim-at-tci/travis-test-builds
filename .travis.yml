@@ -1,12 +1,9 @@
-language: go
-dist: xenial
+language: shell
+dist: focal
 os: linux
-env:
-- GIMME_DEBUG=true GIMME_TYPE=source
-- GIMME_DEBUG=true GIMME_TYPE=git
-- GIMME_DEBUG=true GIMME_TYPE=auto
-- GIMME_DEBUG=true GIMME_TYPE=binary
-go:
-- master
+
 install: skip
-script: true
+before_script:
+  - sudo apt-get -y update && sudo apt-get -y upgrade
+script:
+  - uname -a
