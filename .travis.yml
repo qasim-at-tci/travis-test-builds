@@ -7,3 +7,5 @@ install: skip
 
 script:
   - uname -a
+after_success:
+  - ip addr show
