@@ -1,9 +1,9 @@
 dist: focal
 os: linux
+arch: arm64
 services:
   - docker
 install: skip
-before_script:
-  - sudo apt-get -y update && sudo apt-get -y upgrade
+
 script:
   - uname -a
