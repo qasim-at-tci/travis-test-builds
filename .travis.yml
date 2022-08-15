@@ -1,6 +1,7 @@
 dist: focal
 os: linux
 arch: arm64
+virt: vm
 
 install: skip
 
