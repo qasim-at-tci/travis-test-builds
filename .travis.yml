@@ -1,23 +1,24 @@
 os: linux
-language: go
-
-addons:
-  apt:
-    packages:
-    - gcc
-  update: true
-env:
-  global:
-    - GIMME_DEBUG=1
+language: shell
 
 install: skip
 
 script:
-  - go version
+  - sleep 1
 jobs:
   include:
-    - dist: trusty
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+    - stage: test-1
+      name: trusty
+      dist: trusty
+    - stage: test-2
+      name: xenial
+      dist: xenial
+    - stage: test-3
+      name: bionic
+      dist: bionic
+    - stage: test-4
+      name: focal
+      dist: focal
+    - stage: test-5
+      name: jammy
+      dist: jammy
