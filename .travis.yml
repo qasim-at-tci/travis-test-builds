@@ -1,6 +1,6 @@
 os: linux
 language: go
-go: master
+go: 1.20
 
 install: skip
 
