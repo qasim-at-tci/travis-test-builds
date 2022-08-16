@@ -1,7 +1,14 @@
 os: linux
 language: go
-arch: arm64
 go: master
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
 
 install: skip
 
