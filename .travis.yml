@@ -10,15 +10,15 @@ jobs:
     - stage: test-1
       name: trusty
       dist: trusty
-    - stage: test-2
+    - stage: test-1
       name: xenial
       dist: xenial
-    - stage: test-3
+    - stage: test-2
       name: bionic
       dist: bionic
-    - stage: test-4
+    - stage: test-2
       name: focal
       dist: focal
-    - stage: test-5
+    - stage: test-3
       name: jammy
       dist: jammy
