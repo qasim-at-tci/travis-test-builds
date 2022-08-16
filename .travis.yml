@@ -1,6 +1,6 @@
 os: linux
-arch: arm64
-virt: vm
+language: go
+go: master
 
 install: skip
 
