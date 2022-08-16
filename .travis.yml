@@ -8,17 +8,17 @@ script:
 jobs:
   include:
     - stage: test-1
-      name: trusty
+      #name: trusty
       dist: trusty
     - stage: test-1
-      name: trusty
+      #name: xenial
       dist: xenial
-    - stage: test-2
-      name: bionic
+    - stage: test-1
+      #name: bionic
       dist: bionic
     - stage: test-2
-      name: focal
+      #name: focal
       dist: focal
-    - stage: test-3
-      name: jammy
+    - stage: test-2
+      #name: jammy
       dist: jammy
