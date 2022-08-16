@@ -1,6 +1,7 @@
 os: linux
 language: go
-go: 1.19
+arch: arm64
+go: master
 
 install: skip
 
