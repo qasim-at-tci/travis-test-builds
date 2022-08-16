@@ -1,6 +1,5 @@
 os: linux
 language: go
-go: master
 
 addons:
   apt:
@@ -14,7 +13,7 @@ env:
 install: skip
 
 script:
-  - uname -a
+  - go version
 jobs:
   include:
     - dist: trusty
