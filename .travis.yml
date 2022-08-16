@@ -4,13 +4,17 @@ go: master
 
 addons:
   apt:
-    sources:
-    - ubuntu-toolchain-r-test
     packages:
-    - gcc-4.8
-    - g++-4.8
+    - gcc
 
 install: skip
 
 script:
   - uname -a
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
