@@ -11,7 +11,7 @@ jobs:
       name: trusty
       dist: trusty
     - stage: test-1
-      name: xenial
+      name: trusty
       dist: xenial
     - stage: test-2
       name: bionic
