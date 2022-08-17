@@ -9,16 +9,11 @@ jobs:
   include:
     - stage: test-1
       #name: trusty
-      dist: trusty
+      arch: arm64-graviton2
+      group: edge
+      virt: vm
     - stage: test-1
       #name: xenial
-      dist: xenial
-    - stage: test-1
-      #name: bionic
-      dist: bionic
-    - stage: test-2
-      #name: focal
-      dist: focal
-    - stage: test-2
-      #name: jammy
-      dist: jammy
+      arch: arm64-graviton2
+      group: edge
+      virt: lxd
