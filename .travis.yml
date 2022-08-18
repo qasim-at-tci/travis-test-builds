@@ -1,19 +1,9 @@
-os: linux
-language: shell
-
-install: skip
-
-script:
-  - sleep 1
-jobs:
-  include:
-    - stage: test-1
-      #name: trusty
-      arch: arm64-graviton2
-      group: edge
-      virt: vm
-    - stage: test-1
-      #name: xenial
-      arch: arm64-graviton2
-      group: edge
-      virt: lxd
+dist: jammy
+language: python
+python:
+    - 3.8
+    - 3.9
+    - 3.10
+    - pypy3.8-7.3.9
+install: pip install codecov numpy
+script: true
