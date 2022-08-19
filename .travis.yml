@@ -1,11 +1,21 @@
-dist: jammy
-language: python
-python:
-    - 3.8
-    - 3.9
-    - 3.10
-    - pypy3.8-7.3.9
-install:
-    - pip install --upgrade pip
-    - pip install codecov numpy
+language: c
+
+compiler:
+  - gcc
+
+jobs:
+  include:
+    - os: windows
+      name: Windows
+      env:
+      - BADGE=Windows
+      - MAKE=mingw32-make
+before_install:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then
+        choco install octave.portable --version=5.2.0;
+        export PATH=${PATH}:"C:\ProgramData\chocolatey\lib\octave.portable\tools\octave\bin";
+        tree /c/ProgramData/chocolatey/;
+        octave --version;
+    fi
+
 script: true
