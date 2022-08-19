@@ -18,4 +18,5 @@ before_install:
         octave --version;
     fi
 
-script: true
+script:
+  - octave --version
