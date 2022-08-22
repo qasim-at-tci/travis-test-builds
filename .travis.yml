@@ -1,22 +1,16 @@
-language: c
-
-compiler:
-  - gcc
-
-jobs:
-  include:
-    - os: windows
-      name: Windows
-      env:
-      - BADGE=Windows
-      - MAKE=mingw32-make
+language: node_js
+node_js:
+  - "8"
 before_install:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then
-        choco install octave.portable;
-        export PATH=${PATH}:"C:\ProgramData\chocolatey\lib\octave.portable\tools\octave\bin";
-        tree /c/ProgramData/chocolatey/;
-        octave --version;
-    fi
-
-script:
-  - octave --version
+  - mysql -e 'CREATE DATABASE fonestorm CHARACTER SET utf8 COLLATE utf8_general_ci;'
+install: skip
+script: true
+env:
+  - CXX=g++-4.8
+addons:
+  mariadb: '10.2'
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
