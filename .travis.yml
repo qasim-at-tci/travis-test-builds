@@ -2,15 +2,18 @@ language: node_js
 node_js:
   - "8"
 before_install:
-  - mysql -e 'CREATE DATABASE fonestorm CHARACTER SET utf8 COLLATE utf8_general_ci;'
+  - sudo mysql -e 'CREATE DATABASE fonestorm CHARACTER SET utf8 COLLATE utf8_general_ci;'
 install: skip
 script: true
-env:
-  - CXX=g++-4.8
-addons:
-  mariadb: '10.0'
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+jobs:
+  include:
+    - addons:
+        mariadb: '10.0'
+    - addons:
+        mariadb: '10.1'
+    - addons:
+        mariadb: '10.2'
+    - addons:
+        mariadb: '10.3'
+    - addons:
+        mariadb: '10.4'
