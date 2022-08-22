@@ -8,15 +8,9 @@ script: true
 env:
   - CXX=g++-4.8
 addons:
-  mariadb: '10.2'
+  mariadb: '10.0'
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
