@@ -1,8 +1,9 @@
-language: node_js
-node_js:
-  - "8"
+language: bash
+
 before_install:
-  - sudo mysql -e 'CREATE DATABASE fonestorm CHARACTER SET utf8 COLLATE utf8_general_ci;'
+  - chmod +x setup.sh
+  - ./setup.sh
+  - python --version
 install: skip
 script: true
 jobs:
