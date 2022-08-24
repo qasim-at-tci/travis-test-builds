@@ -6,15 +6,3 @@ before_install:
   - python --version
 install: skip
 script: true
-jobs:
-  include:
-    - addons:
-        mariadb: '10.0'
-    - addons:
-        mariadb: '10.1'
-    - addons:
-        mariadb: '10.2'
-    - addons:
-        mariadb: '10.3'
-    - addons:
-        mariadb: '10.4'
