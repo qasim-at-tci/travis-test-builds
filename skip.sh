@@ -15,7 +15,6 @@ done
 
 if [[ $ONLY_READMES == True ]]; then
   echo "Only .md files found, exiting."
-  travis_terminate 0
   exit 1
 else
   echo "Non-.md files found, continuing with build."
