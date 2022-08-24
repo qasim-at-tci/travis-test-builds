@@ -15,7 +15,7 @@ done
 
 if [[ $ONLY_READMES == True ]]; then
   echo "Only .md files found, exiting."
-  exit 1
+  exit 0
 else
   echo "Non-.md files found, continuing with build."
 fi
