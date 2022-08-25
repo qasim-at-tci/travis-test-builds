@@ -2,7 +2,8 @@ os: linux
 
 jobs:
   include:
-    - language: bash
+    - dist: bionic
+      language: bash
       before_install:
         - pyenv install 3.8.1
         - pyenv global 3.8.1
