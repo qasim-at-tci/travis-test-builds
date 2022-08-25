@@ -1,9 +1,18 @@
-language: bash
+os: linux
 
-before_install:
-  - chmod +x setup.sh
-  - ./setup.sh
-  - python --version
-  - node --version
-install: skip
-script: true
+jobs:
+  include:
+    - language: bash
+      before_install:
+        - pyenv install 3.8.1
+        - pyenv global 3.8.1
+      install: skip
+      script:
+        - python --version
+    - language: bash
+      before_install:
+        - nvm install 14
+        - nvm use 14
+      install: skip
+      script:
+        - node --version
