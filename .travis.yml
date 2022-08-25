@@ -1,14 +1,18 @@
-os: linux
-
+dist: bionic
+language: python
+python: 3.8.1
+env:
+  global:
+    - foo=bar
+    - some=other
 jobs:
   include:
-    - dist: bionic
-      language: bash
+    - name: test
+      language: shell
       install:
-        - pyenv install 3.8.1
+        - pyenv install 3.8.1 
         - pyenv global 3.8.1
-        - nvm install 14
-        - nvm use 14
-      script:
+        - nvm install 14.17.6
+      script: 
         - python --version
         - node --version
