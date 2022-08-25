@@ -1,4 +1,2 @@
-version: ~> 1.0
-
 import:
   - test-runs-tci/travis-test-builds:travis_import.yml@minimal-build-check
