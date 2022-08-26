@@ -1,17 +1,13 @@
 os: linux
 dist: xenial
 language: shell
-before_install: |
-  set -ex
-  MARIADB_MIRROR='nyc2.mirrors.digitalocean.com'
-  MARIADB_GPG_KEY_NEW='0xf1656f24c74cd1d8'
-  mariadb_version=10.2
-  sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 ${MARIADB_GPG_KEY_NEW}
-  sudo apt-add-repository "deb http://${MARIADB_MIRROR}/mariadb/repo/${mariadb_version}/ubuntu xenial main"
-  sudo apt update
-  PACKAGES="$(echo mariadb-server{,-core}-${mariadb_version} mariadb-client{,-core}-${mariadb_version})"
-  sudo apt-get install -y -o Debug::pkgProblemResolver=yes -o Dpkg::Options::='--force-confnew' $PACKAGES
-  '
-  set +x
+addons:
+  mariadb: '10.2'
 install: skip
 script: true
+
+jobs:
+  include:
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
