@@ -4,12 +4,13 @@ language: shell
 services:
   - mysql
 addons:
-  mariadb: '10.1'
+  mariadb: '10.2'
 install: skip
 script: true
 
 jobs:
   include:
+    - dist: trusty
     - dist: xenial
     - dist: bionic
     - dist: focal
