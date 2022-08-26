@@ -4,7 +4,7 @@ language: shell
 services:
   - mysql
 addons:
-  mariadb: '10.2.44'
+  mariadb: '10.1'
 install: skip
 script: true
 
