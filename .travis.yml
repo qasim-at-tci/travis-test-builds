@@ -8,6 +8,6 @@ script: true
 
 jobs:
   include:
+    - dist: xenial
     - dist: bionic
     - dist: focal
-    - dist: jammy
