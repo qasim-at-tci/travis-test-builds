@@ -1,6 +1,8 @@
 os: linux
 dist: xenial
 language: shell
+services:
+  - mysql
 addons:
   mariadb: '10.2'
 install: skip
