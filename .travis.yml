@@ -9,5 +9,6 @@ addons:
       - libasound2
       - xvfb
       - plantuml
+  update: true
 install: skip
 script: true
