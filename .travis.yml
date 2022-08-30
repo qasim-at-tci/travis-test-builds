@@ -12,4 +12,5 @@ addons:
       - plantuml
   update: true
 install: skip
-script: true
+script:
+  - rclone version
