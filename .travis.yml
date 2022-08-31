@@ -1,5 +1,4 @@
 os: linux
-dist: focal
 language: shell
 install: skip
 before_script:
@@ -8,3 +7,11 @@ before_script:
   - ip -6 addr
   - sleep 15
 script: true
+
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
