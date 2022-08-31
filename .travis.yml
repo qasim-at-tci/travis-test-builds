@@ -6,4 +6,5 @@ before_script:
   - cat /sys/module/ipv6/parameters/disable
   - sysctl -a 2>/dev/null | grep disable_ipv6
   - ip -6 addr
+  - sleep 15
 script: true
