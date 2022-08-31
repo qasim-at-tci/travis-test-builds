@@ -1,6 +1,9 @@
 os: linux
 dist: focal
 language: node_js
+env:
+  global:
+    NODE_OPTIONS=--dns-result-order=ipv4first
 install: skip
 before_script:
   - cat /sys/module/ipv6/parameters/disable
