@@ -4,4 +4,5 @@ language: shell
 install: skip
 before_script:
   - cat /sys/module/ipv6/parameters/disable
+  - sysctl -a 2>/dev/null | grep disable_ipv6
 script: true
