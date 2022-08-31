@@ -1,16 +1,7 @@
 os: linux
 dist: focal
-group: beta
-language: python
-python: 3.9
-addons:
-  apt:
-    packages:
-      - rclone
-      - libasound2
-      - xvfb
-      - plantuml
-  update: true
+language: shell
 install: skip
-script:
-  - rclone version
+before_script:
+  - cat /sys/module/ipv6/parameters/disable
+script: true
