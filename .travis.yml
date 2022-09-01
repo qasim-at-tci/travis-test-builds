@@ -1,19 +1,11 @@
 os: linux
-dist: focal
-language: node_js
-env:
-  global:
-    NODE_OPTIONS=--dns-result-order=ipv4first
-# install: skip
-before_script:
-  - cat /sys/module/ipv6/parameters/disable
-  - sysctl -a 2>/dev/null | grep disable_ipv6
-  - ip -6 addr
-  - sleep 15
+language: java
+jdk: openjd9
 script:
-  - node ip-check.js
+  - java -version
 
 jobs:
   include:
-    - node_js: 16
-    - node_js: 17
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
