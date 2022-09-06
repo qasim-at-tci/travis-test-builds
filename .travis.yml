@@ -2,3 +2,4 @@ os: linux
 dist: xenial
 script:
   - echo $TRAVIS_COMMIT_MESSAGE
+if: $TRAVIS_COMMIT_MESSAGE = \btravis\b
