@@ -2,4 +2,4 @@ os: linux
 dist: xenial
 script:
   - echo $TRAVIS_COMMIT_MESSAGE
-if: commit_message IS /(no-deploy)/
+if: commit_message ~= /(no-deploy)/
