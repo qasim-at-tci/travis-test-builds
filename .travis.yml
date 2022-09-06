@@ -1,12 +1,4 @@
 os: linux
-group: dev
-language: java
-jdk: openjd9
+dist: xenial
 script:
-  - java -version
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+  - echo $TRAVIS_COMMIT_MESSAGE
