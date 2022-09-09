@@ -9,6 +9,7 @@ jobs:
        name: "Linux ARM64 Jammy"
        dist: jammy
        arch: arm64
+       virt: vm
        language: shell
      - os: linux
        name: "Linux ARM64 Jammy"
