@@ -1,6 +1,7 @@
 os: linux
 dist: focal
-arch: arm64-graviton2
 group: edge
-
-script: true
+arch: arm64-graviton2
+compiler: clang
+script:
+  - clang --version
