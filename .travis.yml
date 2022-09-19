@@ -17,7 +17,7 @@ jobs:
        virt: lxd
        language: shell
      - os: linux
-       name: "Linux ARM64 Jammy"
+       name: "Linux AMD64 Jammy"
        dist: jammy
        arch: amd64
        language: shell
