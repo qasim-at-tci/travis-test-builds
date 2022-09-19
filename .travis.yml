@@ -1,21 +1,6 @@
 os: linux
 dist: focal
-language: python
-python:
-  - "3.6"
-  
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11-postgis-3
-    - gdal-bin
-    - redis-server
-    - poppler-utils
-    - libpoppler-cpp-dev
-
-services:
-  - elasticsearch
-  - postgresql
+arch: arm64-graviton2
+group: edge
 
 script: true
