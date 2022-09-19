@@ -18,4 +18,6 @@ services:
   - elasticsearch
   - postgresql
 
-script: true
+script:
+  - export PERFIOS_PUBLIC_KEY_PATH=/var/keys/perfios/public
+  - sudo mkdir -p $(dirname $PERFIOS_PRIVATE_KEY_PATH) \ && sudo openssl genrsa -out $PERFIOS_PRIVATE_KEY_PATH 512 \ && sudo -E bash -c 'openssl rsa -in $PERFIOS_PRIVATE_KEY_PATH -pubout > $PERFIOS_PUBLIC_KEY_PATH'
