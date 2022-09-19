@@ -1,23 +1,20 @@
-os: linux
-script:
-  - echo $TRAVIS_COMMIT_MESSAGE
-# if: commit_message ~= /(no-deploy)/
-jobs:
-  include:
-     - os: linux
-       name: "Linux ARM64 Jammy"
-       dist: jammy
-       arch: arm64
-       virt: vm
-       language: shell
-     - os: linux
-       name: "Linux ARM64 Jammy"
-       dist: jammy
-       arch: arm64
-       virt: lxd
-       language: shell
-     - os: linux
-       name: "Linux AMD64 Jammy"
-       dist: jammy
-       arch: amd64
-       language: shell
+language: python
+
+python:
+  - "3.6"
+  
+addons:
+  postgresql: "11"
+  apt:
+    packages:
+    - postgresql-11-postgis-3
+    - gdal-bin
+    - redis-server
+    - poppler-utils
+    - libpoppler-cpp-dev
+
+services:
+  - elasticsearch
+  - postgresql
+
+script: true
