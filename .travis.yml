@@ -1,6 +1,5 @@
 os: linux
 group: edge
 arch: arm64-graviton2
-compiler: clang
 script:
-  - clang --version
+  - true
