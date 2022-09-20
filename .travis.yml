@@ -1,15 +1,16 @@
 os: linux
-group: edge
-arch: arm64-graviton2
-virt: vm
 
-script:
-  - true
+language: node_js
+node_js:
+  - "12.4.0"
+  
+services:
+  - postgresql
 
-jobs:
-  include:
-    - language: go
-    - language: shell
-    - language: ruby
-    - language: php
-    - language: java
+addons:
+  postgresql: "9.6"
+  apt:
+    packages:
+      - postgresql-9.6-postgis-2.5
+
+script: true
