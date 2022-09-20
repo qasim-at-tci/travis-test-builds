@@ -2,6 +2,14 @@ os: linux
 group: edge
 arch: arm64-graviton2
 virt: lxd
-language: go
+
 script:
   - true
+
+jobs:
+  include:
+    - language: go
+    - language: shell
+    - language: ruby
+    - language: php
+    - language: java
