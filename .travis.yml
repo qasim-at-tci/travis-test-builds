@@ -4,6 +4,10 @@ language: php
 php:
   - "8.0.23"
 
+addons:
+  apt:
+    packages:
+    - libargon2-0
 script: true
 
 jobs:
