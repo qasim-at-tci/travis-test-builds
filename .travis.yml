@@ -2,9 +2,11 @@ os: linux
 dist: xenial
 language: php
 php:
-  - "8.1"
-
-script: true
+  - "8.0.23"
+before_install:
+  - git clone https://github.com/P-H-C/phc-winner-argon2.git libargon2 && cd libargon2 && make test && sudo make install PREFIX=/usr && cd ..
+script:
+  - php --version
 
 jobs:
   include:
