@@ -1,16 +1,12 @@
 os: linux
 
-language: node_js
-node_js:
-  - "12.4.0"
-  
-services:
-  - postgresql
-
-addons:
-  postgresql: "9.6"
-  apt:
-    packages:
-      - postgresql-9.6-postgis-2.5
+language: php
+php:
+  - "8.0.23"
 
 script: true
+
+jobs:
+  include:
+    - arch: Arm64
+    - arch: ppc64le
