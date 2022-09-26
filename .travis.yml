@@ -1,15 +1,13 @@
 os: linux
 dist: xenial
-language: php
-php:
-  - "8.0.23"
-before_install:
-  - git clone https://github.com/P-H-C/phc-winner-argon2.git libargon2 && cd libargon2 && make test && sudo make install PREFIX=/usr && cd ..
-script:
-  - php --version
+language: python
 
-jobs:
-  include:
-    - arch: Arm64
-    - arch: ppc64le
-      virt: lxd
+python:
+  - "3.6"
+  
+script: true
+
+after_script:
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_PULL_REQUEST
+  - if [[ $TRAVIS_BRANCH == "minimal-build-check" && $TRAVIS_PULL_REQUEST == "false" ]]; then date; fi
