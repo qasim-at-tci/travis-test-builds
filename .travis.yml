@@ -16,6 +16,5 @@ script: true
 
 jobs:
   include:
-    - arch: amd64
     - arch: ppc64le
       python: 3.8
