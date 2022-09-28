@@ -1,23 +1,23 @@
 os: linux
 dist: xenial
 language: python
-
 python:
-  - "3.6"
-
-addons:
-  postgresql: "11"
-  apt:
-    packages:
-    - postgresql-11-postgis-3
-    - gdal-bin
-    - redis-server
-    - poppler-utils
-    - libpoppler-cpp-dev
-    
+  - 3.6
+  - 3.9
+  - 3.10
+before_install:
+  - if [ $TRAVIS_CPU_ARCH == "ppc64le" && $TRAVIS_PYTHON_VERSION == "3.8" ]; then
+      sudo apt install python3-pyqt5
+    fi
+  - if [ $TRAVIS_CPU_ARCH == "amd64" ]; then
+      pip install PyQt5
+    fi
+install: skip
 script: true
 
-after_script:
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_PULL_REQUEST
-  - if [[ $TRAVIS_BRANCH == "minimal-build-check" && $TRAVIS_PULL_REQUEST == "false" ]]; then date; fi
+jobs;
+  include:
+    - arch: amd64
+    - arch: ppc64le
+      group: edge
+      python: 3.8
