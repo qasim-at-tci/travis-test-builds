@@ -1,5 +1,4 @@
 os: linux
-dist: xenial
 language: python
 python:
   - 3.6
@@ -19,5 +18,4 @@ jobs:
   include:
     - arch: amd64
     - arch: ppc64le
-      group: edge
       python: 3.8
