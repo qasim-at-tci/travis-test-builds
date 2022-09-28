@@ -5,7 +5,7 @@ python:
   - 3.9
   - 3.10
 before_install:
-  - if [ $TRAVIS_CPU_ARCH == "ppc64le" && $TRAVIS_PYTHON_VERSION == "3.8" ]; then
+  - if [ $TRAVIS_CPU_ARCH == "ppc64le" ] && [ $TRAVIS_PYTHON_VERSION == "3.8" ]; then
       sudo apt install python3-pyqt5;
     fi
   - if [ $TRAVIS_CPU_ARCH == "amd64" ]; then
