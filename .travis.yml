@@ -15,7 +15,7 @@ before_install:
 install: skip
 script: true
 
-jobs;
+jobs:
   include:
     - arch: amd64
     - arch: ppc64le
