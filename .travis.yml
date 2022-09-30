@@ -2,9 +2,9 @@ language: minimal
 
 matrix:
   include:
-    - arch: amd64
+    - name: Linux amd64
+      arch: amd64
     - name: Linux ARM64
-      env: IMAGE=maven:3-jdk-11
       arch: arm64-graviton2
       virt: lxd
       group: edge
