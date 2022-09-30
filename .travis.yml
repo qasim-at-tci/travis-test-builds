@@ -22,10 +22,9 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
   - docker --version
   - lscpu
+  - df -h
+  - sleep 5
+  - docker system prune --all --force --volumes
+  - sleep 5
+  - df -h
 script: true
-
-after_success:
-  - df -h
-  
-after_failure:
-  - df -h
