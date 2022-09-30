@@ -1,23 +1,31 @@
-os: linux
-language: python
-dist: focal
-python:
-  - 3.6
-  - 3.9
-  - 3.10
+language: minimal
+
+matrix:
+  include:
+    - arch: amd64
+    - name: Linux ARM64
+      env: IMAGE=maven:3-jdk-11
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      os: linux
+      dist: focal
+
+services:
+  - docker
 before_install:
-  - sleep 3
-  - if [ $TRAVIS_CPU_ARCH == "ppc64le" ] && [ $TRAVIS_PYTHON_VERSION == "3.8" ]; then
-      sudo apt install python3-pyqt5 --fix-missing;
-    fi
-  - if [ $TRAVIS_CPU_ARCH == "amd64" ]; then
-      pip install PyQt5;
-    fi
-  - sleep 2
-install: skip
+  - df -h
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker --version
+  - lscpu
 script: true
 
-jobs:
-  include:
-    - arch: ppc64le
-      python: 3.8
+after_success:
+  - df -h
+  
+after_failure:
+  - df -h
