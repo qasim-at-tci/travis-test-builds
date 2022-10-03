@@ -1,30 +1,11 @@
-language: minimal
-
-matrix:
-  include:
-    - name: Linux amd64
-      arch: amd64
-    - name: Linux ARM64
-      arch: arm64-graviton2
-      virt: lxd
-      group: edge
-      os: linux
-      dist: focal
-
+os: linux
+language: ruby
 services:
-  - docker
-before_install:
-  - df -h
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-  - docker --version
-  - lscpu
-  - df -h
-  - sleep 5
-  - docker system prune --all --force --volumes
-  - sleep 5
-  - df -h
+  - mongodb
 script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
