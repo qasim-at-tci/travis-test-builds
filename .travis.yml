@@ -1,7 +1,5 @@
 os: linux
 language: ruby
-services:
-  - mongodb
 install: skip
 script: true
 
