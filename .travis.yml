@@ -1,5 +1,4 @@
 os: linux
-arch: amd64
 language: ruby
 install: skip
 script: true
