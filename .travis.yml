@@ -1,10 +1,12 @@
 os: linux
-language: ruby
+dist: jammy
+language: shell
 install: skip
 script: true
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+    - arch: amd64
+    - arch: Arm64
+    - arch: ppc64le
+    - arch: s390x
