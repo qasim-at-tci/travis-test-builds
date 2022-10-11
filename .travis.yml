@@ -13,3 +13,4 @@ jobs:
       group: edge
     - arch: ppc64le
     - arch: s390x
+      virt: lxd
