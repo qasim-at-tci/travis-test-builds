@@ -1,15 +1,10 @@
 os: linux
-dist: jammy
-language: shell
+dist: bionic
+language: python
+python:
+  - 3.8
+before_install:
+  - pip --version
+  - pip install --upgrade pip
+  - pip --version
 script: true
-
-jobs:
-  include:
-    - arch: amd64
-    - arch: Arm64
-    - arch: arm64-graviton2
-      virt: lxd
-      group: edge
-    - arch: ppc64le
-    - arch: s390x
-      virt: lxd
