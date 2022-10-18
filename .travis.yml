@@ -2,10 +2,10 @@ language: java
 install: skip
 services:
   - mongodb
-before_script:
+before_install:
   - sudo systemctl restart mongod.service
   - sleep 15
-  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+  - mongod --version
 script: true
 dist: focal
 before_install:
