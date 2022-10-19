@@ -1,14 +1,8 @@
-language: java
+language: node
 install: skip
-services:
-  - mongodb
-before_install:
-  #- sudo systemctl restart mongod.service
-  - sleep 15
-  - mongod --version
 script: true
 
 jobs:
   include:
-    - dist: bionic
-    - dist: focal
+    - node: 18
+    - node: 17
