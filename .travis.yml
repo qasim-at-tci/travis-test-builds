@@ -1,7 +1,14 @@
-language: java
-install: skip
+os: linux
+dist: focal
+language: shell
 group: dev
+
 services:
   - mongodb
+
+install: skip
+
+before_script:
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+
 script: true
-dist: focal
