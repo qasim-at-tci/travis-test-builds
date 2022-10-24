@@ -1,13 +1,8 @@
 os: linux
 dist: focal
-language: shell
-
-services:
-  - mongodb
+language: php
+php: 8.2snapshot
 
 install: skip
 
-before_script:
-  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
-
-script: true
+script: php --version
