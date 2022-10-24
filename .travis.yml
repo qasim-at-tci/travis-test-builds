@@ -1,5 +1,6 @@
 language: java
 install: skip
+group: dev
 services:
   - mongodb
 script: true
