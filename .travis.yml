@@ -1,8 +1,9 @@
 os: linux
 dist: focal
 language: php
-php: 8.2snapshot
-
+before_install:
+  - phpenv install 8.2snapshot
+  - phpenv global 8.2snapshot
 install: skip
 
 script: php --version
