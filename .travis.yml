@@ -1,10 +1,6 @@
-os: linux
-dist: focal
-language: node
+language: java
 install: skip
+services:
+  - mongodb
 script: true
-
-jobs:
-  include:
-    - node: 18
-    - node: 17
+dist: focal
