@@ -1,7 +1,6 @@
 os: linux
 dist: focal
 language: shell
-group: dev
 
 services:
   - mongodb
