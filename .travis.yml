@@ -1,5 +1,5 @@
 os: linux
-dist: jammy
+dist: focal
 language: shell
 
 install: skip
@@ -8,15 +8,10 @@ before_script: echo $travis_internal_ruby
 
 script: true
 
-before_deploy:
-  - rvm use 3.1.2
 deploy:
-  provider: script
-  script:
-    - rvm install 2.7.6 && rvm use 2.7.6 && gem install dpl --pre
-    - dpl releases --token $GITHUB_TOKEN --file CHANGELOG-EXAMPLE.md
-  #token: $GITHUB_TOKEN
-  #file: CHANGELOG-EXAMPLE.md
+  provider: releases
+  token: $GITHUB_TOKEN
+  file: CHANGELOG-EXAMPLE.md
   edge: true # opt in to dpl v2
   on:
     branch: minimal-build-check
