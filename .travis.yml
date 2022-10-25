@@ -8,13 +8,14 @@ before_script: echo $travis_internal_ruby
 
 script: true
 
-before_deploy:
-  - rvm install 2.7.6
-  - rvm use 2.7.6
 deploy:
-  provider: releases
-  token: $GITHUB_TOKEN
-  file: CHANGELOG-EXAMPLE.md
+  provider: script
+  script:
+    - rvm install 2.7.6 && rvm use 2.7.6
+    - gem install dpl
+    - dpl releases --token $GITHUB_TOKEN --file CHANGELOG-EXAMPLE.md
+  #token: $GITHUB_TOKEN
+  #file: CHANGELOG-EXAMPLE.md
   edge: true # opt in to dpl v2
   on:
-    #branch: minimal-build-check
+    branch: minimal-build-check
