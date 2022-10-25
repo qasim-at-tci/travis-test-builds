@@ -4,6 +4,8 @@ language: shell
 
 install: skip
 
+before_script: echo $travis_internal_ruby
+
 script: true
 
 before_deploy:
@@ -15,4 +17,4 @@ deploy:
   file: CHANGELOG-EXAMPLE.md
   edge: true # opt in to dpl v2
   on:
-    branch: minimal-build-check
+    #branch: minimal-build-check
