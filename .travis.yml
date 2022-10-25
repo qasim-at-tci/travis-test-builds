@@ -12,7 +12,7 @@ deploy:
   provider: script
   script:
     - rvm install 2.7.6 && rvm use 2.7.6
-    - gem install dpl
+    - gem install dpl --pre
     - dpl releases --token $GITHUB_TOKEN --file CHANGELOG-EXAMPLE.md
   #token: $GITHUB_TOKEN
   #file: CHANGELOG-EXAMPLE.md
