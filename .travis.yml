@@ -11,11 +11,9 @@ script: true
 deploy:
   provider: script
   script:
-    - rvm install 2.7.6 && rvm use 2.7.6
-    - gem install dpl --pre
     - dpl releases --token $GITHUB_TOKEN --file CHANGELOG-EXAMPLE.md
   #token: $GITHUB_TOKEN
   #file: CHANGELOG-EXAMPLE.md
-  edge: true # opt in to dpl v2
-  on:
-    branch: minimal-build-check
+  #edge: true # opt in to dpl v2
+  #on:
+    #branch: minimal-build-check
