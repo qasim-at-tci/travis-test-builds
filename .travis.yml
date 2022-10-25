@@ -6,6 +6,9 @@ install: skip
 
 script: true
 
+before_deploy:
+  - rvm install 2.7.4
+  - rvm use 2.7.4
 deploy:
   provider: releases
   token: $GITHUB_TOKEN
