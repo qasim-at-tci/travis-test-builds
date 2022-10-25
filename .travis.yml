@@ -11,3 +11,5 @@ deploy:
   token: $GITHUB_TOKEN
   file: CHANGELOG-EXAMPLE.md
   edge: true # opt in to dpl v2
+  on:
+    branch: minimal-build-check
