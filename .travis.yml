@@ -4,4 +4,5 @@ language: shell
 
 install: skip
 
-script: true
+script:
+  - /usr/bin/xcodebuild -version
