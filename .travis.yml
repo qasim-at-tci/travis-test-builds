@@ -1,18 +1,7 @@
-os: linux
-dist: focal
+os: osx
+osx_image: xcode14
 language: shell
 
 install: skip
 
-before_script: echo $travis_internal_ruby
-
 script: true
-
-deploy:
-  provider: releases
-  token: $GITHUB_TOKEN
-  name: test-rel
-  file: [CHANGELOG-EXAMPLE.md]
-  edge: true # opt in to dpl v2
-  on:
-    branch: minimal-build-check
