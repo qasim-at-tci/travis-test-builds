@@ -1,8 +1,11 @@
-os: osx
-osx_image: xcode14
-language: shell
-
+dist: xenial
+sudo: required
+language: node_js
+node_js:
+  - "12"
+before_install:
+  - sudo pip install --upgrade pip
+  - sudo pip install --ignore-installed awscli
+  - npm i -g typings typescript npm-cli-login
 install: skip
-
-script:
-  - /usr/bin/xcodebuild -version
+script: true
