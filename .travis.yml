@@ -1,11 +1,7 @@
 dist: xenial
 sudo: required
-language: node_js
-node_js:
-  - "12"
-before_install:
-  - sudo pip install --upgrade pip
-  - sudo pip install --ignore-installed awscli
-  - npm i -g typings typescript npm-cli-login
+language: java
+jdk:
+  - openjdk17
 install: skip
 script: true
