@@ -1,7 +1,13 @@
-dist: xenial
-sudo: required
+os: linux
 language: java
 jdk:
   - openjdk17
 install: skip
 script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
