@@ -1,9 +1,20 @@
-language: java
-install: skip
-services:
-  - mongodb
-before_script:
-  - sleep 15
-  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
-script: true
-dist: focal
+language: node_js
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      node_js: lts/*
+      install: skip
+      script: node -v
+      
+    - os: linux
+      dist: xenial
+      node_js: 14
+      install: skip
+      script: node -v
+      
+    - os: linux
+      dist: xenial
+      node_js: 12
+      install: skip
+      script: node -v
