@@ -1,20 +1,20 @@
-language: node_js
+language: python
 jobs:
   include:
     - os: linux
       dist: focal
-      node_js: lts/*
+      python: 3.12-dev
       install: skip
       script: node -v
       
     - os: linux
-      dist: xenial
-      node_js: 14
+      dist: bionic
+      python: 3.11
       install: skip
       script: node -v
       
     - os: linux
-      dist: xenial
-      node_js: 12
+      dist: focal
+      python: 3.11
       install: skip
       script: node -v
