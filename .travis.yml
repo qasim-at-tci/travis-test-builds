@@ -5,16 +5,28 @@ jobs:
       dist: focal
       python: 3.12-dev
       install: skip
-      script: node -v
+      script: python --version
+      
+    - os: linux
+      dist: jammy
+      python: 3.12-dev
+      install: skip
+      script: python --version
       
     - os: linux
       dist: bionic
       python: 3.11
       install: skip
-      script: node -v
-      
+      script: python --version
+    
     - os: linux
       dist: focal
       python: 3.11
       install: skip
-      script: node -v
+      script: python --version
+      
+    - os: linux
+      dist: jammy
+      python: 3.11
+      install: skip
+      script: python --version
