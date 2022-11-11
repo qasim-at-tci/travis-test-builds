@@ -1,32 +1,33 @@
-language: python
+language: generic
+
+before_script:
+  - export SFDX=https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+  - mkdir sfdx
+  - wget -qO- $SFDX | tar xJ -C sfdx --strip-components 1
+  - export PATH=./sfdx/bin:$PATH
 jobs:
   include:
     - os: linux
-      dist: focal
-      python: 3.12-dev
+      dist: trusty
       install: skip
-      script: python --version
+      script: sfdx --version
       
     - os: linux
-      dist: jammy
-      python: 3.12-dev
+      dist: xenial
       install: skip
-      script: python --version
+      script: sfdx --version
       
     - os: linux
       dist: bionic
-      python: 3.11
       install: skip
-      script: python --version
+      script: sfdx --version
     
     - os: linux
       dist: focal
-      python: 3.11
       install: skip
-      script: python --version
+      script: sfdx --version
       
     - os: linux
       dist: jammy
-      python: 3.11
       install: skip
-      script: python --version
+      script: sfdx --version
