@@ -1,31 +1,14 @@
-language: generic
-
 jobs:
   include:
     - os: linux
-      dist: focal
-      install: skip
-      script: true
-      deploy:
-        provider: releases
-        token: $GH_TOKEN
-        file: README.md
-        edge: true # opt in to dpl v2
-        draft: true
-        on:
-          branch: main
-          #tags: true
+      arch: s390x
+      dist: bionic
 
     - os: linux
-      dist: jammy
-      install: skip
-      script: true
-      deploy:
-        provider: releases
-        token: $GH_TOKEN
-        file: README.md
-        edge: true # opt in to dpl v2
-        draft: true
-        on:
-          branch: main
-          #tags: true
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+install: skip
+
+script: true
+
