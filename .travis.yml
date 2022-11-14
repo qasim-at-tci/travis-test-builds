@@ -13,7 +13,7 @@ jobs:
         edge: true # opt in to dpl v2
         draft: true
         on:
-          branches: true
+          branch: minimal-build-check
       
     - os: linux
       dist: jammy
@@ -26,4 +26,4 @@ jobs:
         edge: true # opt in to dpl v2
         draft: true
         on:
-          branches: true
+          branch: minimal-build-check
