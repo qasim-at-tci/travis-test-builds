@@ -2,13 +2,35 @@ jobs:
   include:
     - os: linux
       arch: s390x
-      dist: bionic
+      dist: xenial
+      group: edge
 
     - os: linux
       arch: arm64-graviton2
+      dist: xenial
       virt: lxd
       group: edge
-install: skip
+      
+    - os: linux
+      arch: Arm64
+      dist: xenial
+      group: edge
+      
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      group: edge
+      
+    - os: linux
+      dist: xenial
+      
+addons:
+  postgresql: '12'
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
 
+install: skip
 script: true
 
