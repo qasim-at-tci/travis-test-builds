@@ -1,26 +1,7 @@
-language: node_js
+os: osx
+osx_image: xcode13.1
+language: python
+python: 3.11.0
 
-_prior_versions: &xenial
-  os: linux
-  dist: xenial
-  
-_new_versions: &focal
-  os: linux
-  dist: focal
-  node_js: lts/*
-
-jobs:
-  include:  
-    - <<: *focal
-      install: skip
-      script: node -v
-      
-    - <<: *xenial
-      node_js: 12
-      install: skip
-      script: node -v
-      
-    - <<: *xenial
-      node_js: 14
-      install: skip
-      script: node -v
+install: skip
+script: true
