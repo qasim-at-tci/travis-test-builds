@@ -1,32 +1,26 @@
+language: node_js
+
+prior_versions: &xenial
+  os: linux
+  dist: xenial
+  
+new_versions: &focal
+  os: linux
+  dist: focal
+
 jobs:
-  include:
-    - os: linux
-      arch: s390x
-      dist: xenial
-      group: edge
-
-    - os: linux
-      arch: arm64-graviton2
-      dist: xenial
-      virt: lxd
-      group: edge
+  include:  
+    - <<: *focal
+      node_js: lts/*
+      install: skip
+      script: node -v
       
-    - os: linux
-      arch: Arm64
-      dist: xenial
-      group: edge
+    - <<: *xenial
+      node_js: 14
+      install: skip
+      script: node -v
       
-    - os: linux
-      arch: ppc64le
-      dist: xenial
-      group: edge
-      
-    - os: linux
-      dist: xenial
-      
-addons:
-  postgresql: '12'
-
-install: skip
-script: true
-
+    - <<: *xenial
+      node_js: 12
+      install: skip
+      script: node -v
