@@ -1,26 +1,26 @@
 language: node_js
 
-prior_versions: &xenial
+_prior_versions: &xenial
   os: linux
   dist: xenial
   
-new_versions: &focal
+_new_versions: &focal
   os: linux
   dist: focal
+  node_js: lts/*
 
 jobs:
   include:  
     - <<: *focal
-      node_js: lts/*
-      install: skip
-      script: node -v
-      
-    - <<: *xenial
-      node_js: 14
       install: skip
       script: node -v
       
     - <<: *xenial
       node_js: 12
+      install: skip
+      script: node -v
+      
+    - <<: *xenial
+      node_js: 14
       install: skip
       script: node -v
