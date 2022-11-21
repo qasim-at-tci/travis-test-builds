@@ -2,7 +2,7 @@ os: linux
 dist: bionic
 arch: Arm64
 
-language: shell
+language: cpp
 
 install: skip
 script: true
