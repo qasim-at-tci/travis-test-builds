@@ -1,25 +1,17 @@
-language: node_js
+os: linux
+dist: bionic
+group: edge
+arch: Arm64
 
-jobs:
-  include:
-    - name: Job A
-      dist: xenial
-      node_js: 12
-      
-    - name: Job B
-      dist: xenial
-      node_js: 14
-      
-    - name: Job C
-      dist: focal
-      node_js: lts/*
-      
-    - name: Job D
-      dist: xenial
-      node_js: lts/*
-      
-  allow_failures:
-  - name: Job D
-      
+language: shell
+
 install: skip
 script: true
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: hello.md
+  skip_cleanup: true
+  on:
+    tags: true
