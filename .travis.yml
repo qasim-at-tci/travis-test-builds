@@ -1,8 +1,8 @@
 os: osx
-language: python
+language: shell
 
 install: skip
-script: python -V
+script: python3 -V
 
 jobs:
   include:
