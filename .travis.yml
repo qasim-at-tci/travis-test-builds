@@ -1,6 +1,6 @@
 os: linux
 dist: bionic
-group: edge
+#group: edge
 arch: Arm64
 
 language: shell
@@ -11,7 +11,7 @@ script: true
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: hello.md
+  file: test.md
   skip_cleanup: true
   on:
     tags: true
