@@ -14,5 +14,12 @@ jobs:
       dist: focal
       node_js: lts/*
       
+    - name: Job D
+      dist: xenial
+      node_js: lts/*
+      
+    allow_failures:
+    - name: Job D
+      
 install: skip
 script: true
