@@ -1,6 +1,5 @@
 os: linux
 dist: bionic
-#group: edge
 arch: Arm64
 
 language: shell
