@@ -18,8 +18,8 @@ jobs:
       dist: xenial
       node_js: lts/*
       
-    allow_failures:
-    - name: Job D
+  allow_failures:
+  - name: Job D
       
 install: skip
 script: true
