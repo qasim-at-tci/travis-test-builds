@@ -1,5 +1,5 @@
 os: linux
-language: shell
+language: cpp
 
 install: skip
 script: true
