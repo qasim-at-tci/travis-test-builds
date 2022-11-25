@@ -2,7 +2,7 @@ os: linux
 
 jobs:
   include:
-    - stage: "Oracle JDK 8"
+    - stage: "Custom JDK 8 version"
       language: android
       jdk: openjdk8
       dist: trusty
@@ -24,7 +24,7 @@ jobs:
         - source "$HOME/.sdkman/bin/sdkman-init.sh"
         - sdk install java 8.0.352-zulu
         - sdk use java 8.0.352-zulu
-        - sdk home java 8.0.352-zulu
       install: skip
       script:
         - java -version
+        - echo $JAVA_HOME
