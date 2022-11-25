@@ -1,10 +1,48 @@
 os: linux
-language: cpp
-
-install: skip
-script: true
 
 jobs:
   include:
-     - dist: focal
-       arch: s390x
+    - stage: "Oracle JDK 8"
+      language: android
+      jdk: oraclejdk8
+      dist: trusty
+      addons:
+        apt:
+          packages:
+            - oracle-java8-installer
+      android:
+        components:
+          - platform-tools
+          - tools
+          - build-tools-26.0.1
+          - android-26
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
+      install: skip
+      script:
+        - java -version
+    - stage: "OpenJDK 8"
+      language: android
+      jdk: openjdk8
+      dist: trusty
+      android:
+        components:
+          - platform-tools
+          - tools
+          - build-tools-26.0.1
+          - android-26
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
+      install: skip
+      script:
+        - java -version
