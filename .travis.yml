@@ -4,12 +4,8 @@ jobs:
   include:
     - stage: "Oracle JDK 8"
       language: android
-      jdk: oraclejdk8
+      jdk: openjdk8
       dist: trusty
-      addons:
-        apt:
-          packages:
-            - oracle-java8-installer
       android:
         components:
           - platform-tools
