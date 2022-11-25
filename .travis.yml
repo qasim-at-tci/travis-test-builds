@@ -23,26 +23,12 @@ jobs:
         - android-sdk-preview-license-.+
         - android-sdk-license-.+
         - google-gdk-license-.+
-      install: skip
-      script:
-        - java -version
-    - stage: "OpenJDK 8"
-      language: android
-      jdk: openjdk8
-      dist: trusty
-      android:
-        components:
-          - platform-tools
-          - tools
-          - build-tools-26.0.1
-          - android-26
-          - extra-android-m2repository
-          - extra-google-google_play_services
-          - extra-google-m2repository
-      licenses:
-        - android-sdk-preview-license-.+
-        - android-sdk-license-.+
-        - google-gdk-license-.+
+      before_install:
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk install java 8.0.352-zulu
+        - sdk use java 8.0.352-zulu
+        - sdk home java 8.0.352-zulu
       install: skip
       script:
         - java -version
