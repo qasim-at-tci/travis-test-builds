@@ -1,5 +1,11 @@
-language: minimal
-services:
-    - docker
+os: linux
+arch: arm64-graviton2
+virt: vm
+group: edge
+language: node_js
+sudo: required
+node_js:
+- 16
 
-script: which docker
+install: skip
+script: skip
