@@ -6,7 +6,6 @@ addons:
 
 language: groovy
 dist: xenial
-jdk:
-  - oraclejdk8
+jdk: openjdk8
 install: skip
 script: true
