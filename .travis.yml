@@ -1,11 +1,12 @@
-os: linux
-arch: arm64-graviton2
-virt: vm
-group: edge
-language: node_js
-sudo: required
-node_js:
-- 16
+services:
+  - docker
+addons:
+  apt:
+    packages: jq
 
+language: groovy
+dist: xenial
+jdk:
+  - oraclejdk8
 install: skip
-script: skip
+script: true
