@@ -7,10 +7,11 @@ script:
 - echo "hello world"
 deploy:
 - provider: pypi
+  on:
+    branch: minimal-build-check
 
 jobs:
   include:
     - dist: xenial
     - dist: bionic
     - dist: focal
-    - dist: jammy
