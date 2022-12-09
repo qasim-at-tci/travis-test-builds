@@ -13,6 +13,7 @@ deploy:
 - provider: pypi
   on:
     branch: minimal-build-check
+  edge: true
 
 jobs:
   include:
