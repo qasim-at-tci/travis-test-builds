@@ -5,6 +5,10 @@ install:
 - true
 script:
 - echo "hello world"
+before_deploy:
+- curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
+- python get-pip.py
+- python -m pip install --upgrade "pip < 21.0"
 deploy:
 - provider: pypi
   on:
