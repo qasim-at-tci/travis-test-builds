@@ -1,7 +1,8 @@
 language: python
 install: skip
 script:
-- ./hello.sh
+  - chmod +x ./hello.sh
+  - ./hello.sh
 
 jobs:
   include:
