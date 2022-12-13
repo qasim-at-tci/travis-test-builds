@@ -1,7 +1,7 @@
 language: python
 install: skip
 script:
-- sh hello.sh
+- ./hello.sh
 
 jobs:
   include:
