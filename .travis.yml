@@ -1,15 +1,12 @@
-dist: trusty
 language: python
-python:
-- '2.7'
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
-    packages:
-      - openssh-server
-      - openssh-client
-    update: true
 install: skip
 script:
-- echo "hello world"
+- sh hello.sh
+
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
