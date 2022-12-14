@@ -4,6 +4,7 @@ arch: arm64-graviton2
 virt: lxd
 group: edge
 language: node_js
+node_js: 16
 
 install: skip
 script: true
