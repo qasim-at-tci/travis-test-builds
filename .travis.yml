@@ -1,12 +1,9 @@
-language: python
-install: skip
-script:
-- ./hello.sh
+dist: focal
+os: linux
+arch: arm64-graviton2
+virt: lxd
+group: edge
+language: node_js
 
-jobs:
-  include:
-    - dist: trusty
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+install: skip
+script: true
