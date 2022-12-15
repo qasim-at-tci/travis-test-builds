@@ -4,6 +4,8 @@ os: linux
 dist: jammy
 install: skip
 before_install:
+  - git clone https://github.com/php-build/php-build.git $HOME/.phpenv/plugins/php-build
+  - phpenv install 8.2snapshot
   - phpenv global 8.2snapshot
 script:
   - php -v
