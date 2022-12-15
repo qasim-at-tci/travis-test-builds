@@ -1,10 +1,16 @@
-language: node_js
-node_js:
-  - "node"
-os:
-  - linux
-dist: xenial
-
+language: ruby
+os: linux
+dist: jammy
 install: skip
-
 script: true
+
+jobs:
+  include:
+    - ruby: 2.7.5
+    - ruby: 2.7.6
+    - ruby: 2.7.7
+    - ruby: 3.0.5
+    - ruby: 3.1.0
+    - ruby: 3.1.1
+    - ruby: 3.1.2
+    - ruby: 3.1.3
