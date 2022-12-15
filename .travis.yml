@@ -2,7 +2,8 @@ language: ruby
 os: linux
 dist: jammy
 install: skip
-script: ruby -v
+script:
+  - ruby -v
 
 jobs:
   include:
