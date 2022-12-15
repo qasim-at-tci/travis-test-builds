@@ -4,6 +4,6 @@ os: linux
 dist: jammy
 install: skip
 before_install:
-  - phpenv install 8.2snapshot
+  - phpenv global 8.2snapshot
 script:
   - php -v
