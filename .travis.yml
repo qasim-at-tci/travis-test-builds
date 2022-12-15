@@ -1,8 +1,9 @@
 language: php
+php: 8.1
 os: linux
 dist: jammy
 install: skip
 before_install:
   - phpenv install 8.2snapshot
 script:
-  - ruby -v
+  - php -v
