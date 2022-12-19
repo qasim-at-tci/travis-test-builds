@@ -7,8 +7,8 @@ node_js:
   - 16
 
 before_install:
-  - npm i -g npm@^8
   - nvm install node
-  - npm i -g npm@^8
 install: skip
-script: true
+script:
+  - node -v
+  - npm -v
