@@ -8,6 +8,7 @@ node_js:
 
 before_install:
   - nvm install node
+  - sleep 2
 install: skip
 script:
   - node -v
