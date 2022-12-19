@@ -1,10 +1,10 @@
 arch: arm64
 os: linux
-dist: focal
+dist: jammy
 
 language: node_js
 node_js:
-  - node
+  - 19
 
 install: skip
 script: true
