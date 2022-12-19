@@ -1,13 +1,10 @@
-language: php
-php: 8.1
+arch: arm64
 os: linux
-dist: jammy
+dist: focal
+
+language: node_js
+node_js:
+  - node
+
 install: skip
-before_install:
-  - git clone https://github.com/php-build/php-build.git $HOME/.phpenv/plugins/php-build
-  - sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
-  - sudo apt-get install libonig-dev -y
-  - phpenv install 8.2snapshot
-  - phpenv global 8.2snapshot
-script:
-  - php -v
+script: true
