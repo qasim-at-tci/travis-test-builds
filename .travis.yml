@@ -4,12 +4,12 @@ dist: focal
 
 language: node_js
 node_js:
-  - 18
+  - node
 
 before_install:
-  - nvm install node
-  - node -v
-  - npm -v
-  - sleep 2
+  #- nvm install node
+  #- node -v
+  #- npm -v
+  #- sleep 2
 install: skip
 script: true
