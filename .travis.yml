@@ -5,7 +5,7 @@ dist: focal
 
 language: node_js
 node_js:
-  - node
+  - 16
 
 install: skip
 script: true
