@@ -1,15 +1,18 @@
-language: bash
+os: linux
+dist: focal
 
-env:
-  global:
-    - JENKINS_URL=https://test.dev
-    - secure: ZisyOl8sKSGVv2jWHNgJe7EhGbcz6oYFvOjhcB7F=
-    - secure: JxPB2WKZHTAVaODy7Bgod8KDSpxO+IUcrznhhF4sTGwaal6T=
+language: node_js
+node_js:
+  - node
 
-before_script:
-- curl --fail --silent --show-error -O "https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz"
-- mkdir helm-v3
-- tar zxf helm-v3.4.2-linux-amd64.tar.gz -C helm-v3
-- export PATH=$PATH:$PWD/helm-v3/linux-amd64
-
+before_install:
+  - node -v
+  - npm -v
+  - sleep 2
+install: skip
 script: true
+
+jobs:
+  include:
+    - arch: arm64
+    - arch: amd64
