@@ -1,7 +1,6 @@
 language: ruby
 os: linux
 dist: jammy
-group: dev
 install: skip
 script:
   - ruby -v
@@ -11,4 +10,4 @@ jobs:
     - ruby: 2.7
     - ruby: 3.0
     - ruby: 3.1
-    - ruby: ruby-head
+    - ruby: "ruby-head"
