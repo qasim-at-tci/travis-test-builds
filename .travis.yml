@@ -1,18 +1,13 @@
+language: ruby
 os: linux
-dist: focal
-
-language: node_js
-node_js:
-  - node
-
-before_install:
-  - node -v
-  - npm -v
-  - sleep 2
+dist: jammy
 install: skip
-script: true
+script:
+  - ruby -v
 
 jobs:
   include:
-    - arch: arm64
-    - arch: amd64
+    - ruby: 2.7
+    - ruby: 3.0
+    - ruby: 3.1
+    - ruby: ruby-head
