@@ -1,13 +1,20 @@
-language: ruby
-os: linux
-dist: jammy
-install: skip
-script:
-  - ruby -v
+sudo: required
+dist: trusty
 
+language: python
+python: 3.6
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
+    packages:
+      - openssh-server
+      - openssh-client
+    update: true
+    
 jobs:
   include:
-    - ruby: 2.7
-    - ruby: 3.0
-    - ruby: 3.1
-    - ruby: "ruby-head"
+    - group: deprecated
+      script: true
+    - script: echo true
