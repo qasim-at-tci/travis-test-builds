@@ -1,9 +1,10 @@
-language: php
-php: 8.2snaphost
+language: shell
 install: skip
 script: true
 
 jobs:
   include:
     - dist: bionic
+      arch: Arm64
     - dist: focal
+      arch: Arm64
