@@ -1,20 +1,9 @@
-sudo: required
-dist: trusty
+language: php
+php: 8.2snaphost
+install: skip
+script: true
 
-language: python
-python: 3.6
-
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://old-releases.ubuntu.com/ubuntu yakkety main universe multiverse'
-    packages:
-      - openssh-server
-      - openssh-client
-    update: true
-    
 jobs:
   include:
-    - group: deprecated
-      script: true
-    - script: echo true
+    - dist: bionic
+    - dist: bionic
