@@ -6,4 +6,4 @@ script: true
 jobs:
   include:
     - dist: bionic
-    - dist: bionic
+    - dist: focal
