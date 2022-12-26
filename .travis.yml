@@ -19,3 +19,7 @@ jobs:
       php: 8.2snapshot
     - dist: focal
       php: 8.2snapshot
+    - dist: jammy
+      php: 8.2.0
+    - dist: jammy
+      php: 8.2snapshot
