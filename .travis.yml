@@ -1,10 +1,14 @@
-language: shell
+language: php
 install: skip
 script: true
 
 jobs:
   include:
     - dist: bionic
-      arch: Arm64
+      php: 8.2snapshot
+    - dist: bionic
+      php: 8.2
     - dist: focal
-      arch: Arm64
+      php: 8.2snapshot
+    - dist: focal
+      php: 8.2
