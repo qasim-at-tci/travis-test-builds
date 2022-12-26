@@ -1,12 +1,10 @@
-language: ruby
-ruby: 3.2
+language: php
+php: 8.2.0
 install: skip
-script:
-  - ruby -v
+script: true
 
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+addons:
+  apt:
+    update: true
+    packages:
+    - libonig5
