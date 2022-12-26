@@ -8,3 +8,8 @@ addons:
     update: true
     packages:
     - libonig-dev
+
+jobs:
+  include:
+    - dist: bionic
+    - dist: focal
