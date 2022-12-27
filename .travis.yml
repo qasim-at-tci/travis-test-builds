@@ -1,14 +1,15 @@
 os: linux
 dist: jammy
 language: python
+python: 3.10
 before_install:
   - pip install --upgrade pip
   - pip install scipy
 install: skip
 script: true
 
-jobs:
-  include:
-    - python: 3.10.5
-    - python: 3.10.8
-    - python: 3.10.9
+#jobs:
+#  include:
+#    - python: 3.10.5
+#    - python: 3.10.8
+#    - python: 3.10.9
