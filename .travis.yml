@@ -1,7 +1,7 @@
 os: linux
 dist: jammy
 language: python
-before_install: pip3 install scipy==1.2.1
+before_install: pip install scipy==1.2.1
 install: skip
 script: true
 
