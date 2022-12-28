@@ -4,11 +4,17 @@ dist: focal
 arch: ppc64le
 language: java
 
-addons:
-  apt:
-    packages:
-      - groovy
-      - xsltproc
-      #- xmlstarle
-      - ant
-    update: true
+jobs:
+  include:
+    - addons:
+        apt:
+          packages:
+            - groovy
+            - xsltproc
+            #- xmlstarle
+            - ant
+          update: true
+      script: true
+    - install:
+        - sudo apt update && sudo apt install -y groovy xsltproc xmlstarlet ant
+      script: true
