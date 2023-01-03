@@ -9,4 +9,4 @@ script: true
 jobs:
   include:
     - group: deprecated
-    - group: stable
+    - arch: amd64
