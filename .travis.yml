@@ -1,20 +1,11 @@
-version: ~> 1.0
-dist: focal
-# this arch is required as is for Partner Queue Solution - DO NOT MODIFY
-arch: ppc64le
-language: java
+dist: xenial
+language: ruby
+before_install:
+- gem install bundler -v 1.12.5
+install: skip
+script: true
 
 jobs:
   include:
-    - addons:
-        apt:
-          packages:
-            - groovy
-            - xsltproc
-            #- xmlstarle
-            - ant
-          update: true
-      script: true
-    - install:
-        - sudo apt update && sudo apt install -y groovy xsltproc xmlstarlet ant
-      script: true
+    - group: deprecated
+    - group: stable
