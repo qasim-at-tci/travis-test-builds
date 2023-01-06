@@ -5,4 +5,5 @@ script: true
 jobs:
   include:
     - dist: focal
-    - dist: jammy
+    - dist: bionic
+    - dist: xenial
