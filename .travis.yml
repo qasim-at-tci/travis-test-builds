@@ -1,19 +1,8 @@
-dist: xenial
 arch: ppc64le
-language: ruby
-ruby: 2.5.3
-
-addons:
-  apt:
-    update: true
-    packages:
-      - build-essential
-      - nghttp2
-      - libnghttp2-dev
-      - libssl-dev
-before_install:
-- rvm install 2.3.6
-- rvm use 2.3.6
-- gem install bundler -v 1.12.5
+language: shell
 install: skip
 script: true
+jobs:
+  include:
+    - dist: focal
+    - dist: jammy
