@@ -2,7 +2,8 @@ language: shell
 os: linux
 dist: focal
 
-if: NOT branch IN (main)
+import:
+  - test-runs-tci/travis-test-builds:conditions.yml@main
 
 install: skip
 
