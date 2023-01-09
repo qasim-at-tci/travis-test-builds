@@ -1,7 +1,18 @@
-arch: ppc64le
-language: shell
+language: go
+arch:
+  - arm64
+os: linux
+go:
+  - '1.18'
+services:
+  - docker
+
 install: skip
+
+before_install: uname -p
+
 script: true
+
 jobs:
   include:
     - dist: focal
