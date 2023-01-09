@@ -2,6 +2,7 @@ language: go
 arch:
   - arm64
 os: linux
+dist: focal
 go:
   - '1.18'
 services:
@@ -9,11 +10,4 @@ services:
 
 install: skip
 
-before_install: uname -p
-
-script: true
-
-jobs:
-  include:
-    - dist: focal
-    - dist: jammy
+script: uname -p
