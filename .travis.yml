@@ -2,7 +2,7 @@ language: shell
 os: linux
 dist: focal
 
-if: NOT branch IN (minimal-build-check)
+if: NOT branch IN (main)
 
 install: skip
 
