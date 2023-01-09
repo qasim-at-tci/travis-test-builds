@@ -1,12 +1,8 @@
-language: go
-arch:
-  - arm64
+language: shell
 os: linux
 dist: focal
-go:
-  - '1.18'
-services:
-  - docker
+
+if: NOT branch IN (minimal-build-check)
 
 install: skip
 
