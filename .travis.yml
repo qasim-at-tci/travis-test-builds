@@ -2,7 +2,7 @@ language: shell
 os: linux
 dist: focal
 
-if: NOT branch IN (branch/xyz/build-test)
+if: branch IN (main)
 
 install: skip
 
