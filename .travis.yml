@@ -1,23 +1,24 @@
-os: linux
-language: ruby
-ruby: 2.7.6
+language: minimal
+dist: focal
 
-services:
-  - postgresql
-addons:
-    postgresql: 12
-    apt:
-      update: true
-      packages:
-        - postgresql-12
-        - postgresql-client-12
-    chrome: stable
-    
-install: skip
-script: true
+git:
+  depth: 5
+
+stages:
+  - test
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+    - stage: test
+      env:
+        - task="nslookup check"
+      script:
+        - true
+    - stage: test
+      env:
+        - task="duplicate check"
+      script:
+        - .true
+  allow_failures:
+    env:
+        - task="nslookup check"
