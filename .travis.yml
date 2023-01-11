@@ -1,11 +1,18 @@
-language: shell
 os: linux
 dist: focal
+language: ruby
+ruby: 2.7.6
 
-import:
-  - test-runs-tci/travis-test-builds:conditions.yml@main
-
+services:
+  - postgresql
+addons:
+    postgresql: 12
+    apt:
+      update: true
+      packages:
+        - postgresql-12
+        - postgresql-client-12
+    chrome: stable
+    
 install: skip
-
-script:
-  - uname -p
+script: true
