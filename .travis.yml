@@ -7,4 +7,5 @@ import:
 
 install: skip
 
-script: uname -p
+script:
+  - uname -p
