@@ -1,24 +1,9 @@
-language: minimal
-dist: focal
-
-git:
-  depth: 5
-
-stages:
-  - test
+language: java
+jdk: openjdk18
 
 jobs:
   include:
-    - stage: test
-      env:
-        - task="nslookup check"
-      script:
-        - true
-    - stage: test
-      env:
-        - task="duplicate check"
-      script:
-        - .true
-  allow_failures:
-    env:
-        - task="nslookup check"
+    - arch: amd64
+      env: BUILD_ARCH=amd64
+    - arch: arm64
+      env: BUILD_ARCH=arm64
