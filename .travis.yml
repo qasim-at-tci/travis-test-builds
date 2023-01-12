@@ -1,7 +1,8 @@
 arch: ppc64le
 language: shell
 install: skip
-script: true
+script:
+  - true
 jobs:
   include:
     - dist: focal
