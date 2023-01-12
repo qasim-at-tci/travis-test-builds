@@ -1,6 +1,9 @@
 language: java
 jdk: openjdk18
 
+install: skip
+script: true
+
 jobs:
   include:
     - arch: amd64
