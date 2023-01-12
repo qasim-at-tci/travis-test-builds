@@ -10,3 +10,7 @@ jobs:
       env: BUILD_ARCH=amd64
     - arch: arm64
       env: BUILD_ARCH=arm64
+    - arch: arm64-graviton2
+      group: edhe
+      virt: vm
+      env: BUILD_ARCH=arm64
