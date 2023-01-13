@@ -1,6 +1,10 @@
 language: java
 jdk: openjdk18
-
+git:
+  submodules: false
+  quiet: true
+before_install:
+  - git submodule update --init --recursive --quiet
 install: skip
 script:
   - git log
