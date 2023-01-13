@@ -1,5 +1,4 @@
 language: java
-jdk: openjdk18
 git:
   submodules: false
   quiet: true
@@ -12,10 +11,7 @@ script:
 jobs:
   include:
     - arch: amd64
-      env: BUILD_ARCH=amd64
     - arch: arm64
-      env: BUILD_ARCH=arm64
     - arch: arm64-graviton2
       group: edge
       virt: vm
-      env: BUILD_ARCH=arm64
