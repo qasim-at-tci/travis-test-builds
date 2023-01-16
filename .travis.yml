@@ -12,6 +12,7 @@ services:
 
 before_install:
   - git submodule update --init --recursive --quiet
+  - sleep 10
 install: skip
 
 before_script:
