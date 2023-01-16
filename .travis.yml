@@ -1,17 +1,21 @@
-language: java
+language: ruby
+ruby: 2.7.6
 git:
   submodules: false
   quiet: true
+  depth: false
+addons:
+  postgresql: "9.5"
+services:
+  - postgresql
+  - elasticsearch
+
 before_install:
   - git submodule update --init --recursive --quiet
 install: skip
-script:
-  - git log
 
-jobs:
-  include:
-    - arch: amd64
-    - arch: arm64
-    - arch: arm64-graviton2
-      group: edge
-      virt: vm
+before_script:
+  - timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
+
+script:
+  - curl http://localhost:9200/_cluster/health?pretty
