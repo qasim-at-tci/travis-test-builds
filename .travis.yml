@@ -3,20 +3,15 @@ ruby: 2.7.6
 git:
   submodules: false
   quiet: true
-  depth: false
-addons:
-  postgresql: "9.5"
-services:
-  - postgresql
-  - elasticsearch
 
 before_install:
   - git submodule update --init --recursive --quiet
-  - sleep 10
 install: skip
 
-before_script:
-  - timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
+#before_script:
+  #- timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
 
 script:
-  - curl http://localhost:9200/_cluster/health?pretty
+  # https://docs.travis-ci.com/user/environment-variables/#default-environment-variables
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_PULL_REQUEST_BRANCH
