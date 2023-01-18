@@ -1,5 +1,5 @@
 os: linux
-language: ruby
+language: shell
 
 addons:
     apt:
@@ -8,7 +8,7 @@ addons:
         - libu2f-udev
         - libvulkan1
     chrome: stable
-    
+before_install: sudo apt install -f -y    
 install: skip
 script: true
 
