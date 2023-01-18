@@ -6,6 +6,7 @@ addons:
       update: true
       packages:
         - libu2f-udev
+        - libvulkan1
     chrome: stable
     
 install: skip
@@ -14,3 +15,5 @@ script: true
 jobs:
   include:
     - dist: focal
+    - dist: xenial
+    - dist: bionic
