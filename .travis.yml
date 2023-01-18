@@ -1,12 +1,11 @@
 os: linux
-language: shell
+language: ruby
 
 addons:
     apt:
       update: true
       packages:
         - libu2f-udev
-        - libvulkan1
     chrome: stable
     
 install: skip
@@ -14,6 +13,4 @@ script: true
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
     - dist: focal
