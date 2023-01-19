@@ -1,5 +1,7 @@
-arch: ppc64le
-language: shell
+arch: arm64
+virt: lxd
+language: go
+go: '1.18'
 install: skip
 script:
   - true
