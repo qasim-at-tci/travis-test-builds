@@ -1,19 +1,6 @@
 os: linux
 language: shell
-
-addons:
-    apt:
-      update: true
-      packages:
-        - libu2f-udev
-        - libvulkan1
-    chrome: stable
-before_install: sudo apt install -f -y    
+  
 install: skip
-script: true
-
-jobs:
-  include:
-    - dist: focal
-    - dist: xenial
-    - dist: bionic
+script:
+  - if [[ $TRAVIS_BRANCH == "minimal-build-check" ]]; then echo "Hello"; fi
