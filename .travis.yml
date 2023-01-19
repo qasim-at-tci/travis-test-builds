@@ -1,6 +1,8 @@
 arch:
   - arm64
 #virt: lxd
+services:
+  - docker
 language: go
 go: '1.18'
 install: skip
