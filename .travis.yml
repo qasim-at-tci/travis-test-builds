@@ -1,5 +1,6 @@
 os: linux
-language: shell
+language: ruby
+ruby: 2.7.6
   
 install: skip
 env:
