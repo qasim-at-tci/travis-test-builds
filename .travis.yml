@@ -2,5 +2,10 @@ os: linux
 language: shell
   
 install: skip
-script:
-  - if [[ $TRAVIS_BRANCH == "minimal-build-check" ]]; then echo "Hello"; fi
+env:
+  - CHROME_SOURCE_URL=https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_108.0.5359.124-1_amd64.deb
+
+before_install:
+  - wget -O /tmp/$(basename $CHROME_SOURCE_URL) $CHROME_SOURCE_URL
+  - sudo dpkg -i /tmp/$(basename $CHROME_SOURCE_URL)
+script: true
