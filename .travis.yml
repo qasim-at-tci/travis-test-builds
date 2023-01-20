@@ -1,15 +1,39 @@
-os: linux
-language: ruby
-ruby: 2.7.6
-addons:
-  chrome: stable
-
-before_install: sudo apt install -f -y
-install: skip
-script: true
-
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+    - stage: "Android"
+      language: android
+      jdk: oraclejdk8
+      android:
+        components:
+          - platform-tools
+          - tools
+          - build-tools-30.0.2
+          - android-30
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+      licenses:
+        - android-sdk-preview-license-.+
+        - android-sdk-license-.+
+        - google-gdk-license-.+
+      env:
+        global:
+          - ANDROID_SDK_HOME=/usr/local/android-sdk
+      before_install:
+        - nvm install 16.18.0
+        - rvm install 2.6.7
+        - rvm use 2.6.7
+        - node --version
+        - ruby --version
+        - npm install -g yarn
+        - yarn -version
+        - gem install fastlane --no-document --quiet
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk install java 8.0.352-zulu
+        - sdk use java 8.0.352-zulu
+        - yes | sdkmanager "platforms;android-30"
+        - yes | sdkmanager "build-tools;30.0.2"
+      install: skip
+      script: true
+      
