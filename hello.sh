@@ -1,3 +1,3 @@
 #!/bin/bash
 set -x
-xyz
+ping testxyz.dev
