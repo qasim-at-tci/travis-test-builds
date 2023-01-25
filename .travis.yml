@@ -5,6 +5,4 @@ language: shell
 
 install: skip
 
-script:
-  - chmod +x ./hello.sh
-  - ./hello.sh || travis_terminate 1
+script: bash ./hello.sh || travis_terminate 1;
