@@ -1,3 +1,3 @@
 #!/bin/bash
-set -ex
-ping testxyz.dev
+set -x
+exit 1
