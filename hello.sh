@@ -1,3 +1,4 @@
 #!/bin/bash
-set -x
-exit 1
+set +e
+ping xyzccc.dev
+ping zzzzjh.dev
