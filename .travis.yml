@@ -5,4 +5,4 @@ language: shell
 
 install: skip
 
-script: false || travis_terminate 1;
+script: bash ./hello.sh || travis_terminate 1;
