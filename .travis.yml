@@ -3,7 +3,7 @@ dist: focal
 language: shell
 env:
   global:
-    - TEST_TAG=v2.0.4
+    - TRAVIS_TAG=v2.0.5
 install: skip
 
 script: true
@@ -14,7 +14,7 @@ deploy:
   api_key: $GITHUB_TOKEN
   file: ./test.md
   name: "TEST RELEASE $TEST_TAG"
-  tag: $TEST_TAG
+  tag: $TRAVIS_TAG
   on:
     branch: minimal-build-check
 
