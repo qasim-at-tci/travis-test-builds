@@ -1,11 +1,21 @@
 os: linux
 dist: focal
-
 language: shell
-
+env:
+  global:
+    - TEST_TAG=v2.0.4
 install: skip
 
-script:
-  - bash ./hello.sh || travis_terminate 1
-  - echo "Hello"
-  - echo "done"
+script: true
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: ./test.md
+  name: "TEST RELEASE $TEST_TAG"
+  tag: $TEST_TAG
+  on:
+    branch: minimal-build-check
+
+after_deploy: echo "DONE"
