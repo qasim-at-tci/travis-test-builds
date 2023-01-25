@@ -5,4 +5,7 @@ language: shell
 
 install: skip
 
-script: bash ./hello.sh || travis_terminate 1;
+script:
+  - bash ./hello.sh || travis_terminate 1
+  - echo "Hello"
+  - echo "done"
