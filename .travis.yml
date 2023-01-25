@@ -1,21 +1,7 @@
 os: linux
 dist: focal
 language: shell
-env:
-  global:
-    - TRAVIS_TAG=v2.0.6
+
 install: skip
 
-script: true
-
-deploy:
-  skip_cleanup: true
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file: ./test.md
-  name: "TEST RELEASE $TEST_TAG"
-  #tag: $TRAVIS_TAG
-  on:
-    branch: minimal-build-check
-
-after_deploy: echo "DONE"
+script: bash ./hello.sh || travis_terminate 1
