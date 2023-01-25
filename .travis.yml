@@ -7,4 +7,4 @@ install: skip
 
 script:
   - chmod +x ./hello.sh
-  - ./hello.sh
+  - ./hello.sh || travis_terminate 1
