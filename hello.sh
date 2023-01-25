@@ -1,4 +1,7 @@
 #!/bin/bash
-set +e
+set +ex
 
+true
+false
+true
 false
