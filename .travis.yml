@@ -1,7 +1,7 @@
 os: linux
-dist: focal
-language: shell
+dist: jammy
+language: ruby
 
 install: skip
 
-script: bash ./hello.sh || travis_terminate 1
+script: ruby -v
