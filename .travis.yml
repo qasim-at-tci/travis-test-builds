@@ -1,7 +1,10 @@
 os: linux
-dist: jammy
-language: ruby
-
+dist: focal
+language: shell
+env:
+  global:
+    - AUTHOR=$(git log -1 --pretty=format:'%an (%ae)')
 install: skip
 
-script: ruby -v
+script:
+  - echo $AUTHOR
