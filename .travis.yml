@@ -3,7 +3,7 @@ dist: focal
 language: shell
 env:
   global:
-    - AUTHOR=$(git log -1 --pretty=format:'%an (%ae)')
+    - AUTHOR="$(git log -1 --pretty=format:'%an (%ae)')"
 install: skip
 
 script:
