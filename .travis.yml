@@ -1,10 +1,13 @@
 os: linux
 dist: focal
 language: shell
-env:
-  global:
-    - AUTHOR="$(git log -1 --pretty=format:'%an (%ae)')"
+
 install: skip
 
 script:
   - echo $AUTHOR
+jobs:
+  include:
+    - env:
+        - AUTHOR="$(git log -1 --pretty=format:'%an (%ae)')"
+    - dist: xenial
