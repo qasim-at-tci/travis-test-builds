@@ -1,5 +1,5 @@
-osx_image: xcode10.3
-dist: trusty
+osx_image: xcode14.2
+dist: xenial
 language: node_js
 node_js: 14.15.0
 cache:
