@@ -7,4 +7,5 @@ addons:
 
 install: skip
 
-script: true
+script:
+  - pip list
