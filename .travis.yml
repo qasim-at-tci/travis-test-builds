@@ -1,13 +1,32 @@
-os: linux
-dist: focal
-language: shell
+osx_image: xcode10.3
+dist: trusty
+language: node_js
+node_js: 14.15.0
+cache:
+  directories:
+  - "$HOME/.cache/electron"
+  - "$HOME/.cache/electron-builder"
+  - "$HOME/.npm/_prebuilds"
+  # - node_modules
 
-install: skip
+env:
+  global:
+  - ELECTRON_CACHE=$HOME/.cache/electron
+  - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
 
-script:
-  - echo $AUTHOR
-jobs:
-  include:
-    - env:
-        - AUTHOR="$(git log -1 --pretty=format:'%an (%ae)')"
-    - dist: xenial
+
+os:
+- linux
+- osx
+- windows
+
+before_install: 
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then  npm install --global node-gyp@latest; fi
+
+install:
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install windows-sdk-10-version-1809-all --yes; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then powershell -Command 'Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine'; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm i electron-rebuild --save-dev; fi
+  - npm i
+
+script: true
