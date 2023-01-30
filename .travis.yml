@@ -1,5 +1,6 @@
 sudo: required
 language: go
+dist: focal
 virt: lxd
 arch:
   - arm64
