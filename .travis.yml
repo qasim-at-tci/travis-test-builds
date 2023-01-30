@@ -1,11 +1,29 @@
-dist: focal
-language: python
-addons:
-  apt:
-    packages:
-    - python-numpy
+sudo: required
+language: go
+virt: lxd
+arch:
+  - arm64
+os: linux
+go:
+  - '1.18'
+services:
+  - docker
 
-install: skip
+install:
+  - ARCH=`uname -p`
+  - echo $ARCH
+  - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.5/bin/linux/arm64/kubectl
+  - chmod +x ./kubectl
+  - sudo mv ./kubectl /usr/local/bin/kubectl
 
-script:
-  - pip list
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker version
+  - pip install awscli
+  - aws --version
+  - export PATH=$PATH:$HOME/.local/bin
+
+script: true
