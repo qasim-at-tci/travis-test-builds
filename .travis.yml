@@ -4,6 +4,7 @@ os: linux
 dist: jammy
 addons:
   apt:
+    update: true
     packages:
       - libonig-dev
 install: skip
