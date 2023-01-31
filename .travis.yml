@@ -2,5 +2,9 @@ language: php
 php: 8.2
 os: linux
 dist: jammy
+addons:
+  apt:
+    packages:
+      - libonig-dev
 install: skip
 script: true
