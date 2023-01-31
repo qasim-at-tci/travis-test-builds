@@ -1,22 +1,20 @@
----
 language: ruby
-os:
-- linux
+os: linux
 dist: xenial
 rvm:
-- 2.6.9
+  - 2.6.9
 services:
-- memcached
-- mysql
+  - memcached
+  - mysql
 before_install:
-- rvm install 2.3.3
-- rvm use 2.3.3
-- gem install bundler -v '1.17.2'
-- mysql -e 'CREATE DATABASE  tci_test;'
-- mysql -e 'CREATE DATABASE  tci_test2;'
+  - rvm install 2.3.3
+  - rvm use 2.3.3
+  - gem install bundler -v '1.17.2'
+  - mysql -e 'CREATE DATABASE  tci_test;'
+  - mysql -e 'CREATE DATABASE  tci_test2;'
 before_script:
-- memcached -p 11211 -d
-- memcached -p 11212 -d
+  - memcached -p 11211 -d
+  - memcached -p 11212 -d
 jdk:
-- openjdk8
+  - openjdk8
 script: true
