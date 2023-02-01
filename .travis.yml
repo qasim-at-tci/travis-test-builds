@@ -3,10 +3,6 @@ language: generic
 os:
 - linux
 dist: focal
-branches:
-  only:
-  - master
-  - main
 notifications:
   email:
   - on_success: never
