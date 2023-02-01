@@ -1,11 +1,15 @@
-language: php
-php: 8.2
-os: linux
-dist: jammy
-addons:
-  apt:
-    update: true
-    packages:
-      - libonig-dev
+---
+language: generic
+os:
+- linux
+dist: focal
+branches:
+  only:
+  - master
+  - main
+notifications:
+  email:
+  - on_success: never
+    on_failure: never
 install: skip
 script: true
