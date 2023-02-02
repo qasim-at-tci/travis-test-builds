@@ -1,11 +1,16 @@
----
 language: generic
-os:
-- linux
-dist: focal
+os: linux
+
 notifications:
   email:
-  - on_success: never
+    on_success: never
     on_failure: never
+
 install: skip
+
 script: true
+
+jobs:
+  include:
+    - dist: focal
+    - dist: jammy
