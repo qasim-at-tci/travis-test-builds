@@ -1,16 +1,25 @@
-sudo: required
-language: go
-env:
-  global:
-    - GO111MODULE=on
-go:
-  - 1.16.6
+language: shell
+os: linux
+dist: xenial
+services:
+- docker
+before_install:
+- sudo apt-get remove docker docker-engine docker.io containerd runc
+- curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu
+  xenial stable"
+- sudo apt-get update
+- sudo apt-get install -y --allow-downgrades docker-ce=18.06.0~ce~3-0~ubuntu containerd.io
+- sudo chmod 666 /var/run/docker.sock
+- sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname
+  -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+- sudo chmod +x /usr/local/bin/docker-compose
+- sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+addons:
+  apt:
+    packages:
+    - sshpass
 install: skip
+before_script: []
 script:
-  - docker images
-  - docker pull ubuntu:jammy
-  - docker images
-jobs:
-  include:
-    - dist: trusty
-    - dist: xenial
+  - docker --version
