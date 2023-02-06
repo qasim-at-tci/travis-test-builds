@@ -1,16 +1,12 @@
-language: generic
-os: linux
-
-notifications:
-  email:
-    on_success: never
-    on_failure: never
-
-install: skip
-
-script: true
-
-jobs:
-  include:
-    - dist: focal
-    - dist: jammy
+sudo: required
+dist: trusty
+language: go
+env:
+  global:
+    - GO111MODULE=on
+go:
+  - 1.16.6
+script:
+  - docker images
+  - docker pull ubuntu:jammy
+  - docker images
