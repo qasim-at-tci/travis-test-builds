@@ -20,6 +20,5 @@ addons:
     packages:
     - sshpass
 install: skip
-before_script: []
 script:
   - docker --version
