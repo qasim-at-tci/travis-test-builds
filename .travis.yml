@@ -9,5 +9,5 @@ services:
 
 install: skip
 script:
-  - docker pull moussavdb/build-nodejs-arm64
+  - docker pull --platform linux/arm64 moussavdb/build-nodejs:lts
   - docker images
