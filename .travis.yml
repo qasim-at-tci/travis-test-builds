@@ -10,10 +10,7 @@ jobs:
   include:
     - dist: jammy
       node_js: 16
-      services:
-        - postgresql
-      addons:
-        postgresql: "15"
       before_script:
-        - sudo apt update && sudo apt upgrade -y
-        - sudo apt install postgresql-15 postgresql-client-15 -f -y
+        - sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+        - wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
+        - sudo apt update && sudo apt install postgresql postgresql-client -y
