@@ -1,8 +1,13 @@
+arch: arm64
 os: linux
-language: erlang
-otp_release:
-  - "22.3.4"
-install: skip
+dist: focal
 
+language: generic
+
+services:
+  - docker
+
+install: skip
 script:
-  - erl -version
+  - docker pull moussavdb/build-nodejs:lts
+  - docker images
