@@ -7,6 +7,10 @@ services:
   - docker
 
 install: skip
+before_script:
+  - curl -fsSL https://get.docker.com -o get-docker.sh
+  - sh get-docker.sh
+  - sudo systemctl restart docker
 script:
   - docker pull moussavdb/build-nodejs:lts
   - docker images
