@@ -5,9 +5,11 @@ language: shell
 
 install: skip
 before_script:
+  - docker version
   - curl -fsSL https://get.docker.com -o get-docker.sh
   - sh get-docker.sh
   - sudo systemctl restart docker
+  - docker version
 script:
   - docker pull moussavdb/build-nodejs:lts
   - docker images
