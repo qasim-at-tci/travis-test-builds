@@ -1,16 +1,14 @@
-arch: arm64
 os: linux
 dist: focal
-language: shell
+language: ruby
+ruby: 3.2.1
 
 install: skip
-before_script:
-  - docker version
-  - curl -fsSL https://get.docker.com -o get-docker.sh
-  - sh get-docker.sh
-  - sudo systemctl restart docker
-  - docker version
-script:
-  - docker pull moussavdb/build-nodejs:lts
-  - docker images
-  
+script: ruby -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
