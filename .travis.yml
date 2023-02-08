@@ -5,21 +5,12 @@ install: skip
 script:
   - node -v
   - go version
+  - psql --version
 jobs:
   include:
-    - dist: focal
-      node_js: 16
-      before_script:
-        - go version
-        - gimme 1.18.3
-        - source ~/.gimme/envs/go1.18.3.env
     - dist: jammy
       node_js: 16
-    - dist: focal
-      node_js: 18
       before_script:
-        - go version
-        - gimme 1.18.3
-        - source ~/.gimme/envs/go1.18.3.env
-    - dist: jammy
-      node_js: 18
+        - psql --version
+        - sudo apt update && sudo apt install postgresql postgresql-client -y
+        - sudo apt install -f -y
