@@ -1,14 +1,14 @@
 arch: arm64
 os: linux
 
-language: generic
+language: shell
 
 services:
   - docker
 
 install: skip
 script:
-  - docker pull moussavdb/build-nodejs-arm64
+  - docker pull moussavdb/build-nodejs:lts
   - docker images
 jobs:
   include:
