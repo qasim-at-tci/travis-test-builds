@@ -12,7 +12,5 @@ jobs:
       node_js: 16
       services:
         - postgresql
-      before_script:
-        - psql --version
-        - sudo apt update && sudo apt install postgresql-15 postgresql-client-15 -y
-        - sudo apt install -f -y
+      addons:
+        postgresql: "15"
