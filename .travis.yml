@@ -4,4 +4,5 @@ otp_release:
   - "22.3.4"
 install: skip
 
-script: true
+script:
+  - erl -version
