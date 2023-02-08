@@ -14,3 +14,7 @@ jobs:
         - postgresql
       addons:
         postgresql: "15"
+        apt:
+          packages:
+          - postgresql-15
+          - postgresql-client-15
