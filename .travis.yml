@@ -3,9 +3,6 @@ os: linux
 dist: focal
 language: shell
 
-services:
-  - docker
-
 install: skip
 before_script:
   - curl -fsSL https://get.docker.com -o get-docker.sh
