@@ -1,10 +1,17 @@
 os: linux
-dist: focal
-language: shell
-env:
-  - AUTHOR="$(git log -1 --pretty=format:'%an (%ae)')"
-  - AUTHOR=$(git log -1 --pretty=format:'%an (%ae)')
+language: node_js
 install: skip
 
 script:
-  - echo $AUTHOR
+  - node -v
+  - go version
+jobs:
+  include:
+    - dist: focal
+      node_js: 16
+    - dist: jammy
+      node_js: 16
+    - dist: focal
+      node_js: 18
+    - dist: focal
+      node_js: 18
