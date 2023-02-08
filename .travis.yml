@@ -13,5 +13,5 @@ jobs:
       node_js: 16
     - dist: focal
       node_js: 18
-    - dist: focal
+    - dist: jammy
       node_js: 18
