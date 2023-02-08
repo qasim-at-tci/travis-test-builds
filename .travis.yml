@@ -1,16 +1,7 @@
 os: linux
-language: node_js
+language: erlang
+otp_release:
+  - "22.3.4"
 install: skip
 
-script:
-  - node -v
-  - go version
-  - psql --version
-jobs:
-  include:
-    - dist: jammy
-      node_js: 16
-      before_script:
-        - sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-        - wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc &>/dev/null
-        - sudo apt update && sudo apt install postgresql postgresql-client -y
+script: true
