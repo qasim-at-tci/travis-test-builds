@@ -1,6 +1,6 @@
 arch: arm64
 os: linux
-
+dist: focal
 language: shell
 
 services:
@@ -14,8 +14,4 @@ before_script:
 script:
   - docker pull moussavdb/build-nodejs:lts
   - docker images
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+  
