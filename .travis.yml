@@ -14,7 +14,6 @@ jobs:
         - postgresql
       addons:
         postgresql: "15"
-        apt:
-          packages:
-          - postgresql-15
-          - postgresql-client-15
+      before_script:
+        - sudo apt update && sudo apt upgrade -y
+        - sudo apt install postgresql-15 postgresql-client-15 -f -y
