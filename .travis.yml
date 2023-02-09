@@ -1,7 +1,4 @@
-arch: amd64
 os: linux
-dist: focal
-
 language: generic
 
 services:
@@ -9,5 +6,11 @@ services:
 
 install: skip
 script:
-  - docker pull moussavdb/build-nodejs:lts
+  - docker build --tag test-image .
   - docker images
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
