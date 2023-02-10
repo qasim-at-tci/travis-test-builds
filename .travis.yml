@@ -11,6 +11,7 @@ script:
 jobs:
   include:
     - arch: arm64
+      virt: vm
     - arch: arm64-graviton2
       group: edge
       virt: lxd
