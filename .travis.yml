@@ -10,6 +10,9 @@ script:
   - nproc
   - free -hm
   - docker images
+  - docker system prune --volumes -a
+  - sudo systemctl restart docker
+  - sleep 5
   - docker pull moussavdb/build-nodejs:lts
   - docker images
   - df -h
