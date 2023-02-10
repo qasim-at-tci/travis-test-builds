@@ -1,13 +1,21 @@
 os: linux
+dist: focal
 language: generic
 
 services:
   - docker
 install: skip
 script:
+  - df -h
+  - nproc
+  - free -hm
   - docker images
   - docker pull moussavdb/build-nodejs:lts
   - docker images
+  - df -h
+  - nproc
+  - free -hm
+  - sleep 3
 jobs:
   include:
     - arch: arm64
