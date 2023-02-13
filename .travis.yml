@@ -18,7 +18,7 @@ env:
 install: skip
 script:
   - psql --version
-  - psql -c 'create database some_database;' -U postgres
+  - psql -c 'create database some_database;' -U travis
   - psql --list
 jobs:
   include:
