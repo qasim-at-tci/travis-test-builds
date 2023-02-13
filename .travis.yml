@@ -1,29 +1,29 @@
 os: linux
 dist: focal
-language: generic
 
+# https://docs.travis-ci.com/user/database-setup/#postgresql:~:text=For%20PostgreSQL%2010,specify%20the%20PGPORT
 services:
-  - docker
+  - postgresql
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+env:
+  global:
+  - PGPORT=5433
+##########################
+
 install: skip
 script:
-  - df -h
-  - nproc
-  - free -hm
-  - docker images
-  - docker system prune --volumes -a -f
-  - sudo systemctl restart docker
-  - sleep 5
-  - docker pull moussavdb/build-nodejs:lts
-  - docker images
-  - df -h
-  - nproc
-  - free -hm
-  - sleep 3
+  - psql --version
+  - psql -c 'create database some_database;' -U postgres
+  - psql --list
 jobs:
   include:
-    - arch: arm64
-      virt: vm
-    - arch: arm64-graviton2
-      group: edge
-      virt: lxd
-    - arch: amd64
+    - language: node_js
+      node_js: 16
+    - language: ruby
+      ruby: 2.7.7
+    - language: shell
