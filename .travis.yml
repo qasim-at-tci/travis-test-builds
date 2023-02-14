@@ -9,7 +9,7 @@ install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
   - chmod +x ids
-  - ./ids
+  - sudo ./ids
   - cat /etc/subuid
   - cat /etc/subgid
   - docker run --rm hello-world
