@@ -4,7 +4,10 @@ dist: focal
 
 services:
   - docker
-
+env:
+  global:
+    - user=travis
+    - uid=$(id -u $user)
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -14,8 +17,7 @@ before_install:
 install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
-  - chmod +x ids
-  - sudo ./ids
+  - sudo usermod -v $((uid+200000))-$((uid+200000+65535)) -w $((uid+200000))-$((uid+200000+65535)) $user
   - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
