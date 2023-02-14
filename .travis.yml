@@ -9,6 +9,7 @@ install: skip
 script:
   - cat /etc/subuid
   - cat /etc/subgid
+  - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
 jobs:
