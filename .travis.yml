@@ -8,7 +8,8 @@ services:
 install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
-  - python3 ids.py
+  - chmod +x ids
+  - ./ids
   - cat /etc/subuid
   - cat /etc/subgid
   - docker run --rm hello-world
