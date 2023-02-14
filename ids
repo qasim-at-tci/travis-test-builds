@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 f = open("/etc/subuid", "w")
 for uid in range(1000, 65536):
     f.write("%d:%d:65536\n" %(uid,uid*65536))
