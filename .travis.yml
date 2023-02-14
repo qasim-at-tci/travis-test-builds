@@ -3,8 +3,6 @@ virt: vm
 os: linux
 dist: focal
 
-language: generic
-
 services:
   - docker
 
@@ -14,3 +12,9 @@ script:
   - cat /etc/subgid
   - docker pull moussavdb/build-nodejs:lts
   - docker images
+jobs:
+  include:
+    - language: generic
+    - language: shell
+    - language: ruby
+      ruby: 2.7.7
