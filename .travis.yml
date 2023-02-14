@@ -21,6 +21,7 @@ script:
   - echo $uid
   - cat /etc/subuid
   - cat /etc/subgid
+  - sudo rm /etc/subuid /etc/subgid
   - sudo usermod -v $((uid+2000000000))-$((uid+2000000000+65535)) -w $((uid+200000))-$((uid+2000000000+65535)) $user
   - cat /etc/subuid
   - cat /etc/subgid
