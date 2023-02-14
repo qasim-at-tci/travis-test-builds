@@ -1,4 +1,5 @@
 arch: arm64
+virt: vm
 os: linux
 dist: focal
 
