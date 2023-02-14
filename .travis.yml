@@ -17,7 +17,9 @@ before_install:
 install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
-  - sudo usermod -v $((uid+200000))-$((uid+200000+65535)) -w $((uid+200000))-$((uid+200000+65535)) $user
+  - echo $user
+  - echo $uid
+  - sudo usermod -v $((uid+2000000000))-$((uid+2000000000+65535)) -w $((uid+200000))-$((uid+2000000000+65535)) $user
   - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
