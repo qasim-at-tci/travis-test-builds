@@ -19,14 +19,18 @@ script:
   - sudo apt update && sudo apt install uidmap -y -f
   - echo $user
   - echo $uid
+  - cat /etc/subuid
+  - cat /etc/subgid
   - sudo usermod -v $((uid+2000000000))-$((uid+2000000000+65535)) -w $((uid+200000))-$((uid+2000000000+65535)) $user
+  - cat /etc/subuid
+  - cat /etc/subgid
   - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
   - sleep 15
 jobs:
   include:
-    - language: generic
+    #- language: generic
     - language: shell
-    - language: ruby
-      ruby: 2.7.7
+    #- language: ruby
+    #  ruby: 2.7.7
