@@ -8,10 +8,9 @@ services:
 install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
+  - python3 ids.py
   - cat /etc/subuid
   - cat /etc/subgid
-  - python --version
-  - python3 --version
   - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
