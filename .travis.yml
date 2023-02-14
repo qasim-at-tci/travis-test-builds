@@ -1,29 +1,15 @@
+arch: arm64
 os: linux
 dist: focal
 
-# https://docs.travis-ci.com/user/database-setup/#postgresql:~:text=For%20PostgreSQL%2010,specify%20the%20PGPORT
+language: generic
+
 services:
-  - postgresql
-addons:
-  postgresql: "12"
-  apt:
-    packages:
-    - postgresql-12
-    - postgresql-client-12
-env:
-  global:
-  - PGPORT=5433
-##########################
+  - docker
 
 install: skip
 script:
-  - psql --version
-  - psql -c 'create database some_database;' -U travis
-  - psql --list
-jobs:
-  include:
-    - language: node_js
-      node_js: 16
-    - language: ruby
-      ruby: 2.7.7
-    - language: shell
+  - cat /etc/subuid
+  - cat /etc/subgid
+  - docker pull moussavdb/build-nodejs:lts
+  - docker images
