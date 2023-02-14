@@ -9,9 +9,7 @@ install: skip
 script:
   - sudo apt update && sudo apt install uidmap -y -f
   - chmod +x ids
-  - sudo ./ids 2> /dev/null
-  - cat /etc/subuid
-  - cat /etc/subgid
+  - sudo ./ids
   - docker run --rm hello-world
   - docker pull moussavdb/build-nodejs:lts
   - docker images
