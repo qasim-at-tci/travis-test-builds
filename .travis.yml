@@ -1,15 +1,16 @@
 os: linux
-dist: xenial
 
 language: node_js
-node_js: 10
-
-before_install:
-  - phpenv install 5.6 # phpenv install for any php version required
-  - phpenv global 5.6
+node_js: 16
 
 install: skip
 
 script:
-  - node -v
-  - php --version
+  - ruby -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
