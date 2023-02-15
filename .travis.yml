@@ -1,39 +1,14 @@
-arch: arm64
 os: linux
-dist: focal
-
-services:
-  - docker
-env:
-  global:
-    - user=travis
-    - uid=$(id -u $user)
-before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+dist: xenial
 
 install: skip
 script:
-  - sudo apt update && sudo apt install uidmap -y -f
-  - echo $user
-  - echo $uid
-  - cat /etc/subuid
-  - cat /etc/subgid
-  - sudo rm /etc/subuid /etc/subgid
-  - sudo touch /etc/subuid
-  - sudo touch /etc/subgid
-  - sudo usermod -v $((uid+2000000000))-$((uid+2000000000+65535)) -w $((uid+200000))-$((uid+2000000000+65535)) $user
-  - cat /etc/subuid
-  - cat /etc/subgid
-  - docker run --rm hello-world
-  - docker pull moussavdb/build-nodejs:lts
-  - docker images
-  - sleep 15
+  - node -v
+  - php --version
 jobs:
   include:
     #- language: generic
-    - language: shell
+    - language: node_js
+      node_js: 16
     #- language: ruby
     #  ruby: 2.7.7
