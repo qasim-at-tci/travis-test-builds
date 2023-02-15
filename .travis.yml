@@ -1,16 +1,15 @@
 os: linux
 dist: xenial
 
+language: php
+php: 5.6
+
 install: skip
+
 before_script:
+  - nvm install 10 # nvm install for any node version required
   - nvm use 10
+
 script:
   - node -v
   - php --version
-jobs:
-  include:
-    #- language: generic
-    - language: php
-      php: 5.6
-    #- language: ruby
-    #  ruby: 2.7.7
