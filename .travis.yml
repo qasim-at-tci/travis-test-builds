@@ -1,12 +1,12 @@
 os: linux
 dist: xenial
 
-language: php
-php: 5.6
+language: node_js
+node_js: 10
 
 before_install:
-  - nvm install 10 # nvm install for any node version required
-  - nvm use 10
+  - phpenv install 5.6 # phpenv install for any php version required
+  - phpenv global 5.6
 
 install: skip
 
