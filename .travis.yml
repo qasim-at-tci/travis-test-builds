@@ -7,6 +7,9 @@ before_install:
   - rvm get stable
   - rvm install 2.6.8
   - rvm use 2.6.8
+  - gem install rubygems-update
+  - update_rubygems
+  - gem install executable-hooks
 install: skip
 
 script:
