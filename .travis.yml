@@ -1,11 +1,11 @@
 os: linux
-dist: focal
+dist: bionic
 language: ruby
 ruby: 2.6.6
 
 before_install:
   - rvm get stable
-  - rvm install 2.6.8
+  - rvm install 2.6.8 --binary https://s3.amazonaws.com/travis-rubies/binaries/ubuntu/20.04/x86_64/ruby-2.6.8.tar.bz2
   - rvm use 2.6.8
   - gem install rubygems-update
   - update_rubygems
