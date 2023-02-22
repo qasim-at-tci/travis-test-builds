@@ -1,6 +1,6 @@
 os: linux
 language: ruby
-ruby: 2.6.8
+ruby: 2.6.9
 
 before_install:
   - ruby -v
