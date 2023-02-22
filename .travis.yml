@@ -9,3 +9,9 @@ install: skip
 
 script:
   - ruby -v
+
+jobs:
+  include:
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
