@@ -5,7 +5,7 @@ ruby: 2.6.6
 
 before_install:
   - rvm install 2.6.8
-  - rvm usd 2.6.8
+  - rvm use 2.6.8
 install: skip
 
 script:
