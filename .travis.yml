@@ -1,16 +1,12 @@
 os: linux
+dist: focal
+language: ruby
+ruby: 2.6.6
 
-language: node_js
-node_js: 16
-
+before_install:
+  - rvm install 2.6.8
+  - rvm usd 2.6.8
 install: skip
 
 script:
   - ruby -v
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
