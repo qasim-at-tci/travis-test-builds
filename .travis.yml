@@ -13,6 +13,7 @@ script:
 
 jobs:
   include:
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+    - dist: xenial
+    #- dist: bionic
+    #- dist: focal
+    #- dist: jammy
