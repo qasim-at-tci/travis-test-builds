@@ -1,6 +1,7 @@
 os: linux
 language: ruby
-ruby: 2.6.9
+group: edge
+ruby: 2.6.8
 
 before_install:
   - ruby -v
