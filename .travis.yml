@@ -3,6 +3,8 @@ language: php
 php: 8.1.9
 
 before_install:
+  - wget https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+  - sudo apt-key add erlang_solutions.asc
   - sudo apt-get update -y
 install: skip
 
