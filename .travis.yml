@@ -1,14 +1,14 @@
+language: go
 os: linux
-language: php
-php: 8.1.9
-
-before_install:
-  - sudo apt-get update -y
+env:
+- GIMME_DEBUG=true
+go:
+- master
 install: skip
-
-script:
-  - ruby -v
-
+script: true
 jobs:
   include:
+    - dist: xenial
+    - dist: bionic
     - dist: focal
+    - dist: jammy
