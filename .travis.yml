@@ -7,7 +7,7 @@ go:
 install: skip
 script:
   - cat /proc/cpuinfo
-  - cat /proc/cpuinfo | grep avx512)
+  - cat /proc/cpuinfo | grep avx512
   - egrep -c '(vmx|svm)' /proc/cpuinfo
 jobs:
   include:
