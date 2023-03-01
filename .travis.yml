@@ -1,13 +1,10 @@
 os: linux
 
-language: go
-go:
-  - 1.18.x
+language: node_js
+node_js: 10
 
 install: skip
-script:
-  - egrep -c '(vmx|svm)' /proc/cpuinfo
-  - sudo kvm-ok
+script: php --version
 jobs:
   include:
     - dist: xenial
