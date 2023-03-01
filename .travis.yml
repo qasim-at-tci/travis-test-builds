@@ -1,9 +1,8 @@
-language: go
 os: linux
-env:
-- GIMME_DEBUG=true
-go:
-- master
+
+language: r
+r: release
+
 install: skip
 script: true
 jobs:
