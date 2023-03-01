@@ -6,8 +6,8 @@ go:
 
 install: skip
 script:
-  - cat /sys/module/kvm_amd/parameters/nested
-  - cat /sys/module/kvm_intel/parameters/nested
+  - egrep -c '(vmx|svm)' /proc/cpuinfo
+  - sudo kvm-ok
 jobs:
   include:
     - dist: xenial
