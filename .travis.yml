@@ -1,10 +1,13 @@
 os: linux
 
-language: r
-r: release
+language: go
+go:
+  - 1.18.x
 
 install: skip
-script: true
+script:
+  - cat /sys/module/kvm_amd/parameters/nested
+  - cat /sys/module/kvm_intel/parameters/nested
 jobs:
   include:
     - dist: xenial
