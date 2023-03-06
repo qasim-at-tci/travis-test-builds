@@ -1,14 +1,12 @@
 os: linux
-
-language: go
-go:
-  - 1.18.x
+arch: ppc64le
+language: node_js
+node_js:
+  - 16
 
 install: skip
-script:
-  - cat /proc/cpuinfo
-  - cat /proc/cpuinfo | grep avx512
-  - egrep -c '(vmx|svm)' /proc/cpuinfo
+script: true
+
 jobs:
   include:
     - dist: xenial
