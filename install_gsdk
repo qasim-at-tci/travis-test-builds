@@ -5,7 +5,6 @@ set -xe
    then rm -rf $HOME/google-cloud-sdk; 
    curl https://sdk.cloud.google.com > install.sh
    bash install.sh --disable-prompts
-   source $HOME/google-cloud-sdk/completion.bash.inc
    source $HOME/google-cloud-sdk/path.bash.inc
    gcloud version
   fi
