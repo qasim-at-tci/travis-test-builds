@@ -1,5 +1,5 @@
 os: linux
-arch: ppc64le
+#arch: ppc64le
 language: node_js
 node_js:
   - 16
@@ -12,4 +12,4 @@ jobs:
     - dist: xenial
     - dist: bionic
     - dist: focal
-    #- dist: jammy
+    - dist: jammy
