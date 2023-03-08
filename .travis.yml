@@ -1,5 +1,4 @@
-language: ruby
-ruby: 2.7.7
+language: shell
 
 install: skip
 script:
