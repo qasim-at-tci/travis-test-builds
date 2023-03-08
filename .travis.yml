@@ -2,8 +2,19 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
+cache:
+  directories:
+  - $HOME/google-cloud-sdk
+env:
+  global:
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1 
+before_install:
+  - if [ ! -d $HOME/google-cloud-sdk/bin ]; then
+    rm -rf $HOME/google-cloud-sdk;
+    curl https://sdk.cloud.google.com | bash > /dev/null;
+  fi
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud version
 install: skip
-script:
-  - chmod a+x install_gsdk
-  - ./install_gsdk
-  - sleep 5
+script: true
