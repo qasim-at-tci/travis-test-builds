@@ -1,15 +1,8 @@
-os: linux
-#arch: ppc64le
-language: node_js
-node_js:
-  - 16
+osx_image: xcode14.2
+language: shell
 
 install: skip
-script: true
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+script:
+  - chmod a+x install_gsdk
+  - ./install_gsdk
+  - sleep 5
