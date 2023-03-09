@@ -8,7 +8,7 @@ script:
   #- chmod a+x install_gsdk
   #- ./install_gsdk
   - gcloud version
-  - sleep 5
+  - sleep 3
 jobs:
   include:
     - os: osx
