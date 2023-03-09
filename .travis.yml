@@ -5,19 +5,9 @@ addons:
       - google-cloud-sdk
 install: skip
 script:
-  #- chmod a+x install_gsdk
-  #- ./install_gsdk
   - gcloud version
   - sleep 3
 jobs:
   include:
     - os: osx
       osx_image: xcode14.2
-    - os: osx
-      osx_image: xcode13.2
-    - os: osx
-      osx_image: xcode12.5
-    #- os: linux
-    #  dist: focal
-    #- os: linux
-    #  dist: jammy
