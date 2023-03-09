@@ -5,7 +5,7 @@ set -xe
    then rm -rf $HOME/google-cloud-sdk;
    export CLOUDSDK_PYTHON=$(which python3)
    curl https://sdk.cloud.google.com > install.sh
-   bash install.sh --disable-prompts
+   bash install.sh --disable-prompts --install-python false
    source $HOME/google-cloud-sdk/path.bash.inc
    gcloud version
   fi
