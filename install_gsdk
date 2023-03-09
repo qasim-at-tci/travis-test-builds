@@ -2,7 +2,8 @@
 set -xe
 
   if [ ! -d "$HOME/google-cloud-sdk/bin" ]
-   then rm -rf $HOME/google-cloud-sdk; 
+   then rm -rf $HOME/google-cloud-sdk;
+   export CLOUDSDK_PYTHON=$(which python3)
    curl https://sdk.cloud.google.com > install.sh
    bash install.sh --disable-prompts
    source $HOME/google-cloud-sdk/path.bash.inc
