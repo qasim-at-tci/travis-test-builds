@@ -9,5 +9,4 @@ set -xe
    tar -xvf google-cloud-cli-421.0.0-darwin-x86_64.tar.gz
    ./google-cloud-sdk/install.sh --install-python false -q
    mv ./google-cloud-sdk ~
-   gcloud version
   fi
