@@ -8,6 +8,7 @@ set -xe
    wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-421.0.0-darwin-x86_64.tar.gz
    tar -xvf google-cloud-cli-421.0.0-darwin-x86_64.tar.gz
    ./google-cloud-sdk/install.sh --install-python false -q
-   source $HOME/google-cloud-sdk/path.bash.inc
+   source /Users/travis/build/test-runs-tci/travis-test-builds/google-cloud-sdk/path.bash.inc
+   source /Users/travis/build/test-runs-tci/travis-test-builds/google-cloud-sdk/completion.bash.inc
    gcloud version
   fi
