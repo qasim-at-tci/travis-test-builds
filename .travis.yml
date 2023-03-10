@@ -1,13 +1,13 @@
 language: shell
-#addons:
-#  homebrew:
-#    casks:
-#      - google-cloud-sdk
-install: skip
-script:
+
+before_install:
   - chmod a+x install_gsdk
   - ./install_gsdk
   - export PATH=$PATH:~/google-cloud-sdk/bin
+
+install: skip
+
+script:
   - gcloud version
   - sleep 3
 jobs:
@@ -17,8 +17,4 @@ jobs:
     - os: osx
       osx_image: xcode13.2
     - os: osx
-      osx_image: xcode12.5
-    #- os: linux
-    #  dist: focal
-    #- os: linux
-    #  dist: jammy
+      osx_image: xcode12.2
