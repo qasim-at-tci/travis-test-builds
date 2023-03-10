@@ -7,8 +7,7 @@ install: skip
 script:
   - chmod a+x install_gsdk
   - ./install_gsdk
-  - ls -la
-  - ls ~
+  - ~/google-cloud-sdk/bin/gcloud version
   - sleep 3
 jobs:
   include:
