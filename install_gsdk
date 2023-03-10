@@ -5,8 +5,9 @@ set -xe
    then rm -rf $HOME/google-cloud-sdk;
    export CLOUDSDK_PYTHON=$(which python3)
    export CLOUDSDK_CORE_DISABLE_PROMPTS=1
-   curl https://sdk.cloud.google.com > install.sh
-   bash install.sh
+   wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-421.0.0-darwin-x86_64.tar.gz
+   tar -xvf google-cloud-cli-421.0.0-darwin-x86_64.tar.gz
+   ./google-cloud-sdk/install.sh --install-python false -q
    source $HOME/google-cloud-sdk/path.bash.inc
    gcloud version
   fi
