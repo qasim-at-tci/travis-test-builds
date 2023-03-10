@@ -1,13 +1,11 @@
-language: shell
-addons:
-  homebrew:
-    casks:
-      - google-cloud-sdk
+language: ruby
+ruby: 2.4.4
+
 install: skip
 script:
-  - gcloud version
+  - ruby -v
   - sleep 5
 jobs:
   include:
-    - os: osx
-      osx_image: xcode14.2
+    - os: linux
+      dist: bionic
