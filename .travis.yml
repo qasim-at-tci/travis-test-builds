@@ -7,8 +7,10 @@ before_install:
 install: skip
 
 script:
-  - python -V
-  - node -v
+  - chmod +x python-version
+  - chmod +x node-version
+  - ./python-version
+  - ./node-version
 jobs:
   include:
     - os: linux
