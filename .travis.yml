@@ -2,7 +2,7 @@ language: shell
 
 before_install:
   - nvm install 16 && nvm use 16
-  - pyenv install 3.8 && pyenv global 3.8
+  - pyenv install 3.8.8 && pyenv global 3.8.8
 
 install: skip
 
