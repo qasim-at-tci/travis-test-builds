@@ -1,20 +1,17 @@
 language: shell
 
 before_install:
-  - chmod a+x install_gsdk
-  - ./install_gsdk
-  - export PATH=$PATH:~/google-cloud-sdk/bin
+  - nvm install 16 && nvm use 16
+  - pyenv install 3.8 && pyenv global 3.8
 
 install: skip
 
 script:
-  - gcloud version
-  - sleep 3
+  - python -V
+  - node -v
 jobs:
   include:
-    - os: osx
-      osx_image: xcode14.2
-    - os: osx
-      osx_image: xcode13.2
-    - os: osx
-      osx_image: xcode12.2
+    - os: linux
+      dist: focal
+    - os: linux
+      dist: bionic
