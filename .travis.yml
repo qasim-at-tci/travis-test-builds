@@ -1,19 +1,17 @@
-language: shell
-
-before_install:
-  - nvm install 16 && nvm use 16
-  - pyenv install 3.8.8 && pyenv global 3.8.8
-
+os: linux
+arch: amd64
+language: go
+dist: xenial
+sudo: true
+services:
+  - docker
 install: skip
+script: true
 
-script:
-  - chmod +x python-version
-  - chmod +x node-version
-  - ./python-version
-  - ./node-version
 jobs:
   include:
-    - os: linux
-      dist: focal
-    - os: linux
-      dist: bionic
+    - name: with-edge
+      virt: lxd
+      group: edge
+    - name: without-edge
+      virt: lxd
