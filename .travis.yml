@@ -10,7 +10,7 @@ script:
   - curl -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/ga-focal/installer.sh
   - sleep 5
   - echo 'hello'
-  - curl https://team-support.travis-ci-enterprise.com/
+  - curl -k https://team-support.travis-ci-enterprise.com/
   - sleep 5
 
 jobs:
