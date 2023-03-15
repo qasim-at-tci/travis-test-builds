@@ -1,5 +1,5 @@
 language: ruby
-ruby: 2.4.4
+ruby: 2.5.3
 
 install: skip
 script:
@@ -8,4 +8,10 @@ script:
 jobs:
   include:
     - os: linux
+      dist: xenial
+    - os: linux
       dist: bionic
+    - os: linux
+      dist: focal
+    - os: linux
+      dist: jammy
