@@ -8,6 +8,7 @@ services:
 install: skip
 script:
   - curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/ga-focal/installer.sh
+  - ls -la /tmp
 
 jobs:
   include:
