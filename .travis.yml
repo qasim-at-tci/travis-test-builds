@@ -1,22 +1,14 @@
 os: linux
 arch: amd64
-language: go
-dist: xenial
-sudo: true
-services:
-  - docker
+language: node_JS
+node_js: 19
+
 install: skip
-script:
-  - curl -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/ga-focal/installer.sh
-  - sleep 5
-  - echo 'hello'
-  - curl -k https://team-support.travis-ci-enterprise.com/
-  - sleep 5
+script: node -v
 
 jobs:
   include:
-    - name: with-edge
-      virt: lxd
-      group: edge
-    - name: without-edge
-      virt: lxd
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
