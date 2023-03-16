@@ -15,3 +15,8 @@ jobs:
       dist: focal
     - os: linux
       dist: jammy
+      language: shell
+      before_install:
+        - rvm pkg install openssl
+        - rvm install 2.5.3 --with-openssl-dir=/home/$(whoami)/.rvm/usr --disable-binary
+        - gem install bundler
