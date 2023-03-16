@@ -1,6 +1,5 @@
 language: ruby
 ruby: 2.5.3
-virt: lxd
 install: skip
 script:
   - ruby -v
