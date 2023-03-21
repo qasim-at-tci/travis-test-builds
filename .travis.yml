@@ -1,6 +1,6 @@
 os: linux
 arch: amd64
-language: generic
+language: shell
 
 install: skip
 script: python -V
