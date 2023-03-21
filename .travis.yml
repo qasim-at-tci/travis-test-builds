@@ -1,10 +1,9 @@
 os: linux
 arch: amd64
-language: node_JS
-node_js: 19
+language: generic
 
 install: skip
-script: node -v
+script: python -V
 
 jobs:
   include:
