@@ -1,5 +1,5 @@
 dist: focal
-language: shell
+
 jdk: openjdk17
 #scala:
 #  - 2.13.9
