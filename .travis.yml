@@ -1,27 +1,7 @@
 os: linux
-dist: bionic
-language: ruby
+dist: xenial
+language: node_js
+node_js: 16
 
-services:
-  - xvfb
-  - postgresql
-  - redis-server
-  - elasticsearch
-  - docker
-addons:
-  postgresql: "10"
-  chrome: stable
-
-
-env:
-  DISPLAY: :99.0
-  CHROME_DRIVER_VERSION: 110.0.5481.77
-
-before_install:
-  - gem update --system 3.0.6
-  - gem install bundler:2.4.7
-  - bundle config --global frozen 1
 script:
-  - ruby -v
-  - gem --version
-  - bundler --version
+  - node -v
