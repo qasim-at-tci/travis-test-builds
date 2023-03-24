@@ -1,43 +1,21 @@
-dist: focal
-language: scala
-jdk: openjdk17
-scala:
-  - 2.13.9
-git:
-  depth: false
-before_install:
-  - rvm reload
-  - rvm install 3.1.2
-  - ruby -v
-  - redis-cli --version
-  - psql --version
+os: linux
+dist: bionic
+language: ruby
 
 services:
+  - xvfb
   - postgresql
   - redis-server
+  - elasticsearch
+  - docker
 addons:
-  postgresql: "12"
-  apt:
-    packages:
-      - postgresql-12
-      - postgresql-client-12
+  postgresql: "10"
+  chrome: stable
 
-stages:
-  - A
-  - B
-  - C
 
-jobs:
-  include:
-    - stage: A
-      name: "A"
-      script:
-       - sleep 1
-    - stage: B
-      name: "B"
-      script:
-        - sleep 2
-    - stage: C
-      name: "C"
-      if: type != pull_request AND branch = minimal-build-check
-      script: sleep 3
+env:
+  DISPLAY: :99.0
+  CHROME_DRIVER_VERSION: 110.0.5481.77
+  
+script:
+  - ruby -v
