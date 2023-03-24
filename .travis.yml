@@ -20,6 +20,7 @@ env:
 before_install:
   - gem update --system 3.0.6
   - gem install bundler:2.4.7
+  - bundle config --global frozen 1
 script:
   - ruby -v
   - gem --version
