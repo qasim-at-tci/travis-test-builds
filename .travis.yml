@@ -10,7 +10,8 @@ jobs:
 
 deploy:
   provider: releases
-  skip_cleanup: true
+  token: $GITHUB_TOKEN
+  edge: true
   file: README.md
   on:
     all_branches: true
