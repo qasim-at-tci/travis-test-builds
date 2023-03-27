@@ -10,7 +10,7 @@ jobs:
 
 deploy:
   provider: releases
-  edge: true
+  skip_cleanup: true
   file: README.md
   on:
     all_branches: true
