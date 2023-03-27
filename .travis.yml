@@ -1,7 +1,18 @@
 os: linux
-dist: xenial
-language: node_js
-node_js: 16
+language: php
+php: 8.2
+
+addons:
+  apt:
+    update: true
+    packages:
+    - libonig-dev
 
 script:
-  - node -v
+  - php -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
