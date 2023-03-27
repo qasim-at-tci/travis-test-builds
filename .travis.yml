@@ -1,13 +1,16 @@
+language: c
 os: linux
-language: node_js
-node_js: 19
 
-script:
-  - node -v
+install: skip
+script: true
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
     - dist: jammy
+
+deploy:
+  provider: releases
+  edge: true
+  file: README.md
+  on:
+    all_branches: true
