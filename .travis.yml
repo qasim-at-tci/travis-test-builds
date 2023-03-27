@@ -1,18 +1,13 @@
 os: linux
-language: php
-php: 8.2
-
-addons:
-  apt:
-    update: true
-    packages:
-    - libonig-dev
+language: node_js
+node_js: 19
 
 script:
-  - php -v
+  - node -v
 
 jobs:
   include:
     - dist: xenial
     - dist: bionic
     - dist: focal
+    - dist: jammy
