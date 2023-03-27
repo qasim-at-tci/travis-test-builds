@@ -1,20 +1,15 @@
-language: c
+language: ruby
+ruby: 2.6.5
 os: linux
 
 install: skip
+before_script:
+  - bundle config --delete frozen
+  - bundle env
 script: true
 
 jobs:
   include:
-    - dist: jammy
     - dist: focal
     - dist: bionic
     - dist: xenial
-
-deploy:
-  provider: releases
-  token: $GITHUB_TOKEN
-  edge: true
-  file: README.md
-  on:
-    all_branches: true
