@@ -7,6 +7,9 @@ script: true
 jobs:
   include:
     - dist: jammy
+    - dist: focal
+    - dist: bionic
+    - dist: xenial
 
 deploy:
   provider: releases
