@@ -28,13 +28,6 @@ jobs:
           update: true
           packages:
           - libonig-dev
-    - stage: workaround
-      dist: xenial
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
     - stage: without-workaround
       dist: jammy
       
@@ -43,7 +36,3 @@ jobs:
       
     - stage: without-workaround
       dist: bionic
-      
-    - stage: without-workaround
-      dist: xenial
-      
