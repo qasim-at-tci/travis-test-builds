@@ -1,15 +1,19 @@
-language: ruby
-ruby: 2.6.5
+language: php
+php: 8.2
 os: linux
 
+addons:
+  apt:
+    update: true
+    packages:
+    - libonig-dev
+
 install: skip
-before_script:
-  - bundle config --delete frozen
-  - bundle env
 script: true
 
 jobs:
   include:
+    - dist: jammy
     - dist: focal
     - dist: bionic
     - dist: xenial
