@@ -1,38 +1,11 @@
-language: php
-php: 8.2
 os: linux
+arch: arm64-graviton2
+virt: lxd
+group: edge
+compiler: gcc
+language: cpp
+sudo: false
+dist: bionic
 
 install: skip
 script: true
-
-jobs:
-  include:
-    - stage: workaround
-      dist: jammy
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
-    - stage: workaround
-      dist: focal
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
-    - stage: workaround
-      dist: bionic
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
-    - stage: without-workaround
-      dist: jammy
-      
-    - stage: without-workaround
-      dist: focal
-      
-    - stage: without-workaround
-      dist: bionic
