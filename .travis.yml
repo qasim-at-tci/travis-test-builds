@@ -1,10 +1,7 @@
-arch:
-  - arm64
-#virt: lxd
-services:
-  - docker
-language: go
-go: '1.18'
+os: linux
+dist: focal
+language: php
+php: 8.1.16
 install: skip
 script:
-  - true
+  - php -v
