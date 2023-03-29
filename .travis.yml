@@ -8,7 +8,7 @@ before_install:
   - rvm remove 2.6.5
   - wget https://rvm_io.global.ssl.fastly.net/binaries/ubuntu/18.04/x86_64/ruby-2.6.5.tar.bz2
   - cp ruby-2.6.5.tar.bz2 ~/.rvm/archives/bin-ruby-2.6.5.tar.bz2
-  #- rvm install ruby-2.6.5
+  - rvm install ruby-2.6.5
   - rvm use ruby-2.6.5
 install: skip
 script: true
