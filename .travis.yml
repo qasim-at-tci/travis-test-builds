@@ -4,7 +4,7 @@ ruby: 2.6.5
 dist: bionic
 
 before_install:
-  - export rvm_remote_server_url=https://rvm_io.global.ssl.fastly.net/binaries/
+  - export rvm_remote_server_url=https://rvm_io.global.ssl.fastly.net/binaries/ubuntu
   - rvm reinstall 2.6.5 --binary
   - rvm use 2.6.5
 install: skip
