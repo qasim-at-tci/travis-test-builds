@@ -4,6 +4,8 @@ ruby: 2.6.5
 dist: bionic
 
 before_install:
+  - ls /usr/local/rvm/archives
+  - ls ~/.rvm/archives/
   - rvm remove 2.6.5
   - wget https://rvm_io.global.ssl.fastly.net/binaries/ubuntu/18.04/x86_64/ruby-2.6.5.tar.bz2
   - cp ruby-2.6.5.tar.bz2 ~/.rvm/archives/
