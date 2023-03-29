@@ -1,8 +1,15 @@
 language: ruby
-ruby: 2.5.3
+ruby: 2.6.5
+
+before_install:
+  - gem update --system 3.0.6
+  - gem install bundler:2.4.7
+
 install: skip
 script:
   - ruby -v
+  - bundler -v
+  - gem -v
   - sleep 5
 jobs:
   include:
@@ -14,8 +21,3 @@ jobs:
       dist: focal
     - os: linux
       dist: jammy
-      language: shell
-      before_install:
-        - rvm pkg install openssl
-        - rvm install 2.5.3 --with-openssl-dir=/home/$(whoami)/.rvm/usr --disable-binary
-        - gem install bundler
