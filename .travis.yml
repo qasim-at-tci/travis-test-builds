@@ -1,14 +1,7 @@
 os: linux
-language: ruby
-ruby: 2.6.5
-dist: bionic
+language: php
+php: 8.1.16
+dist: focal
 
-before_install:
-  - ls ~/.rvm/archives/
-  - rvm remove 2.6.5
-  - wget https://rvm_io.global.ssl.fastly.net/binaries/ubuntu/18.04/x86_64/ruby-2.6.5.tar.bz2
-  - cp ruby-2.6.5.tar.bz2 ~/.rvm/archives/bin-ruby-2.6.5.tar.bz2
-  - rvm --verify-downloads 2 install ruby-2.6.5
-  - rvm use ruby-2.6.5
 install: skip
 script: true
