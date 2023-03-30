@@ -4,7 +4,13 @@ ruby: 3.1.2
 dist: bionic
 
 install: skip
-script: false
+
+jobs:
+  include:
+    - name: failing
+      script: false
+    - name: passing
+      script: true
 
 after_success:
   - echo done
