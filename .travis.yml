@@ -13,8 +13,6 @@ jobs:
       script: true
 
 after_success:
-  - echo done
-  - echo $TRAVIS_TEST_RESULT
+  - "[[ $$TRAVIS_TEST_RESULT = '0' ]] && echo passed
 after_failure:
-  - echo failed
-  - echo $TRAVIS_TEST_RESULT
+  - "[[ $$TRAVIS_TEST_RESULT = '1' ]] && echo failed
