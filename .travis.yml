@@ -1,7 +1,12 @@
 os: linux
-language: php
-php: 8.1.16
-dist: focal
+language: ruby
+ruby: 3.1.2
+dist: bionic
 
 install: skip
-script: true
+script: false
+
+after_success:
+  - echo done
+after_failure:
+  - echo failed
