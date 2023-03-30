@@ -13,6 +13,6 @@ jobs:
       script: true
 
 after_success:
-  - "[[ $TRAVIS_TEST_RESULT = 0 ]] && echo passed"
+  - "[[ $TRAVIS_TEST_RESULT = 0 ]] && [[ $TRAVIS_BRANCH = 'minimal-build-check' ]] && echo passed"
 after_failure:
-  - "[[ $TRAVIS_TEST_RESULT = 1 ]] && echo failed"
+  - "[[ $TRAVIS_TEST_RESULT = 1 ]] && [[ $TRAVIS_BRANCH = 'minimal-build-check' ]] && echo failed"
