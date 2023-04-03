@@ -5,6 +5,19 @@ before_install:
   - rvm install 2.6.9
   - rvm use 2.6.9
   - gem install bundler:2.3.7
+  - gem uninstall -v '>=2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '2.3.7'
+  - sudo apt install curl ca-certificates gnupg -y
+  - curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null
+  - sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+  - sudo apt-get update -y
+  - sudo apt-get install postgresql-11 -y
+  - sed -e 's/^port.*/port = 5432/' /etc/postgresql/11/main/postgresql.conf > postgresql.conf
+  - sudo chown postgres postgresql.conf
+  - sudo mv postgresql.conf /etc/postgresql/11/main
+  #- sudo cp /etc/postgresql/11/main/pg_hba.conf
+  - sudo service postgresql stop
+  - sudo systemctl start postgresql@11-main
 
 install: skip
 script:
@@ -15,10 +28,4 @@ script:
 jobs:
   include:
     - os: linux
-      dist: xenial
-    - os: linux
-      dist: bionic
-    - os: linux
       dist: focal
-    - os: linux
-      dist: jammy
