@@ -1,15 +1,19 @@
 os: linux
 language: ruby
-ruby: 3.1.2
-dist: xenial
+ruby:
+  - 2.7.8
+  - 3.0.6
+  - 3.1.4
+  - 3.2.2
 
 install: skip
 
-before_install:
-  - gem install travis
-
 script:
-  - travis login --com --github-token $GITHUB_TOKEN
-  - travis whoami --com
-  - travis status --com --repo test-runs-tci/travis-test-builds
-  - travis version
+  - ruby -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
