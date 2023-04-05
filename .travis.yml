@@ -1,19 +1,13 @@
 os: linux
-language: ruby
-ruby:
-  - 2.7.8
-  - 3.0.6
-  - 3.1.4
+dist: focal
+language: python
+python:
+  - 3.9.16
+  - 3.10.9
+  - 3.11.2
   - 3.2.2
 
 install: skip
 
 script:
-  - ruby -v
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+  - python -V
