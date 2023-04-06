@@ -1,13 +1,10 @@
+language: php
 os: linux
 dist: focal
-language: python
-python:
-  - 3.9.15
-  - 3.9.16
-  - 3.10.9
-  - 3.11.2
-
+php: '8.1'
+services:
+- mysql
+addons:
+  chrome: stable
 install: skip
-
-script:
-  - python -V
+script: true
