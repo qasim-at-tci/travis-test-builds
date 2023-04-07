@@ -1,15 +1,11 @@
-language: ruby
-os: linux
-dist: focal
-ruby:
-  - 2.3.8
-  - 2.4.0
-  - 2.4.3
-  - 2.4.5
-  - 2.4.6
-  - 2.6.0
-  - 2.6.2
-  - 2.6.9
+language: python
 
+python:
+  - "3.7"
+
+before_install:
+  # multiple versions of setuptools, pip, wheel
+  - ls -lt /home/travis/virtualenv/python3.7.6/lib/python3.7/site-packages/
+  - ls -lt /home/travis/virtualenv/python3.7.6/lib/python3.7/site-packages/setuptools*
 install: skip
-script: ruby -v
+script: true
