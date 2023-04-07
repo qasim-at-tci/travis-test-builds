@@ -1,11 +1,14 @@
-language: python
+language: scala
+scala: 2.13.3
+arch: 
+   - amd64
+   - ppc64le
+   
+dist: focal
 
-python:
-  - "3.7"
-
-before_install:
-  # multiple versions of setuptools, pip, wheel
-  - ls -lt /home/travis/virtualenv/python3.7.13/lib/python3.7/site-packages/
-  - ls -lt /home/travis/virtualenv/python3.7.13/lib/python3.7/site-packages/setuptools*
-install: skip
-script: true
+script:
+   #- sudo mkdir -p /etc/sbt/
+   #- sudo touch /etc/sbt/jvmopts
+   - sudo ls -al /etc/sbt/ || true
+   - sudo cat /etc/sbt/jvmopts || true
+   - sbt test
