@@ -1,8 +1,9 @@
 language: ruby
-ruby: 2.6.9
+ruby: 2.6.10
 
 before_install:
-  - gem install bundler
+  - rvm install 2.6.9 && rvm use 2.6.9
+  - gem install bundler:2.4.9
   - gem update --system
 dist: bionic
 
