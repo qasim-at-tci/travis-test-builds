@@ -1,11 +1,14 @@
 language: ruby
-ruby: 2.6.9
-
-before_install:
-  - rvm get stable
-  - rvm reinstall 2.6.9 --disable-binary && rvm use 2.6.9
-  - gem update --system
 
 dist: bionic
 
 script: true
+
+jobs:
+  include:
+    - rvm: 2.6.10
+    - rvm: 2.6.9
+      before_install:
+        - rvm get stable
+        - rvm reinstall 2.6.9 --disable-binary && rvm use 2.6.9
+        - gem update --system
