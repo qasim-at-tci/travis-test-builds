@@ -4,6 +4,7 @@ ruby: 2.6.9
 before_install:
   - source ~/.rvm/scripts/rvm
   - rvm use 2.6.9
+  - gem update --system
   - gem install bundler:2.4.9
 dist: bionic
 
