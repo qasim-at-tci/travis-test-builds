@@ -3,9 +3,7 @@ ruby: 2.6.9
 
 before_install:
   - rvm get stable
-  - rvm remove 2.6.9
-  - rvm install 2.6.9 && rvm use 2.6.9
-  - gem install bundler:2.4.9
+  - rvm reinstall 2.6.9 --disable-binary && rvm use 2.6.9
   - gem update --system
 
 dist: bionic
