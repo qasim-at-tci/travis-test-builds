@@ -1,12 +1,6 @@
-language: scala
-scala: 2.13.3
-arch: 
-   - amd64
-   - ppc64le
-   - s390x
-   
-dist: focal
+language: ruby
+ruby: 2.6.9
 
-script:
-   - sudo ls -al /etc/sbt/ || true
-   - sudo cat /etc/sbt/jvmopts || true
+dist: bionic
+
+script: true
