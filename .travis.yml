@@ -2,8 +2,7 @@ language: ruby
 ruby: 2.6.9
 
 before_install:
-  - bundle update --bundler
-  - gem install bundler:2.4.9
+  - gem install bundler
   - gem update --system
 dist: bionic
 
