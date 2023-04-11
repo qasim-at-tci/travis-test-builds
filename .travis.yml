@@ -1,7 +1,9 @@
 language: ruby
 ruby: 2.6.9
 
-before_install: gem install bundler:2.4.9
+before_install:
+  - rvm reinstall 2.6.9
+  - gem install bundler:2.4.9
 dist: bionic
 
 script: true
