@@ -3,6 +3,8 @@ ruby: 2.6.9
 dist: bionic
 group: previous
 
+before_install:
+  - gem install bundler:2.4.9
 script:
   - ruby -v
   
