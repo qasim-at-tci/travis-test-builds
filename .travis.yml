@@ -2,6 +2,8 @@ language: shell
 
 os: osx
 
+before_install:
+  - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
 script:
   - python -V
 
