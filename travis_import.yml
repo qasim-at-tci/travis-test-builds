@@ -1,18 +1,6 @@
 dist: bionic
-language: python
-python: 3.8.1
-env:
-  global:
-    - foo=bar
-    - some=other
-jobs:
-  include:
-    - name: test
-      language: shell
-      install:
-        - pyenv install 3.8.1 
-        - pyenv global 3.8.1
-        - nvm install 14.17.6
-      script: 
-        - python --version
-        - node --version
+language: shell
+
+before_install:
+  - echo hello
+  - sleep 2
