@@ -6,6 +6,7 @@ before_install:
   - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
 script:
   - ls -la
+  - python3 -V
   - python -V
 
 jobs:
