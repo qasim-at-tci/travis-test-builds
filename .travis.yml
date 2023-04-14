@@ -1,2 +1,6 @@
 import:
-  - test-runs-tci/travis-test-builds:travis_import.yml@minimal-build-check
+  - source: test-runs-tci/travis-test-builds:travis_import.yml@minimal-build-check
+    mode: deep_merge_prepend
+    
+before_install:
+  - git --version
