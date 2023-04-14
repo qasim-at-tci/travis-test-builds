@@ -4,3 +4,4 @@ import:
     
 before_install:
   - git --version
+  - sleep 2
