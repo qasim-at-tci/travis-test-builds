@@ -1,10 +1,16 @@
-language: ruby
-ruby: 2.6.9
-dist: bionic
-group: previous
+language: shell
+
+os: osx
 
 before_install:
-  - gem install bundler:2.4.9
+  - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
 script:
-  - ruby -v
-  
+  - ls -la
+  - python -V
+
+jobs:
+  include:
+    - osx_image: xcode13.1
+    - osx_image: xcode13.2
+    - osx_image: xcode13.3
+    - osx_image: xcode14.2
