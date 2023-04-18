@@ -15,4 +15,6 @@ jobs:
           packages:
             - libonig-dev
       install: skip
-      script: true
+      script:
+        - apt update
+        - true
