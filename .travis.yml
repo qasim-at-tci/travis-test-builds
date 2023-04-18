@@ -23,9 +23,9 @@ before_install:
   - wget -O cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_COMMAND_LINE_TOOLS_VERSION}_latest.zip
   - unzip -qq -n cmdline-tools.zip -d $ANDROID_HOME/android-cmdline-tools
   
-  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platform-tools"
-  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
-  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-${TARGET_SDK_VERSION}"
+  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools"
+  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
+  - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platforms;android-${TARGET_SDK_VERSION}"
   
   #- chmod +x gradlew
   
