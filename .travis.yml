@@ -4,7 +4,7 @@ jobs:
   include:
     - dist: jammy
       php:
-        - '8.2.0'
+        - '8.2'
 
       services:
         - mysql
