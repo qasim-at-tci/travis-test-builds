@@ -12,17 +12,16 @@ env:
 cache:
   directories:
     # Android SDK
-    - $HOME/android-cmdline-tools
-    - $HOME/android-sdk
+    - $ANDROID_HOME/android-cmdline-tools
+    - $ANDROID_HOME/android-sdk
 
     # Gradle dependencies
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
 before_install:
-  - mkdir -p $HOME/android-cmdline-tools
-  - if test ! -e $HOME/android-cmdline-tools/cmdline-tools.zip ; then curl "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_COMMAND_LINE_TOOLS_VERSION}_latest.zip" > $HOME/android-cmdline-tools/cmdline-tools.zip ; fi
-  - unzip -qq -n $HOME/android-cmdline-tools/cmdline-tools.zip -d $ANDROID_HOME/android-cmdline-tools
+  - wget -O cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_COMMAND_LINE_TOOLS_VERSION}_latest.zip
+  - unzip -qq -n cmdline-tools.zip -d $ANDROID_HOME/android-cmdline-tools
   
   - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platform-tools"
   - yes | $ANDROID_HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
