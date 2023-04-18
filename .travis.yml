@@ -22,7 +22,6 @@ before_install:
   - sudo apt-get update -y
   - sudo apt --only-upgrade install -y ca-certificates
   - sudo update-ca-certificates
-  - touch $HOME/.android/repositories.cfg
   - wget "https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip" -O commandlinetools.zip
   - unzip commandlinetools.zip -d $ANDROID_HOME/
   - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platform-tools" --sdk_root=$ANDROID_HOME
