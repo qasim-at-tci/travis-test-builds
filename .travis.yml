@@ -1,17 +1,18 @@
-language: ruby
-ruby: 2.7.7
-
 os: linux
-dist: xenial
+language: php
+jobs:
+  include:
+    - dist: jammy
+      php:
+        - '8.2.0'
 
-addons:
-  chrome: stable
+      services:
+        - mysql
 
-before_install:
-  - wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.4-1_all.deb
-  - wget http://security.ubuntu.com/ubuntu/pool/main/n/nss/libnss3_3.35-2ubuntu2.16_amd64.deb
-  - sudo dpkg -i libu2f-udev_1.1.4-1_all.deb libnss3_3.35-2ubuntu2.16_amd64.deb
-  - sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
-install: skip
-
-script: true
+      addons:
+        apt:
+          update: true
+          packages:
+            - libonig-dev
+      install: skip
+      script: true
