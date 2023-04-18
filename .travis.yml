@@ -1,21 +1,10 @@
 os: linux
-language: php
+language: shell
 jobs:
   include:
-    - dist: jammy
-      php:
-        - '8.2'
-
-      services:
-        - mysql
-
-      addons:
-        apt:
-          update: true
-          packages:
-            - libonig-dev
+    - dist: focal
       install: skip
-      before_script:
-        - apt update
       script:
-        - true
+        - false
+  allow_failures:
+    - language: shell
