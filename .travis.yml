@@ -5,6 +5,6 @@ jobs:
     - dist: focal
       install: skip
       script:
-        - false
-  allow_failures:
+        - false # this will make the build fail
+  allow_failures: # this will make the build status as passed on a failed build
     - language: shell
