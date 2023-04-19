@@ -16,4 +16,6 @@ jobs:
         - sleep 2
         - export BUILD=success
     - name: FAILING
-      script: false
+      script:
+        - false
+        - export BUILD=success
