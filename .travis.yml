@@ -7,11 +7,11 @@ script: false
 before_deploy:
   - |
     if [ $TRAVIS_TEST_RESULT == 1 ]; then
-      export DEPLOY=success
+      export BUILD=success
     fi
 deploy:
   provider: script
   script: ./deploy.sh
   on:
     branch: minimal-build-check
-    condition: $DEPLOY = success
+    condition: $BUILD = success
