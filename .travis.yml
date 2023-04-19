@@ -1,10 +1,13 @@
 os: linux
 language: shell
-isntall: skip
-script: false
 
-deploy:
-  provider: script
-  script: ./deploy
-  on:
-    branch: minimal-build-check
+jobs:
+  include:
+    - install: skip
+      script: false
+
+      deploy:
+        provider: script
+        script: ./deploy
+        on:
+          branch: minimal-build-check
