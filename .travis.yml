@@ -19,3 +19,12 @@ jobs:
     - name: FAILING
       script:
         - false
+        - sleep 1
+    - name: FAILING-2
+      script:
+        - false
+        - sleep 2
+    - name: FAILING-3
+      script:
+        - false
+        - sleep 3
