@@ -2,9 +2,6 @@ os: linux
 language: shell
 install: skip
 
-after_script:
-  - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then export BUILD=success; fi
-  - printenv | grep BUILD
 deploy:
   provider: script
   script: ./deploy.sh
@@ -15,6 +12,8 @@ deploy:
 jobs:
   include:
     - name: PASSING
-      script: true
+      script:
+        - sleep 2
+        - export BUILD=success
     - name: FAILING
       script: false
