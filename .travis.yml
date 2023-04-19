@@ -3,7 +3,7 @@ language: shell
 install: skip
 
 before_deploy:
-  - if [[ $TRAVIS_TEST_RESULT == 0 ]]; then echo "exiting due to failed build"; sleep 2; exit 1; fi
+  - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then echo "exiting due to failed build"; sleep 2; exit 1; fi
 deploy:
   provider: s3
   script: ./deploy.sh
