@@ -11,4 +11,4 @@ jobs:
         script: ./deploy
         on:
           branch: minimal-build-check
-      if: $TRAVIS_TEST_RESULT = 1
+          condition: $TRAVIS_TEST_RESULT = 1
