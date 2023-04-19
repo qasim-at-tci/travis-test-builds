@@ -2,8 +2,10 @@ os: linux
 language: shell
 install: skip
 
+before_deploy:
+  - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then EXPORT BUILD=success; fi
 deploy:
-  provider: script
+  provider: s3
   script: ./deploy.sh
   on:
     branch: minimal-build-check
@@ -15,8 +17,6 @@ jobs:
     - name: PASSING
       script:
         - sleep 2
-        - export BUILD=success
     - name: FAILING
       script:
         - false
-        - export BUILD=success
