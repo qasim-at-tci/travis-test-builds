@@ -6,17 +6,20 @@ before_deploy:
   - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then echo "exiting due to failed build"; sleep 2; exit 1; fi
 deploy:
   provider: s3
-  script: ./deploy.sh
   on:
     branch: minimal-build-check
   edge: true
 
 jobs:
   include:
-    - name: PASSING
+    - name: PASSING-1
+      script:
+        - sleep 1
+    - name: PASSING-2
       script:
         - sleep 2
-    - name: FAILING
+        - true
+    - name: FAILING-1
       script:
         - false
         - sleep 1
