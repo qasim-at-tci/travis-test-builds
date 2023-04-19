@@ -2,12 +2,8 @@ os: linux
 language: shell
 install: skip
 
-before_deploy:
-  #- |
-  #  if [ $TRAVIS_TEST_RESULT == 1 ]; then
-  #    $BUILD=success
-  #  fi
-  - if [ $TRAVIS_TEST_RESULT == 1 ]; then export BUILD=success; fi
+after_script:
+  - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then export BUILD=success; fi
   - printenv | grep BUILD
 deploy:
   provider: script
