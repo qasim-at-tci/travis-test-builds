@@ -9,7 +9,7 @@ deploy:
   provider: s3
   on:
     branch: minimal-build-check
-  edge: true
+  #edge: true
 
 jobs:
   include:
