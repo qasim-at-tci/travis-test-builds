@@ -7,7 +7,7 @@ before_deploy:
   #  if [ $TRAVIS_TEST_RESULT == 1 ]; then
   #    $BUILD=success
   #  fi
-  - [ $TRAVIS_TEST_RESULT == 1 ] && export build=success;
+  - if [[ ( "$TRAVIS_TEST_RESULT" == 1 ) ]]; then export build=success; fi
 deploy:
   provider: script
   script: ./deploy.sh
