@@ -4,10 +4,14 @@ language: shell
 install: skip
 script: false
 
+before_deploy:
+  - |
+    if [ $TRAVIS_TEST_RESULT == 1 ]; then
+      export DEPLOY=success
+    fi
 deploy:
   provider: script
   script: ./deploy.sh
   on:
     branch: minimal-build-check
-    condition: $TRAVIS_TEST_RESULT = 1
-  edge: true
+    condition: $DEPLOY = success
