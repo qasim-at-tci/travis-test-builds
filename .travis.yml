@@ -8,6 +8,7 @@ deploy:
   on:
     branch: minimal-build-check
     condition: $BUILD = success
+  edge: true
 
 jobs:
   include:
