@@ -1,13 +1,6 @@
-os: linux
-language: shell
+language: ruby
+ruby: 2.6.9
 
-jobs:
-  include:
-    - install: skip
-      script: false
+dist: bionic
 
-      deploy:
-        provider: script
-        script: ./deploy
-        on:
-          branch: minimal-build-check
+script: true
