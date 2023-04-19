@@ -3,13 +3,12 @@ language: shell
 install: skip
 
 before_deploy:
-  - if [[ $TRAVIS_TEST_RESULT == "1" ]]; then export BUILD=success; fi
+  - if [[ $TRAVIS_TEST_RESULT == 0 ]]; then exit 1; fi
 deploy:
   provider: s3
   script: ./deploy.sh
   on:
     branch: minimal-build-check
-    condition: $BUILD = success
   edge: true
 
 jobs:
