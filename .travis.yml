@@ -1,12 +1,14 @@
 os: linux
 language: shell
-
+env:
+  global:
+    build=failed
 install: skip
 
 before_deploy:
   - |
     if [ $TRAVIS_TEST_RESULT == 1 ]; then
-      export BUILD=success
+      $BUILD=success
     fi
 deploy:
   provider: script
