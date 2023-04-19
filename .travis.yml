@@ -1,6 +1,14 @@
-language: ruby
-ruby: 2.6.9
+os: linux
+language: shell
 
-dist: bionic
+jobs:
+  include:
+    - install: skip
+      script: false
 
-script: true
+      deploy:
+        provider: script
+        script: ./deploy
+        on:
+          branch: minimal-build-check
+        if: $TRAVIS_TEST_RESULT = 1
