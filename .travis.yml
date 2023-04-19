@@ -8,5 +8,6 @@ deploy:
   provider: script
   script: ./deploy.sh
   on:
+    branch: minimal-build-check
     condition: $TRAVIS_TEST_RESULT = 1
   edge: true
