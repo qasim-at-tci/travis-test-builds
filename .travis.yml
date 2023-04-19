@@ -2,7 +2,6 @@ os: linux
 language: shell
 
 install: skip
-script: false
 
 before_deploy:
   - |
@@ -15,3 +14,10 @@ deploy:
   on:
     branch: minimal-build-check
     condition: $BUILD = success
+
+jobs:
+  include:
+    - name: PASSING
+      script: true
+    - name: FAILING
+      script: false
