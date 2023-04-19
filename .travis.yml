@@ -2,7 +2,7 @@ os: linux
 language: shell
 env:
   global:
-    build=failed
+    BUILD=failed
 install: skip
 
 before_deploy:
