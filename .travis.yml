@@ -1,14 +1,11 @@
 os: linux
 language: shell
 
-jobs:
-  include:
-    - install: skip
-      script: false
+install: skip
+script: false
 
-      deploy:
-        provider: script
-        script: ./deploy
-        on:
-          branch: minimal-build-check
-          condition: $TRAVIS_TEST_RESULT = 1
+deploy:
+  provider: script
+  script: ./deploy.sh
+  on:
+    condition: $TRAVIS_TEST_RESULT = 1
