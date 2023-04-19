@@ -1,6 +1,7 @@
 os: linux
 dist: jammy
-language: shell
+language: node_js
+node_js: 18
 install: skip
 
 before_deploy:
