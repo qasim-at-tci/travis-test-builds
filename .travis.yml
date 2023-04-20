@@ -6,7 +6,6 @@ before_install:
   - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
 script:
   - python -V
-  - pip -V
 
 jobs:
   include:
@@ -14,9 +13,9 @@ jobs:
     - osx_image: xcode13.2
     - osx_image: xcode13.3
       before_install:
-        - alias python=$(which python3)
-        - alias pip=$(which pip3)
+        - which python3
+        - which pip3
     - osx_image: xcode14.2
       before_install:
-        - alias python=$(which python3)
-        - alias pip=$(which pip3)
+        - which python3
+        - which pip3
