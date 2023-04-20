@@ -1,35 +1,22 @@
-os: linux
-dist: jammy
-language: node_js
-node_js: 18
-install: skip
+language: shell
 
-before_deploy:
-  - if [[ $TRAVIS_TEST_RESULT == 1 ]]; then echo "exiting due to failed build"; sleep 2; exit 1; fi
-deploy:
-  provider: s3
-  on:
-    branch: minimal-build-check
-  edge: true
+os: osx
+
+before_install:
+  - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
+script:
+  - python -V
+  - pip -V
 
 jobs:
   include:
-    - name: PASSING-1
-      script:
-        - sleep 1
-    - name: PASSING-2
-      script:
-        - sleep 2
-        - true
-    - name: FAILING-1
-      script:
-        - false
-        - sleep 1
-    - name: FAILING-2
-      script:
-        - false
-        - sleep 2
-    - name: FAILING-3
-      script:
-        - false
-        - sleep 3
+    - osx_image: xcode13.1
+    - osx_image: xcode13.2
+    - osx_image: xcode13.3
+      before_install:
+        - alias python=/usr/local/bin/python3
+        - alias pip=/usr/local/bin/pip3
+    - osx_image: xcode14.2
+      before_install:
+        - alias python=/usr/local/bin/python3
+        - alias pip=/usr/local/bin/pip3
