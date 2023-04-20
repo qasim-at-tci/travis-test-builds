@@ -13,5 +13,7 @@ jobs:
   include:
     - osx_image: xcode13.1
     - osx_image: xcode13.2
+      language: go
+      go: 1.18
     - osx_image: xcode13.3
     - osx_image: xcode14.2
