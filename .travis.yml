@@ -1,19 +1,5 @@
-language: shell
+language: android
 
-os: osx
+install: skip
 
-before_install:
-  - git clone https://qasim-at-tci:$GITHUB_TOKEN@github.com/test-runs-tci/tci-pvt-builds.git
 script: true
-
-addons:
-  artifacts: true
-
-jobs:
-  include:
-    - osx_image: xcode13.1
-    - osx_image: xcode13.2
-      language: go
-      go: 1.18
-    - osx_image: xcode13.3
-    - osx_image: xcode14.2
