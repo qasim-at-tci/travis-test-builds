@@ -1,8 +1,5 @@
 language: android
 
-env:
-  global:
-    - GIT_SSL_NO_VERIFY=true
 install: skip
 
 script: true
