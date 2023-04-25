@@ -1,11 +1,9 @@
-language: android
-
-addons:
-  apt:
-    packages:
-      - ca-certificates
-    update: true
+language: php
+php: 8.1
+dist: bionic
 
 install: skip
-
-script: true
+script:
+  - make one
+  - make two
+  - make all
