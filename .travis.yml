@@ -6,7 +6,6 @@ install: skip
 script:
   - make one
   - make two
-  - make all
 
 after_success:
     - echo "SUCCESS"
