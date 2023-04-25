@@ -2,6 +2,7 @@ language: shell
 
 os: osx
 
+# STEP 1: Required for https://github.com/travis-ci/artifacts#usage
 env:
   global:
     - ARTIFACTS_KEY="ABCDEFGHI"
@@ -10,11 +11,13 @@ env:
     - ARTIFACTS_PATHS="log/"
 
 before_install:
+  # STEP 2: Install artifacts tool manually: https://github.com/travis-ci/artifacts
   - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
+
 script: true
 
-addons:
-  artifacts: true
+# STEP 3: https://github.com/travis-ci/artifacts#examples
+after_script: artifacts upload
 
 jobs:
   include:
