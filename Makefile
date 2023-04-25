@@ -1,5 +1,5 @@
 all: one two
 one:
-    true
+	true
 two:
-    false
+	false
