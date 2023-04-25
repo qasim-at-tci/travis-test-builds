@@ -12,8 +12,9 @@ env:
 before_install:
   - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
 script: true
-after_script:
-  - artifacts upload
+
+addons:
+  artifacts: true
 
 jobs:
   include:
