@@ -1,14 +1,20 @@
-language: php
-php: 8.1
-dist: bionic
+language: shell
 
-install: skip
-script:
-  - make one
-  - make two
+os: osx
 
-after_success:
-    - echo "SUCCESS"
+env:
+  global:
+    - ARTIFACTS_KEY="ABCDEFGHI"
+    - ARTIFACTS_SECRET="JKLMNOP"
+    - ARTIFACTS_BUCKET="my-bucket"
+    - ARTIFACTS_PATHS="log/"
 
-after_failure:
-    - echo "FAILED"
+before_install:
+  - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
+script: true
+after_script:
+  - artifacts upload
+
+jobs:
+  include:
+    - osx_image: xcode14.2
