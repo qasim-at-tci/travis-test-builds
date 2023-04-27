@@ -1,24 +1,8 @@
+os: linux
+dist: jammy
+group: dev
+arch: arm64
 language: shell
 
-os: osx
-
-# STEP 1: Required for https://github.com/travis-ci/artifacts#usage
-env:
-  global:
-    - ARTIFACTS_KEY="ABCDEFGHI"
-    - ARTIFACTS_SECRET="JKLMNOP"
-    - ARTIFACTS_BUCKET="my-bucket"
-    - ARTIFACTS_PATHS="log/"
-
-before_install:
-  # STEP 2: Install artifacts tool manually: https://github.com/travis-ci/artifacts
-  - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
-
+install: skip
 script: true
-
-# STEP 3: https://github.com/travis-ci/artifacts#examples
-after_script: artifacts upload
-
-jobs:
-  include:
-    - osx_image: xcode14.2
