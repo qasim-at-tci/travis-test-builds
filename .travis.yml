@@ -1,5 +1,5 @@
 os: linux
-dist: bionic
+dist: xenial
 language: ruby
 ruby: 2.4.8
 
@@ -9,13 +9,6 @@ before_install:
 jobs:
   include:
     - arch: amd64
-      group: previous
-      script: ruby -v
-    - arch: amd64
-      group: dev
-      script: ruby -v
-    - arch: amd64
-      group: edge
       script: ruby -v
       
 #deploy:
