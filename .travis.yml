@@ -3,14 +3,12 @@ dist: jammy
 language: shell
 
 install: skip
-
+before_install:
+  - chmod a+x ./deploy
 jobs:
   include:
     - arch: amd64
       script: false
-    - group: dev
-      arch: arm64
-      script: true
       
 deploy:
   provider: script
