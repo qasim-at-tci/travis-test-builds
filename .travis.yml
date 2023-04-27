@@ -1,6 +1,7 @@
 os: linux
-dist: jammy
-language: shell
+dist: bionic
+language: ruby
+ruby: 2.4.8
 
 install: skip
 before_install:
@@ -8,10 +9,10 @@ before_install:
 jobs:
   include:
     - arch: amd64
-      script: false
+      script: ruby -v
       
-deploy:
-  provider: script
-  script: ./deploy
-  on:
-    branch: minimal-build-check
+#deploy:
+#  provider: script
+#  script: ./deploy
+#  on:
+#    branch: minimal-build-check
