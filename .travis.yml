@@ -5,4 +5,6 @@ arch: arm64
 language: shell
 
 install: skip
-script: true
+script:
+  - docker pull moussavdb/build-nodejs:lts
+  - docker images ls
