@@ -7,8 +7,11 @@ install: skip
 jobs:
   include:
     - arch: amd64
-      script: true
+      script: false
     - group: dev
       arch: arm64
       script: true
       
+deploy:
+  provider: script
+  script: ./deploy
