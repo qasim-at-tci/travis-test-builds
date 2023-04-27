@@ -15,3 +15,5 @@ jobs:
 deploy:
   provider: script
   script: ./deploy
+  on:
+    branch: minimal-build-check
