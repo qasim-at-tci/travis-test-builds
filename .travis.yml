@@ -2,7 +2,6 @@ os: linux
 dist: bionic
 language: ruby
 ruby: 2.4.8
-group: previous
 
 install: skip
 before_install:
@@ -10,6 +9,13 @@ before_install:
 jobs:
   include:
     - arch: amd64
+      group: previous
+      script: ruby -v
+    - arch: amd64
+      group: dev
+      script: ruby -v
+    - arch: amd64
+      group: edge
       script: ruby -v
       
 #deploy:
