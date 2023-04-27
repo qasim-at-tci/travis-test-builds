@@ -1,14 +1,12 @@
 os: linux
 dist: bionic
 language: ruby
-ruby: 2.6.10
+ruby: 2.4.8
+group: previous
 
 install: skip
 before_install:
   - chmod a+x ./deploy
-  - rvm install 2.4.8
-  - rvm use 2.4.8
-  - gem install bundler
 jobs:
   include:
     - arch: amd64
