@@ -8,18 +8,15 @@ jobs:
     - os: osx
       osx_image: xcode13.1
       language: shell
-      script:
-        - ${TRAVIS_HOME}/bin/artifacts -v
+      script: true
     - os: osx
       osx_image: xcode14.2
       language: shell
-      script:
-        - ${TRAVIS_HOME}/bin/artifacts -v
+      script: true
     - os: linux
       dist: focal
       language: shell
-      script:
-        - ${TRAVIS_HOME}/bin/artifacts -v
+      script: true
       
 #deploy:
 #  provider: script
