@@ -1,11 +1,17 @@
-os: linux
-dist: jammy
+os: osx
+
+addons:
+  artifacts: true
 
 install: skip
 
 jobs:
   include:
-    - arch: amd64
+    - osx_image: xcode13.1
+      language: shell
+      script:
+        - artifacts version
+    - osx_image: xcode14.2
       language: shell
       script:
         - artifacts version
