@@ -13,7 +13,10 @@ jobs:
         #- chmod a+x ./deploy
         - rvm install 2.4.8
         - rvm use 2.4.8
-      script: ruby -v
+        - gem install bundler -v '<2'
+      script:
+        - ruby -v
+        - bundler -v
     - name: "start with shell language and install ruby 2.4.8"
       arch: amd64
       language: shell
