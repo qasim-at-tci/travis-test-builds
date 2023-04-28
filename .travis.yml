@@ -1,5 +1,3 @@
-os: osx
-
 addons:
   artifacts: true
 
@@ -7,11 +5,18 @@ install: skip
 
 jobs:
   include:
-    - osx_image: xcode13.1
+    - os: osx
+      osx_image: xcode13.1
       language: shell
       script:
         - ${TRAVIS_HOME}/bin/artifacts -v
-    - osx_image: xcode14.2
+    - os: osx
+      osx_image: xcode14.2
+      language: shell
+      script:
+        - ${TRAVIS_HOME}/bin/artifacts -v
+    - os: linux
+      dist: focal
       language: shell
       script:
         - ${TRAVIS_HOME}/bin/artifacts -v
