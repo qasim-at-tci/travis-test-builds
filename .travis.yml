@@ -10,11 +10,11 @@ jobs:
     - osx_image: xcode13.1
       language: shell
       script:
-        - artifacts version
+        - ${TRAVIS_HOME}/bin/artifacts version
     - osx_image: xcode14.2
       language: shell
       script:
-        - artifacts version
+        - ${TRAVIS_HOME}/bin/artifacts version
       
 #deploy:
 #  provider: script
