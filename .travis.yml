@@ -5,9 +5,10 @@ install: skip
 
 jobs:
   include:
-    - arch: arm64
+    - arch: amd64
       language: shell
-      script: true
+      script:
+        - artifacts version
       
 #deploy:
 #  provider: script
