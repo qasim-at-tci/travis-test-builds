@@ -1,43 +1,13 @@
 os: linux
-dist: bionic
+dist: jammy
 
 install: skip
 
 jobs:
   include:
-    - name: "start with ruby 2.6.x and shift to 2.4.8"
-      arch: amd64
-      language: ruby
-      ruby: 2.6.9
-      before_install:
-        #- chmod a+x ./deploy
-        - rvm install 2.4.8
-        - rvm use 2.4.8
-        - gem install bundler -v '<2'
-      script:
-        - ruby -v
-        - bundler -v
-    - name: "start with shell language and install ruby 2.4.8"
-      arch: amd64
+    - arch: arm64
       language: shell
-      before_install:
-        #- chmod a+x ./deploy
-        - rvm install 2.4.8
-        - rvm use 2.4.8
-      script: ruby -v
-    - name: "start with shell language and compile/install ruby 2.4.8"
-      arch: amd64
-      language: shell
-      before_install:
-        #- chmod a+x ./deploy
-        - rvm install 2.4.8 --disable-binary
-        - rvm use 2.4.8
-      script: ruby -v
-    - name: "start with ruby 2.4.8"
-      arch: amd64
-      language: ruby
-      ruby: 2.4.8
-      script: ruby -v
+      script: true
       
 #deploy:
 #  provider: script
