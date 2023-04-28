@@ -30,6 +30,11 @@ jobs:
         - rvm install 2.4.8 --disable-binary
         - rvm use 2.4.8
       script: ruby -v
+    - name: "start with ruby 2.4.8"
+      arch: amd64
+      language: ruby
+      ruby: 2.4.8
+      script: ruby -v
       
 #deploy:
 #  provider: script
