@@ -1,21 +1,18 @@
-addons:
-  artifacts: true
+os: linux
+dist: jammy
+
+language: java
+jdk: openjdk11
 
 install: skip
 
 jobs:
   include:
-    - os: osx
-      osx_image: xcode13.1
-      language: shell
+    - before_install:
+        - curl https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar kotlin-util-klib-1.8.20.jar
       script: true
-    - os: osx
-      osx_image: xcode14.2
-      language: shell
-      script: true
-    - os: linux
-      dist: focal
-      language: shell
+    - before_install:
+        - curl http://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar kotlin-util-klib-1.8.20.jar
       script: true
       
 #deploy:
