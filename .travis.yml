@@ -1,8 +1,5 @@
 os: linux
 dist: focal
-arch:
-  - s390x
-  - ppc64le
 
 script:
   - echo "I scream and I SHOUT" 1>&2
@@ -10,4 +7,10 @@ script:
 jobs:
   include:
     - language: c
+      arch: s390x
+    - language: c
+      arch: ppc64le
     - language: shell
+      arch: s390x
+    - language: shell
+      arch: ppc64le
