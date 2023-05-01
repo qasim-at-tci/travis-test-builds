@@ -9,10 +9,10 @@ install: skip
 jobs:
   include:
     - before_install:
-        - curl https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar kotlin-util-klib-1.8.20.jar
+        - curl https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar --output kotlin-util-klib-1.8.20.jar
       script: true
     - before_install:
-        - curl http://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar kotlin-util-klib-1.8.20.jar
+        - curl http://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar --output kotlin-util-klib-1.8.20.jar
       script: true
       
 #deploy:
