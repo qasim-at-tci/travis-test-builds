@@ -8,6 +8,7 @@ before_script:
   - wget https://services.gradle.org/distributions/gradle-7.4.2-bin.zip
   - unzip -qq gradle-7.4.2-bin.zip
 script:
+  - ./gradlew -q dependencies
   - ./gradlew run --refresh-dependencies
   
 
