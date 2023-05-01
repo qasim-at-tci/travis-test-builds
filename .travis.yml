@@ -1,7 +1,13 @@
 os: linux
 dist: focal
-language: php
-php: 8.1.16
-install: skip
+arch:
+  - s390x
+  - ppc64le
+
 script:
-  - php -v
+  - echo "I scream and I SHOUT" 1>&2
+
+jobs:
+  include:
+    - language: c
+    - language: shell
