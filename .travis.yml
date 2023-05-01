@@ -1,12 +1,12 @@
 language: java
 env:
   global:
-    - GRADLE_HOME="$PWD/gradle-7.4"
+    - GRADLE_HOME="$PWD/gradle-8.0.2"
     - PATH=$GRADLE_HOME/bin:$PATH
 install: skip
 before_script:
-  - wget https://services.gradle.org/distributions/gradle-7.4.2-bin.zip
-  - unzip -qq gradle-7.4.2-bin.zip
+  - wget https://services.gradle.org/distributions/gradle-8.0.2-bin.zip
+  - unzip -qq gradle-8.0.2-bin.zip
 script:
   - ./gradlew -q app:dependencies
   - ./gradlew run --refresh-dependencies
