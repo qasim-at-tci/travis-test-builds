@@ -9,6 +9,9 @@ before_script:
   - unzip -qq gradle-7.4.2-bin.zip
 script:
   - ./gradlew run
+  - ./gradlew run --refresh-dependencies
+  - ./gradlew build --refresh-dependencies
+  
 
 jobs:
   include:
