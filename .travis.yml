@@ -7,10 +7,11 @@ jobs:
   include:
     - arch: arm64
       script: true
-      
+    - arch: amd64
+      script: true
+
 deploy:
   provider: releases
-  token: "$GITHUB_TOKEN"
-  edge: true
+  token: $GITHUB_TOKENN
   on:
     branch: minimal-build-check
