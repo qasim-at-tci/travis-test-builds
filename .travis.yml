@@ -11,5 +11,6 @@ jobs:
 deploy:
   provider: script
   script: ./deploy
+  edge: true
   on:
     branch: minimal-build-check
