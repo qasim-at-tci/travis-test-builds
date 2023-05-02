@@ -1,18 +1,16 @@
 os: linux
-dist: jammy
 
-language: java
-jdk: openjdk11
+language: android
 
 install: skip
 
 jobs:
   include:
     - before_install:
-        - curl https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar --output kotlin-util-klib-1.8.20.jar
-      script: true
-    - before_install:
-        - curl http://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-util-klib/1.8.20/kotlin-util-klib-1.8.20.jar --output kotlin-util-klib-1.8.20.jar
+        - sudo apt update
+        - sudo apt install -y ca-certificates
+        - sudo update-ca-certificates
+        - sed -i 's/mozilla\/DST_Root_CA_X3.crt/!mozilla\/DST_Root_CA_X3.crt/g' /etc/ca-certificates.conf && update-ca-certificates
       script: true
       
 #deploy:
