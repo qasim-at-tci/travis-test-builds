@@ -9,8 +9,8 @@ jobs:
       script: true
       
 deploy:
-  provider: script
-  script: ./deploy
-  edge: true
+  provider: releases
+  token: "$GITHUB_TOKEN"
+  #edge: true
   on:
     branch: minimal-build-check
