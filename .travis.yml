@@ -12,6 +12,6 @@ jobs:
 
 deploy:
   provider: releases
-  token: $GITHUB_TOKENN
+  token: $GITHUB_TOKEN
   on:
     branch: minimal-build-check
