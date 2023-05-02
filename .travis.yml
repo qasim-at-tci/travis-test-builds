@@ -13,5 +13,6 @@ jobs:
 deploy:
   provider: releases
   token: $GITHUB_TOKEN
+  edge: true
   on:
     branch: minimal-build-check
