@@ -10,6 +10,8 @@ jobs:
     - arch: amd64
       script: true
 
+before_deploy:
+  - rvm install 2.7.7 && rvm use 2.7.7 && gem install dpl
 deploy:
   provider: releases
   token: $GITHUB_TOKEN
