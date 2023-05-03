@@ -35,7 +35,6 @@ ruby:
   - 2.5.9
 before_install:
   - gem install bundler -v '<2'
-  - gem install bundler:2.4.9
 script: true
 
 #jobs:
