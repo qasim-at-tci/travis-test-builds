@@ -33,8 +33,7 @@ ruby:
   - 2.5.7
   - 2.5.8
   - 2.5.9
-before_install:
-  - gem install bundler -v '<2'
+install: skip
 script: true
 
 #jobs:
