@@ -8,7 +8,7 @@ script:
 
 jobs:
   include:
-    - arch: adm64
+    - arch: amd64
     - arch: arm64
     - arch: s390x
     - arch: ppc64le
