@@ -1,28 +1,10 @@
-env:
-  global:
-    - PATH=/usr/local/opt/flex/bin:/usr/local/opt/bison/bin:$PATH
 jobs:
-  allow_failures:
-    - os: windows
   include:
-    - os: linux
-      language: c
-      compiler: 
-        - gcc
-      before_install:
-        - pip install --user cpp-coveralls
-      script: true
-      #after_success:
-      #  - coveralls --exclude ./src/main.c --exclude ./src/rdc --exclude ./src/pyinterface.c --exclude ./src/rinterface.c --exclude ./src/debug.c --exclude ./src/astutil.c --exclude ./src/target --exclude ./inc --exclude ./gensrc --exclude ./test --exclude ./src/dsl.l --exclude ./src/dsl.y --gcov-options '\-lp' --build-root ./
-    - os: linux
-      language: r
-      r:
-        - release
-      latex: false
-      install: skip
-      script: true
     - os: osx
       osx_image: xcode12.5
+      cache:
+        directories:
+          - $HOME/Library/Caches/Homebrew
       language: c
       compiler: 
         - gcc
@@ -33,23 +15,3 @@ jobs:
             - bison
             - flex
           update: true
-    - os: osx
-      osx_image: xcode12.5
-      language: r
-      r:
-        - release
-      latex: false
-      install: skip
-      script: true
-      addons:
-        homebrew:
-          packages:
-            - bison
-            - flex
-          update: false
-    - os: windows
-      language: c
-      compiler: 
-        - gcc
-      install: skip
-      script: true
