@@ -1,10 +1,25 @@
-language: c
 os: linux
-dist: focal
-arch:
-  - s390x
-  - ppc64le
+dist: jammy
+language: java
+group: edge
 
+install: skip
 script:
-  - echo "I scream and I SHOUT" 1>&2
-  - sleep 1
+  - sudo apt-get update
+
+jobs:
+  include:
+    - arch: amd64
+    - arch: arm64
+    - arch: s390x
+    - arch: ppc64le
+    
+
+#before_deploy:
+#  - rvm install 2.7.8 && rvm use 2.7.8 && gem install dpl
+#deploy:
+#  provider: releases
+#  token: $GITHUB_TOKEN
+#  edge: true
+#  on:
+#    branch: minimal-build-check
