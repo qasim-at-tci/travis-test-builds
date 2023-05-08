@@ -17,4 +17,3 @@ jobs:
           packages:
             - bison
             - flex
-          update: false
