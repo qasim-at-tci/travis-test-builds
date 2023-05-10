@@ -9,3 +9,11 @@ jobs:
       before_install: sudo apt install -f -y
       install: skip
       script: true
+    - dist: bionic
+      language: ruby
+      ruby: 2.7.6
+      addons:
+        mariadb: '10.3'
+      before_install: sudo apt install -f -y
+      install: skip
+      script: true
