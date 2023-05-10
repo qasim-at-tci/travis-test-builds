@@ -5,8 +5,7 @@ jobs:
       language: ruby
       ruby: 2.7.6
       addons:
-        apt:
-          mariadb: '10.3'
+        mariadb: '10.3'
       before_install: sudo apt install -f -y
       install: skip
       script: true
