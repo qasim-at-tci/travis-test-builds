@@ -1,19 +1,12 @@
 # uses cache?
 jobs:
   include:
-    - os: osx
-      osx_image: xcode12.5
-      before_cache:
-        - brew cleanup
-      cache:
-        directories:
-          - $HOME/Library/Caches/Homebrew
-      language: c
-      compiler: 
-        - gcc
-      script: true
+    - dist: focal
+      language: ruby
+      ruby: 2.7.6
       addons:
-        homebrew:
-          packages:
-            - bison
-            - flex
+        apt:
+          mariadb: '10.3'
+      before_install: sudo apt install -f -y
+      install: skip
+      script: true
