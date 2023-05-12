@@ -3,6 +3,7 @@ jobs:
     - dist: focal
       language: ruby
       ruby: 2.7.6
+      group: previous
       addons:
         mariadb: '10.3'
       install: skip
