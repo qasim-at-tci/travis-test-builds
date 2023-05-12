@@ -1,17 +1,16 @@
-env:
-  global:
-    - HOMEBREW_NO_AUTO_UPDATE=1
 jobs:
   include:
-    - os: osx
-      osx_image: xcode12.5
-      language: c
-      compiler: 
-        - gcc
-      script: true
+    - dist: focal
+      language: ruby
+      ruby: 2.7.6
       addons:
-        homebrew:
-          packages:
-            - bison
-            - flex
-          update: false
+        mariadb: '10.3'
+      install: skip
+      script: true
+    - dist: bionic
+      language: ruby
+      ruby: 2.7.6
+      addons:
+        mariadb: '10.3'
+      install: skip
+      script: true
