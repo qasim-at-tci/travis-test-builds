@@ -3,6 +3,8 @@ jobs:
     - dist: focal
       language: ruby
       ruby: 2.7.6
+      addons:
+        mariadb: '10.3'
       before_install:
         - sudo apt-get remove --purge mysql-server mysql-client mysql-common
         - sudo apt-get autoremove
