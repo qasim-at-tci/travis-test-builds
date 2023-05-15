@@ -3,6 +3,11 @@ language: shell
 sudo: required
 services:
   - docker
+addons:
+  apt:
+    packages:
+    - cmake
+    - time
 env:
   - DOCKER_COMPOSE_VERSION=v2.17.3
 before_install:
