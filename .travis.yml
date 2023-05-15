@@ -10,6 +10,8 @@ env:
     DOCKER_COMPOSE_VERSION: 1.29.1
 
 before_install:
+  - uname -s
+  - uname -m
   - sudo rm /usr/local/bin/docker-compose
   - travis_retry curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
