@@ -4,7 +4,15 @@ language: shell
 sudo: required
 services:
   - docker
+env:
+  global:
+    DOCKER_COMPOSE_VERSION: 2.17.3
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - travis_retry curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 install: skip
 script:
-  - docker compose version
+  - docker-compose version
   - docker run --rm hello-world
