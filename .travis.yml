@@ -3,16 +3,6 @@ jobs:
     - dist: focal
       language: ruby
       ruby: 2.7.6
-      group: previous
-      addons:
-        mariadb: '10.3'
-      install: skip
-      script: true
-    - dist: focal
-      language: ruby
-      ruby: 2.7.6
-      addons:
-        mariadb: '10.3'
       before_install:
         - sudo apt-get remove --purge mysql-server mysql-client mysql-common
         - sudo apt-get autoremove
@@ -21,12 +11,7 @@ jobs:
         - sudo rm -rf /etc/mysql
         - sudo apt install mariadb-server mariadb-client -y
         - mysql -V
-      install: skip
-      script: true
-    - dist: bionic
-      language: ruby
-      ruby: 2.7.6
-      addons:
-        mariadb: '10.3'
+        - sudo service mysql start
+        - sudo service mysql status
       install: skip
       script: true
