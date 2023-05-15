@@ -8,6 +8,9 @@ addons:
     packages:
       - cmake
       - ninja
+env:
+  global:
+    - HOMEBREW_NO_AUTO_UPDATE=1
 install: skip
 script: true
 
