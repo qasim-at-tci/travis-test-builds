@@ -32,5 +32,5 @@ before_install:
 install: skip
 
 script:
-  - docker compose version
-  - docker compose up
+  - docker-compose version
+  - docker-compose up
