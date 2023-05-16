@@ -1,21 +1,32 @@
-language: cpp
-compiler:
-  - g++
-os: osx
-addons:   
-  homebrew:
-    update: false
-    packages:
-      - cmake
-      - ninja
+dist: focal
+arch: arm64
+language: shell
+sudo: required
+services:
+  - docker
 env:
   global:
-    - HOMEBREW_NO_AUTO_UPDATE=1
+    DOCKER_COMPOSE_VERSION: v2.17.3
+  matrix:
+    - FEATURES: A
+    - FEATURES: B
+    - FEATURES: C
+    - FEATURES: D
+    - FEATURES: E
+    - FEATURES: F
+    - FEATURES: OTHERS
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/v${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 install: skip
-script: true
+
+script:
+  - docker-compose version
+  - docker-compose up
 
 jobs:
   include:
-    - osx_image: xcode14.1
-    - osx_image: xcode14.2
-    - osx_image: xcode14.3
+    - arch: arm64
