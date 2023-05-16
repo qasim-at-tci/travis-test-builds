@@ -34,3 +34,9 @@ install: skip
 script:
   - docker-compose version
   - docker-compose up
+
+jobs:
+  include:
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
