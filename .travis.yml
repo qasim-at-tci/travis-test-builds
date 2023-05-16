@@ -1,21 +1,13 @@
-dist: focal
-arch: arm64
+dist: jammy
 language: shell
 services:
   - docker
 env:
   global:
     DOCKER_COMPOSE_VERSION: v2.17.3
-  jobs:
-    - FEATURES: A
-    - FEATURES: B
-    - FEATURES: C
-    - FEATURES: D
-    - FEATURES: E
-    - FEATURES: F
-    - FEATURES: OTHERS
 
 before_install:
+  - docker-compose version
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
