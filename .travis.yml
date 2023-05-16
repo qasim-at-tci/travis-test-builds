@@ -1,8 +1,5 @@
 dist: focal
 language: shell
-arch:
-  - arm64-graviton2
-  - amd64
 services:
   - docker
 
@@ -13,14 +10,6 @@ env:
     TOTAL_FEATURES_CHUNKS: 6
     COMPOSE_DOCKER_CLI_BUILD: 1
     DOCKER_BUILDKIT: 1
-  jobs:
-    - FEATURES_CHUNK: 1
-    - FEATURES_CHUNK: 2
-    - FEATURES_CHUNK: 3
-    - FEATURES_CHUNK: 4
-    - FEATURES_CHUNK: 5
-    - FEATURES_CHUNK: 6
-    - FEATURES_CHUNK: others
 
 before_install:
   - uname -a
@@ -40,3 +29,58 @@ jobs:
     - arch: arm64-graviton2
       group: edge
       virt: lxd
+      env:
+        - FEATURES_CHUNK=1
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=2
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=3
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=4
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=5
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=6
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+      env:
+        - FEATURES_CHUNK=others
+    # amd64
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=1
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=2
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=3
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=4
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=5
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=6
+    - arch: amd64
+      env:
+        - FEATURES_CHUNK=others
+    
