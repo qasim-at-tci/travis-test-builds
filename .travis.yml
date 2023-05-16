@@ -9,6 +9,7 @@ jobs:
         - android-32
         - android-22
         - sys-img-armeabi-v7a-android-22
+        - sys-img-armeabi-v7a-android-32
         - extra-google-m2repository
         - extra-android-m2repository
       jdk: openjdk8
