@@ -1,8 +1,5 @@
 dist: focal
 language: shell
-arch:
-  - arm64
-  - amd64
 services:
   - docker
 
@@ -13,14 +10,13 @@ env:
     TOTAL_FEATURES_CHUNKS: 6
     COMPOSE_DOCKER_CLI_BUILD: 1
     DOCKER_BUILDKIT: 1
-  jobs:
-    - FEATURES_CHUNK: 1
-    - FEATURES_CHUNK: 2
-    - FEATURES_CHUNK: 3
-    - FEATURES_CHUNK: 4
-    - FEATURES_CHUNK: 5
-    - FEATURES_CHUNK: 6
-    - FEATURES_CHUNK: others
+   - FEATURES_CHUNK: 1
+   - FEATURES_CHUNK: 2
+   - FEATURES_CHUNK: 3
+   - FEATURES_CHUNK: 4
+   - FEATURES_CHUNK: 5
+   - FEATURES_CHUNK: 6
+   - FEATURES_CHUNK: others
 
 before_install:
   - uname -a
@@ -34,3 +30,10 @@ install: skip
 script:
   - docker-compose version
   - docker-compose up
+
+jobs:
+  include:
+    - arch: amd64
+    - arch: arm64-graviton2
+      virt: lxd
+      group: edge
