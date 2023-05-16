@@ -4,13 +4,6 @@ services:
   - docker
 
 env:
-  global:
-    DOCKER_COMPOSE_YML: ./docker/docker-compose.travis.yml
-    DOCKER_COMPOSE_VERSION: v2.17.3
-    TOTAL_FEATURES_CHUNKS: 6
-    COMPOSE_DOCKER_CLI_BUILD: 1
-    DOCKER_BUILDKIT: 1
-  jobs:
    - FEATURES_CHUNK: 1
    - FEATURES_CHUNK: 2
    - FEATURES_CHUNK: 3
@@ -21,6 +14,12 @@ env:
 
 before_install:
   - uname -a
+  - export DOCKER_COMPOSE_YML=./docker/docker-compose.travis.yml
+  - export DOCKER_COMPOSE_VERSION=v2.17.3
+  - export TOTAL_FEATURES_CHUNKS=6
+  - export COMPOSE_DOCKER_CLI_BUILD=1
+  - export DOCKER_BUILDKIT=1
+  
   - docker-compose version
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
