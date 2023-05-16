@@ -1,12 +1,27 @@
-arch: arm64-graviton2
-virt: lxd
-group: edge
-language: shell
+dist: focal
+arch:
+  - arm64
+  - amd64
 services:
   - docker
 
+env:
+  global:
+    DOCKER_COMPOSE_YML: ./docker/docker-compose.travis.yml
+    TOTAL_FEATURES_CHUNKS: 6
+    COMPOSE_DOCKER_CLI_BUILD: 1
+    DOCKER_BUILDKIT: 1
+  jobs:
+    - FEATURES_CHUNK: 1
+    - FEATURES_CHUNK: 2
+    - FEATURES_CHUNK: 3
+    - FEATURES_CHUNK: 4
+    - FEATURES_CHUNK: 5
+    - FEATURES_CHUNK: 6
+    - FEATURES_CHUNK: others
+
 before_install:
-  # Latest docker
+  # Install Latest Docker
   - uname -a
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -15,5 +30,6 @@ before_install:
 install: skip
 
 script:
+  - uname -a
   - docker compose version
   - docker compose up
