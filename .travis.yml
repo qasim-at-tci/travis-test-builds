@@ -8,8 +8,8 @@ jobs:
         - platform-tools
         - android-32
         - android-22
-        - sys-img-armeabi-v7a-android-22
-        #- sys-img-arm64-v8a-android-22
+        #- sys-img-armeabi-v7a-android-22
+        - sys-img-arm64-v8a-android-22
         - extra-google-m2repository
         - extra-android-m2repository
       jdk: openjdk8
@@ -24,7 +24,7 @@ jobs:
       - yes | sdkmanager "platforms;android-32"
 
       before_script:
-      - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 500M
+      - echo no | android create avd --force -n test -t android-22 --abi armeabi-v8a -c 1024M
       - emulator -avd test -wipe-data -no-skin -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
