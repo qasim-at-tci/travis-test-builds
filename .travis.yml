@@ -1,4 +1,5 @@
 dist: focal
+language: shell
 arch:
   - arm64
   - amd64
