@@ -1,5 +1,4 @@
 dist: focal
-arch: arm64
 language: shell
 services:
   - docker
@@ -9,3 +8,13 @@ install: skip
 script:
   - docker-compose version
   - docker-compose up
+
+jobs:
+  include:
+    - arch: arm64
+    - arch: arm64-graviton2
+      group: edge
+      virt: lxd
+    - arch: arm64-graviton2
+      group: edge
+      virt: vm
