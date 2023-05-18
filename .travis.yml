@@ -21,6 +21,7 @@ script:
 
 jobs:
   include:
+    - arch: amd64
     - arch: arm64
     - arch: arm64-graviton2
       group: edge
