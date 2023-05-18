@@ -22,7 +22,7 @@ install: skip
 
 script:
   - docker-compose version
-  - docker-compose up -f $DOCKER_COMPOSE_YML
+  - docker-compose -f $DOCKER_COMPOSE_YML up
 
 jobs:
   include:
