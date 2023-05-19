@@ -1,7 +1,12 @@
-language: groovy
-dist: xenial
-jdk: openjdk8
-before_install:
-  - curl -s http://get.sdkman.io | bash
+language: generic
 install: skip
-script: true
+scripts:
+  - docker build .
+  - docker images
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
