@@ -1,8 +1,8 @@
-language: generic
+language: shell
 install: skip
 scripts:
-  - docker build .
-  - docker images
+  - docker build -t test-run .
+  - docker images | grep 'test-run'
 jobs:
   include:
     - dist: xenial
