@@ -1,8 +1,8 @@
-language: shell
+language: csharp
+mono:
+  - latest
 install: skip
-scripts:
-  - docker build -t test-run .
-  - docker images | grep 'test-run'
+scripts: true
 jobs:
   include:
     - dist: xenial
