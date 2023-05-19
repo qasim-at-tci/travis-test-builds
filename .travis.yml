@@ -2,9 +2,6 @@ language: groovy
 dist: xenial
 jdk: openjdk8
 before_install:
-  - wget -q https://raw.githubusercontent.com/nbnuk/travis-build-configuration/master/ala_common.sh
-  - chmod +x ala_common.sh
-  - source ./ala_common.sh
-  - ala_travis_grails_setup_env
+  - curl -s http://get.sdkman.io | bash
 install: skip
 script: true
