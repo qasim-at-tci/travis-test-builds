@@ -1,6 +1,6 @@
 language: generic
 install: skip
-scripts: true
+script: true
 jobs:
   include:
     - dist: xenial
