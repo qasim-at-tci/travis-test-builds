@@ -1,15 +1,16 @@
 os: linux
 dist: focal
-
 jobs:
   include:
     - vault:
-      token: $VAULT
+      token:
+        secure: hoD9X2OqELwoEs8arEgfrGL0Gfaph6cVRJAfkoJPUx0lPILMWLiVOgiTfVLFqPRvILm+PYzTfDgCOXgMolcIian+l5rHzoVJEkVSqPbJlWcDxUSH8W7DVqk5ceFOnyziC9FVuSVM46hIeJDZnFdXDx6uhNkwjqi8Ne4NDJvCjdkS74lOrRJj+w9FPG4Or5yA4H+RmsDX+2CzkpzAwrvYdu65H7KJKKKKyvmwcALMM1y2bTryzPf2jjawPMXov6BzKc/jAGaXzWcKuflDtd+rrU4JMiK+oe4RU02/L3zaMjKUiCcTf1BMbl1Aail0gM56NJFKylkFfrkPgrb5Ceu4LWFwJE2dburAnoZUDTbu5gRMzItlTTlE6gePq7oQIROwmGPnkal8wyXh5x9bvnQ5qVXkG8otpa4PQWm9U7uchKzAZ0aU193UnItjhbo/4ASjIEa4ZVHIsn82Po+I3cxGMkZTUZnOBUAZdGPKZl0Ek3OtlLEkZRPYmiqutRlG+VMfTsOhywqcAKMDR2J7tYGIEogf3CVcMB7yAgtFG3VeUaDXuLehsMAupp7Ajr88vvN5OAh65DpUSW5b85rPI8GypaPPWmxD03Qe7/I+9SjsZ4pvpDXEp6ydtJrXnn/5ey9V5PA6TV3agkPeTIbVs4VJIZxQm4JJMd4tO1ZookfAuJg=
       api_url: https://vault-east.staging.travis-ci.org
       secrets:
         - abc/foo
     - vault:
-      token: $VAULT
+      token:
+        secure: hoD9X2OqELwoEs8arEgfrGL0Gfaph6cVRJAfkoJPUx0lPILMWLiVOgiTfVLFqPRvILm+PYzTfDgCOXgMolcIian+l5rHzoVJEkVSqPbJlWcDxUSH8W7DVqk5ceFOnyziC9FVuSVM46hIeJDZnFdXDx6uhNkwjqi8Ne4NDJvCjdkS74lOrRJj+w9FPG4Or5yA4H+RmsDX+2CzkpzAwrvYdu65H7KJKKKKyvmwcALMM1y2bTryzPf2jjawPMXov6BzKc/jAGaXzWcKuflDtd+rrU4JMiK+oe4RU02/L3zaMjKUiCcTf1BMbl1Aail0gM56NJFKylkFfrkPgrb5Ceu4LWFwJE2dburAnoZUDTbu5gRMzItlTTlE6gePq7oQIROwmGPnkal8wyXh5x9bvnQ5qVXkG8otpa4PQWm9U7uchKzAZ0aU193UnItjhbo/4ASjIEa4ZVHIsn82Po+I3cxGMkZTUZnOBUAZdGPKZl0Ek3OtlLEkZRPYmiqutRlG+VMfTsOhywqcAKMDR2J7tYGIEogf3CVcMB7yAgtFG3VeUaDXuLehsMAupp7Ajr88vvN5OAh65DpUSW5b85rPI8GypaPPWmxD03Qe7/I+9SjsZ4pvpDXEp6ydtJrXnn/5ey9V5PA6TV3agkPeTIbVs4VJIZxQm4JJMd4tO1ZookfAuJg=
       api_url: https://vault-east.staging.travis-ci.org
       secrets:
         - abc/foo
