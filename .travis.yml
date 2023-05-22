@@ -1,12 +1,11 @@
-os: linux
+---
+arch: ppc64le
 dist: focal
+os: linux
 language: shell
-vault:
-  token:
-    secure: "m1FgwQU0nFV5cSdkjGsJjKzXSUAGdHb6h0gFtOjL2yGi+8uHAJmYvQyU4mFYax3o9d5bw5d465CwcTD/I14ceGDkJioWbioNbC9rKV4gh/Iw1S4dUMLNx+i2nxsII+vgiUawAHXd36gM96lN7it5aWUgQeT2Q0uEdkVycKo4bfOBF4CT41cqwyI83uLdfGVecZ89KsAIgc1sNz2XmrVi1FgWScdlJ3VazYtL2KfFby1XM8nU60l2y/L6FFyivRN35IfOby12lPz8jNNA62kjKbAAiwNPU9zg8BZwnXFS2d1rs6nZgwizNlM5O4u+rXJCDCoM2tF0arPFl5j4oJkLq+buQ/898uYtl73X+wcq8ctMM3KEVuiRZ+1czkLZtu+Mm/2DQee/Im+9+gY0BELbdQbMtU0aYXAX8iBP/F5BeKi3uqPIrfFhk3AqqA7tUwhwLqX1RySSnGx491eT4CTHMTAXsECMPaBo6qZAsV4GJXeXPfRxK6tiqZpjjakeoWOhWlv88dUyW7cAJgmhX+dNfm0ONDIwrZD/Di9Et4sl6Y10RhMJ+jDdwx61qQeXv9tzA/5Po1dmASjU8GEOLY3qEnp9BveoSa2hG+23c5xg5kPZ3pS9vSfopV7zi7rq98EiViAi+o3CDr11b+d4cn6We1Ac+bH2tABRmuPP7gz8jqo="
-  api_url: https://vault-east.staging.travis-ci.org
-  secrets:
-    - abc/foo
 
 script:
-  - echo $ABC_FOO
+    - sudo apt update -y && sudo apt-get install file -y
+    - sleep 900 &
+    - SCRIPT_PID=$!;while ps -p $SCRIPT_PID > /dev/null;do echo "$SCRIPT_PID is running"; sleep 300; done; wait $SCRIPT_PID; my_pid_status=$?; travis_terminate $my_pid_status
+    - sleep 10
