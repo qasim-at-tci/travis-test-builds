@@ -1,10 +1,18 @@
-language: generic
-install: skip
-script: true
+os: linux
+dist: focal
+
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
-    
+    - vault:
+      token: $VAULT
+      api_url: https://vault-east.staging.travis-ci.org
+      secrets:
+        - abc/foo
+    - vault:
+      token: $VAULT
+      api_url: https://vault-east.staging.travis-ci.org
+      secrets:
+        - abc/foo
+
+script:
+  - echo $ABC_FOO
