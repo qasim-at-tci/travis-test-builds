@@ -1,6 +1,4 @@
-language: csharp
-mono:
-  - latest
+language: generic
 install: skip
 scripts: true
 jobs:
