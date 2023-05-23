@@ -3,7 +3,7 @@ arch: amd64
 
 language: csharp
 mono: none
-dotnet: 6.0.16
+dotnet: 6.0.408
 
 install: skip
 
