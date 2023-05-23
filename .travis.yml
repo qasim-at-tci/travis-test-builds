@@ -1,18 +1,13 @@
----
-dist: focal
 os: linux
-language: shell
+dist: focal
+arch: amd64
 
-script:
-  - free -hm
-  - lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
-  - sudo apt update -y && sudo apt-get install file -y
-  - sleep 900 &
-  - SCRIPT_PID=$!;while ps -p $SCRIPT_PID > /dev/null;do echo "$SCRIPT_PID is running"; sleep 300; done; wait $SCRIPT_PID; my_pid_status=$?; travis_terminate $my_pid_status
-  - sleep 10
-jobs:
-  include:
-    - arch: ppc64le
-    - arch: arm64
-    - arch: amd64
-    - arch: s390x
+language: csharp
+mono: none
+dotnet: 6.0.16
+
+install: skip
+
+before_script:
+  - dotnet --version
+script: true
