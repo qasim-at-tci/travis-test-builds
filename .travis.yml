@@ -1,5 +1,4 @@
 os: linux
-dist: focal
 arch: amd64
 
 language: csharp
@@ -11,3 +10,10 @@ install: skip
 before_script:
   - dotnet --version
 script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
