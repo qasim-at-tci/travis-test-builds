@@ -1,13 +1,16 @@
 os: linux
 arch: amd64
-dist: focal
 
-language: csharp
-mono: none
-dotnet: 6.0.408
+language: ruby
+ruby: 3.3.0-preview1
 
 install: skip
 
-before_script:
-  - dotnet --version
-script: true
+script: ruby -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
