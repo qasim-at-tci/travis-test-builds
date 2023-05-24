@@ -2,9 +2,9 @@ os: linux
 arch: amd64
 
 language: ruby
-ruby: 3.3.0-preview1
+ruby: 2.6.9
 
-install: skip
+before_install: gem install bundler -v 2.4.9
 
 script: ruby -v
 
