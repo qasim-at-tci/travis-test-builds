@@ -1,24 +1,13 @@
 os: linux
 arch: amd64
-
-language: shell
+dist: focal
+language: python
 
 before_install:
-  - sudo rm -rf /opt/pyenv
-  - curl https://pyenv.run | bash
-  - echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-  - echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-  - echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-  - source ~/.bashrc
-  - pyenv update
+  - unset PYENV_ROOT
+  - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+  - export PATH="$HOME/.pyenv/bin:$PATH"
   - pyenv install 3.12.0b1
   - pyenv global 3.12.0b1
 
 script: python -V
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
