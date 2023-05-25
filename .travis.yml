@@ -2,12 +2,18 @@ os: linux
 arch: amd64
 dist: focal
 language: python
-
-before_install:
-  - unset PYENV_ROOT
-  - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-  - export PATH="$HOME/.pyenv/bin:$PATH"
-  - pyenv install 3.12.0b1
-  - pyenv global 3.12.0b1
-
 script: python -V
+
+jobs:
+  include:
+    - name: "python 3.12"
+      python: 3.12
+    - name: "python 3.12-dev"
+      python: 3.12-dev
+    - name: "python 3.12.0b1 aka beta 1"
+      before_install:
+        - unset PYENV_ROOT
+        - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+        - export PATH="$HOME/.pyenv/bin:$PATH"
+        - pyenv install 3.12.0b1
+        - pyenv global 3.12.0b1
