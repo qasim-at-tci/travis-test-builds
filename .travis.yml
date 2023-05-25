@@ -14,7 +14,7 @@ before_install:
   - pyenv install 3.12.0b1
   - pyenv global 3.12.0b1
 
-script: python -v
+script: python -V
 
 jobs:
   include:
