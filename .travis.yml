@@ -4,6 +4,7 @@ arch: amd64
 language: python
 
 before_install:
+  - git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
   - pyenv update
   - pyenv install 3.12.0b1
   - pyenv global 3.12.0b1
