@@ -13,6 +13,7 @@ jobs:
         - unset PYENV_ROOT
         - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
         - export PATH="$HOME/.pyenv/bin:$PATH"
+        - eval "$(pyenv init -)"
         - pyenv install 3.12.0b1
         - pyenv local 3.12.0b1
         - python -m venv venv
