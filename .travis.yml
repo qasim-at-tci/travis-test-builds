@@ -15,6 +15,4 @@ jobs:
         - export PATH="$HOME/.pyenv/bin:$PATH"
         - eval "$(pyenv init --path)"
         - pyenv install 3.12.0b1
-        - pyenv local 3.12.0b1
-        - python -m venv venv
-        - source venv/bin/activate
+        - pyenv global 3.12.0b1
