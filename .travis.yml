@@ -1,12 +1,15 @@
 os: linux
 arch: amd64
-dist: focal
-language: python
-script: python -V
+
+language: ruby
+ruby: 2.6.9
+
+before_install: gem install bundler -v 2.4.9
+
+script: ruby -v
 
 jobs:
   include:
-    - name: "python 3.12-dev"
-      python: 3.12-dev
-    - name: "python 3.12.0b1 aka beta 1"
-      python: 3.12-beta1
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
