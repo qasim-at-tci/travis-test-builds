@@ -3,17 +3,25 @@ arch: amd64
 
 language: ruby
 
-
-before_install:
-  - rvm pkg install openssl
-  - rvm install ruby-2.7.8 --disable-binary --with-openssl-dir=$HOME/.rvm/usr
-  - rvm use ruby-2.7.8
-  - sudo apt update && sudo apt install libpq-dev -y
-  - gem install pg
-  - gem install bundler -v 2.4.9
-
 script: ruby -v
 
 jobs:
   include:
-    - dist: jammy
+    - name: "RVM Way"
+      dist: jammy
+      before_install:
+        - rvm pkg install openssl
+        - rvm install ruby-2.7.8 --disable-binary --with-openssl-dir=$HOME/.rvm/usr
+        - rvm use ruby-2.7.8
+        - sudo apt update && sudo apt install libpq-dev -y
+        - gem install pg
+        - gem install bundler -v 2.4.9
+    - name: "APT Way"
+      dist: jammy
+      before_install:
+        - sudo apt update && sudo apt install libssl-dev=1.1.1l-1ubuntu1.4 -y
+        - rvm install ruby-2.7.8 --disable-binary
+        - rvm use ruby-2.7.8
+        - sudo apt update && sudo apt install libpq-dev -y
+        - gem install pg
+        - gem install bundler -v 2.4.9
