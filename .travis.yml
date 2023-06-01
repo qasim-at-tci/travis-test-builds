@@ -14,7 +14,6 @@ jobs:
 deploy:
   provider: releases
   token: $GITHUB_TOKEN
-  edge: true
   file: README.md
   on:
     all_branches: true
