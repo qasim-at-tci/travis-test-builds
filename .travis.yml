@@ -10,3 +10,6 @@ jobs:
     - dist: focal
       language: php
       php: 8.2
+    - dist: focal
+      language: python
+      python: 3.8
