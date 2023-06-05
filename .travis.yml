@@ -3,7 +3,9 @@ vm:
   size: 2x-large
 install: skip
 
-script: true
+script:
+  - free -hm
+  - nproc
 
 jobs:
   include:
