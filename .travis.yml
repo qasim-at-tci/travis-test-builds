@@ -1,19 +1,9 @@
-language: c
+language: ruby
 os: linux
 
-install: skip
 script: true
 
 jobs:
   include:
-    - dist: jammy
-    - dist: focal
     - dist: bionic
-    - dist: xenial
-
-deploy:
-  provider: releases
-  token: $GITHUB_TOKEN
-  file: README.md
-  on:
-    all_branches: true
+      ruby: 2.4.8
