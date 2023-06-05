@@ -1,5 +1,7 @@
 os: linux
 
+install: skip
+
 script: true
 
 jobs:
