@@ -1,6 +1,8 @@
 language: ruby
 os: linux
 
+before_script:
+  - gem install bundler:2.4.9
 script: true
 
 jobs:
