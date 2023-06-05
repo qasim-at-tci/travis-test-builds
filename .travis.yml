@@ -1,11 +1,12 @@
-language: ruby
 os: linux
 
-before_install:
-  - gem install bundler:2.4.9
 script: true
 
 jobs:
   include:
     - dist: bionic
+      language: ruby
       ruby: 2.4.8
+    - dist: focal
+      language: php
+      php: 8.2
