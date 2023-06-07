@@ -1,23 +1,19 @@
-# TEST RUN
-os: osx
-osx_image: xcode12.3
-install: skip
+language: python
+python:
+  - "3.7"
 
-jobs:
-  include:
-    - stage: ONE
-      os: linux
-      dist: focal
-      language: shell
-      script:
-        - sleep 30
-    - stage: TWO
-      os: linux
-      dist: focal
-      language: shell
-      script:
-        - sleep 21
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 11
+dist: jammy
+addons:
+  apt:
+    update: true
+    sources:
+      - sourceline: 'deb https://apt.kubernetes.io/ kubernetes-xenial main'
+        key_url: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg.asc'
+    packages:
+      - kubectl
+
+services:
+  - docker
+
+install: skip
+script: true
