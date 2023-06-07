@@ -8,86 +8,15 @@ jobs:
       language: shell
       script:
         - sleep 30
-    - stage: ONE
+    - stage: TWO
+      os: linux
+      dist: focal
       language: shell
       script:
         - sleep 21
-    - stage: ONE
+    - stage: THREE
+      os: linux
+      dist: focal
       language: shell
       script:
         - sleep 11
-
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 52
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 42
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 32
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 22
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 12
-    - stage: TWO
-      language: shell
-      script:
-        - sleep 2
-
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 53
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 45
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 43
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 38
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 37
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 36
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 35
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 33
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 25
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 23
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 13
-    - stage: THREE
-      language: shell
-      script:
-        - sleep 3
-  
