@@ -4,19 +4,21 @@ install: skip
 
 jobs:
   include:
-    - stage: ONE
-      os: linux
-      dist: focal
-      language: shell
+    - language: shell
       script:
         - sleep 30
-    - stage: TWO
-      os: linux
-      dist: focal
-      language: shell
+    - language: shell
       script:
-        - sleep 21
-    - stage: THREE
-      language: shell
+        - sleep 31
+    - language: shell
       script:
-        - sleep 11
+        - sleep 32
+    - language: shell
+      script:
+        - sleep 33
+    - language: shell
+      script:
+        - sleep 34
+    - language: shell
+      script:
+        - sleep 35
