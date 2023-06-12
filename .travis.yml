@@ -3,13 +3,6 @@ os: linux
 dist: focal
 language: shell
 
-addons:
-  apt:
-    packages:
-      - python3-pip
-      - python3-venv
-      - rust-all
-
 services:
   - docker
 
@@ -28,6 +21,8 @@ before_script:
   - git clone --no-checkout --branch move-s390x-crossbow https://github.com/raulcd/arrow.git arrow
   - git -C arrow checkout b8cf9218fd09cb222866f9c2dd122d5c5ed6472a
   - git -C arrow submodule update --init --recursive
+  - sudo apt update
+  - sudo apt install python3-pip python3-venv rust-all -y
   - python3 -m venv travis-venv
   - source travis-venv/bin/activate
   - pip install --upgrade pip
