@@ -2,4 +2,6 @@ os: linux
 dist: focal
 language: matlab
 install: skip
-script: true
+script:
+  - nproc
+  - free -hm
