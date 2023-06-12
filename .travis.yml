@@ -9,5 +9,5 @@ install: skip
 script:
   - uname -a
   - gcc --version
-  - sudo pkg install lang/gcc -y
+  - IGNORE_OSVERSION=yes sudo pkg install lang/gcc -y
   - gcc --version
