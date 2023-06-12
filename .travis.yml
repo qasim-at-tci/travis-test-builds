@@ -1,20 +1,14 @@
-os: linux
-language: python
-python:
-  - "3.7"
-
-dist: jammy
-addons:
-  apt:
-    update: true
-    sources:
-      - sourceline: 'deb https://apt.kubernetes.io/ kubernetes-xenial main'
-        key_url: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'
-    packages:
-      - kubectl
-
-services:
-  - docker
+os: freebsd
+arch: amd64
+language:
+  - cpp
+  - c
 
 install: skip
-script: true
+
+script:
+  - uname -a
+  - gcc --version
+  - freebsd-update fetch
+  - freebsd-update install
+  - gcc --version
