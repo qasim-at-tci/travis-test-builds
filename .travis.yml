@@ -9,6 +9,5 @@ install: skip
 script:
   - uname -a
   - gcc --version
-  - sudo freebsd-update fetch
-  - sudo freebsd-update install
+  - sudo pkg install lang/gcc
   - gcc --version
