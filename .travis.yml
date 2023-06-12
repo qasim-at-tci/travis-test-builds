@@ -1,6 +1,6 @@
 arch: s390x
 os: linux
-language: python
+language: shell
 
 services:
   - docker
