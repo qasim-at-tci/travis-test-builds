@@ -1,13 +1,47 @@
-os: freebsd
-arch: amd64
-language:
-  - cpp
-  - c
+arch: s390x
+os: linux
+dist: focal
+language: shell
 
-install: skip
+addons:
+  apt:
+    packages:
+      - python3-pip
+      - python3-venv
+      - rust-all
+
+services:
+  - docker
+
+env:
+  global:
+    - ARROW_VERSION=13.0.0.dev148
+    - BUILD_REF=b8cf9218fd09cb222866f9c2dd122d5c5ed6472a
+    - TRAVIS_TAG=actions-89f4ac2ad2-travis-test-ubuntu-20.04-python-s390x
+    - ARROW_ENABLE_TIMING_TESTS="OFF"
+    - COMPOSE_DOCKER_CLI_BUILD=1
+    - DOCKER_BUILDKIT=0
+    - ARCH=s390x
+    - ARROW_CI_MODULES=PYTHON
+
+before_script:
+  - git clone --no-checkout --branch move-s390x-crossbow https://github.com/raulcd/arrow.git arrow
+  - git -C arrow checkout b8cf9218fd09cb222866f9c2dd122d5c5ed6472a
+  - git -C arrow submodule update --init --recursive
+  - python3 -m venv travis-venv
+  - source travis-venv/bin/activate
+  - pip install --upgrade pip
+  - pip install docker-compose>=1.28.0
+  - pip install -e arrow/dev/archery[docker]
+
 
 script:
-  - uname -a
-  - gcc --version
-  - ASSUME_ALWAYS_YES=YES IGNORE_OSVERSION=yes sudo pkg install lang/gcc
-  - gcc --version
+  # Build packages
+  - pushd arrow
+  - export ARCHERY_DEFAULT_BRANCH=$(git rev-parse --abbrev-ref origin/HEAD | sed s@origin/@@)
+  - |
+    travis_wait 45 archery docker run \
+      -e ARROW_FLIGHT=ON -e ARROW_GCS=OFF -e ARROW_MIMALLOC=OFF -e ARROW_ORC=OFF -e ARROW_PARQUET=OFF -e ARROW_PYTHON=ON -e ARROW_S3=OFF -e CMAKE_BUILD_PARALLEL_LEVEL=2 -e CMAKE_UNITY_BUILD=ON -e PARQUET_BUILD_EXAMPLES=OFF -e PARQUET_BUILD_EXECUTABLES=OFF -e Protobuf_SOURCE=BUNDLED -e gRPC_SOURCE=BUNDLED \
+      --volume ${PWD}/build:/build \
+      ubuntu-python
+  - popd
