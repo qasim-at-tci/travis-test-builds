@@ -1,7 +1,6 @@
 arch: s390x
 os: linux
-dist: focal
-language: shell
+language: python
 
 services:
   - docker
@@ -40,3 +39,9 @@ script:
       --volume ${PWD}/build:/build \
       ubuntu-python
   - popd
+  
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
