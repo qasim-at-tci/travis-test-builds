@@ -1,10 +1,19 @@
 #
 os: linux
 dist: trusty
-vm:
-  size: [x-large]
 language: android
 install: skip
 script:
   - nproc
   - free -hm
+
+jobs:
+  include:
+    - vm:
+        size: medium
+    - vm:
+        size: large
+    - vm:
+        size: x-large
+    - vm:
+        size: 2x-large
