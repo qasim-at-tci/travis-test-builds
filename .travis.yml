@@ -15,5 +15,3 @@ jobs:
         size: large
     - vm:
         size: x-large
-    - vm:
-        size: 2x-large
