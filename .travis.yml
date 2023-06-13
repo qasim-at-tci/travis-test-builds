@@ -1,6 +1,8 @@
 os: linux
-dist: focal
-language: matlab
+dist: trusty
+vm:
+  size: [x-large]
+language: android
 install: skip
 script:
   - nproc
