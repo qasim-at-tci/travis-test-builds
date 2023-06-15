@@ -9,8 +9,4 @@ script:
 jobs:
   include:
     - vm:
-        size: medium
-    - vm:
         size: large
-    - vm:
-        size: x-large
