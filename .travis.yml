@@ -10,4 +10,4 @@ script:
 jobs:
   include:
     - vm:
-        size: x-large
+        size: 2x-large
