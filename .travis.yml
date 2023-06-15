@@ -5,6 +5,7 @@ install: skip
 script:
   - nproc
   - free -hm
+  - echo done
 
 jobs:
   include:
