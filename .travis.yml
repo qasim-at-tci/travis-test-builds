@@ -1,13 +1,5 @@
 os: linux
-dist: trusty
-language: android
+dist: bionic
+language: python
 install: skip
-script:
-  - nproc
-  - free -hm
-  - echo done
-
-jobs:
-  include:
-    - vm:
-        size: 2x-large
+script: docker build --tag test-image-run .
