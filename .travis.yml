@@ -1,7 +1,13 @@
 os: linux
-dist: focal
-archL: arm64-graviton2
-group: edge
-language: python
+language: node_js
+node_js: lts/*
 install: skip
-script: docker build --tag test-image-run .
+script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
