@@ -3,6 +3,5 @@ virt: lxd
 dist: focal
 group: edge
 arch: arm64-graviton2
-language: node_js
-node_js: lts/*
+language: shell
 script: true
