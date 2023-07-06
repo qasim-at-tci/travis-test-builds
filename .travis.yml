@@ -4,7 +4,7 @@ cache:
 services:
 - mysql
 arch: arm64
-
+node_js: 16
 install: skip
 
 stages:
