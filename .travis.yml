@@ -4,6 +4,9 @@ cache:
 services:
 - mysql
 arch: arm64
+
+install: skip
+
 stages:
   - name: tests / code checks
   - name: Browserstack tests
