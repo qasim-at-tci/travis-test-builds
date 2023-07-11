@@ -57,3 +57,20 @@ jobs:
       script:
         - docker version
         - sleep 10
+
+    - stage: FOUR
+      script:
+        - docker version
+        - sleep 1
+    - stage: FOUR
+      script:
+        - docker version
+        - sleep 2
+    - stage: FOUR
+      script:
+        - docker version
+        - sleep 3
+    - stage: FOUR
+      script:
+        - docker version
+        - sleep 4
