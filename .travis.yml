@@ -14,3 +14,46 @@ before_install:
   - sudo systemctl restart containerd.service
 install: skip
 script: docker version
+
+jobs:
+  include:
+    - stage: ONE
+      script:
+        - docker version
+        - sleep 1
+    - stage: TWO
+      script:
+        - docker version
+        - sleep 2
+    - stage: ONE
+      script:
+        - docker version
+        - sleep 3
+    - stage: ONE
+      script:
+        - docker version
+        - sleep 4
+    - stage: TWO
+      script:
+        - docker version
+        - sleep 5
+    - stage: THREE
+      script:
+        - docker version
+        - sleep 6
+    - stage: THREE
+      script:
+        - docker version
+        - sleep 7
+    - stage: THREE
+      script:
+        - docker version
+        - sleep 8
+    - stage: TWO
+      script:
+        - docker version
+        - sleep 9
+    - stage: THREE
+      script:
+        - docker version
+        - sleep 10
