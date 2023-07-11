@@ -25,44 +25,44 @@ jobs:
       script:
         - docker version
         - sleep 2
-    - stage: ONE
+    - stage: THREE
       script:
         - docker version
         - sleep 3
-    - stage: ONE
+    - stage: FOUR
       script:
         - docker version
         - sleep 4
-    - stage: TWO
+    - stage: FIVE
       script:
         - docker version
         - sleep 5
-    - stage: THREE
+    - stage: SIX
       script:
         - docker version
         - sleep 6
-    - stage: THREE
+    - stage: SEVEN
       script:
         - docker version
         - sleep 7
-    - stage: THREE
+    - stage: EIGHT
       script:
         - docker version
         - sleep 8
-    - stage: TWO
+    - stage: NINE
       script:
         - docker version
         - sleep 9
-    - stage: THREE
+    - stage: TEN
       script:
         - docker version
         - sleep 10
 
-    - stage: FOUR
+    - stage: NINE
       script:
         - docker version
         - sleep 1
-    - stage: FOUR
+    - stage: FIVE
       script:
         - docker version
         - sleep 2
@@ -70,7 +70,7 @@ jobs:
       script:
         - docker version
         - sleep 3
-    - stage: FOUR
+    - stage: THREE
       script:
         - docker version
         - sleep 4
