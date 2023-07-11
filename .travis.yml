@@ -1,77 +1,14 @@
-language: ruby
-cache:
-  bundler: true
-services:
-- mysql
-arch: arm64
-node_js: 16
-install: skip
+language: shell
+os: linux
+dist: bionic
 
-stages:
-  - name: tests / code checks
-  - name: Browserstack tests
-  - name: sync translations
-  - name: build / deploy
-jobs:
-  include:
-  - stage: tests / code checks
-    name: 'Running unit tests (Ruby)'
-    script: sleep 1
-  - stage: tests / code checks
-    name: 'Running unit tests (React)'
-    language: node_js
-    script:
-    - sleep 2
-  - stage: tests / code checks
-    name: 'Running TestCafe UI tests (A-D)'
-    language: node_js
-    script:
-    - sleep 3
-  - stage: tests / code checks
-    name: 'Running TestCafe UI tests (E-I)'
-    language: node_js
-    script:
-    - sleep 4
-  - stage: tests / code checks
-    name: 'Running TestCafe UI tests (J-L)'
-    language: node_js
-    script:
-    - sleep 5
-  - stage: tests / code checks
-    name: 'Running TestCafe UI tests (M-Z)'
-    language: node_js
-    script:
-    - sleep 6
-  - stage: Browserstack tests
-    name: 'Running TestCafe UI tests on Browserstack'
-    language: node_js
-    script:
-    - sleep 7
-  - stage: tests / code checks
-    name: 'Running ESLint (React)'
-    language: node_js
-    script:
-    - sleep 8
-  - stage: tests / code checks
-    name: RubyCritic
-    script: sleep 9
-  - stage: tests / code checks
-    name: 'Running code checks'
-    script:
-      - sleep 10
-  - stage: tests / code checks
-    name: "Security Audit"
-    script: sleep 11
-  - stage: sync translations
-    name: Sync Loco translations
-    script: sleep 12
-  - stage: build / deploy
-    name: Build docker image for deployment
-    script: sleep 13
-    services:
-    - docker
-    if: branch == main
-  - stage: build / deploy
-    name: Deploy code to production
-    script: sleep 14
-    if: branch == main
+services:
+  - docker
+before_install:
+  - docker version
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+install: skip
+script: docker version
