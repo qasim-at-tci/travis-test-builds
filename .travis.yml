@@ -1,18 +1,14 @@
 dist: bionic
 sudo: required
-language: java
+language: shell
 jobs:
   include:
   - os: linux
     arch: s390x
-    jdk: openjdk11
   - os: linux
     arch: ppc64le
-    jdk: openjdk11
-jdk:
-- openjdk11
-- openjdk17
-- openjdk8
-install: mvn install
+vm:
+  size: x-large
 script:
-- sleep 1
+- free -m
+- nproc
