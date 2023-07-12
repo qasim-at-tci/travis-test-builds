@@ -1,76 +1,18 @@
-language: shell
-os: linux
 dist: bionic
-
-services:
-  - docker
-before_install:
-  - docker version
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-  - sudo systemctl restart docker.service
-  - sudo systemctl restart containerd.service
-install: skip
-script: docker version
-
+sudo: required
+language: java
 jobs:
   include:
-    - stage: ONE
-      script:
-        - docker version
-        - sleep 1
-    - stage: TWO
-      script:
-        - docker version
-        - sleep 2
-    - stage: THREE
-      script:
-        - docker version
-        - sleep 3
-    - stage: FOUR
-      script:
-        - docker version
-        - sleep 4
-    - stage: FIVE
-      script:
-        - docker version
-        - sleep 5
-    - stage: SIX
-      script:
-        - docker version
-        - sleep 6
-    - stage: SEVEN
-      script:
-        - docker version
-        - sleep 7
-    - stage: EIGHT
-      script:
-        - docker version
-        - sleep 8
-    - stage: NINE
-      script:
-        - docker version
-        - sleep 9
-    - stage: TEN
-      script:
-        - docker version
-        - sleep 10
+  - os: linux
+    arch: s390x
+    jdk: openjdk11
+  - os: linux
+    arch: ppc64le
+    jdk: openjdk11
+jdk:
+- openjdk11
+- openjdk17
+- openjdk8
 
-    - stage: NINE
-      script:
-        - docker version
-        - sleep 1
-    - stage: FIVE
-      script:
-        - docker version
-        - sleep 2
-    - stage: FOUR
-      script:
-        - docker version
-        - sleep 3
-    - stage: THREE
-      script:
-        - docker version
-        - sleep 4
+script:
+- sleep 1
