@@ -1,14 +1,16 @@
-dist: bionic
+dist: focal
 sudo: required
 language: shell
 jobs:
   include:
   - os: linux
-    arch: s390x
+    arch: arm64-graviton2
+    group: edge
+    vm:
+      size: x-large
   - os: linux
-    arch: ppc64le
-vm:
-  size: x-large
+    arch: arm64-graviton2
+    group: edge
 script:
 - free -m
 - nproc
