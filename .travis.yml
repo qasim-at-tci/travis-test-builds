@@ -4,10 +4,13 @@ language: shell
 jobs:
   include:
   - os: linux
-    arch: arm64-graviton2
-    group: edge
-    vm:
-      size: x-large
+    arch: amd64
+  - os: linux
+    arch: arm64
+  - os: linux
+    arch: ppc64le
+  - os: linux
+    arch: s390x
   - os: linux
     arch: arm64-graviton2
     group: edge
