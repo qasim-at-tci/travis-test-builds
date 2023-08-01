@@ -2,11 +2,12 @@ dist: focal
 language: shell
 _job_one_vars: &job_one_vars
   env:
-    - client=ONE #client=TWO client=THREE client=FOUR client=FIVE
+    - client=ONE
     - client=TWO
-#_job_two_vars: &job_two_vars
-#  env:
-#    - client=SIX client=SEVEN client=EIGHT client=NINE client=TEN
+_job_two_vars: &job_two_vars
+  env:
+    - client=THREE
+    - client=FOUR
 jobs:
   include:
   - os: linux
@@ -15,7 +16,7 @@ jobs:
     script: sleep 1
   - os: linux
     arch: amd64
-    <<: *job_one_vars
+    <<: *job_two_vars
     script: sleep 2
 
 notifications:
