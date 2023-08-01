@@ -7,9 +7,9 @@ _job_one_vars: &job_one_vars
     - var_three=THREE
 _job_two_vars: &job_two_vars
   env:
-    - var_one=ONE
-    - var_two=TWO
-    - var_three=THREE
+    - one=ONE
+    - two=TWO
+    - three=THREE
 jobs:
   include:
   - os: linux
