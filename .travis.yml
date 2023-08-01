@@ -2,12 +2,14 @@ dist: focal
 language: shell
 _job_one_vars: &job_one_vars
   env:
-    - client=ONE
-    - client=TWO
+    jobs:
+      - client=ONE
+      - client=TWO
 _job_two_vars: &job_two_vars
   env:
-    - client=THREE
-    - client=FOUR
+    jobs:
+      - client=THREE
+      - client=FOUR
 jobs:
   include:
   - os: linux
