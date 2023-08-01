@@ -2,25 +2,28 @@ dist: focal
 language: shell
 _job_one_vars: &job_one_vars
   env:
-    jobs:
-      - client=ONE
-      - client=TWO
+    - client=ONE
+    - client=TWO
 _job_two_vars: &job_two_vars
   env:
-    jobs:
-      - client=THREE
-      - client=FOUR
+    - client=THREE
+    - client=FOUR
 jobs:
   include:
   - os: linux
     arch: amd64
     <<: *job_one_vars
-    script: echo $client
+    script:
+      - |
+        job_name="one"
+        echo $client
   - os: linux
     arch: amd64
     <<: *job_two_vars
-    script: echo $client
-
+    script:
+      - |
+        job_name="two"
+        echo $client
 notifications:
   slack:
     secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
