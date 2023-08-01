@@ -13,11 +13,11 @@ jobs:
   - os: linux
     arch: amd64
     <<: *job_one_vars
-    script: sleep 1
+    script: echo $client
   - os: linux
     arch: amd64
     <<: *job_two_vars
-    script: sleep 2
+    script: echo $client
 
 notifications:
   slack:
