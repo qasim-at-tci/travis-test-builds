@@ -15,7 +15,7 @@ jobs:
     script: sleep 1
   - os: linux
     arch: amd64
-    <<: *job_two_vars
+    <<: *job_one_vars
     script: sleep 2
 
 notifications:
