@@ -1,3 +1,4 @@
+os: linux
 dist: focal
 language: shell
 _job_one_vars: &job_one_vars
