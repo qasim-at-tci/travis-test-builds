@@ -1,6 +1,7 @@
 os: linux
 dist: focal
-language: shell
+language: python
+python: 3.7
 _job_one_vars: &job_one_vars
   env:
     - var_one=ONE
