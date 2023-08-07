@@ -16,12 +16,14 @@ jobs:
   - os: linux
     arch: amd64
     <<: *job_one_vars
+    stage: branch
     script: sleep 1
 
     if: type = push
   - os: linux
     arch: amd64
     <<: *job_two_vars
+    stage: PR
     script: sleep 2
 
     if: type = pull_request
