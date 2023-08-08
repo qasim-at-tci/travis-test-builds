@@ -32,6 +32,7 @@ jobs:
     arch: amd64
     stage: "deploy"
     name: "dpl v1"
+    script: sleep 2
     deploy:
       provider: pypi
       username: $PYPI_USERNAME
@@ -42,6 +43,7 @@ jobs:
     arch: amd64
     stage: "deploy"
     name: "dpl v2"
+    script: sleep 2
     deploy:
       provider: pypi
       username: $PYPI_USERNAME
