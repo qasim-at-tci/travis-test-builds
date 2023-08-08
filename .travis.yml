@@ -55,12 +55,12 @@ jobs:
         branch: "minimal-build-check"
       edge: true
   - os: osx
-    osx_image: xcode14.2
     language: shell
     stage: "deploy"
     name: "dpl v1 - OSX"
     script:
       - alias python=python3
+      - python --version
       - sleep 2
     deploy:
       provider: pypi
@@ -71,12 +71,12 @@ jobs:
         branch: "minimal-build-check"
       #edge: true
   - os: osx
-    osx_image: xcode14.2
     language: shell
     stage: "deploy"
     name: "dpl v2 - OSX"
     script:
       - alias python=python3
+      - python --version
       - sleep 2
     deploy:
       provider: pypi
