@@ -34,8 +34,8 @@ jobs:
     name: "dpl v1"
     deploy:
       provider: pypi
-      username: "USERNAME"
-      password: "PASSWORD"
+      username: $PYPI_USERNAME
+      password: $PYPI_PASSWORD
       distributions: "DIST"
       #edge: true
   - os: linux
@@ -44,8 +44,8 @@ jobs:
     name: "dpl v2"
     deploy:
       provider: pypi
-      username: "USERNAME"
-      password: "PASSWORD"
+      username: $PYPI_USERNAME
+      password: $PYPI_PASSWORD
       distributions: "DIST"
       edge: true
 notifications:
