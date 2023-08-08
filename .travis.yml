@@ -31,7 +31,7 @@ jobs:
   - os: linux
     arch: amd64
     stage: "deploy"
-    name: "dpl v1"
+    name: "dpl v1 - LINUX"
     script: sleep 2
     deploy:
       provider: pypi
@@ -44,7 +44,35 @@ jobs:
   - os: linux
     arch: amd64
     stage: "deploy"
-    name: "dpl v2"
+    name: "dpl v2 - LINUX"
+    script: sleep 2
+    deploy:
+      provider: pypi
+      username: $PYPI_USERNAME
+      password: $PYPI_PASSWORD
+      distributions: "DIST"
+      on:
+        branch: "minimal-build-check"
+      edge: true
+  - os: osx
+    osx_image: xcode14.2
+    language: shell
+    stage: "deploy"
+    name: "dpl v1 - OSX"
+    script: sleep 2
+    deploy:
+      provider: pypi
+      username: $PYPI_USERNAME
+      password: $PYPI_PASSWORD
+      distributions: "DIST"
+      on:
+        branch: "minimal-build-check"
+      #edge: true
+  - os: osx
+    osx_image: xcode14.2
+    language: shell
+    stage: "deploy"
+    name: "dpl v2 - OSX"
     script: sleep 2
     deploy:
       provider: pypi
