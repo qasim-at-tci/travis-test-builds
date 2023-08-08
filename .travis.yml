@@ -59,7 +59,7 @@ jobs:
     stage: "deploy"
     name: "dpl v1 - OSX"
     script:
-      - alias python=python3
+      - alias python=$(which python3)
       - python --version
       - sleep 2
     deploy:
@@ -75,7 +75,7 @@ jobs:
     stage: "deploy"
     name: "dpl v2 - OSX"
     script:
-      - alias python=python3
+      - alias python=$(which python3)
       - python --version
       - sleep 2
     deploy:
