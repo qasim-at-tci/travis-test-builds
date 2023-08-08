@@ -59,7 +59,8 @@ jobs:
     stage: "deploy"
     name: "dpl v1 - OSX"
     script:
-      - alias python=$(which python3)
+      - unlink $(which python)
+      - ln -s $(which python3) /usr/local/bin/python
       - python --version
       - sleep 2
     deploy:
