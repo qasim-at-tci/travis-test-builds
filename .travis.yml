@@ -59,7 +59,9 @@ jobs:
     language: shell
     stage: "deploy"
     name: "dpl v1 - OSX"
-    script: sleep 2
+    script:
+      - alias python=python3
+      - sleep 2
     deploy:
       provider: pypi
       username: $PYPI_USERNAME
@@ -73,7 +75,9 @@ jobs:
     language: shell
     stage: "deploy"
     name: "dpl v2 - OSX"
-    script: sleep 2
+    script:
+      - alias python=python3
+      - sleep 2
     deploy:
       provider: pypi
       username: $PYPI_USERNAME
