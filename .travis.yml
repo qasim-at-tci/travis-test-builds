@@ -38,6 +38,8 @@ jobs:
       username: $PYPI_USERNAME
       password: $PYPI_PASSWORD
       distributions: "DIST"
+      on:
+        branch: "minimal-build-check"
       #edge: true
   - os: linux
     arch: amd64
@@ -49,6 +51,8 @@ jobs:
       username: $PYPI_USERNAME
       password: $PYPI_PASSWORD
       distributions: "DIST"
+      on:
+        branch: "minimal-build-check"
       edge: true
 notifications:
   slack:
