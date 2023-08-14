@@ -29,11 +29,10 @@ jobs:
 
     if: type = pull_request
 after_success:
-  #- curl -u "$NOTIFY_USER":"$NOTIFY_PASSWORD" -d 'The build number "$TRAVIS_BUILD_NUMBER" for repo "$TRAVIS_REPO_SLUG" exited with code $"TRAVIS_TEST_RESULT"' https://notify.routemetodotzero.com
   - |
     curl \
       -u "$NOTIFY_USER":"$NOTIFY_PASSWORD" \
-      -d 'The build number "$TRAVIS_BUILD_NUMBER" for repo "$TRAVIS_REPO_SLUG" exited with code $"TRAVIS_TEST_RESULT"' https://notify.routemetodotzero.com/travis-ci
+      -d "The build number $TRAVIS_BUILD_NUMBER for repo $TRAVIS_REPO_SLUG exited with code $TRAVIS_TEST_RESULT" https://notify.routemetodotzero.com/travis-ci
 notifications:
   slack:
     secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
