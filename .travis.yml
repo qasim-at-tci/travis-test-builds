@@ -2,6 +2,7 @@ os: linux
 dist: focal
 language: python
 python: 3.7
+cache: pip
 _job_one_vars: &job_one_vars
   env:
     - var_one=ONE
