@@ -4,27 +4,23 @@ php: "8.1.12"
 
 jobs:
   include:
-    - stage: "TEST"
+    - stage: "ALL Jobs"
       dist: xenial
       script:
         - sudo apt update
-    - stage: "TEST"
+    - stage: "ALL Jobs"
       dist: bionic
       script:
         - sudo apt update
-    - stage: "TEST"
+    - stage: "ALL Jobs"
       dist: focal
       script:
         - sudo apt update
-    - stage: "TEST"
+    - stage: "ALL Jobs"
       dist: jammy
       script:
         - sudo apt update
-    - stage: "FAILING - RUNS BECAUSE PREVIOUS STAGE PASSED"
-      script:
-        - sleep 2
-        - false
-    - stage: "THIS WONT RUN BECAUSE PREVIOUS FAILED"
+    - stage: "FInal Job if all above pass"
       script:
         - sleep 2
         - true
