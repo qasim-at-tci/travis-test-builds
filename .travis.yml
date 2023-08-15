@@ -1,21 +1,20 @@
 os: linux
-dist: focal
 language: shell
 
 jobs:
   include:
-    - stage: "PASSING"
+    - stage: "TEST"
+      dist: xenial
       script:
-        - sleep 1
-        - true
-    - stage: "PASSING"
+        - sudo apt update
+    - stage: "TEST"
+      dist: bionic
       script:
-        - sleep 2
-        - true
-    - stage: "PASSING"
+        - sudo apt update
+    - stage: "TEST"
+      dist: focal
       script:
-        - sleep 3
-        - true
+        - sudo apt update
     - stage: "FAILING - RUNS BECAUSE PREVIOUS STAGE PASSED"
       script:
         - sleep 2
