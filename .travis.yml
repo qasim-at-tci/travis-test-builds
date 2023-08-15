@@ -2,11 +2,16 @@ os: linux
 arch: amd64
 language: php
 php: "8.1.12"
-
+      
 jobs:
   include:
     - stage: "ALL Jobs"
       dist: xenial
+      addons:
+        apt:
+          sources:
+            - sourceline: 'deb [signed-by=/usr/share/keyrings/perforce.gpg] https://package.perforce.com/apt/ubuntu xenial release'
+              key_url: 'https://package.perforce.com/perforce.pubkey'
       script:
         - sudo apt update
     - stage: "ALL Jobs"
