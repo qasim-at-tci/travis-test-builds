@@ -15,6 +15,10 @@ jobs:
       dist: focal
       script:
         - sudo apt update
+    - stage: "TEST"
+      dist: jammy
+      script:
+        - sudo apt update
     - stage: "FAILING - RUNS BECAUSE PREVIOUS STAGE PASSED"
       script:
         - sleep 2
