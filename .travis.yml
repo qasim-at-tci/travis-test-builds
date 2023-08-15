@@ -1,24 +1,29 @@
-language: cpp
+os: linux
+dist: focal
+language: shell
 
-sudo: enabled
-
-compiler:
-  - gcc
-
-matrix:
+jobs:
   include:
-    - os: osx
-      env:
-      - BADGE=py3.7
-
-script:
-  - unlink $(which python)
-  - unlink $(which pip)
-  - ln -s $(which pip3) /usr/local/bin/pip
-  - ln -s $(which python3) /usr/local/bin/python
-  - python -V
-  - pip --version
-  - pip install --upgrade setuptools
+    - stage: "PASSING"
+      script:
+        - sleep 1
+        - true
+    - stage: "PASSING"
+      script:
+        - sleep 2
+        - true
+    - stage: "PASSING"
+      script:
+        - sleep 3
+        - true
+    - stage: "FAILING - RUNS BECAUSE PREVIOUS STAGE PASSED"
+      script:
+        - sleep 2
+        - false
+    - stage: "THIS WONT RUN BECAUSE PREVIOUS FAILED"
+      script:
+        - sleep 2
+        - true
 
 after_success:
   - |
