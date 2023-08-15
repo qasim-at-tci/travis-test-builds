@@ -10,7 +10,7 @@ jobs:
       addons:
         apt:
           sources:
-            - sourceline: 'deb [signed-by=/usr/share/keyrings/perforce.gpg] https://package.perforce.com/apt/ubuntu xenial release'
+            - sourceline: 'deb https://package.perforce.com/apt/ubuntu xenial release'
               key_url: 'https://package.perforce.com/perforce.pubkey'
       script:
         - sudo apt update
