@@ -7,11 +7,6 @@ jobs:
   include:
     - stage: "ALL Jobs"
       dist: xenial
-      addons:
-        apt:
-          sources:
-            - sourceline: 'deb https://package.perforce.com/apt/ubuntu xenial release'
-              key_url: 'https://package.perforce.com/perforce.pubkey'
       script:
         - sudo apt update
     - stage: "ALL Jobs"
