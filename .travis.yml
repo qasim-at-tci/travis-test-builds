@@ -1,35 +1,22 @@
-# TEST RUN
-os: linux
-dist: focal
-language: python
-python: 3.7
-#cache: pip
-_job_one_vars: &job_one_vars
-  env:
-    - var_one=ONE
-    - var_two=TWO
-    - var_three=THREE
-_job_two_vars: &job_two_vars
-  env:
-    - one=ONE
-    - two=TWO
-    - three=THREE
-jobs:
+language: cpp
+
+sudo: enabled
+
+compiler:
+  - gcc
+
+matrix:
   include:
-  - os: linux
-    arch: amd64
-    <<: *job_one_vars
-    stage: branch
-    script: sleep 1
+    - os: osx
+      env:
+      - BADGE=py3.7
 
-    if: type = push
-  - os: linux
-    arch: amd64
-    <<: *job_two_vars
-    stage: PR
-    script: sleep 2
+script:
+  - which pip
+  - which pip3
+  - unlink $(which python)
+  - ln -s $(which python3) /usr/local/bin/python
 
-    if: type = pull_request
 after_success:
   - |
     curl \
