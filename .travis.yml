@@ -12,8 +12,6 @@ matrix:
       - BADGE=py3.7
 
 script:
-  - which pip
-  - which pip3
   - unlink $(which python)
   - unlink $(which pip)
   - ln -s $(which pip3) /usr/local/bin/pip
