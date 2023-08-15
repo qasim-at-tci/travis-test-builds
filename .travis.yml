@@ -15,7 +15,12 @@ script:
   - which pip
   - which pip3
   - unlink $(which python)
+  - unlink $(which pip)
+  - ln -s $(which pip3) /usr/local/bin/pip
   - ln -s $(which python3) /usr/local/bin/python
+  - python -V
+  - pip --version
+  - pip install --upgrade setuptools
 
 after_success:
   - |
