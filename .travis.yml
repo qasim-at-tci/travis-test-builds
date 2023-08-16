@@ -4,26 +4,12 @@ language: shell
       
 jobs:
   include:
-    - stage: "ALL Jobs"
-      dist: xenial
-      script:
-        - sudo apt update
-    - stage: "ALL Jobs"
-      dist: bionic
-      script:
-        - sudo apt update
-    - stage: "ALL Jobs"
-      dist: focal
-      script:
-        - sudo apt update
-    - stage: "ALL Jobs"
-      dist: jammy
-      script:
-        - sudo apt update
-    - stage: "FInal Job if all above pass"
-      script:
-        - sleep 2
-        - true
+    - name: "Python 3.7"
+      os: osx
+      osx_image: xcode14.2
+      before_install:
+        - python -V
+      script: true
 
 after_success:
   - |
