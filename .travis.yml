@@ -8,9 +8,43 @@ jobs:
       os: osx
       osx_image: xcode14.2
       before_install:
+        - brew install python@3.7
+        - unlink $(which python)
+        - unlink $(which pip)
+        - ln -s $(which python3) /usr/local/bin/python
+        - ln -s $(which pip3) /usr/local/bin/pip
+    - name: "Python 3.8"
+      before_install:
+        - brew install python@3.8
+        - unlink $(which python)
+        - unlink $(which pip)
+        - ln -s $(which python3) /usr/local/bin/python
+        - ln -s $(which pip3) /usr/local/bin/pip
+      os: osx
+      osx_image: xcode14.2
+      before_install:
         - python -V
-      script: true
-
+    - name: "Python 3.9"
+      before_install:
+        - brew install python@3.9
+        - unlink $(which python)
+        - unlink $(which pip)
+        - ln -s $(which python3) /usr/local/bin/python
+        - ln -s $(which pip3) /usr/local/bin/pip
+      os: osx
+      osx_image: xcode14.2
+    - name: "Python 3.10"
+      os: osx
+      osx_image: xcode14.2
+      before_install:
+        - brew install python@3.10
+        - unlink $(which python)
+        - unlink $(which pip)
+        - ln -s $(which python3) /usr/local/bin/python
+        - ln -s $(which pip3) /usr/local/bin/pip
+script:
+  - python -V
+  - pip --version
 after_success:
   - |
     curl \
