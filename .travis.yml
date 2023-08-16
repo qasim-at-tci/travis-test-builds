@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode14.2
+osx_image: xcode12.5
 language: shell
       
 jobs:
