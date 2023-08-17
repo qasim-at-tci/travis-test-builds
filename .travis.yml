@@ -2,8 +2,9 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
-#before_install:
-#  - brew update && brew upgrade pyenv
+before_install:
+  #- brew update && brew upgrade pyenv
+  - brew upgrade pyenv
 jobs:
   include:
     - name: "Python 3.7"
