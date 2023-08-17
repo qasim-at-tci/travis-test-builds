@@ -2,27 +2,26 @@ os: osx
 osx_image: xcode12.5
 language: shell
 
-# pyenv setup
-before_install:
-  - export HOMEBREW_NO_AUTO_UPDATE=1
-  - brew install pyenv
-  - eval "$(pyenv init -)"
 jobs:
   include:
     - name: "Python 3.7"
       before_script:
-        - pyenv -v
+        - pyenv install 3.7.17
+        - pyenv global 3.7.17
     - name: "Python 3.8"
       before_script:
-        - pyenv -v
+        - pyenv install 3.8.17
+        - pyenv global 3.8.17
     - name: "Python 3.9"
       before_script:
-        - pyenv -v
+        - pyenv install 3.9.17
+        - pyenv global 3.9.17
     - name: "Python 3.10"
       before_script:
-        - pyenv -v
+        - pyenv install 3.10.12
+        - pyenv global 3.10.12
 script:
-  - sleep 2
+  - python -V
 after_success:
   - |
     curl \
