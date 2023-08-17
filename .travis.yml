@@ -18,7 +18,7 @@ jobs:
     - os: linux
       dist: focal
       language: shell
-      if: env(FOO) =~ [abc]
+      if: env(FOO) =~ [ABC]
 script:
   - python -V
 after_success:
