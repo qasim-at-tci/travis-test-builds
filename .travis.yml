@@ -2,19 +2,26 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
+env:
+  global:
+    - FOO=BAR
 before_install:
   - unlink $(which python)
   - ln -s $(which python3) /usr/local/bin/python
 jobs:
   include:
-    - name: "Python 3.7.7"
-      osx_image: xcode11.5
-    - name: "Python 3.8.6"
-      osx_image: xcode11.6
-    - name: "Python 3.9.0"
-      osx_image: xcode12.1
-    - name: "XCode 13.5"
-      osx_image: xcode13.5
+    #- name: "Python 3.7.7"
+    #  osx_image: xcode11.5
+    #- name: "Python 3.8.6"
+    #  osx_image: xcode11.6
+    #- name: "Python 3.9.0"
+    #  osx_image: xcode12.1
+    #- name: "XCode 13.5"
+    #  osx_image: xcode13.5
+    - os: linux
+      dist: focal
+      language: shell
+      if: env(FOO) = BAR
 script:
   - python -V
 after_success:
