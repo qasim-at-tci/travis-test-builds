@@ -2,9 +2,9 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
-before_install:
-  - unlink $(which python)
-  - ln -s $(which python3) /usr/local/bin/python
+#before_install:
+#  - unlink $(which python)
+#  - ln -s $(which python3) /usr/local/bin/python
 jobs:
   include:
     #- name: "Python 3.7.7"
