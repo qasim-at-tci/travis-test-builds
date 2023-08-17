@@ -4,7 +4,7 @@ language: shell
 
 env:
   global:
-    - FOO=BAR
+    - FOO=A
 before_install:
   - unlink $(which python)
   - ln -s $(which python3) /usr/local/bin/python
@@ -21,7 +21,7 @@ jobs:
     - os: linux
       dist: focal
       language: shell
-      if: env(FOO) = BAR1
+      if: env(FOO) =~ [abc]
 script:
   - python -V
 after_success:
