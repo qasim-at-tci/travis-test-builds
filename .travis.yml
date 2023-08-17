@@ -21,7 +21,7 @@ jobs:
     - os: linux
       dist: focal
       language: shell
-      if: env(FOO) = BAR
+      if: env(FOO) = BAR1
 script:
   - python -V
 after_success:
