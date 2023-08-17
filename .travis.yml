@@ -4,7 +4,7 @@ language: shell
 
 before_install:
   #- brew update && brew upgrade pyenv
-  - HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade pyenv
+  - brew upgrade pyenv
 jobs:
   include:
     - name: "Python 3.7"
