@@ -4,7 +4,7 @@ language: shell
 
 env:
   global:
-    - FOO=A
+    - FOO=a
 before_install:
   - unlink $(which python)
   - ln -s $(which python3) /usr/local/bin/python
