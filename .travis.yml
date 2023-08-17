@@ -1,48 +1,28 @@
 os: osx
 osx_image: xcode12.5
 language: shell
-      
+
+# pyenv setup
+before_install:
+  - export HOMEBREW_NO_AUTO_UPDATE=1
+  - brew install pyenv
+  - eval "$(pyenv init -)"
 jobs:
   include:
     - name: "Python 3.7"
-      before_install:
-        - export HOMEBREW_NO_AUTO_UPDATE=1
-        - export HOMEBREW_NO_INSTALL_CLEANUP=1
-        - brew install python@3.7
-        - unlink $(which python)
-        - unlink $(which pip)
-        - ln -s $(which python3) /usr/local/bin/python
-        - ln -s $(which pip3) /usr/local/bin/pip
+      before_script:
+        - pyenv -v
     - name: "Python 3.8"
-      before_install:
-        - export HOMEBREW_NO_AUTO_UPDATE=1
-        - export HOMEBREW_NO_INSTALL_CLEANUP=1
-        - brew install python@3.8
-        - unlink $(which python)
-        - unlink $(which pip)
-        - ln -s $(which python3) /usr/local/bin/python
-        - ln -s $(which pip3) /usr/local/bin/pip
+      before_script:
+        - pyenv -v
     - name: "Python 3.9"
-      before_install:
-        - export HOMEBREW_NO_AUTO_UPDATE=1
-        - export HOMEBREW_NO_INSTALL_CLEANUP=1
-        - brew install python@3.9
-        - unlink $(which python)
-        - unlink $(which pip)
-        - ln -s $(which python3) /usr/local/bin/python
-        - ln -s $(which pip3) /usr/local/bin/pip
+      before_script:
+        - pyenv -v
     - name: "Python 3.10"
-      before_install:
-        - export HOMEBREW_NO_AUTO_UPDATE=1
-        - export HOMEBREW_NO_INSTALL_CLEANUP=1
-        - brew install python@3.10
-        - unlink $(which python)
-        - unlink $(which pip)
-        - ln -s $(which python3) /usr/local/bin/python
-        - ln -s $(which pip3) /usr/local/bin/pip
+      before_script:
+        - pyenv -v
 script:
-  - python -V
-  - pip --version
+  - sleep 2
 after_success:
   - |
     curl \
