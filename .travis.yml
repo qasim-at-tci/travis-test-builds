@@ -2,9 +2,6 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
-env:
-  global:
-    - FOO=a
 before_install:
   - unlink $(which python)
   - ln -s $(which python3) /usr/local/bin/python
