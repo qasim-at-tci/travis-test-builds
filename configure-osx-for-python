@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ev
+set -e
 
 unlink $(which python)
 ln -s $(which python3) /usr/local/bin/python
