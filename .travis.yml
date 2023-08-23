@@ -2,13 +2,13 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
+env:
+  global:
+    - PYTHON_VERSION=3.8.17
 jobs:
   include:
     - name: "Python 3.8.17"
       osx_image: xcode11.5
-      env:
-        global:
-          - PYTHON_VERSION=3.8.17
       before_install:
         - unlink $(which python)
         - ln -s $(which python3) /usr/local/bin/python
@@ -20,9 +20,6 @@ jobs:
         - asdf global python $PYTHON_VERSION
     - name: "Python 3.9.17"
       osx_image: xcode11.5
-      env:
-        global:
-          - PYTHON_VERSION=3.9.17
       before_install:
         - unlink $(which python)
         - ln -s $(which python3) /usr/local/bin/python
@@ -35,9 +32,6 @@ jobs:
     - name: "Python 3.10.12"
       osx_image: xcode11.5
       before_install:
-        env:
-        global:
-          - PYTHON_VERSION=3.10.12
       before_install:
         - unlink $(which python)
         - ln -s $(which python3) /usr/local/bin/python
@@ -49,9 +43,6 @@ jobs:
         - asdf global python $PYTHON_VERSION
     - name: "Python 3.11.4"
       osx_image: xcode11.5
-      env:
-        global:
-          - PYTHON_VERSION=3.11.4
       before_install:
         - unlink $(which python)
         - ln -s $(which python3) /usr/local/bin/python
