@@ -3,7 +3,6 @@ osx_image: xcode14.2
 language: shell
 
 jobs:
-  include:
     - name: "Python 3.8.17"
       osx_image: xcode11.5
       env:
