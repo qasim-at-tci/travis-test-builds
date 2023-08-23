@@ -7,7 +7,7 @@ before_install:
   - ln -s $(which python3) /usr/local/bin/python
   - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
   - echo -e "\n. \"$(brew --prefix asdf)/libexec/asdf.sh\"" >> ~/.bashrc
-  - exec $SHELL
+  - source ~/.bashrc
   - asdf plugin-add python
   - asdf install python 3.8.9
   - asdf global python 3.8.9
