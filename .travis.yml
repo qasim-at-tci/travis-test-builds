@@ -2,23 +2,18 @@ os: osx
 osx_image: xcode14.2
 language: shell
 
-#before_install:
-#  - unlink $(which python)
-#  - ln -s $(which python3) /usr/local/bin/python
+before_install:
+  - unlink $(which python)
+  - ln -s $(which python3) /usr/local/bin/python
+  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
+  - echo -e "\n. \"$(brew --prefix asdf)/libexec/asdf.sh\"" >> ~/.bashrc
+  - asdf plugin-add python
+  - asdf install python 3.8.9
+  - asdf global python 3.8.9
 jobs:
   include:
-    #- name: "Python 3.7.7"
-    #  osx_image: xcode11.5
-    #- name: "Python 3.8.6"
-    #  osx_image: xcode11.6
-    #- name: "Python 3.9.0"
-    #  osx_image: xcode12.1
-    #- name: "XCode 13.5"
-    #  osx_image: xcode13.5
-    - os: linux
-      dist: focal
-      language: shell
-      #if: env(FOO) =~ [ABC]
+    - name: "Python 3.7.7"
+      osx_image: xcode11.5
 script:
   - python -V
 after_success:
