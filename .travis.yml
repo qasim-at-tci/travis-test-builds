@@ -1,6 +1,6 @@
 os: linux
 dist: focal
-jdk: 17
+#jdk: 17
 language: ruby
 ruby: 2.7.8
 
