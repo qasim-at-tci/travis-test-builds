@@ -3,18 +3,57 @@ language: shell
 
 jobs:
   include:
-    - name: "Jammy"
+    # DEBIAN BOOKWORM
+    - name: "Jammy build environment using bookworm based docker image"
       dist: jammy
-    - name: "Focal"
+      script:
+        - docker version
+        - docker build -t testrun -f bookworm.dockerfile .
+        - docker images
+    - name: "Focal build environment using bookworm based docker image"
       dist: focal
-    - name: "Bionic"
+      script:
+        - docker version
+        - docker build -t testrun -f bookworm.dockerfile .
+        - docker images
+    - name: "Bionic build environment using bookworm based docker image"
       dist: bionic
-    - name: "Xenial"
+      script:
+        - docker version
+        - docker build -t testrun -f bookworm.dockerfile .
+        - docker images
+    - name: "Xenial build environment using bookworm based docker image"
       dist: xenial
-script:
-  - docker version
-  - docker build -t testrun .
-  - docker images
+      script:
+        - docker version
+        - docker build -t testrun -f bookworm.dockerfile .
+        - docker images
+
+    # DEBIAN BULLSEYE
+    - name: "Jammy build environment using bookworm based docker image"
+      dist: jammy
+      script:
+        - docker version
+        - docker build -t testrun -f bullseye.dockerfile .
+        - docker images
+    - name: "Focal build environment using bookworm based docker image"
+      dist: focal
+      script:
+        - docker version
+        - docker build -t testrun -f bullseye.dockerfile .
+        - docker images
+    - name: "Bionic build environment using bookworm based docker image"
+      dist: bionic
+      script:
+        - docker version
+        - docker build -t testrun -f bullseye.dockerfile .
+        - docker images
+    - name: "Xenial build environment using bookworm based docker image"
+      dist: xenial
+      script:
+        - docker version
+        - docker build -t testrun -f bullseye.dockerfile .
+        - docker images
 after_success:
   - |
     curl \
