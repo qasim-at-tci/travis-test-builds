@@ -16,7 +16,7 @@ script:
         --header 'Content-Type: application/json' \
         --data '{
             "env_var.name": "JOB_RESTARTED",
-            "env_var.value": "JOB_ID_$TRAVIS_JOB_ID_WAS_RESTARTED",
+            "env_var.value": "JOB ID $TRAVIS_JOB_ID WAS RESTARTED",
             "env_var.public": true
         }'
 after_success:
