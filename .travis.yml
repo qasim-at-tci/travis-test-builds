@@ -12,6 +12,7 @@ jobs:
     - name: "Xenial"
       dist: xenial
 script:
+  - docker version
   - docker build -t testrun .
   - docker images
 after_success:
