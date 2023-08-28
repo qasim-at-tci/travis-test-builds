@@ -1,13 +1,19 @@
 os: linux
-dist: focal
-#jdk: 17
-language: ruby
-ruby: 2.7.8
+language: shell
 
 jobs:
   include:
-    - name: "Sonar"
-script: java -version
+    - name: "Jammy"
+      dist: jammy
+    - name: "Focal"
+      dist: focal
+    - name: "Bionic"
+      dist: bionic
+    - name: "Xenial"
+      dist: xenial
+script:
+  - docker build -t testrun .
+  - docker images
 after_success:
   - |
     curl \
