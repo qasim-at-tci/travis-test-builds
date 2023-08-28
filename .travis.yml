@@ -7,18 +7,7 @@ ruby: 2.7.8
 jobs:
   include:
     - name: "Sonar"
-script:
-  - java -version
-  - |
-     curl --location --request PATCH 'https://api.travis-ci.com/repo/test-runs-tci%2Ftravis-test-builds/env_var/570b756a-3cc5-4b6a-8bc3-a1d916cb1867' \
-        --header "Authorization: token $TRAVIS_TOKEN" \
-        --header 'Travis-API-Version: 3' \
-        --header 'Content-Type: application/json' \
-        --data '{
-            "env_var.name": "JOB_RESTARTED",
-            "env_var.value": "JOB ID $TRAVIS_JOB_ID WAS RESTARTED",
-            "env_var.public": true
-        }'
+script: java -version
 after_success:
   - |
     curl \
