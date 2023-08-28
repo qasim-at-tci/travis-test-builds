@@ -2,8 +2,7 @@ os: linux
 dist: focal
 language: shell
 env:
-  global:
-    - BAR=TRUE
+    - BAR=true
 
 addons:
   apt:
