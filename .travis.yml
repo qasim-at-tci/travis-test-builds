@@ -12,7 +12,7 @@ after_success:
   - |
     curl \
       -u "$NOTIFY_USER":"$NOTIFY_PASSWORD" \
-      -d "The build number $TRAVIS_BUILD_NUMBER for repo $TRAVIS_REPO_SLUG exited with code $TRAVIS_TEST_RESULT" https://notify.routemetodotzero.com/travis-ci
+      -d "$TRAVIS_REPO_SLUG - Build # $TRAVIS_BUILD_NUMBER | Job ID $TRAVIS_JOB_ID, exited with code $TRAVIS_TEST_RESULT" https://notify.routemetodotzero.com/travis-ci
 after_failure:
   - echo FAILED
 notifications:
