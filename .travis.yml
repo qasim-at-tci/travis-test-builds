@@ -3,7 +3,7 @@ dist: focal
 language: shell
 env:
   global:
-    - BAR=true
+    - BAR=truea
 
 addons:
   apt:
