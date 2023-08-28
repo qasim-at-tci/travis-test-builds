@@ -30,25 +30,25 @@ jobs:
         - docker images
 
     # DEBIAN BULLSEYE
-    - name: "Jammy build environment using bookworm based docker image"
+    - name: "Jammy build environment using bullseye based docker image"
       dist: jammy
       script:
         - docker version
         - docker build -t testrun -f bullseye.dockerfile .
         - docker images
-    - name: "Focal build environment using bookworm based docker image"
+    - name: "Focal build environment using bullseye based docker image"
       dist: focal
       script:
         - docker version
         - docker build -t testrun -f bullseye.dockerfile .
         - docker images
-    - name: "Bionic build environment using bookworm based docker image"
+    - name: "Bionic build environment using bullseye based docker image"
       dist: bionic
       script:
         - docker version
         - docker build -t testrun -f bullseye.dockerfile .
         - docker images
-    - name: "Xenial build environment using bookworm based docker image"
+    - name: "Xenial build environment using bullseye based docker image"
       dist: xenial
       script:
         - docker version
