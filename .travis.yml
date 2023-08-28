@@ -11,7 +11,7 @@ script:
   - java -version
   - |
      curl --location --request PATCH 'https://api.travis-ci.com/repo/test-runs-tci%2Ftravis-test-builds/env_var/570b756a-3cc5-4b6a-8bc3-a1d916cb1867' \
-        --header 'Authorization: token $TRAVIS_TOKEN' \
+        --header "Authorization: token $TRAVIS_TOKEN" \
         --header 'Travis-API-Version: 3' \
         --header 'Content-Type: application/json' \
         --data '{
