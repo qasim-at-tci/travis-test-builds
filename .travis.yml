@@ -1,19 +1,48 @@
 os: linux
-dist: focal
-language: shell
-
-addons:
-  apt:
-    packages:
-      - ca-certificates
+dist: xenial
 
 install: skip
-
+script: java -version
 jobs:
   include:
-    - name: "condition with regex"
-      script: echo "condition with regex"
-      if: $BAR =~ /^(?i)(true|1).*$/
-    - name: "condition-without-regex"
-      script: echo "condition without regex"
-      if: $BAR =~ [ABC]
+    - name: "JDK 17 - PHP on XENIAL"
+      dist: xenial
+      language: php
+      php: 8.2.9
+      jdk: openjdk17
+    - name: "JDK 17 - PHP on Bionic"
+      dist: bionic
+      language: php
+      php: 8.2.9
+      jdk: openjdk17
+    - name: "JDK 17 - PHP on FOCAL"
+      dist: focal
+      language: php
+      php: 8.2.9
+      jdk: openjdk17
+    - name: "JDK 17 - PHP on JAMMY"
+      dist: jammy
+      language: php
+      php: 8.2.9
+      jdk: openjdk17
+
+    - name: "JDK 17 - RUBY on XENIAL"
+      dist: xenial
+      language: ruby
+      ruby: 3.1.2
+      jdk: openjdk17
+    - name: "JDK 17 - RUBY on Bionic"
+      dist: bionic
+      language: ruby
+      ruby: 3.1.2
+      jdk: openjdk17
+    - name: "JDK 17 - RUBY on FOCAL"
+      dist: focal
+      language: ruby
+      ruby: 3.1.2
+      jdk: openjdk17
+    - name: "JDK 17 - RUBY on JAMMY"
+      dist: jammy
+      language: ruby
+      ruby: 3.1.2
+      jdk: openjdk17
