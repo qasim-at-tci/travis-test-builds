@@ -1,11 +1,18 @@
 os: linux
-dist: xenial
+dist: focal
+language: shell
+
+env:
+  global:
+    - BAR=true
 
 install: skip
-script: node -v
+
 jobs:
   include:
-    - name: "Hello, World!"
-      dist: focal
-      language: node_js
-      node_js: 16.20.2
+    - name: "condition with regex"
+      script: echo $BAR
+      #if: $BAR =~ /^(?i)(true|1).*$/
+    - name: "condition-without-regex"
+      script: echo $BAR
+      if: $BAR =~ [ABC]
