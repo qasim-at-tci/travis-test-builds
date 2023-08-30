@@ -16,4 +16,4 @@ jobs:
       if: $BAR =~ /^(?i)(true|1).*$/
     - name: "condition-without-regex"
       script: echo $BAR
-      if: $BAR =~ [ABC]
+      if: env(FOO) =~ [ABC]
