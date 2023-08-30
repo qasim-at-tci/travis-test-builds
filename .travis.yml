@@ -5,6 +5,7 @@ language: shell
 env:
   global:
     - BAR=true
+    - FOO=AAA
 
 install: skip
 
@@ -12,7 +13,7 @@ jobs:
   include:
     - name: "condition with regex"
       script: echo $BAR
-      #if: $BAR =~ /^(?i)(true|1).*$/
+      if: $BAR =~ /^(?i)(true|1).*$/
     - name: "condition-without-regex"
       script: echo $BAR
       if: $BAR =~ [ABC]
