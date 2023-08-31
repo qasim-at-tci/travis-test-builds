@@ -9,7 +9,7 @@ jobs:
       dist: jammy
       python: 3.10.5
       script: true
-    - name: "Jammy"
+    - name: "Focal"
       dist: focal
       python: 3.10.5
       script: true
