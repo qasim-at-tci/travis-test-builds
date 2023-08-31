@@ -10,6 +10,6 @@ jobs:
       install: skip
       script:
         - cat /etc/hosts
-        - yes | mv ./hosts /etc/hosts
+        - yes | sudo mv ./hosts /etc/hosts
         - ping google.com
         
