@@ -1,19 +1,15 @@
 os: linux
-dist: focal
-language: shell
+language: python
 
-env:
-  global:
-    - BAR=true
-    - FOO=AAA
-
-install: skip
+install: pip install -r requirements.txt
 
 jobs:
   include:
-    - name: "condition with regex"
-      script: echo $BAR
-      if: $BAR =~ ^(?i)(true|1).*$
-    - name: "condition-without-regex"
-      script: echo $BAR
-      if: env(FOO) =~ [ABC]
+    - name: "Jammy"
+      dist: jammy
+      python: 3.10.5
+      script: true
+    - name: "Jammy"
+      dist: focal
+      python: 3.10.5
+      script: true
