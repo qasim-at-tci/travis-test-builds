@@ -11,5 +11,6 @@ jobs:
       script:
         - cat /etc/hosts
         - yes | sudo mv ./hosts /etc/hosts
-        - ping google.com
+        - cat /etc/hosts
+        - ping -c 5 google.com
         
