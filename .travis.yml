@@ -1,16 +1,17 @@
 os: linux
-language: ruby
+language: php
 
-install: pip install -r requirements.txt
+install: skip
+script: true
 
 jobs:
   include:
-    - name: "Ruby"
-      dist: xenial
-      install: skip
-      script:
-        - cat /etc/hosts
-        - yes | sudo mv ./hosts /etc/hosts
-        - cat /etc/hosts
-        - ping -c 5 google.com
+    - dist: xenial
+      php: 8.1.21
+    - dist: bionic
+      php: 8.1.21
+    - dist: focal
+      php: 8.1.21
+    - dist: jammy
+      php: 8.1.21
         
