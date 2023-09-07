@@ -18,9 +18,8 @@ before_install:
  - export PATH=$ANDROID_HOME/emulator/:$PATH
  - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
-# --sdk_root=$ANDROID_HOME
 script:
- - sdkmanager --list
+ - sdkmanager --list --sdk_root=$ANDROID_HOME
  - javac -version
  - java -version
 
