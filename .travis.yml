@@ -8,7 +8,7 @@ env:
   - ANDROID_HOME=~/android
 
 before_install:
- - mkdir -p ~/android/tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - mkdir -p ~/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
  - unzip -q commandlinetools.zip -d $ANDROID_HOME/ && mv -i * $ANDROID_HOME/tools
  - export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
