@@ -3,30 +3,26 @@ dist: focal
 language: java
 jdk: openjdk11
 
-android:
- components:
-   - tools
-   - platform-tools
-   - tools
-   - extra-android-m2repository
 env:
-  global:
-    - TARGET_VERSION=30
-    - ANDROID_BUILD_TOOLS_VERSION=30.0.2
-    - ANDROID_HOME=~/android-sdk
+ global:
+  - TARGET_VERSION=30
+  - ANDROID_BUILD_TOOLS_VERSION=30.0.2
+  - ANDROID_HOME=~/android
 
 before_install:
-  - touch $HOME/.android/repositories.cfg
-  - wget "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip" -O commandlinetools.zip
-  - unzip commandlinetools.zip -d $ANDROID_HOME/
-  - export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
-  - yes | sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
-  - yes | sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
+ - mkdir -p ~/android/tools && touch $HOME/.android/repositories.cfg
+ - wget "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+ - unzip commandlinetools.zip -d $ANDROID_HOME/ && mv -i * tools
+ - export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
+ - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ - export PATH=$ANDROID_HOME/emulator/:$PATH
+ - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
+# --sdk_root=$ANDROID_HOME
 script:
-   - sdkmanager --list --sdk_root=$ANDROID_HOME
-   - javac -version
-   - java -version
+ - sdkmanager --list
+ - javac -version
+ - java -version
 
 
 after_success:
