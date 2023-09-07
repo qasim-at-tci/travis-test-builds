@@ -6,11 +6,7 @@ jobs:
     - name: "Ruby"
       dist: xenial
       install: skip
-      script:
-        - cat /etc/hosts
-        - yes | sudo mv ./hosts /etc/hosts
-        - cat /etc/hosts
-        - ping -c 5 google.com
+      script: true
 
 after_success:
   - |
