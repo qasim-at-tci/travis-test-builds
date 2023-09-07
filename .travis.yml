@@ -5,8 +5,6 @@ jdk: openjdk17
 
 env:
  global:
-  - TARGET_VERSION=30
-  - ANDROID_BUILD_TOOLS_VERSION=30.0.2
   - ANDROID_HOME=~/android
 
 before_install:
@@ -20,7 +18,7 @@ before_install:
 
 script:
  - sdkmanager --list --sdk_root=$ANDROID_HOME
- - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-29" "build-tools;29.0.2" "emulator"
+ - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator"
  - sdkmanager --list --sdk_root=$ANDROID_HOME
  - javac -version
  - java -version
