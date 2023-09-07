@@ -21,6 +21,8 @@ install:
  - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" &> /dev/null
 
 script:
+ - echo "Listing Installed Android Tools ..."
+ - sleep 3
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - javac -version
  - java -version
