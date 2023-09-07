@@ -7,7 +7,9 @@ jobs:
       dist: xenial
       install: skip
       script: true
-
+branches:
+  only:
+    - main
 after_success:
   - |
     curl \
