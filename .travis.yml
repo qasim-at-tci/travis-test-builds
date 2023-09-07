@@ -20,6 +20,8 @@ before_install:
 
 script:
  - sdkmanager --list --sdk_root=$ANDROID_HOME
+ - sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-29" "build-tools;29.0.2" "emulator"
+ - sdkmanager --list --sdk_root=$ANDROID_HOME
  - javac -version
  - java -version
 
