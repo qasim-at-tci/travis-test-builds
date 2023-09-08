@@ -21,8 +21,6 @@ install:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # Install required Android SDK's and tools
  - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64" &> /dev/null
- - ls $ANDROID_HOME
- - ls $ANDROID_HOME/sdk
  # Create emulator
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
  # Start emulator in background
@@ -36,8 +34,8 @@ script:
  - java -version
  # List available emulators
  - emulator -list-avds
- # List connected devices/emulators
- - adb devices
+ # List emulators
+ - ls ~/.android/avd
 
 
 after_success:
