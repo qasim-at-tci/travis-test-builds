@@ -26,6 +26,7 @@ script:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - javac -version
  - java -version
+ - emulator -list-avds
 
 
 after_success:
