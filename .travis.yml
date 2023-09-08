@@ -36,6 +36,7 @@ script:
  - emulator -list-avds
  # List emulators
  - ls ~/.android/avd
+ - avd status
 
 
 after_success:
