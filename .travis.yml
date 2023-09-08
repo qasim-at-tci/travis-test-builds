@@ -18,7 +18,7 @@ before_install:
  - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
- - ls $ANDROID_HOME
+ - ls ~/android
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # Install required Android SDK's and tools
  - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64" &> /dev/null
