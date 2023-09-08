@@ -6,6 +6,7 @@ jdk: openjdk17
 env:
  global:
   - ANDROID_HOME=~/android
+  - ANDROID_SDK_ROOT=~/android
 
 before_install:
  - mkdir -p ~/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
@@ -18,17 +19,21 @@ before_install:
 
 install:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ # Install required Android SDK's and tools
  - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64" &> /dev/null
+ # Create emulator
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
+ # Start emulator in background
  - emulator @my_android_30 &
 
 script:
- - echo "Listing Installed Android Tools ..."
- - sleep 3
+ # List installed SDK's and tools
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - javac -version
  - java -version
+ # List available emulators
  - emulator -list-avds
+ # List connected devices/emulators
  - adb devices
 
 
