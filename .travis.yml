@@ -25,6 +25,7 @@ install:
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
  # Start emulator in background
  - emulator @my_android_30 &
+ - sleep 30
 
 script:
  # List installed SDK's and tools
