@@ -6,7 +6,7 @@ jdk: openjdk17
 env:
  global:
   - ANDROID_HOME=~/android
-  - ANDROID_SDK_ROOT=~/android/sdk
+  - ANDROID_SDK_ROOT=~/android
 
 before_install:
  - mkdir -p ~/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
