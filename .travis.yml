@@ -9,20 +9,25 @@ env:
   - ANDROID_SDK_ROOT=$HOME/travis-tools/android
 
 before_install:
+ # For Emulator - https://stackoverflow.com/questions/52777015/cannot-start-android-emulator-on-aws-linux
+ - sudo apt-get install -y libpulse0:i386
+ # PREPARE FOR ANDROID SDK SETUP
  - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
  - unzip -q commandlinetools.zip && cd cmdline-tools
  - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
  
+ # SETUP PATH(s)
  - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
  - export PATH=$ANDROID_HOME/emulator/:$PATH
  - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
+ # INSTALL REQUIRED ANDROID SDK TOOLS
  - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis;x86_64"
+ - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis;x86_64" &>/dev/null
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- 
+ # CREATE AVD
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
  # Start emulator in background and wait for it to start
  - emulator @my_android_30 &
