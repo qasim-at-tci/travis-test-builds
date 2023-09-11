@@ -34,7 +34,7 @@ install:
  - sudo gpasswd -a $USER kvm
  - sudo chmod -R 777 /dev/kvm
  # Start emulator in background and wait for it to start
- - sudo emulator @my_android_33 &
+ - emulator @my_android_33 -no-audio -no-window &
  - sleep 90
 
 script:
