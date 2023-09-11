@@ -21,10 +21,7 @@ before_install:
 install:
  - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - yes | sdkmanager --sdk_root=$ANDROID_HOME --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator"
- #- echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
- # Start emulator in background
- #- emulator @my_android_30 &
- #- sleep 30
+
 script:
  - sleep 2
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
