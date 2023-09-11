@@ -5,17 +5,17 @@ jdk: openjdk17
 
 env:
  global:
-  - ANDROID_HOME=~/android/cmdline-tools
-  - ANDROID_SDK_ROOT=~/android/cmdline-tools
-
-## 
-##
-##
+  - ANDROID_HOME=$HOME/travis-tools/android
+  - ANDROID_SDK_ROOT=$HOME/travis-tools/android
 
 before_install:
- - mkdir -p ~/android/cmdline-tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
- - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
- - unzip -q commandlinetools.zip && mv cmdline-tools tools && mv tools $ANDROID_HOME
+ - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+ - unzip -q commandlinetools.zip && cd cmdline-tools && mkdir tools && mv -i * tools && cd $TRAVIS_BUILD_DIR
+ 
+ - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ - export PATH=$ANDROID_HOME/emulator/:$PATH
+ - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
  - $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
