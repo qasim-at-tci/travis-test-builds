@@ -8,18 +8,18 @@ env:
   - ANDROID_HOME=~/android/cmdline-tools
   - ANDROID_SDK_ROOT=~/android/cmdline-tools
 
+## 
+##
+##
+
 before_install:
  - mkdir -p ~/android/cmdline-tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
  - unzip -q commandlinetools.zip && mv cmdline-tools tools && mv tools $ANDROID_HOME
- - export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
- #- export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
- #- export PATH=$ANDROID_HOME/emulator/:$PATH
- #- export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
- - sdkmanager --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" &> /dev/null
+ - $ANDROID_HOME/tools/bin/sdkmanager --sdk_root $ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root $ANDROID_HOME --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator"
 
 script:
  - sleep 2
