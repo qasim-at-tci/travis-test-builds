@@ -3,28 +3,27 @@ dist: focal
 language: java
 jdk: openjdk17
 
-addons:
- snaps:
-  - androidsdk
+env:
+ global:
+  - ANDROID_HOME=~/android/cmdline-tools
+  - ANDROID_SDK_ROOT=~/android/cmdline-tools
+
 before_install:
- - export ANDROID_HOME=$HOME/AndroidSDK
- - export ANDROID_SDK_HOME=$HOME/AndroidSDK
- 
+ - mkdir -p ~/android/cmdline-tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+ - unzip -q commandlinetools.zip && mv cmdline-tools tools && mv tools $ANDROID_HOME
+ - export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+ #- export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ #- export PATH=$ANDROID_HOME/emulator/:$PATH
+ #- export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
- - androidsdk --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- # Install required Android SDK's and tools
- - yes | androidsdk "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64"
- # Create emulator
- - androidsdk --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - echo "no" | $ANDROID_HOME/tools/bin/avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
- # Start emulator in background
- - emulator @my_android_30 &
- - sleep 30
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" &> /dev/null
 
 script:
- # List installed SDK's and tools
- - androidsdk --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - sleep 2
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - javac -version
  - java -version
 
