@@ -9,8 +9,10 @@ env:
   - ANDROID_SDK_ROOT=$HOME/travis-tools/android
 
 before_install:
- # For Emulator - https://stackoverflow.com/questions/52777015/cannot-start-android-emulator-on-aws-linux
- - sudo apt-get install -y pulseaudio libx11-xcb1
+ - wget -qO- https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo tee /etc/apt/trusted.gpg.d/lunarg.asc
+ - sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
+ - sudo apt update
+ - sudo apt install -y vulkan-sdk pulseaudio libx11-xcb1
  # PREPARE FOR ANDROID SDK SETUP
  - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
