@@ -25,11 +25,10 @@ before_install:
 install:
  # INSTALL REQUIRED ANDROID SDK TOOLS
  - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis;x86_64"
+ - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis;arm64-v8a"
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # CREATE AVD
- - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
- - - sudo adduser `id -un` kvm
+ - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis;arm64-v8a" --tag "google_apis" --abi "arm64-v8a"
  # Start emulator in background and wait for it to start
  - emulator @my_android_30 &
  - sleep 90
