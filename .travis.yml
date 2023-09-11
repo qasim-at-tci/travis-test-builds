@@ -37,7 +37,6 @@ install:
 
 script:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - cat /proc/cpuinfo
  - javac -version
  - java -version
  - adb devices
