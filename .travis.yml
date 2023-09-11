@@ -30,6 +30,7 @@ install:
  # CREATE AVD
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_33" --package "system-images;android-33;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
  - sudo gpasswd -a $USER kvm
+ - orig=$(id -g) && newgrp kvm && exit && newgrp $orig && exit
  # Start emulator in background and wait for it to start
  - emulator @my_android_33 &
  - sleep 90
