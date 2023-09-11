@@ -30,8 +30,9 @@ install:
  - sudo chmod -R 777 /dev/kvm
  # Start emulator in background and wait for it to start
  - adb kill-server && adb start-server & &> /dev/null
+ - sleep 15
  - emulator @my_android_33 -no-audio -no-window & &> /dev/null
- - sleep 90
+ - sleep 60
 
 script:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
