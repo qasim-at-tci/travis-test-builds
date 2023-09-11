@@ -3,9 +3,6 @@ dist: focal
 language: java
 jdk: openjdk17
 
-cache:
- directories:
-  - $HOME/travis-tools/android
 env:
  global:
   - ANDROID_HOME=$HOME/travis-tools/android
