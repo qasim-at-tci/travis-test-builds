@@ -1,15 +1,55 @@
-language: android
 os: linux
-dist: trusty
-android:
-  components:
-    - build-tools-26.0.2
-    - android-26
-    - add-on
-    - extra
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
-install: skip
-script: cat /proc/cpuinfo
+dist: focal
+language: java
+jdk: openjdk17
+
+cache:
+ directories:
+  - $HOME/travis-tools/android
+env:
+ global:
+  - ANDROID_HOME=$HOME/travis-tools/android
+  - ANDROID_SDK_ROOT=$HOME/travis-tools/android
+
+before_install:
+ # For Emulator - https://stackoverflow.com/questions/52777015/cannot-start-android-emulator-on-aws-linux
+ - sudo apt-get install -y pulseaudio
+ # PREPARE FOR ANDROID SDK SETUP
+ - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+ - unzip -q commandlinetools.zip && cd cmdline-tools
+ - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
+ 
+ # SETUP PATH(s)
+ - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ - export PATH=$ANDROID_HOME/emulator/:$PATH
+ - export PATH=$ANDROID_HOME/platform-tools/:$PATH
+
+install:
+ # INSTALL REQUIRED ANDROID SDK TOOLS
+ - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" "emulator" "system-images;android-33;google_apis;x86_64"
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ # CREATE AVD
+ - echo "no" | avdmanager --verbose create avd --force --name "my_android_33" --package "system-images;android-33;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
+ # Start emulator in background and wait for it to start
+ - emulator @my_android_33 &
+ - sleep 90
+
+script:
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - cat /proc/cpuinfo
+ - javac -version
+ - java -version
+ - adb devices
+
+after_success:
+  - |
+    curl \
+      -u "$NOTIFY_USER":"$NOTIFY_PASSWORD" \
+      -d "The build number $TRAVIS_BUILD_NUMBER for repo $TRAVIS_REPO_SLUG exited with code $TRAVIS_TEST_RESULT" https://notify.routemetodotzero.com/travis-ci
+after_failure:
+  - echo FAILED
+notifications:
+  slack:
+    secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
