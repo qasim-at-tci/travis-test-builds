@@ -18,7 +18,7 @@ before_install:
  #- export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
- - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - sdkmanager --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  - yes | sdkmanager --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" &> /dev/null
 
 script:
