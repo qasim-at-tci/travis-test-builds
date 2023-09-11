@@ -18,8 +18,8 @@ before_install:
  - unzip -q commandlinetools.zip && mv cmdline-tools tools && mv tools $ANDROID_HOME
 
 install:
- - $ANDROID_HOME/tools/bin/sdkmanager --sdk_root $ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root $ANDROID_HOME --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator"
+ - $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --install --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator"
 
 script:
  - sleep 2
