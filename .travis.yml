@@ -29,7 +29,7 @@ install:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # CREATE AVD
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
- - sudo gpasswd -a $USER kvm && exec $SHELL
+ - - sudo adduser `id -un` kvm
  # Start emulator in background and wait for it to start
  - emulator @my_android_30 &
  - sleep 90
