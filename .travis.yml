@@ -3,8 +3,10 @@ dist: focal
 language: java
 jdk: openjdk17
 
+addons:
+ snaps:
+  - androidsdk
 before_install:
- - sudo snap install androidsdk
  - export ANDROID_HOME=$HOME/AndroidSDK
  - export ANDROID_SDK_HOME=$HOME/AndroidSDK
  
