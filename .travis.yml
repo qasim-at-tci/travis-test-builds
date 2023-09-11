@@ -3,22 +3,22 @@ dist: focal
 language: java
 jdk: openjdk17
 
-env:
- global:
-  - ANDROID_HOME=~/android
-  - ANDROID_AVD_HOME=~/.android/avd
-
 before_install:
- - mkdir ~/android && mkdir ~/android/cmdline-tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - mkdir ~/android-sdk && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
- ### TODO
+ 
+ - mkdir -p $ANDROID_HOME/cmdline-tools
  - unzip -q commandlinetools.zip -d $ANDROID_HOME/cmdline-tools
  - mv $ANDROID_HOME/cmdline-tools/tools $ANDROID_HOME/cmdline-tools/
  ### TODO
- - export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
- - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
- - export PATH=$ANDROID_HOME/emulator/:$PATH
- - export PATH=$ANDROID_HOME/platform-tools/:$PATH
+ #- export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
+ #- export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ #- export PATH=$ANDROID_HOME/emulator/:$PATH
+ #- export PATH=$ANDROID_HOME/platform-tools/:$PATH
+
+ - export ANDROID_HOME=~/android-sdk/cmdline-tools
+ - export PATH=$PATH:$ANDROID_HOME/tools/bin
+ - export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 install:
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
