@@ -4,19 +4,17 @@ language: java
 jdk: openjdk17
 
 before_install:
- - mkdir ~/android-sdk && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - mkdir -p ~/android-sdk/cmdline-tools && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
- 
- - mkdir -p $ANDROID_HOME/cmdline-tools
+ - export ANDROID_HOME=~/android-sdk/cmdline-tools
  - unzip -q commandlinetools.zip -d $ANDROID_HOME/cmdline-tools
- - mv $ANDROID_HOME/cmdline-tools/tools $ANDROID_HOME/cmdline-tools/
+ #- mv $ANDROID_HOME/cmdline-tools/tools $ANDROID_HOME/cmdline-tools/
  ### TODO
  #- export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
  #- export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
  #- export PATH=$ANDROID_HOME/emulator/:$PATH
  #- export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
- - export ANDROID_HOME=~/android-sdk/cmdline-tools
  - export PATH=$PATH:$ANDROID_HOME/tools/bin
  - export PATH=$PATH:$ANDROID_HOME/platform-tools
 
