@@ -14,7 +14,7 @@ before_install:
 install:
  - androidsdk --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # Install required Android SDK's and tools
- - yes | androidsdk "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64" &> /dev/null
+ - yes | androidsdk "platform-tools" "platforms;android-30" "build-tools;30.0.2" "emulator" "system-images;android-30;google_apis_playstore;x86_64"
  # Create emulator
  - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
  # Start emulator in background
