@@ -10,7 +10,7 @@ env:
 
 before_install:
  # For Emulator - https://stackoverflow.com/questions/52777015/cannot-start-android-emulator-on-aws-linux
- - sudo apt-get install -y pulseaudio
+ - sudo apt-get install -y pulseaudio libx11-xcb1
  # PREPARE FOR ANDROID SDK SETUP
  - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
