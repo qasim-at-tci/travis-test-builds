@@ -1,5 +1,4 @@
 os: linux
-dist: focal
 language: java
 jdk: openjdk17
 
@@ -39,7 +38,11 @@ script:
  - javac -version
  - java -version
  - adb devices
-
+jobs:
+ include:
+  - dist: bionic
+  - dist: focal
+  - dist: jammy
 after_success:
   - |
     curl \
