@@ -26,7 +26,7 @@ install:
  - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" "emulator" "system-images;android-33;google_apis;x86_64"
  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
  # CREATE AVD
- - no | avdmanager --verbose create avd --force --name "my_android_33" --package "system-images;android-33;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
+ - echo "no" | avdmanager --verbose create avd --force --name "my_android_33" --package "system-images;android-33;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
  - sudo chmod -R 777 /dev/kvm
  # Start emulator in background and wait for it to start
  - adb kill-server && adb start-server &
