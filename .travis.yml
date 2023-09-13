@@ -38,6 +38,7 @@ script:
  - javac -version
  - java -version
  - adb devices
+ - adb install ./app.apk
 
 after_success:
   - |
