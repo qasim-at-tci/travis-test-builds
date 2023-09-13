@@ -10,4 +10,4 @@ cache:
 
 before_install:
   - mvn clean install -DskipTests=true
-script: true
+script: java -cp target/hello-world-1.0.0.jar helloworld.HelloWorld
