@@ -32,7 +32,6 @@ install:
  - adb kill-server && adb start-server
  - emulator -avd my_android_33 -no-audio -no-window -no-snapshot-load &
  - sudo chmod +x ./android-wait-for-emulator && ./android-wait-for-emulator
- - adb shell input keyevent 82 &
  - sleep 30
 
 script:
