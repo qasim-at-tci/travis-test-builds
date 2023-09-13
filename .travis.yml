@@ -30,7 +30,7 @@ install:
  - sudo chmod -R 777 /dev/kvm
  # Start emulator in background and wait for it to start
  - adb kill-server && adb start-server
- - emulator @my_android_33 -no-audio -no-window &
+ - emulator @my_android_33 -no-audio -no-window -no-snapshot-load &
  - sleep 60
 
 script:
