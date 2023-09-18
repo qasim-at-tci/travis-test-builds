@@ -1,17 +1,16 @@
 # TEST RUN
 os: linux
-language: ruby
+language: node_js
+node_js: 18
 
 jobs:
   include:
     - name: "Ruby"
-      dist: xenial
-      install: skip
-      script: true
-branches:
-  only:
-    - minimal-build-check
-    - main
+      dist: focal
+      install:
+        - npm install sfdx-cli --global
+      script:
+        - sfdx --version
 after_success:
   - |
     curl \
