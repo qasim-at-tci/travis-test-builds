@@ -5,8 +5,7 @@ node_js: 18
 
 jobs:
   include:
-    - name: "Ruby"
-      dist: focal
+    - dist: focal
       install:
         - npm install sfdx-cli --global
       script:
