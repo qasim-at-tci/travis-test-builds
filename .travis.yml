@@ -8,6 +8,8 @@ jobs:
     - dist: focal
       install:
         - npm install sfdx-cli --global
+        - sfdx plugins --core
+        - sfdx plugins:update
       script:
         - sfdx --version
 after_success:
