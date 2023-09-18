@@ -1,13 +1,14 @@
 ##
 os: linux
-dist: jammy
-language: java
+dist: focal
+language: node_js
+node_js: 18
 install: skip
 script: true
 
 jobs:
   include:
-    - arch: amd64
+    #- arch: amd64
     - arch: arm64
     - arch: s390x
     - arch: ppc64le
