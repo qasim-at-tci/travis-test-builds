@@ -1,17 +1,16 @@
 # TEST RUN
 os: linux
-language: node_js
-node_js: 18
+language: shell
+services:
+  - redis-server
 
 jobs:
   include:
-    - dist: focal
-      install:
-        - npm install sfdx-cli --global
-        - sfdx plugins --core
-        - sfdx plugins:update
+    - dist: jammy
+      install: skip
       script:
-        - sfdx --version
+        - redis-cli ping
+        - sleep 2
 
 notifications:
   slack:
