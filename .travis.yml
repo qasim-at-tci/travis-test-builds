@@ -1,32 +1,34 @@
 # TEST RUN
 os: linux
 
+addons:
+  apt:
+    update: true
+    packages:
+      - redis
 jobs:
   include:
     - dist: jammy
       language: shell
-      services:
-        - redis-server
       install: skip
       script:
         - redis-server -v
+        - redis-cli ping
         - sleep 2
     - dist: jammy
       language: ruby
-      services:
-        - redis-server
       install: skip
       script:
         - redis-server -v
+        - redis-cli ping
         - sleep 2
     - dist: jammy
       language: node_js
       node_js: 18
-      services:
-        - redis-server
       install: skip
       script:
         - redis-server -v
+        - redis-cli ping
         - sleep 2
 
 notifications:
