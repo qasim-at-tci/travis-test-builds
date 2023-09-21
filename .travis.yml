@@ -1,12 +1,25 @@
 # TEST RUN
 os: linux
-language: shell
 services:
   - redis-server
 
 jobs:
   include:
     - dist: jammy
+      language: shell
+      install: skip
+      script:
+        - redis-cli ping
+        - sleep 2
+    - dist: jammy
+      language: ruby
+      install: skip
+      script:
+        - redis-cli ping
+        - sleep 2
+    - dist: jammy
+      language: node_js
+      node_js: 18
       install: skip
       script:
         - redis-cli ping
