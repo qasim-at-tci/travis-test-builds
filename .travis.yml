@@ -4,6 +4,8 @@ os: linux
 dist: focal
 language: node_js
 
+before_install:
+  - echo "node-options=--max_old_space_size=4096" >> ~/.npmrc
 script: sleep 1
 
 jobs:
