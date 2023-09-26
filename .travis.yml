@@ -1,7 +1,13 @@
-import:
-  - source: test-runs-tci/travis-test-builds:travis_import.yml@minimal-build-check
-    mode: deep_merge_prepend
-    
-before_install:
-  - git --version
-  - sleep 2
+os: linux
+dist: focal
+language: node_js
+node_js: 18
+
+script: sleep 1
+
+jobs:
+  include:
+    - arch: amd64
+    - arch: s390x
+    - arch: ppc64le
+    - arch: arm64
