@@ -3,7 +3,9 @@ dist: focal
 language: node_js
 node_js: 18
 
-install: yarn --frozen-lockfile --verbose
+install:
+  - export NODE_OPTIONS="--dns-result-order=ipv4first"
+  - yarn --frozen-lockfile --verbose
 script: sleep 1
 
 jobs:
