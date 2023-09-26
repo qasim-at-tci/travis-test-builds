@@ -3,6 +3,7 @@ dist: focal
 language: node_js
 node_js: 18
 
+install: yarn --frozen-lockfile --verbose
 script: sleep 1
 
 jobs:
