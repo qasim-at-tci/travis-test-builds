@@ -8,7 +8,10 @@ node_js: 18
 #    - NODE_OPTIONS="--dns-result-order=ipv4first"
 
 before_install:
-  - ip -6 addr
+  - cat /sys/module/ipv6/parameters/disable
+  - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+  - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+  - cat /sys/module/ipv6/parameters/disable
 script: sleep 1
 
 jobs:
