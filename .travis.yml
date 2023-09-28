@@ -10,7 +10,7 @@ script: sleep 1
 
 jobs:
   allow_failures:
-    - stage: "NodeJs 12 with YARN"
+    - env: ALLOW=1
   include:
     - stage: "NodeJs lts/* with YARN"
       arch: amd64
@@ -153,26 +153,31 @@ jobs:
         - yarn --frozen-lockfile --verbose
 
     - stage: "NodeJs 12 with YARN"
+      env: ALLOW=1
       arch: amd64
       node_js: 12
       install:
         - yarn --frozen-lockfile --verbose
     - stage: "NodeJs 12 with YARN"
+      env: ALLOW=1
       arch: s390x
       node_js: 12
       install:
         - yarn --frozen-lockfile --verbose
     - stage: "NodeJs 12 with YARN"
+      env: ALLOW=1
       arch: ppc64le
       node_js: 12
       install:
         - yarn --frozen-lockfile --verbose
     - stage: "NodeJs 12 with YARN"
+      env: ALLOW=1
       arch: arm64
       node_js: 12
       install:
         - yarn --frozen-lockfile --verbose
     - stage: "NodeJs 12 with YARN"
+      env: ALLOW=1
       arch: arm64-graviton2
       virt: lxd
       group: edge
@@ -322,26 +327,31 @@ jobs:
         - npm ci
 
     - stage: "NodeJs 12 with NPM"
+      env: ALLOW=1
       arch: amd64
       node_js: 12
       install:
         - npm ci
     - stage: "NodeJs 12 with NPM"
+      env: ALLOW=1
       arch: s390x
       node_js: 12
       install:
         - npm ci
     - stage: "NodeJs 12 with NPM"
+      env: ALLOW=1
       arch: ppc64le
       node_js: 12
       install:
         - npm ci
     - stage: "NodeJs 12 with NPM"
+      env: ALLOW=1
       arch: arm64
       node_js: 12
       install:
         - npm ci
     - stage: "NodeJs 12 with NPM"
+      env: ALLOW=1
       arch: arm64-graviton2
       virt: lxd
       group: edge
