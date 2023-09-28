@@ -1,62 +1,236 @@
 os: linux
 dist: focal
 language: node_js
-node_js: 18
 
-#env:
-#  global:
-#    - NODE_OPTIONS="--dns-result-order=ipv4first"
+env:
+  global:
+    - NODE_OPTIONS="--dns-result-order=ipv4first"
 
-before_install:
-  - cat /sys/module/ipv6/parameters/disable
-  - ping -c 5 ipv4.google.com
-  - ping -c 5 ipv6.google.com
 script: sleep 1
 
 jobs:
   include:
-    - arch: amd64
-      name: "YARN"
+    - stage: "NodeJs lts/* with YARN"
+      arch: amd64
+      node_js: lts/*
       install:
         - yarn --frozen-lockfile --verbose
-    - arch: s390x
-      name: "YARN"
+    - stage: "NodeJs lts/* with YARN"
+      arch: s390x
+      node_js: lts/*
       install:
         - yarn --frozen-lockfile --verbose
-    - arch: ppc64le
-      name: "YARN"
+    - stage: "NodeJs lts/* with YARN"
+      arch: ppc64le
+      node_js: lts/*
       install:
         - yarn --frozen-lockfile --verbose
-    - arch: arm64
-      name: "YARN"
+    - stage: "NodeJs lts/* with YARN"
+      arch: arm64
+      node_js: lts/*
       install:
         - yarn --frozen-lockfile --verbose
-    - arch: arm64-graviton2
+    - stage: "NodeJs lts/* with YARN"
+      arch: arm64-graviton2
       virt: lxd
       group: edge
-      name: "YARN"
+      node_js: lts/*
       install:
         - yarn --frozen-lockfile --verbose
 
-    - arch: amd64
-      name: "NPM"
+    - stage: "NodeJs stable with YARN"
+      arch: amd64
+      node_js: node
       install:
-        - npm ci
-    - arch: s390x
-      name: "NPM"
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs stable with YARN"
+      arch: s390x
+      node_js: node
       install:
-        - npm ci
-    - arch: ppc64le
-      name: "NPM"
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs stable with YARN"
+      arch: ppc64le
+      node_js: node
       install:
-        - npm ci
-    - arch: arm64
-      name: "NPM"
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs stable with YARN"
+      arch: arm64
+      node_js: node
       install:
-        - npm ci
-    - arch: arm64-graviton2
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs stable with YARN"
+      arch: arm64-graviton2
       virt: lxd
       group: edge
-      name: "YARN"
+      node_js: node
+      install:
+        - yarn --frozen-lockfile --verbose
+
+    - stage: "NodeJs 18 with YARN"
+      arch: amd64
+      node_js: 18
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 18 with YARN"
+      arch: s390x
+      node_js: 18
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 18 with YARN"
+      arch: ppc64le
+      node_js: 18
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 18 with YARN"
+      arch: arm64
+      node_js: 18
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 18 with YARN"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 18
+      install:
+        - yarn --frozen-lockfile --verbose
+
+    - stage: "NodeJs 16 with YARN"
+      arch: amd64
+      node_js: 16
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 16 with YARN"
+      arch: s390x
+      node_js: 16
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 16 with YARN"
+      arch: ppc64le
+      node_js: 16
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 16 with YARN"
+      arch: arm64
+      node_js: 16
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 16 with YARN"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 16
+      install:
+        - yarn --frozen-lockfile --verbose
+
+    # NPM
+    - stage: "NodeJs lts/* with NPM"
+      arch: amd64
+      node_js: lts/*
+      install:
+        - npm ci
+    - stage: "NodeJs lts/* with NPM"
+      arch: s390x
+      node_js: lts/*
+      install:
+        - npm ci
+    - stage: "NodeJs lts/* with NPM"
+      arch: ppc64le
+      node_js: lts/*
+      install:
+        - npm ci
+    - stage: "NodeJs lts/* with NPM"
+      arch: arm64
+      node_js: lts/*
+      install:
+        - npm ci
+    - stage: "NodeJs lts/* with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: lts/*
+      install:
+        - npm ci
+
+    - stage: "NodeJs stable with NPM"
+      arch: amd64
+      node_js: node
+      install:
+        - npm ci
+    - stage: "NodeJs stable with NPM"
+      arch: s390x
+      node_js: node
+      install:
+        - npm ci
+    - stage: "NodeJs stable with NPM"
+      arch: ppc64le
+      node_js: node
+      install:
+        - npm ci
+    - stage: "NodeJs stable with NPM"
+      arch: arm64
+      node_js: node
+      install:
+        - npm ci
+    - stage: "NodeJs stable with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: node
+      install:
+        - npm ci
+
+    - stage: "NodeJs 18 with NPM"
+      arch: amd64
+      node_js: 18
+      install:
+        - npm ci
+    - stage: "NodeJs 18 with NPM"
+      arch: s390x
+      node_js: 18
+      install:
+        - npm ci
+    - stage: "NodeJs 18 with NPM"
+      arch: ppc64le
+      node_js: 18
+      install:
+        - npm ci
+    - stage: "NodeJs 18 with NPM"
+      arch: arm64
+      node_js: 18
+      install:
+        - npm ci
+    - stage: "NodeJs 18 with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 18
+      install:
+        - npm ci
+
+    - stage: "NodeJs 16 with NPM"
+      arch: amd64
+      node_js: 16
+      install:
+        - npm ci
+    - stage: "NodeJs 16 with NPM"
+      arch: s390x
+      node_js: 16
+      install:
+        - npm ci
+    - stage: "NodeJs 16 with NPM"
+      arch: ppc64le
+      node_js: 16
+      install:
+        - npm ci
+    - stage: "NodeJs 16 with NPM"
+      arch: arm64
+      node_js: 16
+      install:
+        - npm ci
+    - stage: "NodeJs 16 with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 16
       install:
         - npm ci
