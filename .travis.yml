@@ -32,6 +32,7 @@ jobs:
       install:
         - yarn --frozen-lockfile --verbose
     - arch: arm64-graviton2
+      virt: lxd
       group: edge
       name: "YARN"
       install:
@@ -54,6 +55,7 @@ jobs:
       install:
         - npm ci
     - arch: arm64-graviton2
+      virt: lxd
       group: edge
       name: "YARN"
       install:
