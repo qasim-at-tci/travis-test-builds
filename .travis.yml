@@ -122,6 +122,62 @@ jobs:
       install:
         - yarn --frozen-lockfile --verbose
 
+    - stage: "NodeJs 14 with YARN"
+      arch: amd64
+      node_js: 14
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 14 with YARN"
+      arch: s390x
+      node_js: 14
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 14 with YARN"
+      arch: ppc64le
+      node_js: 14
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 14 with YARN"
+      arch: arm64
+      node_js: 14
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 14 with YARN"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 14
+      install:
+        - yarn --frozen-lockfile --verbose
+
+    - stage: "NodeJs 12 with YARN"
+      arch: amd64
+      node_js: 12
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 12 with YARN"
+      arch: s390x
+      node_js: 12
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 12 with YARN"
+      arch: ppc64le
+      node_js: 12
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 12 with YARN"
+      arch: arm64
+      node_js: 12
+      install:
+        - yarn --frozen-lockfile --verbose
+    - stage: "NodeJs 12 with YARN"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 12
+      install:
+        - yarn --frozen-lockfile --verbose
+
     # NPM
     - stage: "NodeJs lts/* with NPM"
       arch: amd64
@@ -232,5 +288,61 @@ jobs:
       virt: lxd
       group: edge
       node_js: 16
+      install:
+        - npm ci
+
+    - stage: "NodeJs 14 with NPM"
+      arch: amd64
+      node_js: 16
+      install:
+        - npm ci
+    - stage: "NodeJs 14 with NPM"
+      arch: s390x
+      node_js: 14
+      install:
+        - npm ci
+    - stage: "NodeJs 14 with NPM"
+      arch: ppc64le
+      node_js: 14
+      install:
+        - npm ci
+    - stage: "NodeJs 14 with NPM"
+      arch: arm64
+      node_js: 14
+      install:
+        - npm ci
+    - stage: "NodeJs 14 with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 14
+      install:
+        - npm ci
+
+    - stage: "NodeJs 12 with NPM"
+      arch: amd64
+      node_js: 12
+      install:
+        - npm ci
+    - stage: "NodeJs 12 with NPM"
+      arch: s390x
+      node_js: 12
+      install:
+        - npm ci
+    - stage: "NodeJs 12 with NPM"
+      arch: ppc64le
+      node_js: 12
+      install:
+        - npm ci
+    - stage: "NodeJs 12 with NPM"
+      arch: arm64
+      node_js: 12
+      install:
+        - npm ci
+    - stage: "NodeJs 12 with NPM"
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      node_js: 12
       install:
         - npm ci
