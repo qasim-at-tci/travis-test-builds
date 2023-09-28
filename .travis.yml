@@ -9,9 +9,8 @@ node_js: 18
 
 before_install:
   - cat /sys/module/ipv6/parameters/disable
-  - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-  - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-  - cat /sys/module/ipv6/parameters/disable
+  - ping -c 5 ipv4.google.com
+  - ping -c 5 ipv6.google.com
 script: sleep 1
 
 jobs:
