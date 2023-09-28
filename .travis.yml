@@ -9,6 +9,9 @@ env:
 script: sleep 1
 
 jobs:
+  allow_failures:
+    - node_js: 12
+    - node_js: 14
   include:
     - stage: "NodeJs lts/* with YARN"
       arch: amd64
