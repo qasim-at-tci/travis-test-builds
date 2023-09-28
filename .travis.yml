@@ -31,6 +31,11 @@ jobs:
       name: "YARN"
       install:
         - yarn --frozen-lockfile --verbose
+    - arch: arm64-graviton2
+      group: edge
+      name: "YARN"
+      install:
+        - yarn --frozen-lockfile --verbose
 
     - arch: amd64
       name: "NPM"
@@ -46,5 +51,10 @@ jobs:
         - npm ci
     - arch: arm64
       name: "NPM"
+      install:
+        - npm ci
+    - arch: arm64-graviton2
+      group: edge
+      name: "YARN"
       install:
         - npm ci
