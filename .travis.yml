@@ -3,9 +3,9 @@ dist: focal
 language: node_js
 node_js: 18
 
-#env:
-#  global:
-#    - NODE_OPTIONS="--dns-result-order=ipv4first"
+env:
+  global:
+    - NODE_OPTIONS="--dns-result-order=ipv4first"
 
 script: sleep 1
 
