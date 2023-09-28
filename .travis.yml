@@ -3,14 +3,44 @@ dist: focal
 language: node_js
 node_js: 18
 
-install:
-  - export NODE_OPTIONS="--dns-result-order=ipv4first"
-  - yarn --frozen-lockfile --verbose
+#env:
+#  global:
+#    - NODE_OPTIONS="--dns-result-order=ipv4first"
+
 script: sleep 1
 
 jobs:
   include:
     - arch: amd64
+      name: "YARN"
+      install:
+        - yarn --frozen-lockfile --verbose
     - arch: s390x
+      name: "YARN"
+      install:
+        - yarn --frozen-lockfile --verbose
     - arch: ppc64le
+      name: "YARN"
+      install:
+        - yarn --frozen-lockfile --verbose
     - arch: arm64
+      name: "YARN"
+      install:
+        - yarn --frozen-lockfile --verbose
+
+    - arch: amd64
+      name: "NPM"
+      install:
+        - npm ci
+    - arch: s390x
+      name: "NPM"
+      install:
+        - npm ci
+    - arch: ppc64le
+      name: "NPM"
+      install:
+        - npm ci
+    - arch: arm64
+      name: "NPM"
+      install:
+        - npm ci
