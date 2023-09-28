@@ -8,8 +8,8 @@ node_js: 18
 #    - NODE_OPTIONS="--dns-result-order=ipv4first"
 
 before_install:
-  - ip a
-  - cat /sys/module/ipv6/parameters/disable # 0 if ipv6 is enabled
+  - npm i -g npm@latest
+  - npm i -g yarn@latest
 script: sleep 1
 
 jobs:
