@@ -10,6 +10,7 @@ deploy:
   runtime: "nodejs18.x"
   function_name: "helloworldfunc"
   handler_name: "helloworld"
+  role: "qasim"
   edge:
     source: travis-ci/dpl
     branch: qa-add-lambda-runtime
