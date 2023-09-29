@@ -11,6 +11,7 @@ deploy:
     source: travis-ci/dpl
     branch: qa-add-lambda-runtime
     runtime: "nodejs18"
+    function_name: "helloworldfunc"
     handler_name: "helloworld"
   on:
     branch: minimal-build-check
