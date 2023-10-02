@@ -1,5 +1,5 @@
 dist: focal
-group: travis_lts # Where?
+# group: travis_lts # Where?
 language: ruby
 cache:
   - bundler
