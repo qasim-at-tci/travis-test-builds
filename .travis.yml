@@ -1,21 +1,72 @@
-os: linux
 dist: focal
-language: node_js
-node_js: 18
+group: travis_lts # Where?
+language: ruby
+cache:
+  - bundler
+  - yarn
+  - vendor/lib
+services:
+  - mysql
+  - xvfb
+addons:
+  # chrome: stable # pulls in latest chrome version
+  apt:
+    packages:
+      - wkhtmltopdf
+      - jq
+      - awscli
+      #- chromium-chromedriver # installs whatever version of chromedriver is in the apt repo
+git:
+  submodules: false
 
-script: sleep 1
+env:
+  global:
+    - BALANCE_ROOT=`pwd`
+    - BUNDLE_JOBS=3
+    - BUNDLE_WITHOUT=development:production
+    - BUNDLE_MDSOL__JFROG__IO=$ARTIFACTORY_ACCOUNT_NAME:$ARTIFACTORY_ACCESS_TOKEN
+    - CC_BUILD_ARTIFACTS=${BALANCE_ROOT}/build.${TRAVIS_JOB_NUMBER}
+    - CI_NODE_TOTAL=30
+    - SUCCESS=0
+    - YES=0
+    - FAILURE=1
+    - NO=1
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+    - CI_NODE_INDEX=2
+    - CI_NODE_INDEX=3
+    - CI_NODE_INDEX=4
+    - CI_NODE_INDEX=5
+    - CI_NODE_INDEX=6
+    - CI_NODE_INDEX=7
+    - CI_NODE_INDEX=8
+    - CI_NODE_INDEX=9
+    - CI_NODE_INDEX=10
+    - CI_NODE_INDEX=11
+    - CI_NODE_INDEX=12
+    - CI_NODE_INDEX=13
+    - CI_NODE_INDEX=14
+    - CI_NODE_INDEX=15
+    - CI_NODE_INDEX=16
+    - CI_NODE_INDEX=17
+    - CI_NODE_INDEX=18
+    - CI_NODE_INDEX=19
+    - CI_NODE_INDEX=20
+    - CI_NODE_INDEX=21
+    - CI_NODE_INDEX=22
+    - CI_NODE_INDEX=23
+    - CI_NODE_INDEX=24
+    - CI_NODE_INDEX=25
+    - CI_NODE_INDEX=26
+    - CI_NODE_INDEX=27
+    - CI_NODE_INDEX=28
+    - CI_NODE_INDEX=29
 
-deploy:
-  provider: lambda
-  runtime: "nodejs18.x"
-  function_name: "helloworldfunc"
-  handler_name: "helloworld"
-  role: "arn:aws:iam::966778898161:user/qasim"
-  edge:
-    source: travis-ci/dpl
-    branch: qa-add-lambda-runtime
-  on:
-    branch: minimal-build-check
+before_script:
+  - sleep 1
+script: true
+
 notifications:
   slack:
     secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
