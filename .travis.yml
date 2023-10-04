@@ -7,33 +7,12 @@ install: skip
 jobs:
   include:
     - stage: NO-REDIRECTION
-      arch: amd64
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh
-    - stage: NO-REDIRECTION
-      arch: arm64
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh
-    - stage: NO-REDIRECTION
       arch: s390x
       script:
         - chmod +x hello.sh
         - ./hello.sh 
-    - stage: NO-REDIRECTION
-      arch: ppc64le
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh
-
     - stage: REDIRECTION-TO-DEV_NULL
-      arch: amd64
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh 2>&1 /dev/null
-    - stage: REDIRECTION-TO-DEV_NULL
-      arch: arm64
+      arch: s390x
       script:
         - chmod +x hello.sh
         - ./hello.sh 2>&1 /dev/null
@@ -41,35 +20,7 @@ jobs:
       arch: s390x
       script:
         - chmod +x hello.sh
-        - ./hello.sh  > /dev/null
-    - stage: REDIRECTION-TO-DEV_NULL
-      arch: ppc64le
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh 2>&1 /dev/null
-
-    - stage: REDIRECTION-TO-FILE
-      arch: amd64
-      before_script:
-        - touch output.txt
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh > output.txt
-      after_failure:
-        - cat output.txt
-      after_success:
-        - cat output.txt
-    - stage: REDIRECTION-TO-FILE
-      arch: arm64
-      before_script:
-        - touch output.txt
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh > output.txt
-      after_failure:
-        - cat output.txt
-      after_success:
-        - cat output.txt
+        - ./hello.sh 2> /dev/null
     - stage: REDIRECTION-TO-FILE
       arch: s390x
       before_script:
@@ -81,15 +32,5 @@ jobs:
         - cat output.txt
       after_success:
         - cat output.txt
-    - stage: REDIRECTION-TO-FILE
-      arch: ppc64le
-      before_script:
-        - touch output.txt
-      script:
-        - chmod +x hello.sh
-        - ./hello.sh > output.txt
-      after_failure:
-        - cat output.txt
-      after_success:
-        - cat output.txt
+
     
