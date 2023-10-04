@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -o xtrace
-
 docker pull nginx
 docker run -d -p 8080:80 nginx
 ping -c3 travis-ci.com
