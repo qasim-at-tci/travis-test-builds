@@ -10,12 +10,14 @@ jobs:
       arch: s390x
       script:
         - chmod +x hello.sh
-        - ./hello.sh 
+        - ./hello.sh
+        - cat test.log
     - stage: REDIRECTION-TO-DEV_NULL
       arch: s390x
       script:
         - chmod +x hello.sh
         - ./hello.sh >> /dev/null 2>&1
+        - cat test.log
     - stage: REDIRECTION-TO-FILE
       arch: s390x
       before_script:
@@ -23,6 +25,7 @@ jobs:
       script:
         - chmod +x hello.sh
         - ./hello.sh >> output.txt 2>&1
+        - cat test.log
       after_failure:
         - cat output.txt
       after_success:
