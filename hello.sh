@@ -1,5 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/testdouble/baizen.git baizen
+docker pull nginx
+docker run -d -p 8080:80 nginx
+curl -I http://localhost:8080
 
-sleep 15
