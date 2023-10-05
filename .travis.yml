@@ -1,23 +1,7 @@
 dist: focal
 # group: travis_lts # Where?
-language: ruby
-cache:
-  - bundler
-  - yarn
-  - vendor/lib
-services:
-  - mysql
-  - xvfb
-addons:
-  # chrome: stable # pulls in latest chrome version
-  apt:
-    packages:
-      - wkhtmltopdf
-      - jq
-      - awscli
-      #- chromium-chromedriver # installs whatever version of chromedriver is in the apt repo
-git:
-  submodules: false
+language: node_js
+node_js: lts/*
 
 env:
   global:
