@@ -6,7 +6,7 @@ node_js:
   - 18.14.2
 install:
 - docker version
-- sudo systemctl stop docker && apt remove --purge docker-ce
+- sudo systemctl stop docker && sudo apt remove --purge docker-ce
 - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 - echo -e '\n' | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 - sudo apt-get update
