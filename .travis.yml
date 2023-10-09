@@ -1,12 +1,19 @@
 dist: jammy
 language: java
-jdk: openjdk12
+jdk: openjdk11
 
 env:
   global:
     - JAVA_TOOL_OPTIONS=-Dhttps.protocols=TLSv1.2,TLSv1,TLSv1.1
+before_install:
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk install java 11.0.20-zulu
+  - sdk use java 11.0.20-zulu
 install: skip
-script: true
+script:
+  - java -version
+  - javac -version
 
 notifications:
   slack:
