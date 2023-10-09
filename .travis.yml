@@ -1,19 +1,18 @@
+language: node_js
+os: linux
 dist: jammy
-language: java
-jdk: openjdk11
+node_js:
+  - 18.14.2
+install:
+- docker --version
+- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- echo -e '\n' | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu
+  $(lsb_release -cs) stable"
+- sudo apt-get update
+- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce docker-buildx-plugin
+- sudo systemctl retsart docker.service
 
-env:
-  global:
-    - JAVA_TOOL_OPTIONS=-Dhttps.protocols=TLSv1.2,TLSv1,TLSv1.1
-before_install:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 11.0.20-zulu
-  - sdk use java 11.0.20-zulu
-install: skip
-script:
-  - java -version
-  - javac -version
+script: docker version
 
 notifications:
   slack:
