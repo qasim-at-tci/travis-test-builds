@@ -1,6 +1,6 @@
 dist: jammy
 language: java
-jdk: openjsk11
+jdk: openjdk11
 
 env:
   global:
