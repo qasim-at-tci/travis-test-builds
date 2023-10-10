@@ -34,6 +34,8 @@ jobs:
         - kubectl create deployment demo --image qaxim/hello-go:testrun
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
+        - kubectl get services
+        - kubectl describe services/demo
         - kubectl port-forward svc/demo 8081:8888 &
         - sleep 30
     - name: "minikube cluster"
@@ -48,6 +50,8 @@ jobs:
         - kubectl create deployment demo --image qaxim/hello-go:testrun
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
+        - kubectl get services
+        - kubectl describe services/demo
         - kubectl port-forward svc/demo 8081:8888 &
         - sleep 30
 notifications:
