@@ -21,8 +21,6 @@ before_install:
   # make deployment
   - kubectl create deployment demo --image qaxim/hello-go
   - sleep 60
-  # exxposes port?
-  - kubectl get pod $(kubectl get pods --no-headers -o custom-columns=":metadata.name")  --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
   - kubectl expose deployment demo --port 8888 --type=NodePort
   - kubectl port-forward svc/demo 8081:8888 &
   - sleep 30
