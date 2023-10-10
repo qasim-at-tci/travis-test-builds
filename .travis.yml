@@ -16,6 +16,11 @@ before_install:
   - kind create cluster --name test-run
   - kind get clusters
   - kubectl get namespaces
+  # make deployment
+  - kubectl create deployment demo --image qaxim/hello-go
+  - kubectl expose deployment demo --port 8888 --type=NodePort
+  - kubectl port-forward svc/demo 8888 &
+  - curl -H "Connection: close" http://127.0.0.1:8888
 install: skip
 script: true
 
