@@ -1,7 +1,6 @@
 ---
 language: shell
 os: linux
-arch: arm64
 dist: focal
 services:
   - docker
@@ -32,7 +31,7 @@ jobs:
         - kind get clusters
         - kubectl get namespaces
         # make deployment
-        - kubectl create deployment demo --image qaxim/hello-go:testrun
+        - kubectl create deployment demo --image qaxim/hello-go:amd
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
         - kubectl get services
@@ -48,7 +47,7 @@ jobs:
         - minikube start
         - kubectl get namespaces
         # make deployment
-        - kubectl create deployment demo --image qaxim/hello-go:testrun
+        - kubectl create deployment demo --image qaxim/hello-go:amd
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
         - kubectl get services
