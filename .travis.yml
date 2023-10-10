@@ -1,6 +1,7 @@
 ---
 language: shell
 os: linux
+arch: arm64
 dist: focal
 services:
   - docker
