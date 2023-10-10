@@ -1,5 +1,6 @@
 language: shell
 os: linux
+dist: focal
 services:
   - docker
 before_install:
