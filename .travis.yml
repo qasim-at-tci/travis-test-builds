@@ -4,6 +4,8 @@ services:
   - docker
 
 before_install:
+  - sudo echo "127.0.0.1 localhost" >> /etc/hosts
+  - cat /etc/hosts
   # kubectl setup
   - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
   - chmod +x kubectl
