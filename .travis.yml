@@ -29,7 +29,7 @@ jobs:
         - kind get clusters
         - kubectl get namespaces
         # make deployment
-        - kubectl create deployment demo --image qaxim/hello-go
+        - kubectl create deployment demo --image qaxim/hello-go:testrun
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
         - kubectl port-forward svc/demo 8081:8888 &
@@ -43,7 +43,7 @@ jobs:
         - minikube start
         - kubectl get namespaces
         # make deployment
-        - kubectl create deployment demo --image qaxim/hello-go
+        - kubectl create deployment demo --image qaxim/hello-go:testrun
         - sleep 60
         - kubectl expose deployment demo --port 8888 --type=NodePort
         - kubectl port-forward svc/demo 8081:8888 &
