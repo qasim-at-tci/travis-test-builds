@@ -1,5 +1,6 @@
 ---
-language: generic
+language: node_js
+node_js: lts/*
 os: linux
 
 before_install:
