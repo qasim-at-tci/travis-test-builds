@@ -15,6 +15,14 @@ jobs:
   include:
     - dist: focal
     - dist: jammy
+      before_install:
+        - sudo apt update && sudo apt install -y ca-certificates curl apt-transport-https
+        - sudo install -m 0755 -d /etc/apt/keyrings
+        - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+        - sudo chmod a+r /etc/apt/keyrings/docker.gpg
+        - echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        - sudo apt update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose
+        - sudo systemctl start docker
 notifications:
   slack:
     secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
