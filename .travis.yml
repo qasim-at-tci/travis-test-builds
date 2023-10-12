@@ -8,7 +8,6 @@ arch: arm64-graviton2
 virt: lxd
 group: edge
 
-install: skip
 script: true
 
 notifications:
