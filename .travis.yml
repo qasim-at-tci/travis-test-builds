@@ -1,25 +1,9 @@
----
 language: node_js
-node_js: 16
 os: linux
+dist: focal
 
-before_install:
-  - sudo systemctl stop docker.service
-  - sudo systemctl stop docker.socket
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - yes | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-  - sudo systemctl start docker
+arch: arm64-graviton2
+virt: lxd
+group: edge
 
-script:
-  - docker version
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
-notifications:
-  slack:
-    secure: fB1VQZX1Sekok/MtNh7usFpfNeqiN9lwu2piA9c2lfRXk+EswhM3VPsou/FyaE+D50W/sXhWgY+E/JOCbu3EVl/4pvPjvGuIm9tIqTY3l60G+byJ0/0rz9p2dN9tb5SeoSeRsql6K4s1BFubPdfJe8G9tV4Jc8muiDGcijAGJRNfwSInXorWGh7/DgJBgyMFpgO1QZ84hWRNfgGo5G9ZBO1zEyUMu+UyrvVAgNFGJcLwhMm1e/q2sYtCsmWTeZ3dPDV6shtmGkoIQp9M0w84lCf1+FDGkAwxaGUFpTR1O04u15dGflrW5D/YwfRKTNP4zmyMEaUw8kKZ8CO6vkp4DAMJcIhgmREJmJBOvoUd+aV2z2u/arwGRvTQy75s1dEpELXF48anqqHku3Mm8vh7jFKTmtqayy9iErbVH+Msf+d2NORxDaxKJhM32Y+Anfe+N3aVGtnI9zfdeFPhIX4avYolMPIO2NjXys3zFx5pO9+HzsgeVEUEKuLuSzN2ssndpfU6LnFxl29BEzl3SpDfn3jTVgwJnfdj8NSl6MIOqPAgz0bIW2UoCs2ztV6GvuPArIGt+yCFN7k8s5V081jQsm+svvO+qVebdYJmf5wPfJEHrFeMzRXxrHr7M4DugSHhkfLmtnNLU30b28oNzyunTR/eGtaBD14T2JJLbkFgy3o=
+script: true
