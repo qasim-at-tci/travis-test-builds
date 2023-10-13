@@ -18,7 +18,7 @@ jobs:
     - dist: jammy
       name: "Ruby Version Info"
       script:
-        - ruby --jyit -v
+        - ruby --yjit -v
 
 notifications:
   slack:
