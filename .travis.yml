@@ -6,7 +6,10 @@ env:
    - RUBY_CONFIGURE_OPTS="--enable-yjit"
    - RUBY_YJIT_ENABLE=1
    - RUBYOPT="--enable-yjit"
-
+before_install:
+ - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+ - rustc --version
+ - RUBY_CONFIGURE_OPTS=--enable-yjit rvm reinstall --disable-binary 3.2.2
 install: skip
 
 jobs:
