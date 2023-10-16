@@ -2,6 +2,8 @@ language: shell
 os: linux
 dist: jammy
 jobs:
+  allow_failures:
+    - name: "Without Workaround"
   include:
     - name: "With Workaround"
       addons:
