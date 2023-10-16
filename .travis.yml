@@ -1,20 +1,16 @@
-language: shell
+language: java
 os: linux
 dist: jammy
 jobs:
-  allow_failures:
-    - name: "Without Workaround"
   include:
     - name: "With Workaround"
-      addons:
-        apt:
-          update: true
-          packages:
-            - redis
+      before_install:
+        - java -version
+        - javac -version
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk install java 11.0.20-zulu
+        - sdk use java 11.0.20-zulu
       script:
-       - redis-cli --version
-    - name: "Without Workaround"
-      services:
-       - redis-server
-      script:
-       - redis-cli --version
+       - javac -version
+       - java -version
