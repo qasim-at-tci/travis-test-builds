@@ -8,6 +8,7 @@ env:
    - RUBYOPT="--enable-yjit"
 before_install:
  - curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain none
+ - source "$HOME/.cargo/env"
  - rustc --version
  - RUBY_CONFIGURE_OPTS=--enable-yjit rvm reinstall --disable-binary 3.2.2
 install: skip
