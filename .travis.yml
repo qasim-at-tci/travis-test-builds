@@ -3,14 +3,16 @@ os: linux
 dist: jammy
 jobs:
   include:
-    - addons:
-      apt:
-        update: true
-        packages:
-          - redis
+    - name: "With Workaround"
+      addons:
+        apt:
+          update: true
+          packages:
+            - redis
       script:
        - redis-cli --version
-    - services:
+    - name: "Without Workaround"
+      services:
        - redis-server
       script:
        - redis-cli --version
