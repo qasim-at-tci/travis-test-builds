@@ -3,4 +3,4 @@ php: "8.0"
 install: skip
 services: docker
 script:
-  - docker run hello-wrold
+  - docker run hello-world
