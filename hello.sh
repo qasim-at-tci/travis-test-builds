@@ -2,6 +2,3 @@
 set +ex
 
 true
-false
-true
-false
