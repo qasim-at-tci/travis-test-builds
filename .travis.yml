@@ -1,13 +1,6 @@
 language: php
 php: "8.0"
 install: skip
+services: docker
 script:
-  - sudo service postgresql status
-jobs:
-  include:
-    - dist: focal
-      addons:
-        postgresql: "9.6"
-      apt:
-        packages:
-        - postgresql-9.6
+  - docker run hello-wrold
