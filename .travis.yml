@@ -1,10 +1,11 @@
 language: php
 php: "8.0"
 install: skip
-script: true
+script:
+  - sudo service postgresql@9.6 start
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
     - dist: focal
-    - dist: jammy
+      addons:
+        postgresql: "9.6"
+        
