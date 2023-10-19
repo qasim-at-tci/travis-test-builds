@@ -8,4 +8,8 @@ jobs:
     - dist: focal
       addons:
         postgresql: "9.6"
+      apt:
+        packages:
+        - postgresql-9.6
+        - postgresql-client-9.6
         
