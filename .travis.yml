@@ -2,7 +2,7 @@ language: php
 php: "8.0"
 install: skip
 script:
-  - sudo service postgresql@9.6 start
+  - sudo service postgresql status
 jobs:
   include:
     - dist: focal
