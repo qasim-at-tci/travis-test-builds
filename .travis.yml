@@ -11,5 +11,3 @@ jobs:
       apt:
         packages:
         - postgresql-9.6
-        - postgresql-client-9.6
-        
