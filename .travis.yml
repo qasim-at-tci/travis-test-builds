@@ -1,12 +1,9 @@
-language: php
-php: "8.0"
-dist: focal
-before_install:
-  - sudo apt-get update -y
-  - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-  - echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/postgresql-pgdg.list > /dev/null
-  - sudo apt-get update -y && sudo apt-get install postgresql-9.6 -y
-  - sudo systemctl restart postgresql
+language: ruby
+ruby: 3.2.2
 install: skip
 script:
-  - sudo systemctl status postgresql
+  - ruby --yjit -v
+jobs:
+  include:
+    - dist: focal
+    - dist: jammy
