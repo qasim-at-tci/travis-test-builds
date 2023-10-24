@@ -5,5 +5,7 @@ script:
   - ruby --yjit -v
 jobs:
   include:
+    - dist: xenial
+    - dist: bionic
     - dist: focal
     - dist: jammy
