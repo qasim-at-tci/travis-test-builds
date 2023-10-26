@@ -10,5 +10,6 @@ jobs:
     - dist: focal
     - dist: jammy
     - dist: jammy
-      jdk: 11
+      language: java
+      jdk: openjdk11
       script: java -version
