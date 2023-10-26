@@ -6,10 +6,28 @@ script:
 jobs:
   include:
     - dist: xenial
+      group: dev
     - dist: bionic
+      group: dev
     - dist: focal
+      group: dev
     - dist: jammy
+      group: dev
     - dist: jammy
+      group: dev
+      language: java
+      jdk: openjdk11
+      script: java -version
+    - dist: xenial
+      group: edge
+    - dist: bionic
+      group: edge
+    - dist: focal
+      group: edge
+    - dist: jammy
+      group: edge
+    - dist: jammy
+      group: edge
       language: java
       jdk: openjdk11
       script: java -version
