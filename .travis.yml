@@ -9,3 +9,7 @@ jobs:
     - dist: bionic
     - dist: focal
     - dist: jammy
+    - dist: jammy
+      language: java
+      jdk: 11
+      script: java -version
