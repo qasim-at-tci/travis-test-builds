@@ -22,8 +22,3 @@ jobs:
     - dist: bionic
     - dist: focal
     - dist: jammy
-    - dist: jammy
-      group: edge
-      language: java
-      jdk: 11
-      script: java -version
