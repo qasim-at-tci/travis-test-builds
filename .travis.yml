@@ -19,15 +19,6 @@ jobs:
       jdk: openjdk11
       script: java -version
     - dist: xenial
-      group: edge
     - dist: bionic
-      group: edge
     - dist: focal
-      group: edge
     - dist: jammy
-      group: edge
-    - dist: jammy
-      group: edge
-      language: java
-      jdk: openjdk11
-      script: java -version
