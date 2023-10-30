@@ -5,7 +5,9 @@ os:
 dist: focal
 arch:
 - arm64
-  - NODE_OPTIONS: "--dns-result-order=ipv4first"
+env:
+  global:
+    - NODE_OPTIONS: "--dns-result-order=ipv4first"
 jobs:
   fast_finish: true
   include:
