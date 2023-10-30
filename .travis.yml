@@ -9,15 +9,15 @@ arch:
 jobs:
   fast_finish: true
   include:
-  - services:
-      - xvfb
-    before_install: sleep 1
-    install: skip
-    script: sleep 1
-  - before_install: sleep 2
-    install: skip
-    script: sleep 2
-  - before_install: sleep 3
-    install: skip
-    script: sleep 3
+    - services:
+        - xvfb
+      before_install: sleep 1
+      install: skip
+      script: sleep 1
+    - before_install: sleep 2
+      install: skip
+      script: sleep 2
+    - before_install: sleep 3
+      install: skip
+      script: sleep 3
 before_script: sleep 5
