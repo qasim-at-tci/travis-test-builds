@@ -24,3 +24,5 @@ jobs:
       install: skip
       script: sleep 3
 before_script: sleep 5
+after_success: sleep5
+after_failure: sleep 10
