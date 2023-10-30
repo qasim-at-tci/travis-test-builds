@@ -8,4 +8,3 @@ jobs:
     - dist: xenial
     - dist: bionic
     - dist: focal
-    - dist: jammy
