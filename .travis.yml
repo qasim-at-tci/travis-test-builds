@@ -1,10 +1,23 @@
-language: php
-php: 8.0
-install: skip
-script:
-  - php test.php
+---
+language: node_js
+os:
+- linux
+dist: focal
+arch:
+- arm64
+  - NODE_OPTIONS: "--dns-result-order=ipv4first"
 jobs:
+  fast_finish: true
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+  - services:
+      - xvfb
+    before_install: sleep 1
+    install: skip
+    script: sleep 1
+  - before_install: sleep 2
+    install: skip
+    script: sleep 2
+  - before_install: sleep 3
+    install: skip
+    script: sleep 3
+before_script: sleep 5
