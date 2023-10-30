@@ -17,17 +17,17 @@ jobs:
       before_install: sleep 1
       install: skip
       script: sleep 1
-      after_success: sleep5
+      after_success: sleep 5
       after_failure: sleep 10
     - before_install: sleep 2
       install: skip
       script: sleep 2
-      after_success: sleep5
+      after_success: sleep 5
       after_failure: sleep 10
     - before_install: sleep 3
       install: skip
       script: sleep 3
-      after_success: sleep5
+      after_success: sleep 5
       after_failure: sleep 10
 before_script: sleep 5
 
