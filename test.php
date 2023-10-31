@@ -2,7 +2,7 @@
 
 $ch = curl_init();
 for ($i=0; $i<100000; $i++) {
-if ($i % 1000 === 0 ) { echo 'Request $i'; }
+if ($i % 1000 === 0 ) { echo 'Request Number $i'; }
 
 $headerHandle = fopen('php://temp/maxmemory:32768', 'w+b');
 $bodyHandle = fopen('php://temp', 'w+b');
