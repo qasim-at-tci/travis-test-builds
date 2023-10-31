@@ -16,6 +16,9 @@ try {
   curl_setopt($ch, CURLOPT_ENCODING, "");
   curl_setopt($ch, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
   curl_exec($ch);
+
+  fclose($bodyHandle);
+  fclose($headerHandle);
   
   if (curl_getinfo($ch, CURLINFO_RESPONSE_CODE) !== 404 || curl_error($ch) !== '' || curl_errno($ch) !== 0) {
   rewind($headerHandle);
@@ -32,7 +35,5 @@ try {
   var_dump($e);
 }
 
-fclose($bodyHandle);
-fclose($headerHandle);
 }
 curl_close($ch);
