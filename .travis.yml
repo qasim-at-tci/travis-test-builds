@@ -1,5 +1,7 @@
 language: php
-php: 8.1
+php: 8.0
+vm:
+  size: large
 env:
   global:
     - COMPOSER_HOME=/home/travis/.config/composer
