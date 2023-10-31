@@ -1,12 +1,7 @@
 language: php
 php: 8.0
-env:
-  global:
-    - COMPOSER_HOME=/home/travis/.config/composer
-    - COMPOSER_BIN_DIR=/home/travis/.config/composer/vendor/bin
 install: skip
 script:
-  - sudo apt update && sudo apt install libnghttp2-dev -y
   - composer self-update --rollback
   - php test.php
 jobs:
