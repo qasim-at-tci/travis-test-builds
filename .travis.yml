@@ -1,5 +1,9 @@
 language: php
 php: 8.1
+env:
+  global:
+    - COMPOSER_HOME=/home/travis/.config/composer
+    - COMPOSER_BIN_DIR=/home/travis/.config/composer/vendor/bin
 install: skip
 script:
   - echo $COMPOSER_HOME
