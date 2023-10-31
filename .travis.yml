@@ -6,9 +6,7 @@ env:
     - COMPOSER_BIN_DIR=/home/travis/.config/composer/vendor/bin
 install: skip
 script:
-  - sudo rm /etc/hosts
-  - sudo mv hosts /etc/
-  - sudo apt update
+  - cat /etc/hosts
   - echo $COMPOSER_HOME
   - composer self-update --rollback
   - php test.php
