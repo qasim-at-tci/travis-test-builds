@@ -6,8 +6,7 @@ env:
     - COMPOSER_BIN_DIR=/home/travis/.config/composer/vendor/bin
 install: skip
 script:
-  - cat /etc/hosts
-  - echo $COMPOSER_HOME
+  - sudo apt update && sudo apt install libnghttp2-dev -y
   - composer self-update --rollback
   - php test.php
 jobs:
