@@ -7,7 +7,6 @@ env:
 install: skip
 script:
   - echo $COMPOSER_HOME
-  - composer install
   - composer self-update --rollback
   - php test.php
 jobs:
