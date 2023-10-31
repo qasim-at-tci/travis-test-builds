@@ -8,7 +8,7 @@ $headerHandle = fopen('php://temp/maxmemory:32768', 'w+b');
 $bodyHandle = fopen('php://temp', 'w+b');
 curl_setopt($ch, CURLOPT_URL, 'https://repo.packagist.org/p2/dummy/sprykertest.json?r='.$i);
 curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
+curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 curl_setopt($ch, CURLOPT_TIMEOUT, 300);
 curl_setopt($ch, CURLOPT_WRITEHEADER, $headerHandle);
