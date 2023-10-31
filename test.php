@@ -26,10 +26,10 @@ try {
   var_dump('Failed at request '.$i);
   var_dump(curl_errno($ch), curl_error($ch));
   var_dump($headers, $body);
+    break;
+}
 } catch(Exception $e) {
   var_dump($e);
-}
-break;
 }
 
 fclose($bodyHandle);
