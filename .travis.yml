@@ -2,7 +2,6 @@ language: php
 php: 8.0
 install: skip
 script:
-  - composer self-update --rollback
   - php test.php
 jobs:
   include:
