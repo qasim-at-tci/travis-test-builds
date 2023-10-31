@@ -1,33 +1,10 @@
----
-language: node_js
-node_js: 16
-os:
-- linux
-dist: focal
-arch:
-- arm64
-env:
-  global:
-    - NODE_OPTIONS: "--dns-result-order=ipv4first"
+language: php
+php: 8.1
+install: skip
+script:
+  - php test.php
 jobs:
-  fast_finish: true
   include:
-    - services:
-        - xvfb
-      before_install: sleep 1
-      install: skip
-      script: sleep 1
-      after_success: sleep 5
-      after_failure: sleep 10
-    - before_install: sleep 2
-      install: skip
-      script: sleep 2
-      after_success: sleep 5
-      after_failure: sleep 10
-    - before_install: sleep 3
-      install: skip
-      script: sleep 3
-      after_success: sleep 5
-      after_failure: sleep 10
-before_script: sleep 5
-
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
