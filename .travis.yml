@@ -1,10 +1,20 @@
-language: php
-php: 8.0
-install: skip
-script:
-  - php test.php
+language: shell
+os: linux
+dist: jammy
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
+    - name: "With Workaround"
+      services:
+       - redis-server
+      addons:
+        apt:
+          update: true
+          packages:
+            - redis
+      script:
+       - redis-cli --version
+    - name: "Without Workaround"
+      services:
+       - redis-server
+      script:
+       - redis-cli --version
