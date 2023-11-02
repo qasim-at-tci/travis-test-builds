@@ -11,3 +11,5 @@ jobs:
         secret_access_key: $AWS_SECRET_ACCESS_KEY
         bucket: bucketzzz
         edge: true
+        on:
+          branch: minimal-build-check
