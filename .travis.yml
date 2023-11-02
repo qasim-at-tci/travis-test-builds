@@ -1,20 +1,13 @@
 language: shell
 os: linux
 dist: jammy
+group: dev
 jobs:
   include:
-    - name: "With Workaround"
-      services:
-       - redis-server
-      addons:
-        apt:
-          update: true
-          packages:
-            - redis
-      script:
-       - redis-cli --version
-    - name: "Without Workaround"
-      services:
-       - redis-server
-      script:
-       - redis-cli --version
+    - script: sleep 5
+      deploy:
+        provider: s3
+        access_key_id: $ACCESS_KEY_ID
+        secret_access_key: $ACCESS_KEY_SECRET
+        bucket: bucketzzz
+        edge: true
