@@ -1,26 +1,11 @@
-language: shell
-os: linux
-dist: jammy
+language: ruby
+ruby: 3.2.2
+install: skip
+script:
+  - ruby --yjit -v
 jobs:
   include:
-    - name: "Stable Group"
-      script: sleep 5
-      deploy:
-        provider: releases
-        token: $GITHUB_OAUTH_KEY
-        file: Makefile
-        edge: true
-        skip_cleanup: true
-        on:
-          branch: minimal-build-check
-    - name: "Dev Group"
-      group: dev
-      script: sleep 5
-      deploy:
-        provider: releases
-        token: $GITHUB_OAUTH_KEY
-        file: Makefile
-        edge: true
-        skip_cleanup: true
-        on:
-          branch: minimal-build-check
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
