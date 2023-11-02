@@ -1,15 +1,26 @@
 language: shell
 os: linux
 dist: jammy
-group: dev
 jobs:
   include:
-    - script: sleep 5
+    - name: "Stable Group"
+      script: sleep 5
       deploy:
-        provider: s3
-        access_key_id: $AWS_ACCESS_KEY_ID
-        secret_access_key: $AWS_SECRET_ACCESS_KEY
-        bucket: bucketzzz
+        provider: releases
+        token: $GITHUB_OAUTH_KEY
+        file: Makefile
         edge: true
+        skip_cleanup: true
+        on:
+          branch: minimal-build-check
+    - name: "Dev Group"
+      group: dev
+      script: sleep 5
+      deploy:
+        provider: releases
+        token: $GITHUB_OAUTH_KEY
+        file: Makefile
+        edge: true
+        skip_cleanup: true
         on:
           branch: minimal-build-check
