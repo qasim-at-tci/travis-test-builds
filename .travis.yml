@@ -10,3 +10,4 @@ before_install:
 install: skip
 script:
   - sudo psql --version
+  - who -m
