@@ -8,5 +8,5 @@ before_install:
   - sudo psql -U postgres -d postgres -c "CREATE ROLE travis WITH LOGIN SUPERUSER;"
 install: skip
 script:
-  - sudo psql --version
+  - psql --version
   - who -m
