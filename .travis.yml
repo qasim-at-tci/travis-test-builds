@@ -3,14 +3,15 @@ dist: focal
 language: php
 php: 8.0
 before_install:
+  # Postgresql 9.6 Setup
   - sudo apt-get update && sudo apt-get --purge remove postgresql postgresql-*
   - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
   - echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/postgresql-pgdg.list > /dev/null
   - sudo apt-get update && sudo apt-get install postgresql-9.6 -y
   - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
   - sudo systemctl restart postgresql
+  - sleep 10
   - sudo psql -U postgres -d postgres -c "CREATE ROLE travis WITH LOGIN SUPERUSER;"
 install: skip
 script:
   - psql --version
-  - who -m
