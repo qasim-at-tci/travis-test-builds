@@ -1,13 +1,21 @@
----
+language: shell
 os: linux
-php: '7.3'
-language: php
-dist: bionic
-install:
-- echo "Installing Dependencies"
-- sudo apt-get update
-- sudo apt-get install -y apt-transport-https awscli ca-certificates curl gnupg2 software-properties-common
-- sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-- sudo apt-get update
-- sudo apt-get install -y docker-ce
-script: sleep 1
+dist: jammy
+services:
+  - redis
+jobs:
+  include:
+    - name: "Redis"
+      script:
+        - redis-cli --version
+        - redis-cli ping
+    - name: "Deploy"
+      script: sleep 5
+      deploy:
+        provider: releases
+        token: $GITHUB_OAUTH_KEY
+        file: Makefile
+        edge: true
+        skip_cleanup: true
+        on:
+          branch: main
