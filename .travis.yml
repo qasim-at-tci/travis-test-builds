@@ -17,4 +17,5 @@ jobs:
         edge: true
         skip_cleanup: true
         on:
-          branch: main
+          tags: true
+          branch: minimal-build-check
