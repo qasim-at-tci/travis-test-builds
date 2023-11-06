@@ -5,6 +5,17 @@ services:
   - redis
 jobs:
   include:
-    - script:
+    - name: "Redis"
+      script:
         - redis-cli --version
         - redis-cli ping
+    - name: "Deploy"
+      script: sleep 5
+      deploy:
+        provider: releases
+        token: $GITHUB_OAUTH_KEY
+        file: Makefile
+        edge: true
+        skip_cleanup: true
+        on:
+          branch: minimal-build-check
