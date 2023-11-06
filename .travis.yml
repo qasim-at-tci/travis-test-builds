@@ -1,16 +1,15 @@
 language: shell
 os: linux
-dist: jammy
-services:
-  - redis
+dist: focal
 jobs:
   include:
-    - name: "Redis"
+    - name: "Without docker service"
       script:
-        - redis-cli --version
-        - redis-cli ping
-    - name: "Deploy"
-      script: sleep 5
+        - docker version
+    - name: "With docker service"
+      services:
+        - docker
+      script: docker version
       deploy:
         provider: releases
         token: $GITHUB_OAUTH_KEY
