@@ -1,5 +1,4 @@
 os: linux
-dist: jammy
 
 language: java
 jdk: openjdk8
@@ -11,3 +10,10 @@ cache:
 before_install:
   - mvn clean install -DskipTests=true
 script: java -cp target/hello-world-1.0.0.jar helloworld.HelloWorld
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
