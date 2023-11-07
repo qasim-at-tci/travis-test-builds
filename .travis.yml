@@ -10,16 +10,22 @@ script:
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
-#deploy:
-#  provider: releases
-#  token: $GITHUB_OAUTH_KEY
-#  file: Makefile
-#  edge: true
-#  skip_cleanup: true
-#  on:
-#    tags: true
-#    branch: minimal-build-check
+    - stage: "XYZ"
+      dist: xenial
+    - stage: "XYZ"
+      dist: bionic
+    - stage: "XYZ"
+      dist: focal
+    - stage: "XYZ"
+      dist: jammy
+    - stage: "Deploy"
+      deploy:
+        provider: releases
+        token: $GITHUB_OAUTH_KEY
+        file: Makefile
+        edge: true
+        skip_cleanup: true
+        if: TRAVIS_TAG ~= ^v(\d+\.)?(\d+\.)?(\*|\d+)$
+        on:
+          tags: true
+          branch: minimal-build-check
