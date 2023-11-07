@@ -1,4 +1,3 @@
-# Test Run
 language: ruby
 ruby: 3.2.2
 os: linux
