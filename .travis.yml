@@ -1,6 +1,7 @@
 language: ruby
 ruby: 3.2.2
 os: linux
+dist: jammy
 install: skip
 script:
   - ruby --yjit --version
