@@ -1,22 +1,22 @@
 # Test Run
-language: shell
+language: ruby
+ruby: 3.2.2
 os: linux
-dist: focal
+install: skip
+script: ruby --version
+
 jobs:
   include:
-    - name: "Without docker service"
-      script:
-        - docker version
-    - name: "With docker service"
-      services:
-        - docker
-      script: docker version
-      deploy:
-        provider: releases
-        token: $GITHUB_OAUTH_KEY
-        file: Makefile
-        edge: true
-        skip_cleanup: true
-        on:
-          tags: true
-          branch: minimal-build-check
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+#deploy:
+#  provider: releases
+#  token: $GITHUB_OAUTH_KEY
+#  file: Makefile
+#  edge: true
+#  skip_cleanup: true
+#  on:
+#    tags: true
+#    branch: minimal-build-check
