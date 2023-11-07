@@ -3,7 +3,7 @@ language: ruby
 ruby: 3.2.2
 os: linux
 install: skip
-script: ruby --version
+script: ruby --yjit --version
 
 jobs:
   include:
