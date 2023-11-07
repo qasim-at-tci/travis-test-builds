@@ -2,7 +2,10 @@ language: ruby
 ruby: 3.2.2
 os: linux
 install: skip
-script: ruby --yjit --version
+script:
+  - ruby --yjit --version
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_TAG
 
 jobs:
   include:
