@@ -7,7 +7,7 @@ env:
   global:
     - deploy_import_runs=true
     - deploy_xyz=true
-    - deploy_prod = true
+    - deploy_prod=true
 
 branches:
   only:
