@@ -4,8 +4,15 @@ language: node_js
 node_js: 18
 dist: jammy
 
+env:
+  global:
+    - deploy_import_runs=true
+    - deploy_xyz=true
+    - deploy_prod = true
+
 branches:
   only:
+    - import-runs
     - /^\d+\.\d+(\.\d+)?$/
 
 before_script:
