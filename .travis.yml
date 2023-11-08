@@ -6,10 +6,10 @@ dist: jammy
 import:
   - source: qasim-at-tci/tci-common:common.yml@main
     mode: deep_merge_append
-  - source: qasim-at-tci/tci-common:node/common.yml@main
-    mode: deep_merge_append
   - source: qasim-at-tci/tci-common:deploy.yml@main
     mode: deep_merge_prepend
+  - source: qasim-at-tci/tci-common:node/common.yml@main
+    mode: deep_merge_append
 
 before_script:
   - sleep 15
