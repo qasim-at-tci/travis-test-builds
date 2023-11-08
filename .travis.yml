@@ -4,6 +4,10 @@ language: node_js
 node_js: 18
 dist: jammy
 
+branches:
+  only:
+    - /^\d+\.\d+(\.\d+)?$/
+
 before_script:
   - sleep 15
   - sleep 1
