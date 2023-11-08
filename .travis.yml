@@ -3,14 +3,6 @@ language: node_js
 node_js: 18
 dist: jammy
 
-import:
-  - source: qasim-at-tci/tci-common:common.yml@main
-    mode: deep_merge_append
-  - source: qasim-at-tci/tci-common:deploy.yml@main
-    mode: deep_merge_prepend
-  - source: qasim-at-tci/tci-common:node/common.yml@main
-    mode: deep_merge_append
-
 before_script:
   - sleep 15
   - sleep 1
@@ -20,3 +12,11 @@ before_deploy:
   - sleep 3
   - echo "4 5 6"
   - sleep 7
+
+import:
+  - source: qasim-at-tci/tci-common:common.yml@main
+    mode: deep_merge_append
+  - source: qasim-at-tci/tci-common:deploy.yml@main
+    mode: deep_merge_prepend
+  - source: qasim-at-tci/tci-common:node/common.yml@main
+    mode: deep_merge_append
