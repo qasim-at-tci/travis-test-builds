@@ -7,7 +7,7 @@ import:
     mode: deep_merge_append
   - source: qasim-at-tci/tci-common:node/common.yml@main
     mode: deep_merge_append
-  - source: qasim-at-tci/tci-common:deploy_.yml@main
+  - source: qasim-at-tci/tci-common:deploy.yml@main
     mode: deep_merge_prepend
 
 before_script:
