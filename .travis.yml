@@ -5,7 +5,7 @@ dist: jammy
 import:
   - source: qasim-at-tci/tci-common:common.yml@main
     mode: deep_merge_append
-  - source: qasim-at-tci/tci-common:js/common.yml@main
+  - source: qasim-at-tci/tci-common:node/common.yml@main
     mode: deep_merge_append
   - source: qasim-at-tci/tci-common:deploy_.yml@main
     mode: deep_merge_prepend
