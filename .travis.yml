@@ -1,32 +1,20 @@
-language: ruby
-ruby: 3.2.2
-os: linux
+language: node_js
+node_js: 18
 dist: jammy
-install: skip
-script:
-  - ruby --yjit --version
-  - |
-    echo "TRAVIS_TAG: ${TRAVIS_TAG}"
-    echo "TRAVIS_BRANCH: ${TRAVIS_BRANCH}"
 
-jobs:
-  include:
-    - stage: "XYZ"
-      dist: xenial
-    - stage: "XYZ"
-      dist: bionic
-    - stage: "XYZ"
-      dist: focal
-    - stage: "XYZ"
-      dist: jammy
-    - stage: "Deploy"
-      deploy:
-        provider: releases
-        token: $GITHUB_OAUTH_KEY
-        file: Makefile
-        edge: true
-        skip_cleanup: true
-        if: TRAVIS_TAG ~= ^v(\d+\.)?(\d+\.)?(\*|\d+)$
-        on:
-          tags: true
-          branch: minimal-build-check
+import:
+  - source: qasim-at-tci/tci-common:common.yml@main
+    mode: deep_merge_append
+  - source: qasim-at-tci/tci-common:js/common.yml@main
+    mode: deep_merge_append
+  - source: qasim-at-tci/tci-common:deploy_.yml@main
+    mode: deep_merge_prepend
+
+before_script:
+  - sleep 15
+
+before_deploy:
+  - echo "1 2 3"
+  - sleep 3
+  - echo "4 5 6"
+  - sleep 7
