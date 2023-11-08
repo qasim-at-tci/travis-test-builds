@@ -12,6 +12,8 @@ before_deploy:
   - sleep 3
   - echo "4 5 6"
   - sleep 7
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_TAG
 
 import:
   - source: qasim-at-tci/tci-common:common.yml@main
