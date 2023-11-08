@@ -16,7 +16,7 @@ branches:
 
 before_script:
   - sleep 15
-  - sleep 1
+  - sleep 3
 
 before_deploy:
   - echo "1 2 3"
