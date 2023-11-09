@@ -14,4 +14,4 @@ jobs:
     - script:
         - free -hm
         - nproc
-        - sleep 50
+        - sleep 10
