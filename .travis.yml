@@ -1,4 +1,3 @@
-# Test Run
 os: linux
 dist: focal
 language: shell
