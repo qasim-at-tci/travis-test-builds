@@ -10,8 +10,8 @@ jobs:
     - script:
         - free -hm
         - nproc
-        - sleep 1
+        - sleep 10
     - script:
         - free -hm
         - nproc
-        - sleep 2
+        - sleep 50
