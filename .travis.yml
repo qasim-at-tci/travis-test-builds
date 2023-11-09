@@ -1,17 +1,13 @@
 os: linux
 dist: focal
 language: shell
-vm:
-  size: gpu-medium
 install: skip
 
 jobs:
   include:
-    - script:
-        - free -hm
-        - nproc
-        - sleep 10
-    - script:
-        - free -hm
-        - nproc
-        - sleep 10
+    - name: "Without docker service"
+      services:
+        - docker
+      script: docker version
+    - name: "With docker service"
+      script: docker version
