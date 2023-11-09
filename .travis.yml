@@ -3,3 +3,17 @@ dist: focal
 language: shell
 install: skip
 script: true
+
+jobs:
+  include:
+    - vm:
+        size: gpu-medium
+    - vm:
+        size: gpu-medium
+    - vm:
+        size: gpu-xlarge
+    - vm:
+        size: gpu-xlarge
+    - env:
+        global:
+          - test=test
