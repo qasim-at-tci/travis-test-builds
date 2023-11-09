@@ -4,4 +4,6 @@ language: shell
 vm:
   size: gpu-medium
 install: skip
-script: true
+script:
+  - free -hm
+  - nproc
