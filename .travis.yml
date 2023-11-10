@@ -10,8 +10,8 @@ jobs:
         - docker
       script:
         - docker version
-        - sleep 2
+        - sleep 3
     - name: "With docker service"
       script:
         - docker version
-        - sleep 2
+        - sleep 3
