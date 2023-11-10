@@ -1,6 +1,5 @@
 language: node_js
 node_js: 16
-jdk: openjdk17
 os: linux
 install: skip
 script: java -version
@@ -8,9 +7,13 @@ script: java -version
 jobs:
   include:
     - dist: xenial
+      jdk: openjdk17
     - dist: bionic
+      jdk: openjdk17
     - dist: focal
+      jdk: openjdk17
     - dist: jammy
+      jdk: openjdk17
     #- stage: "Deploy"
     #  deploy:
     #    provider: releases
