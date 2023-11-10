@@ -1,32 +1,24 @@
-language: ruby
-ruby: 3.2.2
+language: node_js
+node_js: 16
+jdk: openjdk17
 os: linux
-dist: jammy
 install: skip
-script:
-  - ruby --yjit --version
-  - |
-    echo "TRAVIS_TAG: ${TRAVIS_TAG}"
-    echo "TRAVIS_BRANCH: ${TRAVIS_BRANCH}"
+script: java -version
 
 jobs:
   include:
-    - stage: "XYZ"
-      dist: xenial
-    - stage: "XYZ"
-      dist: bionic
-    - stage: "XYZ"
-      dist: focal
-    - stage: "XYZ"
-      dist: jammy
-    - stage: "Deploy"
-      deploy:
-        provider: releases
-        token: $GITHUB_OAUTH_KEY
-        file: Makefile
-        edge: true
-        skip_cleanup: true
-        if: TRAVIS_TAG ~= ^v(\d+\.)?(\d+\.)?(\*|\d+)$
-        on:
-          tags: true
-          branch: minimal-build-check
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    #- stage: "Deploy"
+    #  deploy:
+    #    provider: releases
+    #    token: $GITHUB_OAUTH_KEY
+    #    file: Makefile
+    #    edge: true
+    #    skip_cleanup: true
+    #    if: TRAVIS_TAG ~= ^v(\d+\.)?(\d+\.)?(\*|\d+)$
+    #    on:
+    #      tags: true
+    #      branch: minimal-build-check
