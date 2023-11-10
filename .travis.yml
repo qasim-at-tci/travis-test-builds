@@ -2,18 +2,21 @@ language: node_js
 node_js: 16
 os: linux
 install: skip
+before_install:
+  - sudo apt-get remove --purge -y default-jdk
+  - sudo apt -y autoremove
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk install java 17.0.2-open
+  - sdk use java 17.0.2-open
 script: java -version
 
 jobs:
   include:
     - dist: xenial
-      jdk: openjdk17
     - dist: bionic
-      jdk: openjdk17
     - dist: focal
-      jdk: openjdk17
     - dist: jammy
-      jdk: openjdk17
     #- stage: "Deploy"
     #  deploy:
     #    provider: releases
