@@ -1,30 +1,15 @@
-language: node_js
-node_js: 16
-os: linux
-install: skip
-before_install:
-  - sudo apt-get remove --purge -y default-jdk
-  - sudo apt -y autoremove
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 17.0.2-open
-  - sdk use java 17.0.2-open
-script: java -version
+dist: bionic
+install: true
+language: cpp
+addons:
+  apt:
+   sources:
+    - ubuntu-toolchain-r-test
+   packages:
+  apt_packages:
+    - gfortran
 
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
-    #- stage: "Deploy"
-    #  deploy:
-    #    provider: releases
-    #    token: $GITHUB_OAUTH_KEY
-    #    file: Makefile
-    #    edge: true
-    #    skip_cleanup: true
-    #    if: TRAVIS_TAG ~= ^v(\d+\.)?(\d+\.)?(\*|\d+)$
-    #    on:
-    #      tags: true
-    #      branch: minimal-build-check
+before_install:
+  - sudo rm -f /etc/apt/sources.list.d/pgdg.list
+install: skip
+script: sleep 1
