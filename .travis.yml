@@ -25,13 +25,13 @@ apt:
     - gnupg-agent
     - pigz
     - software-properties-common
-  sources:
-    - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
-      key_url: https://download.docker.com/linux/ubuntu/gpg
-    - sourceline: ppa:ondrej/php
+  #sources:
+  #  - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+  #    key_url: https://download.docker.com/linux/ubuntu/gpg
+  #  - sourceline: ppa:ondrej/php
 install:
-  - echo eyAiZXhwZXJpbWVudGFsIiA6IHRydWUsICJmZWF0dXJlcyIgOiB7ICJidWlsZGtpdCI6IHRydWUgfSwgImlwdjYiOiBmYWxzZSwgIm10dSI6IDE0NTB9|base64 -d|sudo tee /etc/docker/daemon.json
-  - sudo apt-get install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+  #- echo eyAiZXhwZXJpbWVudGFsIiA6IHRydWUsICJmZWF0dXJlcyIgOiB7ICJidWlsZGtpdCI6IHRydWUgfSwgImlwdjYiOiBmYWxzZSwgIm10dSI6IDE0NTB9|base64 -d|sudo tee /etc/docker/daemon.json
+  #- sudo apt-get install docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
   - sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
 before_install:
@@ -39,4 +39,6 @@ before_install:
 before_script:
 - docker version
 - docker buildx version
+- docker-compose --version
+- docker compose version
 after_script: skip
