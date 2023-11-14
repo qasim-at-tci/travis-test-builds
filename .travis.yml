@@ -15,7 +15,7 @@ os: linux
 dist: focal
 language: shell
 services:
-- docker
+  - docker
 addons:
   apt:
     packages:
