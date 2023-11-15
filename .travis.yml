@@ -9,5 +9,17 @@ jobs:
       node_js: 14
     - before_install: sleep 1
       node_js: 14
+    - os: linux
+      dist: xenial
+      node_js: 14
+    - os: linux
+      dist: bionic
+      node_js: 14
+    - os: linux
+      dist: focal
+      node_js: 14
+    - os: linux
+      dist: jammy
+      node_js: 14
     
     
