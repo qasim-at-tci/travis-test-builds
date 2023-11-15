@@ -6,6 +6,8 @@ script: nvm --version
 jobs:
   include:
     - osx_image: xcode14.1
+      node_js: 14
     - before_install: sleep 1
+      node_js: 14
     
     
