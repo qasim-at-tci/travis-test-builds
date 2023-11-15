@@ -1,14 +1,11 @@
-os: linux
-dist: xenial
-language: php
-php: nightly
+os: osx
+language: node_js
 
 install: skip
-script: php --version
+script: nvm --version
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+    - osx_image: xcode14.1
+    - before_install: sleep 1
+    
     
