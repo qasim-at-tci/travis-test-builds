@@ -1,48 +1,14 @@
+os: linux
+dist: xenial
+language: php
+php: nightly
+
+install: skip
+script: php --version
 jobs:
   include:
-    - name: Docker / Alpine / PHP 8.1 / MariaDB / Functional Tests
-      <<: *DOCKER_BUILD_TEMPLATE
-      stage: Test
-      env:
-      - PROGRESS_TYPE=plain
-      - SPRYKER_PLATFORM_IMAGE=spryker/php:8.1
-      - TRAVIS=1
-      script:
-      - sleep 2
-
-_DOCKER_BUILD_TEMPLATE: &DOCKER_BUILD_TEMPLATE
-os: linux
-dist: focal
-language: shell
-services:
-  - docker
-addons:
-  apt:
-    packages:
-      - apache2-utils
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg-agent
-      - pigz
-      - software-properties-common
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
-    sources:
-      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
-        key_url: https://download.docker.com/linux/ubuntu/gpg
-      - sourceline: ppa:ondrej/php
-install:
-  - sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  - sudo chmod +x /usr/local/bin/docker-compose
-before_install:
-  - sudo apt update
-before_script:
-- docker version
-- docker buildx version
-- docker-compose --version
-- docker compose version
-after_script: skip
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
