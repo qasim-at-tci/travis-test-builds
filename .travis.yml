@@ -1,25 +1,15 @@
-os: osx
-language: node_js
+os: linux
+language: php
+php: "8.1.25"
 
 install: skip
-script: nvm --version
+script: php --version
 jobs:
   include:
-    - osx_image: xcode14.1
-      node_js: 14
-    - before_install: sleep 1
-      node_js: 14
-    - os: linux
-      dist: xenial
-      node_js: 14
-    - os: linux
-      dist: bionic
-      node_js: 14
-    - os: linux
-      dist: focal
-      node_js: 14
-    - os: linux
-      dist: jammy
-      node_js: 14
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
     
     
