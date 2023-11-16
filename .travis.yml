@@ -6,8 +6,6 @@ install: skip
 script: php --version
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
     - dist: focal
     - dist: jammy
     
