@@ -1,10 +1,15 @@
 os: linux
+dist: focal
 language: php
 php: "8.1.25"
-vm:
-  size: gpu-medium
 install: skip
-script: php --version
+script:
+  - free -hm
+  - nproc
+  - grep MemTotal /proc/meminfo
 jobs:
   include:
-    - dist: focal
+    - vm:
+        size: gpu-medium
+    - vm:
+        size: gpu-xlarge
