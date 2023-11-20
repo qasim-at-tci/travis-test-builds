@@ -1,17 +1,10 @@
 os: linux
 language: php
 php: "8.1.25"
-
+vm:
+  size: gpu-medium
 install: skip
 script: php --version
 jobs:
   include:
     - dist: focal
-      vm:
-       size: gpu-medium
-    - dist: focal
-      vm:
-       size: gpu-xlarge
-    
-    
-    
