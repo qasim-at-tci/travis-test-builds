@@ -4,22 +4,19 @@ language: shell
 install: skip
 script: sleep 1
 deploy:
+  edge: true
   - provider: elasticbeanstalk
     on:
       branch: dev
-    edge: true
 
   - provider: elasticbeanstalk
     on:
       branch: stage
-    edge: true
 
   - provider: elasticbeanstalk
     on:
       branch: master
-    edge: true
 
   - provider: elasticbeanstalk
     on:
       branch: minimal-build-check
-    edge: true
