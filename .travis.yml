@@ -1,15 +1,25 @@
 os: linux
 dist: focal
-language: php
-php: "8.1.25"
+language: shell
 install: skip
-script:
-  - free -hm
-  - nproc
-  - grep MemTotal /proc/meminfo
-jobs:
-  include:
-    - vm:
-        size: gpu-medium
-    - vm:
-        size: gpu-xlarge
+script: sleep 1
+deploy:
+  - provider: elasticbeanstalk
+    on:
+      branch: dev
+    edge: true
+
+  - provider: elasticbeanstalk
+    on:
+      branch: stage
+    edge: true
+
+  - provider: elasticbeanstalk
+    on:
+      branch: master
+    edge: true
+
+  - provider: elasticbeanstalk
+    on:
+      branch: minimal-build-check
+    edge: true
