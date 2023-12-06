@@ -1,25 +1,12 @@
 os: linux
 dist: focal
-language: shell
+language: node_js
 install: skip
-script: sleep 1
-deploy:
-  - provider: elasticbeanstalk
-    on:
-      branch: dev
-    edge: true
+script:
+  - node -v
+  - npm -v
 
-  - provider: elasticbeanstalk
-    on:
-      branch: stage
-    edge: true
-
-  - provider: elasticbeanstalk
-    on:
-      branch: master
-    edge: true
-
-  - provider: elasticbeanstalk
-    on:
-      branch: minimal-build-check
-    edge: true
+jobs:
+  include:
+    - node_js: 18.18.2
+    - node_js: 18.19.0
