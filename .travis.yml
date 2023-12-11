@@ -1,6 +1,5 @@
 language: python
 os: linux
-dist: xenial
 python:
   - 3.7.7
 services:
@@ -12,3 +11,10 @@ addons:
       - rabbitmq-server
 install: skip
 script: sleep 1
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
