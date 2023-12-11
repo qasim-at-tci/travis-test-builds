@@ -5,10 +5,10 @@ python:
 services:
   - redis
   - mysql
-addons:
-  apt:
-    packages:
-      - rabbitmq-server
+
+before_install:
+  - sudo apt update && sudo apt install rabbitmq-server -y
+  - sudo systemctl start rabbitmq-server
 install: skip
 script: sleep 1
 
