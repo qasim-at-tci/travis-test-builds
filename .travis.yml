@@ -8,10 +8,12 @@ services:
   - mysql
 
 before_install:
-  - sudo apt update && sudo apt install curl gnupg -y
-  - curl -fsSL https://packages.rabbitmq.com/gpg | sudo apt-key add -
-  - sudo add-apt-repository 'deb https://dl.bintray.com/rabbitmq/debian focal main'
+  - sudo apt update && sudo apt install wget -y
+  - sudo apt install apt-transport-https -y
+  - wget -O- https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc | sudo apt-key add -
+  - wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+  - echo "deb https://dl.bintray.com/rabbitmq-erlang/debian focal erlang-22.x" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
   - sudo apt update && sudo apt install rabbitmq-server -y
-  - sudo systemctl start rabbitmq-server
+  - sudo systemctl start rabbitmq-server.service
 install: skip
 script: sleep 1
