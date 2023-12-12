@@ -10,6 +10,7 @@ script: true
 deploy:
   provider: script
   script: exec bash; shopt -s nullglob; ruby hello.rb
+  cleanup: false
   edge: true
   on:
     all_branches: true
