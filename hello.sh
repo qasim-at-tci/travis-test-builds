@@ -1,4 +1,5 @@
 #!/bin/bash
 set +ex
 
-true
+echo "sleep 5"
+sleep 5
