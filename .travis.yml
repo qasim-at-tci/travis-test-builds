@@ -14,4 +14,6 @@ before_install:
   - sudo systemctl start rabbitmq-server.service
   - sudo systemctl status rabbitmq-server.service
 install: skip
-script: sleep 1
+script: false
+after_failure:
+  - sleep 1
