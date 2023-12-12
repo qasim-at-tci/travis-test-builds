@@ -10,6 +10,7 @@ script: true
 deploy:
   provider: script
   script: exec bash; shopt -s nullglob;
+  edge: true
   on:
     all_branches: true
 after_failure: ./hello.sh
