@@ -6,5 +6,10 @@ python:
 before_install:
   - chmod +x ./hello.sh
 install: skip
-script: false
+script: true
+deploy:
+  provider: script
+  script: exec bash; shopt -s nullglob;
+  on:
+    all_branches: true
 after_failure: ./hello.sh
