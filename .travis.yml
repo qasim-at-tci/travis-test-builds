@@ -9,7 +9,7 @@ install: skip
 script: true
 deploy:
   provider: script
-  script: exec bash; shopt -s nullglob;
+  script: exec bash; shopt -s nullglob; ruby hello.rb
   edge: true
   on:
     all_branches: true
