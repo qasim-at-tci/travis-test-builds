@@ -3,8 +3,7 @@ dist: focal
 language: python
 python:
   - 3.7.7
-before_install:
-  - chmod +x ./hello.sh
+before_install: chmod +x ./hello.sh
 install: skip
 script: true
 deploy:
