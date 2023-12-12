@@ -3,16 +3,6 @@ dist: focal
 language: python
 python:
   - 3.7.7
-services:
-  - redis
-  - mysql
-
-before_install:
-  - sudo apt update && sudo apt install curl wget gnupg apt-transport-https -y
-  - curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
-  - sudo apt update && sudo apt install rabbitmq-server -y
-  - sudo systemctl start rabbitmq-server.service
-  - sudo systemctl status rabbitmq-server.service
 install: skip
 script: false
 after_failure:
