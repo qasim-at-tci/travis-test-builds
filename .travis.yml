@@ -1,8 +1,8 @@
 os: linux
 dist: focal
-language: python
-python:
-  - 3.7.7
+language: php
+php:
+  - 7.3.33
 before_install:
   - chmod +x ./hello.sh
   - chmod +x ./deploy.sh
