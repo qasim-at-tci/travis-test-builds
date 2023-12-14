@@ -1,18 +1,14 @@
 os: linux
-dist: bionic
-language: php
-php:
-  - 7.3.33
-before_install:
-  - chmod +x ./hello.sh
-  - chmod +x ./deploy.sh
+dist: xenial
+language: ruby
+ruby:
+  - 2.3.8
 install: skip
-script: true
-deploy:
-  provider: script
-  script: ./deploy.sh
-  cleanup: false
-  edge: true
-  on:
-    all_branches: true
-after_failure: ./hello.sh
+script: ruby -v
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    
