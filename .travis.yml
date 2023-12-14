@@ -1,6 +1,7 @@
 #
 os: linux
 dist: xenial
+group: edge
 language: ruby
 ruby:
   - 2.3.8
