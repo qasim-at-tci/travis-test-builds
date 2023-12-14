@@ -1,16 +1,14 @@
 #
 os: linux
-dist: xenial
-group: dev
-language: ruby
-ruby:
-  - 2.3.8
+dist: focal
+services:
+  - docker
+language: shell
+arch: ppc64le
 install: skip
-script: ruby -v
-
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    
+script:
+  - docker run --privileged ubuntu:23.04 echo "Hello, world!"
+  - docker run quay.io/podman/stable echo "Hello, world!"
+  - docker pull ubuntu:23.04
+  - docker images
+  - docker run --privileged quay.io/podman/stable echo "Hello, world!"
