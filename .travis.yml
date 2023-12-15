@@ -1,14 +1,19 @@
-#
-os: linux
-dist: bionic
+language: c
+
 services:
   - docker
-language: shell
-arch: ppc64le
-install: skip
+
+before_install: true
+
 script:
-  - docker run --privileged ubuntu:23.04 echo "Hello, world!"
-  - docker run quay.io/podman/stable echo "Hello, world!"
-  - docker pull ubuntu:23.04
-  - docker images
-  - docker run --privileged quay.io/podman/stable echo "Hello, world!"
+  - echo 'Compiling...' && echo -en 'travis_fold:start:unity_compile\\r'
+  - ls /
+  - echo -en 'travis_fold:end:unity_compile\\r'
+
+  - echo 'Testing...' && echo -en 'travis_fold:start:unity_test\\r'
+  - find /home/travis/.gem
+  - echo -en 'travis_fold:end:unity_test\\r'
+
+  - echo 'Test verbose...' && echo -en 'travis_fold:start:unity_test_verbose.3\\r'
+  #- find /home/travis/.rvm/log
+  - echo -en 'travis_fold:end:unity_test_verbose.3\\r'
