@@ -1,18 +1,23 @@
----
-language: ruby
-ruby: 2.7.6
-git:
-  submodules: false
-  quiet: true
-
+language: php
+os:
+- linux
+dist: focal
+php:
+- '7.4'
 before_install:
-  - git submodule update --init --recursive --quiet
+
 install: skip
-
-#before_script:
-  #- timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9200
-
-script:
-  # https://docs.travis-ci.com/user/environment-variables/#default-environment-variables
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_PULL_REQUEST_BRANCH
+script: sleep 1
+before_deploy:
+  - rvm install 3.1.2 && rvm use 3.1.2
+deploy:
+  provider: codedeploy
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  bucket: "$S3_BUILD_BUCKET"
+  region: "$AWS_DEFAULT_REGION"
+  wait_until_deployed: true
+  bundle_type: tar
+  edge: true
+  on:
+    all_branches: true
