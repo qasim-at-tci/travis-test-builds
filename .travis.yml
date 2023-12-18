@@ -4,10 +4,13 @@ os:
 dist: focal
 php:
 - '7.4'
+services:
+  - docker
 before_install:
 
 install: skip
 script:
+  - docker plugin ls
   - DOCKER_BUILDKIT=1 docker build .
 before_deploy:
   - rvm install 3.1.2 && rvm use 3.1.2
