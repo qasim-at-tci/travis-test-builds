@@ -15,7 +15,7 @@ services:
 
 install: skip
 script:
-  - DOCKER_BUILDKIT=1 docker build .
+  #- DOCKER_BUILDKIT=1 docker build .
   - sleep 1
 #before_deploy:
 #  - rvm install 3.2.2 && rvm use 3.2.2
