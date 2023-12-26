@@ -1,19 +1,13 @@
-language: c
+os: linux
+dist: focal
 
-services:
-  - docker
-
-before_install: true
+language: shell
+install: skip
 
 script:
-  - echo 'Compiling...' && echo -en 'travis_fold:start:unity_compile\\r'
-  - ls /
-  - echo -en 'travis_fold:end:unity_compile\\r'
-
-  - echo 'Testing...' && echo -en 'travis_fold:start:unity_test\\r'
-  - find /home/travis/.gem
-  - echo -en 'travis_fold:end:unity_test\\r'
-
-  - echo 'Test verbose...' && echo -en 'travis_fold:start:unity_test_verbose.3\\r'
-  #- find /home/travis/.rvm/log
-  - echo -en 'travis_fold:end:unity_test_verbose.3\\r'
+  - |
+    set -e
+    if [ "$CI" = "true" ]; then
+      echo "Hello, World."
+    fi
+  - if [ "$CI" = "true" ]; then echo "Hello, World..." fi
