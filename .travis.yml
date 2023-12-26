@@ -9,5 +9,6 @@ script:
     set -e
     if [ "$CI" = "true" ]; then
       echo "Hello, World."
+      exit 1
     fi
   - if [ "$CI" = "true" ]; then echo "Hello, World..." fi
