@@ -11,5 +11,8 @@ script:
       echo "Hello, World."
       sleep 10
     fi
-  - if [ "$CI" = "true" ]; then echo "Hello, World..." fi
+  - |
+    if [ "$CI" = "true" ]; then
+      echo "Hello, World..."
+    fi
   - sleep 5
