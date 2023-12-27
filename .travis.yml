@@ -8,14 +8,9 @@ php:
 services:
   - docker
 
-#before_install:
-#  - mkdir -vp ~/.docker/cli-plugins/
-#  - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.12.0/buildx-v0.12.0.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
-#  - chmod a+x ~/.docker/cli-plugins/docker-buildx
-
 install: skip
 script:
-  #- DOCKER_BUILDKIT=1 docker build .
+  - DOCKER_BUILDKIT=1 docker build .
   - sleep 1
 #before_deploy:
 #  - rvm install 3.2.2 && rvm use 3.2.2
