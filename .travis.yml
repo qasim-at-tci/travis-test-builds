@@ -3,36 +3,23 @@ php: 8.2
 os: linux
 
 install: skip
-script: true
+script: php --version
 
 jobs:
   include:
     - stage: workaround
       dist: jammy
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
+      group: previous
     - stage: workaround
       dist: focal
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
+      group: previous
     - stage: workaround
       dist: bionic
-      addons:
-        apt:
-          update: true
-          packages:
-          - libonig-dev
+      group: previous
+      
     - stage: without-workaround
       dist: jammy
-      
     - stage: without-workaround
       dist: focal
-      
     - stage: without-workaround
       dist: bionic
