@@ -1,8 +1,7 @@
 os: linux
-dist: focal
+dist: bionic
 
-language: shell
-install: skip
+rvm: 2.3.8
 
 script:
   - |
