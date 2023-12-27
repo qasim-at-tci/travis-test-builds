@@ -5,7 +5,6 @@ os:
 dist: focal
 php:
 - '7.4'
-group: dev
 services:
   - docker
 
