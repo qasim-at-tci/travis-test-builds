@@ -1,12 +1,38 @@
-# test
 language: php
-os:
-- linux
-dist: bionic
-php: master
-services:
-  - docker
+php: 8.2
+os: linux
 
 install: skip
-script:
-  - php --version
+script: true
+
+jobs:
+  include:
+    - stage: workaround
+      dist: jammy
+      addons:
+        apt:
+          update: true
+          packages:
+          - libonig-dev
+    - stage: workaround
+      dist: focal
+      addons:
+        apt:
+          update: true
+          packages:
+          - libonig-dev
+    - stage: workaround
+      dist: bionic
+      addons:
+        apt:
+          update: true
+          packages:
+          - libonig-dev
+    - stage: without-workaround
+      dist: jammy
+      
+    - stage: without-workaround
+      dist: focal
+      
+    - stage: without-workaround
+      dist: bionic
