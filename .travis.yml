@@ -2,28 +2,11 @@
 language: php
 os:
 - linux
-dist: focal
+dist: bionic
 php: master
 services:
   - docker
 
 install: skip
 script:
-  - DOCKER_BUILDKIT=1 docker build .
-  - sleep 1
-#before_deploy:
-#  - rvm install 3.2.2 && rvm use 3.2.2
-#  - ruby -v
-#  - bundler -v
-deploy:
-  provider: codedeploy
-  application: xyz
-  access_key_id: "$AWS_ACCESS_KEY_ID"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  bucket: "$S3_BUILD_BUCKET"
-  region: "$AWS_DEFAULT_REGION"
-  wait_until_deployed: true
-  bundle_type: tar
-  edge: true
-  on:
-    all_branches: true
+  - php --version
