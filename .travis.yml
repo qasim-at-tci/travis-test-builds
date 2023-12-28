@@ -6,20 +6,10 @@ install: skip
 script: php --version
 
 jobs:
-  include:
-    - stage: workaround
+  include: 
+    - stage: one
       dist: jammy
-      group: previous
-    - stage: workaround
+    - stage: one
       dist: focal
-      group: previous
-    - stage: workaround
-      dist: bionic
-      group: previous
-      
-    - stage: without-workaround
-      dist: jammy
-    - stage: without-workaround
-      dist: focal
-    - stage: without-workaround
+    - stage: one
       dist: bionic
