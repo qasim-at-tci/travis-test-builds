@@ -1,19 +1,7 @@
 # TEST
 os: linux
-dist: bionic
-
-rvm: 2.3.8
-
-before_install: gem install bundler:2.4.9
-script:
-  - |
-    set -e
-    if [ "$CI" = "true" ]; then
-      echo "Hello, World."
-      sleep 10
-    fi
-  - |
-    if [ "$CI" = "true" ]; then
-      echo "Hello, World..."
-    fi
-  - sleep 5
+dist: jammy
+services:
+  - docker
+install: skip
+script: docker version
