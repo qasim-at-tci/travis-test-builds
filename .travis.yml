@@ -4,4 +4,6 @@ dist: jammy
 services:
   - docker
 install: skip
-script: docker version
+script:
+  - docker version
+  - sudo /etc/docker/daemon.json
