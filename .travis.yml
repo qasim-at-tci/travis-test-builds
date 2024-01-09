@@ -8,4 +8,4 @@ services:
 
 install: skip
 script:
-  - DOCKER_BUILDKIT=1 docker build .
+  - docker build --file bookworm.dockerfile --tag test/tag-1 .
