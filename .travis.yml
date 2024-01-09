@@ -6,9 +6,6 @@ services:
 install: skip
 script:
   - docker version
-  - sudo cat /etc/docker/daemon.json
-  - mkdir ~/.docker && touch ~/.docker/config.json
-  - echo '{ "experimental": "enabled" }' > ~/.docker/config.json
-  - sudo cat /etc/docker/daemon.json
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
   - sudo systemctl restart docker
   - docker version
