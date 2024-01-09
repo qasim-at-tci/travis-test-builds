@@ -1,11 +1,11 @@
-# TEST
-os: linux
-dist: jammy
+language: node_js
+node_js: 18
+os:
+- linux
+dist: focal
 services:
   - docker
+
 install: skip
 script:
-  - docker version
-  - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
-  - sudo systemctl restart docker
-  - docker version
+  - DOCKER_BUILDKIT=1 docker build .
