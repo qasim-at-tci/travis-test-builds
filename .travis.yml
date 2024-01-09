@@ -7,7 +7,7 @@ install: skip
 script:
   - docker version
   - sudo cat /etc/docker/daemon.json
-  - echo $'{\n    "experimental": true\n}' | sudo tee /etc/docker/daemon.json
+  - sh -c "echo $'{\n    "experimental": true\n}' | sudo tee /etc/docker/daemon.json"
   - sudo cat /etc/docker/daemon.json
   - sudo systemctl restart docker
   - docker version
