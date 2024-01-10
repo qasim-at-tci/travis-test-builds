@@ -1,4 +1,3 @@
-rvm: 2.7.8
 os:
 - linux
 dist: bionic
@@ -19,3 +18,8 @@ before_install:
   - sleep 10
 install: skip
 script: true
+
+jobs:
+  include:
+    - rvm: 2.7.8
+    - rvm: 2.3.8
