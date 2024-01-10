@@ -4,7 +4,6 @@ os:
 dist: bionic
 
 before_install:
-  - gem update --system --no-document
   - |
     if [[ `ruby -v` =~ ^ruby\ 2\.[1-5] ]]; then
       gem install rubygems-update -v '~>3.3.26' --no-document
