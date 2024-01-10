@@ -1,12 +1,17 @@
-language: node_js
-node_js: 18
+rvm: 2.7.8
 os:
 - linux
-dist: focal
-services:
-  - docker
+dist: bionic
 
+before_install:
+  - |
+    if [[ `ruby -v` =~ ^ruby\ 2\.[1-5] ]]; then
+      gem install rubygems-update -v '~>3.3.26' --no-document
+      update_rubygems --no-document
+      gem uninstall rubygems-update -ax
+    else
+      gem update --system --no-document
+    fi
+  - sleep 10
 install: skip
-script:
-  - export DOCKER_BUILDKIT=1
-  - docker build --file bookworm.dockerfile --tag test/tag-1 .
+script: true
