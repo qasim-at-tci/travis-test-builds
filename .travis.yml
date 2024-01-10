@@ -10,6 +10,10 @@ before_install:
       gem install rubygems-update -v '~>3.3.26' --no-document
       update_rubygems --no-document
       gem uninstall rubygems-update -ax
+    elif [[ `ruby -v` =~ ^ruby\ 2\.[6-7] ]]; then
+      gem install rubygems-update -v '~>3.4.22' --no-document
+      update_rubygems --no-document
+      gem uninstall rubygems-update -ax
     else
       gem update --system --no-document
     fi
