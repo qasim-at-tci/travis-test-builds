@@ -1,25 +1,8 @@
 os:
 - linux
 dist: bionic
+language: php
+php: 8.3.0
 
-before_install:
-  - |
-    if [[ `ruby -v` =~ ^ruby\ 2\.[1-5] ]]; then
-      gem install rubygems-update -v '~>3.3.26' --no-document
-      update_rubygems --no-document
-      gem uninstall rubygems-update -ax
-    elif [[ `ruby -v` =~ ^ruby\ 2\.[6-7] ]]; then
-      gem install rubygems-update -v '~>3.4.22' --no-document
-      update_rubygems --no-document
-      gem uninstall rubygems-update -ax
-    else
-      gem update --system --no-document
-    fi
-  - sleep 10
 install: skip
-script: true
-
-jobs:
-  include:
-    - rvm: 2.7.8
-    - rvm: 2.3.8
+script: php --version
