@@ -1,8 +1,15 @@
 os:
 - linux
 dist: bionic
-language: php
-php: 8.3.0
+language: shell
 
 install: skip
-script: php --version
+script: sudo apt update && sudo apt install jq -y
+
+jobs:
+  include:
+    - arch: amd64
+    - arch: arm64
+    - arch: ppc64le
+    - arch: s390x
+    
