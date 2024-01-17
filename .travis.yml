@@ -6,10 +6,4 @@ language: shell
 install: skip
 script: sudo apt update && sudo apt install jq -y
 
-jobs:
-  include:
-    - arch: amd64
-    - arch: arm64
-    - arch: ppc64le
-    - arch: s390x
     
