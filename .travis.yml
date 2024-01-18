@@ -1,12 +1,28 @@
-os:
-- linux
+# .travis.yml
 dist: focal
+
+os: linux
+
+arch: arm64
+
 language: php
 
-install: skip
-script: php --version
+php:
+  - 8.2.0
 
-jobs:
-  include:
-    - php: 8.2.8
-    - php: 8.2.9
+services:
+  - mysql
+  
+branches:
+  only:
+  - minimal-build-check
+
+cache:
+  directories:
+    - vendor
+
+before_script:
+  - mysql --version
+  - sleep 1
+
+script: php --version
