@@ -9,8 +9,8 @@ before_install:
   - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
   - . "$HOME/.asdf/asdf.sh"
   - asdf plugin-add php https://github.com/asdf-community/asdf-php.git
-  - asdf install php 8.2.13
-  - asdf global php 8.2.13
+  - asdf install php 8.2.14
+  - asdf global php 8.2.14
 
 script: php --version
 
