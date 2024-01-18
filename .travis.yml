@@ -5,12 +5,12 @@ os: linux
 language: shell
 
 before_install:
-  - sudo apt-get update && sudo apt-get install -y autoconf bison build-essential curl gettext git libgd-dev libcurl4-openssl-dev libedit-dev libicu-dev libjpeg-dev libmysqlclient-dev libonig-dev libpng-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libzip-dev openssl pkg-config re2c zlib1g-dev
+  - sudo apt update && sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
   - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
   - . "$HOME/.asdf/asdf.sh"
-  - asdf plugin-add php https://github.com/asdf-community/asdf-php.git
-  - asdf install php 8.2.14
-  - asdf global php 8.2.14
+  - asdf plugin-add python
+  - asdf install python 3.12.0
+  - asdf global python 3.12.0
 
 script: php --version
 
