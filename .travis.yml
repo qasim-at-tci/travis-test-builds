@@ -13,3 +13,9 @@ before_install:
   - asdf global php 8.2.13
 
 script: php --version
+
+jobs:
+  include:
+    - arch: amd64
+    - arch: arm64
+    - arch: ppc64le
