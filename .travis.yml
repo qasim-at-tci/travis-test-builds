@@ -10,5 +10,6 @@ before_install:
   - . "$HOME/.asdf/asdf.sh"
   - asdf plugin-add php https://github.com/asdf-community/asdf-php.git
   - asdf install php 8.2.13
+  - asdf global php 8.2.13
 
 script: php --version
