@@ -1,15 +1,12 @@
 os:
 - linux
 dist: focal
-language: shell
+language: php
 
 install: skip
-script: sudo apt update && sudo apt install jq -y
+script: php --version
 
 jobs:
   include:
-    - arch: amd64
-    - arch: arm64
-    - arch: ppc64le
-    - arch: s390x
-    
+    - php: 8.2.8
+    - php: 8.2.9
