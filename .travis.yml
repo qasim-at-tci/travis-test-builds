@@ -4,18 +4,11 @@ dist: focal
 os: linux
 language: shell
 
+services:
+  - docker
 before_install:
-  - sudo apt update && sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-  - . "$HOME/.asdf/asdf.sh"
-  - asdf plugin-add python
-  - asdf install python 3.12.0
-  - asdf global python 3.12.0
+  - docker version
+  - docker build -t qasim/test .
+  - docker images
 
-script: python --version
-
-jobs:
-  include:
-    - arch: amd64
-    - arch: arm64
-    - arch: ppc64le
+script: docker images
