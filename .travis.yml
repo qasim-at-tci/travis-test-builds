@@ -1,5 +1,5 @@
 # .travis.yml
-dist: focal
+dist: xenial
 
 os: linux
 language: shell
