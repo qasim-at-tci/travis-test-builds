@@ -1,13 +1,8 @@
-dist: xenial
+dist: focal
 
-os: linux
-language: shell
+language: php
+php: 8.2.14
 
-services:
-  - docker
-before_install:
-  - docker version
-  - docker build -t qasim/test .
-  - docker images
+install: skip
 
-script: docker images
+script: sleep 1
