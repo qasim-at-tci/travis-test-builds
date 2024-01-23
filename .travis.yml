@@ -1,6 +1,6 @@
 dist: focal
 
-language: java
+language: cpp
 jdk: openjdk17
 
 install: skip
