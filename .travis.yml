@@ -1,8 +1,8 @@
 dist: focal
 
-language: php
-php: 8.2.13
+language: java
+jdk: openjdk17
 
 install: skip
 
-script: sleep 1
+script: java -version
