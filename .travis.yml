@@ -1,7 +1,7 @@
 dist: jammy
 
 language: java
-jdk: openjdk17
+jdk: openjdk8
 
 install: skip
 
