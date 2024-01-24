@@ -12,4 +12,3 @@ script:
 jobs:
   include:
     - before_install: export _JAVA_OPTIONS="-Xms128m -Xmx512m"
-    - before_install: export JAVA_TOOLS_OPTIONS="-Xms128m -Xmx512m"
