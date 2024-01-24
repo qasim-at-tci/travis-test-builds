@@ -1,14 +1,10 @@
-dist: focal
+dist: bionic
 
-language: cpp
-
-before_install:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 17.0.2-open
-  - sdk use java 17.0.2-open
-  - java -version
+language: php
+php:
+  - master
+  - 8.3.0
 
 install: skip
 
-script: java -version
+script: php -v
