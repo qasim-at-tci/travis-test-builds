@@ -5,7 +5,9 @@ jdk: openjdk17
 
 install: skip
 
-script: java -version
+script:
+  - java -Xmx32m -version
+  - javac -Xmx32m -version
 
 jobs:
   include:
