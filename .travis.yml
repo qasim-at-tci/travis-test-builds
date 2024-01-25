@@ -1,7 +1,8 @@
 dist: focal
 arch: amd64
+group: edge
 language: node_js
-node_js: 16.20.2
+node_js: 16.20.0
 
 install: skip
 
