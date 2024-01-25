@@ -9,6 +9,19 @@ script: php -v
 jobs:
   include:
     - php: master
+      dist: xenial
+    - php: master
       dist: bionic
     - php: master
       dist: focal
+    - php: master
+      dist: jammy
+
+    - php: nightly
+      dist: xenial
+    - php: nightly
+      dist: bionic
+    - php: nightly
+      dist: focal
+    - php: nightly
+      dist: jammy
