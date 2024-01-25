@@ -1,7 +1,7 @@
 dist: focal
 arch: amd64
 language: node_js
-node_js: 16.20.0
+node_js: 16.20.2
 
 install: skip
 
