@@ -1,11 +1,13 @@
-dist: jammy
+dist: bionic
 
-language: java
-jdk: openjdk8
+language: php
 
-before_install: export _JAVA_OPTIONS="-Xms128m -Xmx512m"
 install: skip
 
-script:
-  - java -version
-  - javac -version
+script: php -v
+
+jobs:
+  include:
+    - php: 8.3
+    - php: 8.3.0
+    - php: nightly
