@@ -8,4 +8,4 @@ script: php -v
 
 jobs:
   include:
-    - php: nightly
+    - php: master
