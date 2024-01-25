@@ -9,3 +9,6 @@ script: php -v
 jobs:
   include:
     - php: master
+      dist: bionic
+    - php: master
+      dist: focal
