@@ -1,4 +1,4 @@
-dist: bionic
+dist: focal
 
 language: php
 
@@ -8,6 +8,4 @@ script: php -v
 
 jobs:
   include:
-    - php: 8.3
-    - php: 8.3.0
     - php: nightly
