@@ -1,27 +1,8 @@
 dist: focal
-
-language: php
+arch: amd64
+language: node_js
+node_js: 16.20.0
 
 install: skip
 
-script: php -v
-
-jobs:
-  include:
-    - php: master
-      dist: xenial
-    - php: master
-      dist: bionic
-    - php: master
-      dist: focal
-    - php: master
-      dist: jammy
-
-    - php: nightly
-      dist: xenial
-    - php: nightly
-      dist: bionic
-    - php: nightly
-      dist: focal
-    - php: nightly
-      dist: jammy
+script: node -v
