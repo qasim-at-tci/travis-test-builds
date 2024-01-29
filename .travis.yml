@@ -16,6 +16,6 @@ install: skip
 
 script:
   - php -v
-  - sudo service postgresql@12-main restart
-  - sleep 2
+  - sudo systemctl restart postgresql@12-main
+  - sleep 15
   - psql --version
