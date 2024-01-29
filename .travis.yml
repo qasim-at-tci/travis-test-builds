@@ -9,6 +9,10 @@ addons:
     packages:
     - postgresql-12
     - postgresql-client-12
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
 
 language: php
 php: 8.3
@@ -18,4 +22,4 @@ script:
   - php -v
   - sudo systemctl restart postgresql@12-main
   - sleep 15
-  - psql -c "\l" -d postgres -U postgres
+  - psql -c "\l" -d postgres -U travis
