@@ -1,7 +1,7 @@
 language: python
 
 script: 
-    - curl https://github.com/DataDog/datadog-ci/releases/download/v2.29.0/datadog-ci_linux-x64 -o ./datadog-ci && sudo mv ./datadog-ci /usr/local/bin/datadog-ci && sudo chmod +x /usr/local/bin/datadog-ci
+    - curl -L https://github.com/DataDog/datadog-ci/releases/download/v2.29.0/datadog-ci_linux-x64 -o ./datadog-ci && sudo mv ./datadog-ci /usr/local/bin/datadog-ci && sudo chmod +x /usr/local/bin/datadog-ci
     - datadog-ci --version
 install: skip
 
