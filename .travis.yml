@@ -1,9 +1,7 @@
-dist: focal
+dist: bionic
 arch: amd64
-group: edge
-language: node_js
-node_js: 18
-
+language: php
+php: 8.3
 install: skip
 
-script: node -v
+script: php -v
