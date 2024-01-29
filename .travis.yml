@@ -1,10 +1,7 @@
 language: python
 
-before_script:
-    - sudo apt update && sudo apt remove --purge curl -y
-    - sudo apt install curl -y
 script: 
-    - curl https://github.com/DataDog/datadog-ci/releases/latest/download/datadog-ci_linux-x64 --output /usr/local/bin/datadog-ci && chmod +x /usr/local/bin/datadog-ci
+    - wget https://github.com/DataDog/datadog-ci/releases/latest/download/datadog-ci_linux-x64 && mv ./datadog-ci_linux-x64 /usr/local/bin/datadog-ci && chmod +x /usr/local/bin/datadog-ci
 install: skip
 
 jobs:
