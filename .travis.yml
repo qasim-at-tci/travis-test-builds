@@ -1,7 +1,11 @@
-dist: bionic
+dist: focal
 arch: amd64
+services:
+  - postgresql
 language: php
 php: 8.3
 install: skip
 
-script: php -v
+script:
+  - php -v
+  - psql --version
