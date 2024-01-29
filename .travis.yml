@@ -2,6 +2,7 @@ language: python
 
 script: 
     - wget -q https://github.com/DataDog/datadog-ci/releases/latest/download/datadog-ci_linux-x64 && sudo mv ./datadog-ci_linux-x64 /usr/local/bin/datadog-ci && sudo chmod +x /usr/local/bin/datadog-ci
+    - datadog-ci --version
 install: skip
 
 jobs:
