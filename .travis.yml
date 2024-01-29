@@ -1,4 +1,3 @@
-# PostgreSQL 12
 dist: focal
 arch: amd64
 
