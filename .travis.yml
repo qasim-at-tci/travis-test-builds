@@ -10,11 +10,8 @@ addons:
     - postgresql-12
     - postgresql-client-12
 env:
-  - test=test
+  - test=test PGPORT=5433 PGUSER=travis
   - test2=test
-  global:
-  - PGPORT=5433
-  - PGUSER=travis
 
 language: php
 php: 8.3
