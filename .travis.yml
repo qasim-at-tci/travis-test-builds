@@ -1,24 +1,10 @@
 dist: focal
 arch: amd64
 
-services:
-  - postgresql
-addons:
-  postgresql: "12"
-  apt:
-    packages:
-    - postgresql-12
-    - postgresql-client-12
-env:
-  - test=test PGPORT=5433
-  - test2=test
-
-language: php
-php: 8.3
+language: shell
 install: skip
 
-script:
-  - php -v
-  - sudo systemctl restart postgresql@12-main
-  - sleep 15
-  - psql -c "\l" -d postgres -U travis
+script: true
+
+notifications:
+  webhooks: https://webhook.site/352c9704-1ea4-40f9-a8ca-bf512cc461be
