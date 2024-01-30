@@ -1,11 +1,15 @@
 dist: focal
-arch: amd64
-group: dev
-services:
-  - postgresql
+arch: arm64
 
 language: ruby
 install: skip
 
-script:
-  - psql -c "\l" -U postgres
+script: true
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
