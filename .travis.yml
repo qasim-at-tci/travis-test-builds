@@ -8,4 +8,4 @@ language: ruby
 install: skip
 
 script:
-  - psql -c "\l" -U travis
+  - psql -c "\l" -U postgres
