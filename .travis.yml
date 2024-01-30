@@ -1,12 +1,11 @@
 dist: focal
-arch: s390x
+arch: amd64
+group: dev
+services:
+  - postgresql
 
 language: ruby
 install: skip
 
 script:
-  - curl https://github.com/healthz
-  - sleep 300
-  - ping -c 3 google.com
-  - sleep 200
-  - ping -c 10 google.com
+  - psql -c "\l" -U travis
