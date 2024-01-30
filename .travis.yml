@@ -1,10 +1,8 @@
 dist: focal
-arch: amd64
+arch: s390x
 
-language: shell
+language: ruby
+ruby: 2.7.8
 install: skip
 
 script: true
-
-notifications:
-  webhooks: https://webhook.site/352c9704-1ea4-40f9-a8ca-bf512cc461be
