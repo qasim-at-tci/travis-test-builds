@@ -2,7 +2,11 @@ dist: focal
 arch: s390x
 
 language: ruby
-ruby: 2.7.8
 install: skip
 
-script: true
+script:
+  - curl https://github.com/healthz
+  - sleep 300
+  - ping -c 3 google.com
+  - sleep 200
+  - ping -c 10 google.com
