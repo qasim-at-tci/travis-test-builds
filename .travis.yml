@@ -1,15 +1,12 @@
-dist: focal
+dist: bionic
 arch: arm64
 
-language: ruby
+language: php
 install: skip
 
 script: true
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
-    
+    - php: master
+    - php: nightly
