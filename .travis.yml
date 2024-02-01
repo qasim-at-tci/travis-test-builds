@@ -1,7 +1,7 @@
 language: php
 install: skip
 
-script: true
+script: php -v
 
 jobs:
   include:
