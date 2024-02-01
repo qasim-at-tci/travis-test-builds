@@ -1,24 +1,15 @@
-language: php
+os: linux
+dist: jammy
+
+language: elixir
+arch: arm64-graviton2
+group: edge
+
 install: skip
 
 script: true
 
 jobs:
   include:
-    - php: master
-      dist: xenial
-    - php: master
-      dist: bionic
-    - php: master
-      dist: focal
-    - php: master
-      dist: jammy
-
-    - php: nightly
-      dist: xenial
-    - php: nightly
-      dist: bionic
-    - php: nightly
-      dist: focal
-    - php: nightly
-      dist: jammy
+    - virt: lxd
+    - virt: vm
