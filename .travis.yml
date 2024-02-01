@@ -1,25 +1,51 @@
-language: android
-dist: trusty
-jdk: openjdk17
-
-android:
-  components:
-    - tools
-    - platform-tools
-    - extra-google-google_play_services
-    - extra-android-m2repository
-licenses:
-  - 'android-sdk-preview-license-.+'
-  - 'android-sdk-license-.+'
-  - 'google-gdk-license-.+'
-
-before_install:
-  - pyenv install --list
-  - pyenv install 3.6.2
-  - pyenv global 3.6.2
-  - alias python3=python
+language: php
 install: skip
-script:
-  - python -V
-  - python3 -V
-  
+
+script: true
+
+jobs:
+  include:
+    - php: master
+      dist: xenial
+    - php: master
+      dist: bionic
+    - php: master
+      dist: focal
+    - php: master
+      dist: jammy
+
+    - php: 8.0
+      dist: xenial
+    - php: 8.0
+      dist: bionic
+    - php: 8.0
+      dist: focal
+    - php: 8.0
+      dist: jammy
+
+    - php: 8.1
+      dist: xenial
+    - php: 8.1
+      dist: bionic
+    - php: 8.1
+      dist: focal
+    - php: 8.1
+      dist: jammy
+
+    - php: 8.2
+      dist: xenial
+    - php: 8.2
+      dist: bionic
+    - php: 8.2
+      dist: focal
+    - php: 8.2
+      dist: jammy
+
+    - php: 8.3
+      dist: xenial
+    - php: 8.3
+      dist: bionic
+    - php: 8.3
+      dist: focal
+    - php: 8.3
+      dist: jammy
