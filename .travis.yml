@@ -1,15 +1,20 @@
-os: linux
-dist: jammy
+language: android
+dist: trusty
+jdk: openjdk17
 
-language: shell
-arch: arm64-graviton2
-group: edge
+android:
+  components:
+    - tools
+    - platform-tools
+    - extra-google-google_play_services
+    - extra-android-m2repository
+licenses:
+  - 'android-sdk-preview-license-.+'
+  - 'android-sdk-license-.+'
+  - 'google-gdk-license-.+'
 
 install: skip
-
-script: true
-
-jobs:
-  include:
-    - virt: lxd
-    - virt: vm
+script:
+  - python -V
+  - python3 -V
+  
