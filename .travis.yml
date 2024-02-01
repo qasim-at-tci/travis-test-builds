@@ -15,8 +15,8 @@ licenses:
 
 before_install:
   - pyenv install --list
-  #- pyenv install 3.6.15
-  #- pyenv global 3.6.15
+  - pyenv install 3.6.2
+  - pyenv global 3.6.2
 install: skip
 script:
   - python -V
