@@ -13,8 +13,10 @@ licenses:
   - 'android-sdk-license-.+'
   - 'google-gdk-license-.+'
 
+before_install:
+  - pyenv install 3.6.15
+  - pyenv global 3.6.15
 install: skip
 script:
   - python -V
-  - python3 -V
   
