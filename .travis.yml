@@ -1,7 +1,7 @@
 os: linux
 dist: jammy
 
-language: elixir
+language: shell
 arch: arm64-graviton2
 group: edge
 
