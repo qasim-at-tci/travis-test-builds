@@ -1,51 +1,25 @@
-language: php
-install: skip
-
-script: php -v
-
+---
+language: python
+os:
+- linux
+dist: focal
+python:
+- '3.9'
 jobs:
   include:
-    - php: master
-      dist: xenial
-    - php: master
-      dist: bionic
-    - php: master
-      dist: focal
-    - php: master
-      dist: jammy
-
-    - php: 8.0
-      dist: xenial
-    - php: 8.0
-      dist: bionic
-    - php: 8.0
-      dist: focal
-    - php: 8.0
-      dist: jammy
-
-    - php: 8.1
-      dist: xenial
-    - php: 8.1
-      dist: bionic
-    - php: 8.1
-      dist: focal
-    - php: 8.1
-      dist: jammy
-
-    - php: 8.2
-      dist: xenial
-    - php: 8.2
-      dist: bionic
-    - php: 8.2
-      dist: focal
-    - php: 8.2
-      dist: jammy
-
-    - php: 8.3
-      dist: xenial
-    - php: 8.3
-      dist: bionic
-    - php: 8.3
-      dist: focal
-    - php: 8.3
-      dist: jammy
+  - stage: one
+    addons:
+      postgresql: '13'
+      apt:
+        packages:
+        - libssl-dev
+        - libxmlsec1
+        - libxmlsec1-dev
+        - libxmlsec1-openssl
+        - postgresql-13
+        - postgresql-client-13
+        - postgresql-contrib-13
+    services:
+    - postgresql
+    install: skip
+    script: sleep 5
