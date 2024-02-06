@@ -1,11 +1,13 @@
 ---
-language: ruby
+language: php
+php:
+- '8.2'
 os:
 - linux
 dist: focal
 env:
   global:
-  - PGPORT=5433
+  - PGPORT=5432
   - PGUSER=travis
 jobs:
   include:
