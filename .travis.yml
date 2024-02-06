@@ -6,7 +6,7 @@ dist: focal
 env:
   global:
   - PGPORT=5433
-  - PGUSER=travis
+  #- PGUSER=travis
 jobs:
   include:
   - stage: one
