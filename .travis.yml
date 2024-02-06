@@ -19,4 +19,6 @@ addons:
       - postgresql-12-postgis-3
 
 install: skip
-script: psql -c "\l" -d travis
+script:
+  - psql -c "\l" -d travis
+  - ps -aux | grep postgres
