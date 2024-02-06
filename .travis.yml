@@ -2,7 +2,7 @@
 language: python
 os:
 - linux
-dist: bionic
+dist: jammy
 python:
 - '3.9'
 jobs:
@@ -16,9 +16,9 @@ jobs:
         - libxmlsec1
         - libxmlsec1-dev
         - libxmlsec1-openssl
-        - postgresql-13
-        - postgresql-client-13
-        - postgresql-contrib-13
+        - postgresql-14
+        - postgresql-client-14
+        - postgresql-contrib-14
     services:
     - postgresql
     install: skip
