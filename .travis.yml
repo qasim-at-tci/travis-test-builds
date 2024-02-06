@@ -12,10 +12,10 @@ jobs:
   - stage: one
     services:
       - postgresql
-        addons:
-          postgresql: '12'
-        apt:
-          packages:
+    addons:
+      postgresql: '12'
+      apt:
+        packages:
           - libonig5
           - postgresql-12
           - postgresql-client-12
