@@ -5,7 +5,7 @@ os:
 dist: focal
 env:
   global:
-  - PGPORT=5432
+  - PGPORT=5433
   - PGUSER=travis
 jobs:
   include:
