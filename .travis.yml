@@ -14,13 +14,11 @@ jobs:
       postgresql: '13'
       apt:
         packages:
-        - libssl-dev
-        - libxmlsec1
-        - libxmlsec1-dev
-        - libxmlsec1-openssl
-        - postgresql-14
-        - postgresql-client-14
-        - postgresql-contrib-14
+          - libpq-dev
+          - libcurl4-openssl-dev
+          - libgmp3-dev
+          - postgresql-13
+          - postgresql-client-13
     services:
     - postgresql
     install: skip
