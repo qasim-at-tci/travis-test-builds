@@ -10,15 +10,6 @@ env:
 jobs:
   include:
   - stage: one
-    addons:
-      postgresql: '13'
-      apt:
-        packages:
-          - libpq-dev
-          - libcurl4-openssl-dev
-          - libgmp3-dev
-          - postgresql-13
-          - postgresql-client-13
     services:
     - postgresql
     install: skip
