@@ -1,10 +1,12 @@
 ---
-language: python
+language: ruby
 os:
 - linux
-dist: jammy
-python:
-- '3.9'
+dist: focal
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
 jobs:
   include:
   - stage: one
@@ -22,4 +24,4 @@ jobs:
     services:
     - postgresql
     install: skip
-    script: sleep 5
+    script: psql -c "\l" -d travis
