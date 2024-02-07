@@ -1,13 +1,10 @@
 os: linux
 dist: focal
-language: shell
-install: skip
+language: python
+python: '3.10'
 
-jobs:
-  include:
-    - name: "Without docker service"
-      services:
-        - docker
-      script: docker version
-    - name: "With docker service"
-      script: docker version
+before_install:
+  - docker pull qdrant/qdrant
+  - docker run -p 6333:6333 -p 6334:6334 -d qdrant/qdrant
+
+script: python qdrant.py
