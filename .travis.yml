@@ -10,8 +10,7 @@ env:
   global:
   #- PGPORT=5432
   #- PGUSER=travis
-services:
-  - postgresql
+addons: postgresql-13
 
 install: skip
 script:
