@@ -4,8 +4,6 @@ php: '8.2'
 os: linux
 dist: focal
 
-group: dev
-
 env:
   global:
   - PGPORT=5433
