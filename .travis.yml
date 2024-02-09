@@ -1,21 +1,29 @@
----
-language: php
-php: '8.2'
 os: linux
 dist: focal
-
-env:
-  global:
-  - PGPORT=5433
-  #- PGUSER=travis
-services:
-  - postgresql
+language: generic
 addons:
-  postgresql: "12"
   apt:
+    sources:
+      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
     packages:
-    - postgresql-12
-    - postgresql-client-12
+      - docker-ce
+      - docker-buildx-plugin
+git:
+  depth: false
+branches:
+  except:
+    - "/^v\\d+.*$/"
+services:
+  - docker
+before_install:
+  - docker --version
 install: skip
 script:
-  - psql -c "\l" -d travis
+  - docker info
+before_deploy: sleep 1
+deploy:
+  provider: script
+  script: ./hello.sh
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(develop|staging|master|minimal-build-check)$
