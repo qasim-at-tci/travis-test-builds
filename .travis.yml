@@ -1,5 +1,7 @@
 os: linux
 dist: focal
+language: php
+php: 8.2
 
 services: postgresql
 addons:
