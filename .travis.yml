@@ -1,29 +1,16 @@
 os: linux
 dist: focal
-language: generic
+
+services: postgresql
 addons:
+  postgresql: '12'
   apt:
-    sources:
-      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
     packages:
-      - docker-ce
-      - docker-buildx-plugin
-git:
-  depth: false
-branches:
-  except:
-    - "/^v\\d+.*$/"
-services:
-  - docker
-before_install:
-  - docker --version
+      - postgresql-12
+      - postgresql-client-12
+env:
+  global:
+    - PGPORT: 5433
 install: skip
 script:
-  - docker info
-before_deploy: sleep 1
-deploy:
-  provider: script
-  script: ./hello.sh
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(develop|staging|master|minimal-build-check)$
+  - psql -c "CREATE DATABASE test;" -d postgres
