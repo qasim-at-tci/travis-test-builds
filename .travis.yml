@@ -15,4 +15,4 @@ env:
     - PGPORT: 5433
 install: skip
 script:
-  - psql -c "CREATE DATABASE test;" -d postgres
+  - psql -c "CREATE DATABASE test;"
