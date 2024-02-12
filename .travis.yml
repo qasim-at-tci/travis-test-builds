@@ -15,10 +15,9 @@ env:
     - PGPORT: 5433
     - DB_NAME: 'xyz'
     - DB_USER: 'travis'
-    - DB_CMD: "psql -U $DB_USER -c"
 install: skip
 script:
-  - $DB_CMD "CREATE DATABASE $DB_NAME;"
-  - $DB_CMD "ALTER USER $DB_USER SET bytea_output = 'escape';"
+  - psql -U $DB_USER -c "CREATE DATABASE $DB_NAME;"
+  - psql -U $DB_USER -c "ALTER USER $DB_USER SET bytea_output = 'escape';"
   - psql -c "\l"
   - psql -c "\du"
