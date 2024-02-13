@@ -2,6 +2,7 @@ os: linux
 dist: focal
 language: shell
 
-before_install: source ./scripts/set_env.sh
 install: skip
-script: echo $TEST
+script:
+  - docker build -t test:v1
+  - docker run --name testt test:v1
