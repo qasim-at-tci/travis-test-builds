@@ -1,7 +1,8 @@
 os: linux
-dist: jammy
+dist: focal
 language: php
 php: 8.2
 
+before_install: source ./scripts/set_env.sh
 install: skip
 script: php -v
