@@ -1,8 +1,7 @@
 os: linux
 dist: focal
-language: php
-php: 8.2
+language: shell
 
 before_install: source ./scripts/set_env.sh
 install: skip
-script: php -v
+script: echo $TEST
