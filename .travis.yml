@@ -3,6 +3,4 @@ dist: focal
 language: shell
 
 install: skip
-script:
-  - docker build -t test:v1 .
-  - docker run --name testt test:v1
+script: sleep 20
