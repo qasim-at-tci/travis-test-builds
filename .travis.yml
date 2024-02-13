@@ -4,5 +4,5 @@ language: shell
 
 install: skip
 script:
-  - docker build -t test:v1
+  - docker build -t test:v1 .
   - docker run --name testt test:v1
