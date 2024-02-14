@@ -12,6 +12,6 @@ jobs:
     - dist: bionic
       node_js: 16.20.2
     - dist: focal
-      node_js: 20.11.0
+      node_js: 18.4.0
     - dist: jammy
       node_js: 20.9.0
