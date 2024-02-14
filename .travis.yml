@@ -1,6 +1,5 @@
 os: linux
-dist: node_js
-language: shell
+language: node_js
 
 install: skip
 script: true
