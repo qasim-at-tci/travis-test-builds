@@ -1,8 +1,17 @@
 os: linux
 language: python
-jdk: openjdk8
+python: 3.6
 
 install: skip
+before_install:
+  - echo "The default JDK is:"
+  - java -version
+  - sleep 20
+  # Setup JDK 8
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk install java 8.0.352-zulu
+  - sdk use java 8.0.352-zulu
 script:
   - python -V
   - java -version
