@@ -1,17 +1,26 @@
 os: linux
-language: node_js
+language: php
 
 install: skip
 script:
-  - nvm_ls
+  - php -v
 
 jobs:
   include:
     - dist: xenial
-      node_js: 16.20.0
+      php: 8.3.2
     - dist: bionic
-      node_js: 16.20.2
+      php: 8.3.2
     - dist: focal
-      node_js: 18.4.0
+      php: 8.3.2
     - dist: jammy
-      node_js: 20.9.0
+      php: 8.3.2
+
+    - dist: xenial
+      php: 8.3
+    - dist: bionic
+      php: 8.3
+    - dist: focal
+      php: 8.3
+    - dist: jammy
+      php: 8.3
