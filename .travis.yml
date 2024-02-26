@@ -1,26 +1,9 @@
 os: linux
-language: php
+language: python
+jdk: openjdk8
 
 install: skip
 script:
-  - php -v
-
-jobs:
-  include:
-    - dist: xenial
-      php: 8.3.2
-    - dist: bionic
-      php: 8.3.2
-    - dist: focal
-      php: 8.3.2
-    - dist: jammy
-      php: 8.3.2
-
-    - dist: xenial
-      php: 8.3
-    - dist: bionic
-      php: 8.3
-    - dist: focal
-      php: 8.3
-    - dist: jammy
-      php: 8.3
+  - python -V
+  - java -version
+  - javac -version
