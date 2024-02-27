@@ -13,6 +13,4 @@ before_install:
   - sdk install java 8.0.352-zulu
   - sdk use java 8.0.352-zulu
 script:
-  - python -V
-  - java -version
-  - javac -version
+  - sleep 1000
