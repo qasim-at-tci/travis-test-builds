@@ -1,16 +1,13 @@
-os: linux
-language: python
-python: 3.6
-
+---
+language: node_js
+os:
+- linux
+dist: focal
+node_js:
+- '20'
 install: skip
-before_install:
-  - echo "The default JDK is:"
-  - java -version
-  - sleep 20
-  # Setup JDK 8 #####
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 8.0.352-zulu
-  - sdk use java 8.0.352-zulu
-script:
-  - sleep 1000
+before_script:
+- gem install faraday -v 1.0.1
+- gem install public_suffix -v 4.0.7
+- gem install travis -v 1.11.1
+script: sleep 10
