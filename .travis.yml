@@ -7,6 +7,8 @@ node_js:
 - '20'
 install: skip
 before_script:
-- gem install travis
+- gem install faraday -v 1.0.1
+- gem install public_suffix -v 4.0.7
+- gem install travis -v 1.11.1
 - travis version
 script: sleep 10
