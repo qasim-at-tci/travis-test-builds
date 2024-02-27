@@ -7,7 +7,7 @@ before_install:
   - echo "The default JDK is:"
   - java -version
   - sleep 20
-  # Setup JDK 8
+  # Setup JDK 8 ###
   - curl -s "https://get.sdkman.io" | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - sdk install java 8.0.352-zulu
