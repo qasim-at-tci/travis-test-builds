@@ -1,14 +1,16 @@
----
-language: node_js
-os:
-- linux
+os: linux
 dist: focal
-node_js:
-- '20'
+
+language: php
+php: 8.1
+
+before_install:
+  - sudo fallocate -l 4G /swapfile
+  - sudo chmod 600 /swapfile
+  - sudo mkswap /swapfile
+  - sudo swapon /swapfile
+  - sudo sysctl vm.swappiness=10
+  - sudo sysctl -w vm.max_map_count=1966080
+
 install: skip
-before_script:
-- gem install faraday -v 1.0.1
-- gem install public_suffix -v 4.0.7
-- gem install travis -v 1.11.1
-- travis version
 script: sleep 10
