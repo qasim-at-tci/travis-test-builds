@@ -1,16 +1,15 @@
 os: linux
 dist: focal
 
-language: php
-php: 8.1.27
-
-before_install:
-  - sudo fallocate -l 4G /swapfile
-  - sudo chmod 600 /swapfile
-  - sudo mkswap /swapfile
-  - sudo swapon /swapfile
-  - sudo sysctl vm.swappiness=10
-  - sudo sysctl -w vm.max_map_count=1966080
+language: shell
 
 install: skip
-script: sleep 10
+
+jobs:
+  include:
+    - stage: ONE
+      script: sleep 250
+    - stage: TWO
+      script: sleep 180
+    - stage: THREE
+      script: sleep 120
