@@ -2,15 +2,11 @@
 os: linux
 dist: focal
 
-language: shell
+language: php
+php: 8.1.27
 
 install: skip
+before_script:
+  - echo 'memory_limit = 4096M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
-jobs:
-  include:
-    - stage: ONE
-      script: sleep 250
-    - stage: TWO
-      script: sleep 180
-    - stage: THREE
-      script: sleep 120
+script: sleep 10
