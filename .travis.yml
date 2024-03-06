@@ -2,13 +2,7 @@
 os: linux
 dist: focal
 
-language: php
-php: 8.1.27
-
+language: ruby
+ruby: 3.2.3
 install: skip
-before_script:
-  - cat ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  - sed -i 's/memory_limit\s*=.*/memory_limit = 2048M/g' ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  - cat ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-
-script: sleep 10
+script: ruby -v
