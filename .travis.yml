@@ -2,7 +2,7 @@ os: linux
 dist: xenial
 
 language: node_js
-node_js: lts/*
+node_js: 16
 install: skip
 script: ruby -v
 
