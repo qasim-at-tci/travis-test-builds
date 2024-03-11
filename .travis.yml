@@ -1,7 +1,11 @@
 # Run 5
 os: linux
 dist: focal
-arch: ppc64le
+
+addons:
+  apt:
+    packages:
+      - rabbitmq-server
 
 language: shell
 install: skip
