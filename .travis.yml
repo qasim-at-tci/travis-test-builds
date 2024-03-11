@@ -3,7 +3,6 @@ os: linux
 dist: focal
 arch: ppc64le
 
-language: ruby
-ruby: 3.2.3
+language: shell
 install: skip
 script: ruby -v
