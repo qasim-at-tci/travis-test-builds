@@ -11,13 +11,14 @@ jobs:
   include:
     - name: "RabbitMQ Service - JAMMY"
       dist: jammy
-      
     - name: "RabbitMQ Service - FOCAL"
       dist: focal
     - name: "RabbitMQ Service - BIONIC"
       dist: bionic
     - name: "RabbitMQ Service - XENIAL"
       dist: xenial
+    
+    
     - name: "RabbitMQ APT Package - JAMMY"
       dist: jammy
       addons:
