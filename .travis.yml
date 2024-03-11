@@ -1,6 +1,7 @@
 os: linux
 dist: xenial
-
+services:
+  - rabbitmq
 language: node_js
 node_js: 14
 install: skip
@@ -10,20 +11,13 @@ jobs:
   include:
     - name: "RabbitMQ Service - JAMMY"
       dist: jammy
-      services:
-        - rabbitmq
+      
     - name: "RabbitMQ Service - FOCAL"
       dist: focal
-      services:
-        - rabbitmq
     - name: "RabbitMQ Service - BIONIC"
       dist: bionic
-      services:
-        - rabbitmq
     - name: "RabbitMQ Service - XENIAL"
       dist: xenial
-      services:
-        - rabbitmq
     - name: "RabbitMQ APT Package - JAMMY"
       dist: jammy
       addons:
