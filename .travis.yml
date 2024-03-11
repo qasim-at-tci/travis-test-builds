@@ -48,6 +48,3 @@ jobs:
         apt:
           packages:
             - rabbitmq-server
-    - name: "RabbitMQ Script Install - FOCAL"
-      dist: focal
-      before_install: sudo bash ./install-rabbit.sh
