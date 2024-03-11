@@ -2,17 +2,52 @@ os: linux
 dist: xenial
 
 language: node_js
-node_js: 16
+node_js: 14
 install: skip
-script: ruby -v
+script: sudo rabbitmqctl status
 
 jobs:
   include:
-    - dist: focal
+    - name: "RabbitMQ Service - JAMMY"
+      dist: jammy
       services:
         - rabbitmq
-    - dist: xenial
+    - name: "RabbitMQ Service - FOCAL"
+      dist: focal
+      services:
+        - rabbitmq
+    - name: "RabbitMQ Service - BIONIC"
+      dist: bionic
+      services:
+        - rabbitmq
+    - name: "RabbitMQ Service - XENIAL"
+      dist: xenial
+      services:
+        - rabbitmq
+    - name: "RabbitMQ APT Package - JAMMY"
+      dist: jammy
       addons:
         apt:
           packages:
             - rabbitmq-server
+    - name: "RabbitMQ APT Package - FOCAL"
+      dist: focal
+      addons:
+        apt:
+          packages:
+            - rabbitmq-server
+    - name: "RabbitMQ APT Package - BIONIC"
+      dist: bionic
+      addons:
+        apt:
+          packages:
+            - rabbitmq-server
+    - name: "RabbitMQ APT Package - XENIAL"
+      dist: xenial
+      addons:
+        apt:
+          packages:
+            - rabbitmq-server
+    - name: "RabbitMQ Script Install - FOCAL"
+      dist: focal
+      before_install: sudo bash ./install-rabbit.sh
