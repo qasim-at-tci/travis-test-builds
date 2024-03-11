@@ -1,16 +1,18 @@
-# Run 5
 os: linux
-dist: focal
-
-addons:
-  apt:
-    packages:
-      - rabbitmq-server
-
-services:
-  - rabbitmq
+dist: xenial
 
 language: node_js
 node_js: lts/*
 install: skip
 script: ruby -v
+
+jobs:
+  include:
+    - dist: focal
+      services:
+        - rabbitmq
+    - dist: xenial
+      addons:
+        apt:
+          packages:
+            - rabbitmq-server
