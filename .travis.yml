@@ -7,7 +7,7 @@ addons:
     packages:
       - rabbitmq-server
 
-language: java
-jdk: openjdk11
+language: node_js
+node_js: lts/*
 install: skip
 script: ruby -v
