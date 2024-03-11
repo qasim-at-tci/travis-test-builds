@@ -2,10 +2,8 @@
 os: linux
 dist: focal
 
-addons:
-  apt:
-    packages:
-      - rabbitmq-server
+services:
+  - rabbitmq
 
 language: node_js
 node_js: lts/*
