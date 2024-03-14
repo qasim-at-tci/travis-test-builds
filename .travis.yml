@@ -14,4 +14,4 @@ before_install:
   - sudo systemctl restart postgresql
 
 install: skip
-script: sudo rabbitmqctl status
+script: psql --version
