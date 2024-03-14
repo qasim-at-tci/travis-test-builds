@@ -1,45 +1,17 @@
 os: linux
-dist: xenial
-services:
-  - rabbitmq
+dist: jammy
 language: node_js
 node_js: 14
+addons:
+  postgresql: "16"
+  apt:
+    packages:
+    - postgresql-16
+    - postgresql-client-16
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
+
 install: skip
 script: sudo rabbitmqctl status
-
-jobs:
-  include:
-    - name: "RabbitMQ Service - JAMMY"
-      dist: jammy
-    - name: "RabbitMQ Service - FOCAL"
-      dist: focal
-    - name: "RabbitMQ Service - BIONIC"
-      dist: bionic
-    - name: "RabbitMQ Service - XENIAL"
-      dist: xenial
-    
-    
-    - name: "RabbitMQ APT Package - JAMMY"
-      dist: jammy
-      addons:
-        apt:
-          packages:
-            - rabbitmq-server
-    - name: "RabbitMQ APT Package - FOCAL"
-      dist: focal
-      addons:
-        apt:
-          packages:
-            - rabbitmq-server
-    - name: "RabbitMQ APT Package - BIONIC"
-      dist: bionic
-      addons:
-        apt:
-          packages:
-            - rabbitmq-server
-    - name: "RabbitMQ APT Package - XENIAL"
-      dist: xenial
-      addons:
-        apt:
-          packages:
-            - rabbitmq-server
