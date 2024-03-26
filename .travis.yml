@@ -1,7 +1,10 @@
 os: linux
-dist: jammy
-arch: arm64
-language: shell
+language: node_js
+node_js: lts/*
 
-install: skip
-script: true
+script: sleep 10
+
+jobs:
+  include:
+    - dist: focal
+    - dist: jammy
