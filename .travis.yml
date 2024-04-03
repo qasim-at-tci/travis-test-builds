@@ -7,4 +7,5 @@ before_install:
   - pyenv global 3.9.18
 
 script:
+  - python -V
   - python comm.py
