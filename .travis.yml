@@ -3,9 +3,8 @@ dist: focal
 language: node_js
 node_js: lts/*
 
-#before_install:
-  #- pyenv install 3.9.18
-  #- pyenv global 3.9.18
+before_install:
+  - pyenv global 3.9.18
 
 script:
   - python comm.py
