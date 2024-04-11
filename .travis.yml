@@ -1,11 +1,13 @@
-os: linux
-dist: focal
-language: node_js
-node_js: lts/*
-
+language: generic
+dist: jammy
+services:
+  - docker
+env:
+  global:
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
-  - pyenv global 3.9.18
-
-script:
-  - python -V
-  - python comm.py
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+install: skip
+script: sleep 2
