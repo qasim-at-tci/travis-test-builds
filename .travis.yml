@@ -1,9 +1,28 @@
-language: ruby
+language: shell
 os: linux
-dist: xyz
-rvm:
-- 3.3.0
-services:
-- postgresql
+dist: focal
+
 install: skip
-script: true
+
+jobs:
+  include:
+   - stage: A
+     script: sleep 2
+   - stage: A
+     script: sleep 3
+   - stage: A
+     script: sleep 4
+   - stage: A
+     script: sleep 5
+   - stage: A
+     script: sleep 6
+   - stage: B
+     script: sleep 1
+   - stage: B
+     script: sleep 7
+   - stage: B
+     script: sleep 8
+   - stage: B
+     script: sleep 9
+   - stage: C
+     script: sleep 10
