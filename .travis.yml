@@ -7,15 +7,15 @@ install: skip
 jobs:
   include:
    - stage: A
-     script: sleep 2
+     script: true
    - stage: A
-     script: sleep 3
+     script: false
    - stage: A
-     script: sleep 4
+     script: sleep 120
    - stage: A
-     script: sleep 5
+     script: sleep 200
    - stage: A
-     script: sleep 6
+     script: sleep 180
    - stage: B
      script: sleep 1
    - stage: B
