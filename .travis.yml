@@ -6,9 +6,9 @@ dist: focal
 install: skip
 
 after_success:
-  - sleep 5
+  - "[[ $TRAVIS_TEST_RESULT = 0 ]] && sleep 20"
 after_failure:
-  - sleep 8
+  - "[[ $TRAVIS_TEST_RESULT = 1 ]] && sleep 50"
 
 jobs:
   include:
