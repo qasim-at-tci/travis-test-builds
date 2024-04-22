@@ -17,8 +17,18 @@ jobs:
       script:
         - php --version
         - true
+      deploy:
+        provider: script
+        script: sleep 20
+        on:
+          all_branches: true
     - name: "FAILING"
       php: 8.1.28
       script:
         - php --version
         - false
+      deploy:
+        provider: script
+        script: sleep 20
+        on:
+          all_branches: true
