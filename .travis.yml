@@ -1,28 +1,13 @@
-language: shell
+language: php
+
 os: linux
 dist: focal
 
 install: skip
 
+script: php --version
+
 jobs:
   include:
-   - stage: A
-     script: true
-   - stage: A
-     script: false
-   - stage: A
-     script: sleep 120
-   - stage: A
-     script: sleep 200
-   - stage: A
-     script: sleep 180
-   - stage: B
-     script: sleep 1
-   - stage: B
-     script: sleep 7
-   - stage: B
-     script: sleep 8
-   - stage: B
-     script: sleep 9
-   - stage: C
-     script: sleep 10
+    - php: 8.1
+    - php: 8.1.28
