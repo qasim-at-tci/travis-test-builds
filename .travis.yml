@@ -5,9 +5,20 @@ dist: focal
 
 install: skip
 
-script: php --version
+after_success:
+  - sleep 5
+after_failure:
+  - sleep 8
 
 jobs:
   include:
-    - php: 8.1
-    - php: 8.1.28
+    - name: "PASSING"
+      php: 8.1
+      script:
+        - php --version
+        - true
+    - name: "FAILING"
+      php: 8.1.28
+      script:
+        - php --version
+        - false
