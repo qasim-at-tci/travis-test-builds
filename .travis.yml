@@ -1,36 +1,13 @@
-language: php
+language: node_js
 
 os: linux
 dist: focal
 
 install: skip
 
-after_success:
-  - "[[ $TRAVIS_TEST_RESULT = 0 ]] && sleep 20"
-after_failure:
-  - "[[ $TRAVIS_TEST_RESULT = 1 ]] && sleep 50"
+script: true
 
 jobs:
   include:
-    - name: "PASSING"
-      php: 8.1
-      script:
-        - php --version
-        - true
-      deploy:
-        provider: script
-        script: sleep 20
-        on:
-          all_branches: true
-          condition: $TRAVIS_TEST_RESULT = 0
-    - name: "FAILING"
-      php: 8.1.28
-      script:
-        - php --version
-        - false
-      deploy:
-        provider: script
-        script: sleep 20
-        on:
-          all_branches: true
-          condition: $TRAVIS_TEST_RESULT = 0
+    - node_js: 18.20.1
+    - node_js: "18.20.1"
