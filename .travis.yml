@@ -1,14 +1,12 @@
-language: node_js
-
+language: shell
 os: linux
-dist: focal
-
 install: skip
 
-script: true
+script: sudo apt update
 
 jobs:
   include:
-    - node_js: 18.20.1
-    - node_js: "18.20.1"
-      script: sleep 1
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
