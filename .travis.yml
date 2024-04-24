@@ -16,12 +16,21 @@ jobs:
       dist: jammy
       php: 8.3.4
 
-    - name: "PHP 8.3.6"
+    - name: "PHP 8.3"
       dist: bionic
       php: 8.3
-    - name: "PHP 8.3.6"
+    - name: "PHP 8.3"
       dist: focal
       php: 8.3
-    - name: "PHP 8.3.6"
+    - name: "PHP 8.3"
       dist: jammy
       php: 8.3
+    - name: "PHP 8.3.6"
+      dist: bionic
+      php: 8.3.6
+    - name: "PHP 8.3.6"
+      dist: focal
+      php: 8.3.6
+    - name: "PHP 8.3.6"
+      dist: jammy
+      php: 8.3.6
