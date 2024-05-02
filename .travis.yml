@@ -1,52 +1,13 @@
-language: android
-jdk: openjdk17
-sudo: true
-dist : trusty
+language: ruby
+ruby: 3.2.4
+os: linux
+install: skip
+script: ruby -v
 
-os:
-  - linux
-
-env:
-  global:
-    - ANDROID_HOME=$TRAVIS_BUILD_DIR/android-sdk
-    - PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
-
-before_script:
-  - echo "Running Before Script"
-  - wget -q --output-document=commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
-  - mkdir -p $ANDROID_HOME/cmdline-tools
-  - mkdir ~/.android; echo 'count=0' > ~/.android/repositories.cfg
-  - unzip -d $ANDROID_HOME/cmdline-tools $TRAVIS_BUILD_DIR/commandlinetools.zip
-  - pushd $ANDROID_HOME/cmdline-tools; mv cmdline-tools latest; popd
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools"
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "tools"
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3"
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-33"
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;25.0.8775105"
-  - yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
-
-android:
-  components:
-    - tools
-    - platform-tools
-    - tools
-    - build-tools-33.0.3
-    - android-33
-
-  licenses:
-    - android-sdk-preview-license-.+
-    - android-sdk-license-.+
-    - google-gdk-license-.+
-    - '.+'
-
-script: sleep 10
-
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
-cache:
-  directories:
-    - $HOME/.m2/
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
