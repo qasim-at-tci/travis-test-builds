@@ -1,6 +1,6 @@
+os: linux
 language: ruby
 ruby: 3.3.1
-os: linux
 install: skip
 script: ruby -v
 
