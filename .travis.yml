@@ -2,7 +2,7 @@ os: linux
 dist: focal
 language: python
 install: skip
-script: ruby -v
+script: python -V
 
 jobs:
   include:
