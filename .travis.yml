@@ -1,10 +1,16 @@
 os: linux
 dist: focal
-language: python
+language: shell
 install: skip
-script: python -V
+script:
+  - docker images
+  - docker build -t test:0.1 .
+  - docker images
 
 jobs:
   include:
-    - python: "3.10"
-    - python: "3.11"
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
+    
