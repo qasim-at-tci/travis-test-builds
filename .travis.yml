@@ -1,13 +1,8 @@
+language: ruby
+ruby: 3.1.5
 os: linux
-dist: focal
-services:
-  - docker
-language: shell
 install: skip
-script:
-  - docker images
-  - docker build -t test:0.1 .
-  - docker images
+script: ruby -v
 
 jobs:
   include:
