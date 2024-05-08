@@ -4,7 +4,9 @@ os: linux
 install: skip
 script: ruby -v
 
-
+env:
+  global:
+    - travis_internal_ruby="3.1.5"
 before_deploy:
   - rvm install 3.1.5 && rvm use 3.1.5
 deploy:
