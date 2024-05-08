@@ -1,13 +1,28 @@
-language: ruby
-ruby: 3.1.5
+language: php
+php: 8.1
 os: linux
 install: skip
 script: ruby -v
 
+
+before_deploy:
+  - gem install dpl -v 2.0.3.beta.4
+deploy:
+- provider: s3
+  bucket: "$S3_BUILD_BUCKET"
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  local_dir: builds_storied_co
+  upload_dir: n2ps/${TRAVIS_BRANCH}
+  region: "$AWS_DEFAULT_REGION"
+  storage_class: STANDARD_IAM
+  edge: true
+  'on':
+    all_branches: true
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
+    #- dist: xenial
+    #- dist: bionic
     - dist: focal
-    - dist: jammy
+    #- dist: jammy
     
