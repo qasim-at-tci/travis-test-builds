@@ -1,30 +1,24 @@
 language: php
-php: 8.1
-os: linux
-install: skip
-script: ruby -v
 
-env:
-  global:
-    - travis_internal_ruby="3.1.5"
-before_deploy:
-  - rvm install 3.1.5 && rvm use 3.1.5
-deploy:
-- provider: s3
-  bucket: "$S3_BUILD_BUCKET"
-  access_key_id: "$AWS_ACCESS_KEY_ID"
-  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-  local_dir: builds_storied_co
-  upload_dir: n2ps/${TRAVIS_BRANCH}
-  region: "$AWS_DEFAULT_REGION"
-  storage_class: STANDARD_IAM
-  edge: true
-  'on':
-    all_branches: true
+os: linux
+dist: focal
+
+install: skip
+
+after_success:
+  - sleep 5
+after_failure:
+  - sleep 8
+
 jobs:
   include:
-    #- dist: xenial
-    #- dist: bionic
-    - dist: focal
-    #- dist: jammy
-    
+    - name: "PASSING"
+      php: 8.1
+      script:
+        - php --version
+        - true
+    - name: "FAILING"
+      php: 8.1.28
+      script:
+        - php --version
+        - false
