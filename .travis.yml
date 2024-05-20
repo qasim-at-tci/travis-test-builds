@@ -5,20 +5,14 @@ dist: focal
 
 install: skip
 
-after_success:
-  - sleep 5
-after_failure:
-  - sleep 8
-
 jobs:
   include:
-    - name: "PASSING"
-      php: 8.1
-      script:
-        - php --version
-        - true
-    - name: "FAILING"
-      php: 8.1.28
-      script:
-        - php --version
-        - false
+    - script: sleep 595
+    - script: sleep 596
+    - script: sleep 597
+    - script: sleep 598
+    - script: sleep 599
+
+    - script: sleep 500
+    - script: sleep 510
+    - script: sleep 520
