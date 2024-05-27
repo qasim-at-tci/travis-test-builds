@@ -7,3 +7,4 @@ install: skip
 
 script:
   - sudo apt-get update
+  - sudo apt-get install yamllint
