@@ -5,8 +5,7 @@ dist: focal
 addons:
   apt:
     packages:
-    - cmake
-    - time
+    - build-essential
 
 install: skip
 
