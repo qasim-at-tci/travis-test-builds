@@ -2,7 +2,13 @@ language: shell
 
 dist: focal
 
+addons:
+  apt:
+    packages:
+    - cmake
+    - time
+
 install: skip
 
 script:
-  - sudo apt update
+  - sleep 2
