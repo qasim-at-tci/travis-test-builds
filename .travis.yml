@@ -1,10 +1,12 @@
 language: php
 php: 8.3
 
+addons:
+  apt:
+    packages:
+    - yamllint
 dist: focal
 
 install: skip
 
-script:
-  - sudo apt-get update
-  - sudo apt-get install yamllint
+script: sleep 10
