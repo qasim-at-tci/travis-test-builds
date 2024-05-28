@@ -2,12 +2,16 @@ cache:
   directories:
     - ~/.nvm
 
-language: node_js
-node_js: lts/*
+language: shell
 
 dist: focal
 
+before_install:
+  - node -v
+  - nvm use 20.14.0
+  
 install: skip
 
 script:
-  - ls ~/.nvm/versions/node 
+  - ls ~/.nvm/versions/node
+  - node -v
