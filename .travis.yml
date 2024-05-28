@@ -1,6 +1,7 @@
 cache:
   directories:
     - ~/.nvm
+
 language: node_js
 node_js: lts/*
 
@@ -8,4 +9,5 @@ dist: focal
 
 install: skip
 
-script: sleep 10
+script:
+  - ls ~/.nvm
