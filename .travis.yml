@@ -2,7 +2,7 @@ cache:
   directories:
     - ~/.nvm
 
-language: shell
+language: node_js
 
 dist: focal
 
