@@ -8,6 +8,7 @@ dist: focal
 
 before_install:
   - node -v
+  - nvm install 20.14.0
   - nvm use 20.14.0
   
 install: skip
