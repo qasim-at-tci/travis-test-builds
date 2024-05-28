@@ -10,4 +10,4 @@ dist: focal
 install: skip
 
 script:
-  - ls ~/.nvm
+  - ls ~/.nvm/versions/node 
