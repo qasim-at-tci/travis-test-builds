@@ -11,7 +11,7 @@ jobs:
     - script: sleep 400
     - script: sleep 500
     - script: sleep 600
-    - script: sleep 350
+    - script: sleep 352
     - script: sleep 450
     - script: sleep 550
     - script: sleep 551
