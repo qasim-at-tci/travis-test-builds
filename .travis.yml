@@ -7,7 +7,7 @@ install: skip
 jobs:
   include:
     - script: sleep 200
-    - script: sleep 322
+    - script: sleep 320
     - script: sleep 400
     - script: sleep 500
     - script: sleep 600
