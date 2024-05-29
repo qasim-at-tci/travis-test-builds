@@ -1,18 +1,18 @@
-cache:
-  directories:
-    - ~/.nvm
-
-language: node_js
+language: shell
 
 dist: focal
-
-before_install:
-  - node -v
-  - ls ~/.nvm/versions/node
-  - nvm use 20.14.0
   
 install: skip
 
-script:
-  - ls ~/.nvm/versions/node
-  - node -v
+jobs:
+  include:
+    - script: sleep 200
+    - script: sleep 300
+    - script: sleep 400
+    - script: sleep 500
+    - script: sleep 600
+    - script: sleep 350
+    - script: sleep 450
+    - script: sleep 550
+    - script: sleep 551
+    - script: sleep 200
