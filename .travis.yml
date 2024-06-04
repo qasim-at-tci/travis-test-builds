@@ -1,31 +1,13 @@
-language: php
+language: ruby
+ruby: 3.1.6
 
 os: linux
-dist: focal
 
 install: skip
 
-after_success:
-  - sleep 5
-after_failure:
-  - sleep 8
-
 jobs:
   include:
-    - name: "PASSING"
-      php: 8.1
-      script:
-        - php --version
-        - true
-    - name: "FAILING"
-      php: 8.1.28
-      script:
-        - php --version
-        - false
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: ./deploy.sh
-  on:
-    branch:
-      - minimal-build-check
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
