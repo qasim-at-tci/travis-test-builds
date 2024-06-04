@@ -1,18 +1,19 @@
-language: shell
-
-dist: focal
-  
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - '7.2'
 install: skip
-
-jobs:
-  include:
-    - script: sleep 200
-    - script: sleep 320
-    - script: sleep 400
-    - script: sleep 500
-    - script: sleep 600
-    - script: sleep 352
-    - script: sleep 455
-    - script: sleep 550
-    - script: sleep 551
-    - script: sleep 200
+script: sleep 10
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./deploy.sh
+  on:
+    branch:
+      - dev
+      - master
+      - minimal-build-check
+services:
+  - redis-server
