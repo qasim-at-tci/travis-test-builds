@@ -6,7 +6,7 @@ script: ruby -v
 jobs:
   include:
     #- dist: xenial
-    #- dist: bionic
+    - dist: bionic
     - dist: focal
       group: previous
     #- dist: jammy
