@@ -1,7 +1,6 @@
 language: shell
 
 os: linux
-
 install: skip
 script: ruby -v
 jobs:
@@ -9,10 +8,12 @@ jobs:
     #- dist: xenial
     #- dist: bionic
     - dist: focal
+      group: previous
     #- dist: jammy
 
 deploy:
-  edge: true
+  edge:
+    branch: v2.0.3-beta.4
   provider: pages:git
   cleanup: false
   local_dir: storybook-static
