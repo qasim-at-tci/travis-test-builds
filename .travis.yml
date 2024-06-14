@@ -1,5 +1,4 @@
-language: ruby
-ruby: 3.1.6
+language: shell
 
 os: linux
 
