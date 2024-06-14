@@ -12,8 +12,7 @@ jobs:
     #- dist: jammy
 
 deploy:
-  edge:
-    branch: v2.0.3-beta.4
+  edge: true
   provider: pages:git
   cleanup: false
   local_dir: storybook-static
