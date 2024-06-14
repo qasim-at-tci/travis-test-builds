@@ -8,6 +8,7 @@ script: ruby -v
 jobs:
   include:
     - dist: xenial
+      group: edge
     - dist: bionic
     - dist: focal
     - dist: jammy
