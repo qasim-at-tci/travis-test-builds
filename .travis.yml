@@ -2,21 +2,20 @@ language: shell
 
 os: linux
 install: skip
-script: ruby -v
+script: sudo apt update
 jobs:
   include:
-    #- dist: xenial
+    - dist: xenial
     - dist: bionic
     - dist: focal
-      group: previous
-    #- dist: jammy
+    - dist: jammy
 
-deploy:
-  edge: true
-  provider: pages:git
-  cleanup: false
-  local_dir: storybook-static
-  keep_history: false
-  token: $GITHUB_TOKEN
-  on:
-    all_branches: true
+#deploy:
+#  edge: true
+#  provider: pages:git
+#  cleanup: false
+#  local_dir: storybook-static
+#  keep_history: false
+#  token: $GITHUB_TOKEN
+#  on:
+#    all_branches: true
