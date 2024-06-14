@@ -16,3 +16,5 @@ deploy:
   provider: script
   script: ruby --version
   edge: true
+  on:
+    all_branches: true
