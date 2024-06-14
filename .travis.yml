@@ -7,15 +7,17 @@ install: skip
 script: ruby -v
 jobs:
   include:
-    - dist: xenial
-      group: edge
-    - dist: bionic
+    #- dist: xenial
+    #- dist: bionic
     - dist: focal
-    - dist: jammy
+    #- dist: jammy
 
 deploy:
-  provider: script
-  script: ruby --version
   edge: true
+  provider: pages:git
+  cleanup: false
+  local_dir: storybook-static
+  keep_history: false
+  token: $GITHUB_TOKEN
   on:
     all_branches: true
