@@ -11,3 +11,8 @@ jobs:
     - dist: bionic
     - dist: focal
     - dist: jammy
+
+deploy:
+  provider: script
+  script: ruby --version
+  edge: true
