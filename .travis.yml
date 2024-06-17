@@ -2,7 +2,7 @@ language: shell
 
 os: linux
 install: skip
-script: sudo apt update
+script: pwd
 jobs:
   include:
     - dist: xenial
