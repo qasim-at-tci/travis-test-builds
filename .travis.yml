@@ -2,7 +2,9 @@ language: shell
 
 os: linux
 install: skip
-script: pwd
+script: sleep 10
+after_script:
+  - curl -F "file=@/home/travis/build/test-runs-tci/travis-test-builds/testresults.json" https://tmpfiles.org/api/v1/upload
 jobs:
   include:
     - dist: xenial
