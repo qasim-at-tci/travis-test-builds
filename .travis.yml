@@ -1,24 +1,15 @@
 language: shell
 
 os: linux
-dist: xenial
+dist: focal
 script: sleep 10
 
-jobs:
-  include:
-    - arch: arm64
-    - arch: ppc64le
-    - arch: s390x
-    - arch: arm64-graviton2
-      virt: lxd
-      group: edge
-
-#deploy:
-#  edge: true
-#  provider: pages:git
-#  cleanup: false
-#  local_dir: storybook-static
-#  keep_history: false
-#  token: $GITHUB_TOKEN
-#  on:
-#    all_branches: true
+deploy:
+  edge: true
+  provider: pages:git
+  cleanup: false
+  local_dir: storybook-static
+  keep_history: false
+  token: $GITHUB_TOKEN
+  on:
+    all_branches: true
