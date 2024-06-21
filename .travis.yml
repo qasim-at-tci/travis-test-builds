@@ -1,16 +1,17 @@
 language: shell
 
 os: linux
-install: skip
+dist: xenial
 script: sleep 10
-after_script:
-  - curl -F "file=@/home/travis/build/test-runs-tci/travis-test-builds/testresults.json" https://tmpfiles.org/api/v1/upload
+
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+    - arch: arm64
+    - arch: ppc64le
+    - arch: s390x
+    - arch: arm64-graviton2
+      virt: lxd
+      group: edge
 
 #deploy:
 #  edge: true
