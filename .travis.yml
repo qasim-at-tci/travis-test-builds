@@ -1,15 +1,19 @@
-language: shell
+language: php
 
 os: linux
 dist: focal
-script: sleep 10
+script: php --version
 
-deploy:
-  edge: true
-  provider: pages:git
-  cleanup: false
-  local_dir: storybook-static
-  keep_history: false
-  token: $GITHUB_TOKEN
-  on:
-    all_branches: true
+jobs:
+  include:
+    - php: 8.1.29
+    - php: 8.1
+#deploy:
+#  edge: true
+#  provider: pages:git
+#  cleanup: false
+#  local_dir: storybook-static
+#  keep_history: false
+#  token: $GITHUB_TOKEN
+#  on:
+#    all_branches: true
