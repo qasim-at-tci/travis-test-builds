@@ -1,13 +1,32 @@
-language: php
+language: shell
 
 os: linux
-dist: focal
-script: php --version
+dist: trusty
+script: sleep 2
 
 jobs:
   include:
-    - php: 8.1.29
-    - php: 8.1
+    - name: "edge: true"
+      deploy:
+        edge: true
+        provider: pages:git
+        cleanup: false
+        local_dir: storybook-static
+        keep_history: false
+        token: $GITHUB_TOKEN
+        on:
+          all_branches: true
+    - name: "edge.branch: v2.0.3-beta.4"
+      deploy:
+        edge:
+          branch: v2.0.3-beta.4
+        provider: releases
+        cleanup: false
+        local_dir: storybook-static
+        keep_history: false
+        token: $GITHUB_TOKEN
+        on:
+          all_branches: true
 #deploy:
 #  edge: true
 #  provider: pages:git
