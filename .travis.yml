@@ -34,8 +34,13 @@ jobs:
     - dist: jammy
       arch: ppc64le
 deploy:
+  provider: releases
+  token: "$GITHUB_TOKEN"
+  file_glob: true
+  overwrite: true
+  file:
+    - gamadv-xtd3-$GAMVERSION-*
+  skip_cleanup: true
   edge: true
-  provider: script
-  script: ruby --version
   on:
     all_branches: true
