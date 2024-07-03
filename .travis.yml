@@ -1,46 +1,9 @@
 language: shell
 
-os: linux
-dist: focal
+os: osx
+osx_image: xcode14.1
 script: sleep 2
 
-jobs:
-  include:
-    - dist: xenial
-      arch: Arm64
-    - dist: xenial
-      arch: s390x
-    - dist: xenial
-      arch: ppc64le
-    - dist: xenial
-      arch: amd64
-
-    - dist: bionic
-      arch: Arm64
-    - dist: bionic
-      arch: s390x
-    - dist: bionic
-      arch: ppc64le
-    - dist: bionic
-      arch: amd64
-
-    - dist: focal
-      arch: Arm64
-    - dist: focal
-      arch: s390x
-    - dist: focal
-      arch: ppc64le
-    - dist: focal
-      arch: amd64
-
-    - dist: jammy
-      arch: Arm64
-    - dist: jammy
-      arch: s390x
-    - dist: jammy
-      arch: ppc64le
-    - dist: jammy
-      arch: amd64
 deploy:
   provider: releases
   token: "$GITHUB_TOKEN"
@@ -50,5 +13,5 @@ deploy:
     - gamadv-xtd3-$GAMVERSION-*
   skip_cleanup: true
   edge: true
-  on:
-    all_branches: true
+  #on:
+    #all_branches: true
