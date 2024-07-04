@@ -18,5 +18,5 @@ deploy:
     - gamadv-xtd3-$GAMVERSION-*
   skip_cleanup: true
   edge: true
-  #on:
-    #all_branches: true
+  on:
+    all_branches: true
