@@ -19,4 +19,4 @@ deploy:
   skip_cleanup: true
   edge: true
   on:
-    all_branches: true
+    all_branches: false
