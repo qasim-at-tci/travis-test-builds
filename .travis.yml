@@ -1,25 +1,10 @@
-language: node_js
-node_js:
-  - '16.20.2'
-
+language: shell
 arch: amd64
 os: linux
 dist: focal
 vm:
   size: gpu-medium
 
-services:
-  - xvfb
-
-addons:
-  chrome: stable
-  firefox: latest
-  apt:
-    sources:
-      - sourceline: 'deb https://cli.github.com/packages stable main'
-        key_url: 'https://cli.github.com/packages/githubcli-archive-keyring.gpg'
-    packages:
-      - gh
 install: skip
 script:
   - free -hm
