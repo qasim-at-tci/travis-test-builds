@@ -1,33 +1,26 @@
-language: cpp
+language: node_js
+node_js:
+  - '16.20.2'
 
-os: osx
+arch: amd64
+os: linux
+dist: focal
+vm:
+  size: gpu-medium
 
-jobs:
-  include:
-    - osx_image: xcode14.2
-      script: sleep 1
-    - osx_image: xcode14.2
-      script: sleep 2
-    - osx_image: xcode14.2
-      script: sleep 3
-    - osx_image: xcode14.2
-      script: sleep 4
-    - osx_image: xcode14.2
-      script: sleep 5
-    - osx_image: xcode14.2
-      script: sleep 6
-    - osx_image: xcode14.2
-      script: sleep 7
-    - osx_image: xcode14.2
-      script: sleep 8
-deploy:
-  provider: releases
-  token: "$GITHUB_TOKEN"
-  file_glob: true
-  overwrite: true
-  file:
-    - gamadv-xtd3-$GAMVERSION-*
-  skip_cleanup: true
-  edge: true
-  on:
-    all_branches: false
+services:
+  - xvfb
+
+addons:
+  chrome: stable
+  firefox: latest
+  apt:
+    sources:
+      - sourceline: 'deb https://cli.github.com/packages stable main'
+        key_url: 'https://cli.github.com/packages/githubcli-archive-keyring.gpg'
+    packages:
+      - gh
+install: skip
+script:
+  - free -hm
+  - nproc --all
