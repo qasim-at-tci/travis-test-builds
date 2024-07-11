@@ -1,11 +1,24 @@
-language: shell
-arch: amd64
 os: linux
 dist: focal
-vm:
-  size: gpu-medium
+language: python
+python:
+  - 3.9
+
+services:
+  - docker
+  - postgresql
+
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+    - postgresql-server-dev-12
 
 install: skip
 script:
   - free -hm
   - nproc --all
+  - df -h /
+  - df -h
