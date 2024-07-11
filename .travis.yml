@@ -18,14 +18,13 @@ addons:
 
 install: skip
 script:
-  - free -hm
-  - nproc --all
+  - df -h /
+  - df -h
+  - docker pull pytorch/pytorch:2.3.1-cuda11.8-cudnn8-devel
   - df -h /
   - df -h
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
     - dist: focal
     - dist: jammy
