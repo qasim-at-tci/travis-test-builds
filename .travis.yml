@@ -23,9 +23,9 @@ script:
   - df -h /
   - df -h
 
-  jobs:
-    include:
-      - dist: xenial
-      - dist: bionic
-      - dist: focal
-      - dist: jammy
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
