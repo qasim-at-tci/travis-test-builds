@@ -8,8 +8,7 @@ install:
   - git clone --single-branch --branch ${TRAVIS_BRANCH} https://${GH_TOKEN}@github.com/test-runs-tci/tci-pvt-builds.git
 script:
   - ls -la
-  - cd tci-pvt-builds
-  - ls -la
+  - cd tci-pvt-builds && cat .travis.yml
   - sleep 10
 
 jobs:
