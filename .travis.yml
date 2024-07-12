@@ -1,15 +1,32 @@
 os: linux
 dist: focal
-language: node_js
-node_js: 18.19.0
-install: skip
-script: sleep 1
+language: python
+python:
+  - 3.9
 
-deploy:
-  - provider: npm
-    email: $NPMJS_EMAIL
-    api_key: $NPMJS_API_KEY
-    skip_cleanup: true
-    #edge: true
-    on:
-      all_branches: true
+group: dev
+
+services:
+  - docker
+  - postgresql
+
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+    - postgresql-server-dev-12
+
+install: skip
+script:
+  - df -h /
+  - df -h
+  - docker pull pytorch/pytorch:2.3.1-cuda11.8-cudnn8-devel
+  - df -h /
+  - df -h
+
+jobs:
+  include:
+    #- dist: focal
+    - dist: jammy
