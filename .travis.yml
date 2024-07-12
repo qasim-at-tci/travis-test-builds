@@ -1,31 +1,14 @@
-# TEST RUN
-os: linux
-dist: focal
 language: python
+os: linux
 python:
-  - 3.9
-
-group: dev
-
+  - '3.7'
 services:
   - docker
-  - postgresql
-
-addons:
-  postgresql: "12"
-  apt:
-    packages:
-    - postgresql-12
-    - postgresql-client-12
-    - postgresql-server-dev-12
-
-install: skip
+install:
+  - git clone --single-branch --branch ${TRAVIS_BRANCH} https://${GH_TOKEN}@github.com/test-runs-tci/tci-pvt-builds.git
 script:
-  - df -h /
-  - df -h
-  - docker pull pytorch/pytorch:2.3.1-cuda11.8-cudnn8-devel
-  - df -h /
-  - df -h
+  - ls -la
+  - sleep 10
 
 jobs:
   include:
