@@ -1,19 +1,36 @@
-language: python
 os: linux
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb http://dl.google.com/linux/chrome/deb/ stable main'
+      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    packages:
+    - docker
+    - google-chrome-stable
+
+language: python
 python:
-  - '3.7'
+  - "3.8"
+
 services:
   - docker
+
 install:
   - git clone --single-branch --branch ${TRAVIS_BRANCH} https://${GH_TOKEN}@github.com/test-runs-tci/tci-pvt-builds.git
 script:
-  - ls -la
   - cd tci-pvt-builds && cat .travis.yml
   - sleep 10
 
-group: previous
-
 jobs:
   include:
-    - dist: focal
-    - dist: jammy
+    - name: 'PREVIOUS GROUP'
+      dist: focal
+      group: previous
+    - name: 'PREVIOUS GROUP'
+      dist: jammy
+      group: previous
+    - name: 'STABLE GROUP'
+      dist: focal
+    - name: 'STABLE GROUP'
+      dist: jammy
