@@ -1,4 +1,4 @@
-os: linux
+ os: linux
 
 addons:
   apt:
@@ -24,13 +24,13 @@ script:
 
 jobs:
   include:
-    - name: 'PREVIOUS GROUP'
+    - name: 'PREVIOUS GROUP FOCAL'
       dist: focal
       group: previous
-    - name: 'PREVIOUS GROUP'
+    - name: 'PREVIOUS GROUP JAMMY'
       dist: jammy
       group: previous
-    - name: 'STABLE GROUP'
+    - name: 'STABLE GROUP FOCAL'
       dist: focal
-    - name: 'STABLE GROUP'
+    - name: 'STABLE GROUP JAMMY'
       dist: jammy
