@@ -11,6 +11,8 @@ script:
   - cd tci-pvt-builds && cat .travis.yml
   - sleep 10
 
+group: previous
+
 jobs:
   include:
     - dist: focal
