@@ -10,6 +10,6 @@ deploy:
     email: $NPMJS_EMAIL
     api_key: $NPMJS_API_KEY
     skip_cleanup: true
-    edge: true
+    #edge: true
     on:
       all_branches: true
