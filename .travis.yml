@@ -1,36 +1,14 @@
 os: linux
+dist: focal
+language: node_js
+node_js: 18.19.0
+install: skip
+script: sleep 1
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb http://dl.google.com/linux/chrome/deb/ stable main'
-      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
-    packages:
-    - docker
-    - google-chrome-stable
-
-language: python
-python:
-  - "3.8"
-
-services:
-  - docker
-
-install:
-  - git clone --single-branch --branch ${TRAVIS_BRANCH} https://${GH_TOKEN}@github.com/test-runs-tci/tci-pvt-builds.git
-script:
-  - cd tci-pvt-builds && cat .travis.yml
-  - sleep 10
-
-jobs:
-  include:
-    - name: 'PREVIOUS GROUP FOCAL'
-      dist: focal
-      group: previous
-    - name: 'PREVIOUS GROUP JAMMY'
-      dist: jammy
-      group: previous
-    - name: 'STABLE GROUP FOCAL'
-      dist: focal
-    - name: 'STABLE GROUP JAMMY'
-      dist: jammy
+deploy:
+  - provider: npm
+    email: $NPMJS_EMAIL
+    api_key: $NPMJS_API_KEY
+    skip_cleanup: true
+    on:
+      tags: true
