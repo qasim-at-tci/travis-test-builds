@@ -4,8 +4,6 @@ language: python
 python:
   - 3.9
 
-group: dev
-
 services:
   - docker
   - postgresql
@@ -28,5 +26,5 @@ script:
 
 jobs:
   include:
-    #- dist: focal
+    - dist: focal
     - dist: jammy
