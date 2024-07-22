@@ -4,9 +4,8 @@ language: generic
 install: skip
 
 script:
-  - typeset -r year=2023
-  - echo $year
-  - year=2024
+  - chmod +x ./hello.sh
+  - ./hello.sh
 
 jobs:
   include:
