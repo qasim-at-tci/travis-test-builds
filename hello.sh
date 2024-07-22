@@ -1,5 +1,6 @@
 #!/bin/bash
 set +ex
 
-echo "sleep 5"
-sleep 5
+typeset -r year=2023
+echo $year
+year=2024
