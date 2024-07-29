@@ -10,7 +10,7 @@ jobs:
     - xvfb
     addons:
       chrome: stable
-    script: sleep 10
+    script: google-chrome --version
   - stage: Docker Image Build
     language: shell
     if: branch =~ /^(integration$|hotfix\/|release\/)/
