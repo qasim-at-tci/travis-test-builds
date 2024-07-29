@@ -21,3 +21,12 @@ jobs:
       chrome: stable
     install: skip
     script: google-chrome --version
+  - name: "WORKAROUND"
+    group: stable
+    services:
+    - xvfb
+    before_install:
+      - wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/dl/linux/direct/google-chrome-stable_current_amd64.deb
+      - sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+    install: skip
+    script: google-chrome --version
