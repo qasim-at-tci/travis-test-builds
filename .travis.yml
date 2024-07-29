@@ -1,15 +1,21 @@
+---
+language: node_js
+os:
+- linux
 dist: focal
-language: generic
-
-install: skip
-
-script:
-  - chmod +x ./hello.sh
-  - ./hello.sh
-
 jobs:
   include:
-    - language: shell
-    - language: generic
-    - language: node_js
-      node_js: lts/*
+  - stage: Test
+    services:
+    - xvfb
+    addons:
+      chrome: stable
+    script: sleep 10
+  - stage: Docker Image Build
+    language: shell
+    if: branch =~ /^(integration$|hotfix\/|release\/)/
+    env:
+    - NODE_ENV: production
+    install:
+    - skip
+    script: sleep 15
