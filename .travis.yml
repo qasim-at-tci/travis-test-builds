@@ -5,17 +5,19 @@ os:
 dist: focal
 jobs:
   include:
-  - stage: Test
+  - stage: Stable
+    group: stable
     services:
     - xvfb
     addons:
       chrome: stable
+    install: skip
     script: google-chrome --version
-  - stage: Docker Image Build
-    language: shell
-    if: branch =~ /^(integration$|hotfix\/|release\/)/
-    env:
-    - NODE_ENV: production
-    install:
-    - skip
-    script: sleep 15
+  - stage: Stable
+    group: dev
+    services:
+    - xvfb
+    addons:
+      chrome: stable
+    install: skip
+    script: google-chrome --version
