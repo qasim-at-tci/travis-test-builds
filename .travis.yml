@@ -13,21 +13,8 @@ jobs:
       chrome: stable
     install: skip
     script: google-chrome --version
-  - name: "DEV"
-    group: dev
-    services:
-    - xvfb
-    addons:
-      chrome: stable
+  - name: "RUBY 3.0.7"
+    language: ruby
+    ruby: 3.0.7
     install: skip
-    script: google-chrome --version
-  - name: "WORKAROUND"
-    group: stable
-    services:
-    - xvfb
-    before_install:
-      - wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/dl/linux/direct/google-chrome-stable_current_amd64.deb
-      - sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
-      - sudo apt install -f -y
-    install: skip
-    script: google-chrome --version
+    script: ruby -v
