@@ -4,4 +4,4 @@ language: shell
 
 install: skip
 
-script: sleep 800
+script: travis_wait 20 sleep 800
