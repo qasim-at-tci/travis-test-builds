@@ -1,20 +1,7 @@
----
-language: node_js
-os:
-- linux
+os: linux
 dist: focal
-jobs:
-  include:
-  - name: "STABLE"
-    group: stable
-    services:
-    - xvfb
-    addons:
-      chrome: stable
-    install: skip
-    script: google-chrome --version
-  - name: "RUBY 3.0.7"
-    language: ruby
-    ruby: 3.0.7
-    install: skip
-    script: ruby -v
+language: shell
+
+install: skip
+
+script: sleep 800
