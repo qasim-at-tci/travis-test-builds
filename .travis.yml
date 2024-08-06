@@ -1,7 +1,49 @@
 os: linux
-dist: focal
+dist: xenial
 language: shell
 
 install: skip
 
-script: travis_wait 20 sleep 1500
+script: travis_wait 30 sleep 1750
+
+jobs:
+  include:
+    - language: shell
+      dist: xenial
+    - language: ruby
+      dist: xenial
+    - language: node_js
+      dist: xenial
+      node_js: lts/*
+    - language: java
+      dist: xenial
+
+    - language: shell
+      dist: bionic
+    - language: ruby
+      dist: bionic
+    - language: node_js
+      dist: bionic
+      node_js: lts/*
+    - language: java
+      dist: bionic
+
+    - language: shell
+      dist: focal
+    - language: ruby
+      dist: focal
+    - language: node_js
+      dist: focal
+      node_js: lts/*
+    - language: java
+      dist: focal
+
+    - language: shell
+      dist: jammy
+    - language: ruby
+      dist: jammy
+    - language: node_js
+      dist: jammy
+      node_js: lts/*
+    - language: java
+      dist: jammy
