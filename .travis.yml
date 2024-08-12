@@ -2,7 +2,7 @@ os: linux
 dist: xenial
 language: ruby
 ruby: 3.3.4
-script: sleep 5
+script: sleep 10
 
 jobs:
   include:
