@@ -1,12 +1,10 @@
 os: linux
 dist: xenial
-language: ruby
-ruby: 3.3.4
+language: shell
 script: sleep 10
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
     - dist: focal
-    - dist: jammy
+      arch: arm64-graviton2
+      virt: lxd
