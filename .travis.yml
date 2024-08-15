@@ -13,3 +13,5 @@ script: sleep 10
 jobs:
   include:
     - dist: jammy
+      services:
+        - docker
