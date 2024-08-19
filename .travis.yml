@@ -5,6 +5,10 @@ addons:
   apt:
     packages:
       - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
 before_install:
   #- docker version
   #- sudo systemctl stop docker.service && sudo systemctl stop docker.socket
