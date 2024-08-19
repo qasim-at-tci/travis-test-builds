@@ -32,6 +32,5 @@ before_install:
 install: skip
 
 script:
-  - ps aux | grep postgres
-  - ps aux | grep 5433
+  - sudo systemctl status postgresql@15-main
   - psql -U travis -c 'create database travis_ci_test;'
