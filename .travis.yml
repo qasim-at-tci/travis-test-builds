@@ -34,3 +34,4 @@ install: skip
 script:
   - sudo systemctl status postgresql@15-main
   - psql -U travis -c 'create database travis_ci_test;'
+  - psql -U travis -c '\conninfo'
