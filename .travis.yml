@@ -1,13 +1,12 @@
 os: linux
 dist: focal
-language: shell
-install: skip
+
+language: ruby
+ruby: 3.0.7
+
+script: sleep 10
 
 jobs:
   include:
-    - name: "Without docker service"
-      services:
-        - docker
-      script: docker version
-    - name: "With docker service"
-      script: docker version
+    - group: stable
+    - group: previous
