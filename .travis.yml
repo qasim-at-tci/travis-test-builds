@@ -4,7 +4,10 @@ dist: focal
 language: ruby
 ruby: 3.0.7
 
-before_install: gem install bundler -v 2.5.10
+before_install:
+  - gem install bundler -v 2.5.10
+  - sudo apt-get --purge remove gcc* -y
+  - sudo apt update && sudo apt install clang 
 install: bundle install
 script: sleep 10
 
