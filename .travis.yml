@@ -1,37 +1,12 @@
-language: php
 os: linux
 dist: focal
-php:
-- '8.2'
-env:
-  global:
-  - PGPORT: '5433'
-  - PGUSER: travis
-  - DB_PORT: '5433'
-  - DB_DATABASE: travis_ci_test
-  - DB_USERNAME: travis
-  - DB_PASSWORD: travis
 
-services:
-- postgresql
-addons:
-  postgresql: '15'
-  apt:
-    packages:
-    - libonig5
-    - postgresql-15
-    - postgresql-client-15
-    - postgresql-15-postgis-3
+language: ruby
+ruby: 3.0.7
 
-before_install:
-- sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-- sudo systemctl stop postgresql@15-main
-- sudo systemctl start postgresql@15-main
-- sleep 10
+script: sleep 10
 
-install: skip
-
-script:
-  - sudo systemctl status postgresql@15-main
-  - psql -U travis -c 'create database travis_ci_test;'
-  - psql -U travis -c '\conninfo'
+jobs:
+  include:
+    - group: stable
+    - group: previous
