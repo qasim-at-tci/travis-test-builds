@@ -3,3 +3,5 @@
 source "https://rubygems.org"
 
 gem "sinatra"
+
+gem 'RedCloth', '~> 4.3', '>= 4.3.4'
