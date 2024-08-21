@@ -12,7 +12,7 @@ before_install:
   #- echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe" | sudo tee -a /etc/apt/sources.list
   #- sudo apt update
   #- sudo apt-get install gcc-4.9 -y
-install: CFLAGSbundle install
+install: bundle install
 script: sleep 10
 
 jobs:
