@@ -6,12 +6,13 @@ ruby: 3.0.7
 
 before_install:
   - gem install bundler -v 2.5.10
+  - bundle config build.RedCloth --with-cflags=\"-Wdiv-by-zero -Wextra-semi\"
   #- sudo apt-get --purge remove gcc-9* -y
   #- echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main" | sudo tee -a /etc/apt/sources.list
   #- echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe" | sudo tee -a /etc/apt/sources.list
   #- sudo apt update
   #- sudo apt-get install gcc-4.9 -y
-install: CC=gcc bundle install
+install: CFLAGSbundle install
 script: sleep 10
 
 jobs:
