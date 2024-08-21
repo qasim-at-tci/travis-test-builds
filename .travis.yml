@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get install gcc-4.9 -y
 
   - gem install bundler -v 2.5.10
-  - bundle config build.RedCloth --with-cflags=\"-Wdiv-by-zero -Wextra-semi\"
+  - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
 install: bundle install
 script: sleep 10
 
