@@ -7,7 +7,7 @@ ruby: 3.0.7
 before_install:
   - gem install bundler -v 2.5.10
   - sudo apt-get --purge remove gcc-9* -y
-  - sudo apt update && sudo apt install clang 
+  - sudo apt update && sudo apt install gcc
 install: bundle install
 script: sleep 10
 
