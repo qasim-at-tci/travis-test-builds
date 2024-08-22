@@ -5,6 +5,7 @@ GEM
     base64 (0.2.0)
     mustermann (3.0.2)
       ruby2_keywords (~> 0.0.1)
+    racc (1.8.1)
     rack (3.1.7)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
@@ -27,6 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (~> 4.3, >= 4.3.4)
+  racc (= 1.8.1)
   sinatra
 
 BUNDLED WITH
