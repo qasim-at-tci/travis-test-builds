@@ -6,18 +6,6 @@ ruby: 3.2.4
 
 before_install:
   - gem install bundler -v 2.5.10
-  # - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.nio4r --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.date --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.rbtree3 --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.eventmachine --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.unf_ext --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.ffi --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.rbtree --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.byebug --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.strscan --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  # - bundle config build.stackprof --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
 
 install:
   - bundle install
