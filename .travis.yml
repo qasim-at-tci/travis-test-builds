@@ -1,13 +1,6 @@
-os: linux
-dist: focal
+os: osx
+osx_image: xcode14.2
 
 language: shell
 
 script: sleep 10
-
-jobs:
-  include:
-    - vm:
-        size: large
-    - vm:
-        size: x-large
