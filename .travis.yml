@@ -28,7 +28,7 @@ script: sleep 10
 
 jobs:
   include:
-    #- dist: xenial
+    - dist: xenial
     #- dist: bionic
-    - dist: focal
+    #- dist: focal
     #- dist: jammy
