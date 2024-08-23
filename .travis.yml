@@ -6,9 +6,9 @@ ruby: 3.0.7
 
 before_install:
   - gem install bundler -v 2.5.10
-  - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-install: bundle install
+  #- bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+  #- bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+install: CFLAGS='-Wdiv-by-zero -Wextra-semi' bundle install
 script: sleep 10
 
 jobs:
