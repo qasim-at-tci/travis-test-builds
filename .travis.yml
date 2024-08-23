@@ -11,7 +11,8 @@ before_install:
 install:
   - export CFLAGS='-Wdiv-by-zero -Wextra-semi'
   - gcc --version
-  - bundle install
+  - cat ~/.bundle/config
+  #- bundle install
 script: sleep 10
 
 jobs:
