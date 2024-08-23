@@ -1,12 +1,13 @@
 os: linux
 dist: focal
 
-language: ruby
-ruby: 3.0.7
+language: shell
 
 script: sleep 10
 
 jobs:
   include:
-    - group: stable
-    - group: previous
+    - vm:
+        size: large
+    - vm:
+        size: x-large
