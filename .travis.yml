@@ -2,10 +2,10 @@ os: linux
 dist: jammy
 
 language: ruby
-ruby: 3.0.7
+ruby: 2.7.4
 
 before_install:
-  - gem install bundler -v 2.5.10
+  - gem install bundler -v 2.1.4
   # - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   # - bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   # - bundle config build.nio4r --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
@@ -18,11 +18,8 @@ before_install:
   # - bundle config build.byebug --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   # - bundle config build.strscan --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   # - bundle config build.stackprof --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - sudo apt-get install -y gcc-4.3 gcc-4.4 g++-4.3 g++-4.4
 
 install:
-  #- export CFLAGS='-Wdiv-by-zero -Wextra-semi'
-  #- gcc --version
   - bundle install
 script: sleep 10
 
@@ -30,5 +27,5 @@ jobs:
   include:
     - dist: xenial
     #- dist: bionic
-    #- dist: focal
+    - dist: focal
     #- dist: jammy
