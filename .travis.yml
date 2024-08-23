@@ -10,12 +10,13 @@ before_install:
   #- bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
 install:
   - export CFLAGS='-Wdiv-by-zero -Wextra-semi'
+  - gcc --version
   - bundle install
 script: sleep 10
 
 jobs:
   include:
-    - dist: xenial
-    - dist: bionic
+    #- dist: xenial
+    #- dist: bionic
     - dist: focal
-    - dist: jammy
+    #- dist: jammy
