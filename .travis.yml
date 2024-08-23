@@ -6,11 +6,11 @@ ruby: 3.0.7
 
 before_install:
   - gem install bundler -v 2.5.10
-  #- bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  #- bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+  - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+  - bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
 install:
-  - export CFLAGS='-Wdiv-by-zero -Wextra-semi'
-  - gcc --version
+  #- export CFLAGS='-Wdiv-by-zero -Wextra-semi'
+  #- gcc --version
   - cat ~/.bundle/config
   #- bundle install
 script: sleep 10
