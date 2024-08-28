@@ -13,7 +13,6 @@ script: sleep 10
 
 jobs:
   include:
-    #- dist: xenial
-    #- dist: bionic
-    - dist: focal
-    #- dist: jammy
+    - ruby: 3.0.7
+    - ruby: 2.7.8
+    - ruby: 3.2.4
