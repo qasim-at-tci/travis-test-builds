@@ -6,6 +6,7 @@ ruby: 3.0.7
 
 before_install:
   - gem install bundler
+  - sudo apt update && sudo apt install clang -y
 
 install:
   - bundle install
@@ -13,7 +14,7 @@ script: sleep 10
 
 jobs:
   include:
-    - dist: xenial
+    #- dist: xenial
     #- dist: bionic
     - dist: focal
     #- dist: jammy
