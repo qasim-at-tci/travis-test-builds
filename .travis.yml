@@ -2,10 +2,10 @@ os: linux
 dist: jammy
 
 language: ruby
-ruby: 3.2.4
+ruby: 3.0.7
 
 before_install:
-  - gem install bundler -v 2.5.10
+  - gem install bundler
 
 install:
   - bundle install
@@ -13,7 +13,7 @@ script: sleep 10
 
 jobs:
   include:
-    #- dist: xenial
+    - dist: xenial
     #- dist: bionic
     - dist: focal
     #- dist: jammy
