@@ -1,6 +1,12 @@
-os: osx
-osx_image: xcode14.2
-
+os: linux
+dist: focal
 language: shell
 
-script: sleep 10
+install: skip
+script: sleep 20
+
+jobs:
+  include:
+    - if: $TRAVIS_PULL_REQUEST_IS_DRAFT IS present
+      script: echo "I am in PR Draft"
+    - script: sleep 10
