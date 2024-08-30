@@ -7,5 +7,7 @@ script: sleep 10
 
 jobs:
   include:
-    - env: TRAVIS_PULL_REQUEST_IS_DRAFT=true
-    - env: TRAVIS_PULL_REQUEST_IS_DRAFT=false
+    - if: branch=qasim-at-tci-draft
+      env: TRAVIS_PULL_REQUEST_IS_DRAFT=true
+    - if: branch=qasim-at-tci-draft
+      env: TRAVIS_PULL_REQUEST_IS_DRAFT=false
