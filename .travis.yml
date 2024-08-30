@@ -8,4 +8,4 @@ script: sleep 10
 jobs:
   include:
     - if: $TRAVIS_PULL_REQUEST_IS_DRAFT = "true"
-    - if: $TRAVIS_PULL_REQUEST_IS_DRAFT != "true"
+    - if: $TRAVIS_PULL_REQUEST_IS_DRAFT = "false"
