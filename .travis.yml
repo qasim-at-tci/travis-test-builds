@@ -8,4 +8,5 @@ script: sleep 20
 jobs:
   include:
     - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)
+      script: echo "I am in PR Draft"
     - script: sleep 10
