@@ -9,4 +9,3 @@ jobs:
   include:
     - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)="true"
     - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)="false"
-    - script: echo $TRAVIS_PULL_REQUEST_IS_DRAFT
