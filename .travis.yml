@@ -3,9 +3,9 @@ dist: focal
 language: shell
 
 install: skip
-script: echo env(TRAVIS_PULL_REQUEST_IS_DRAFT)
+script: sleep 20
 
-#jobs:
-#  include:
-#    - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)="true"
-#    - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)="false"
+jobs:
+  include:
+    - if: env(TRAVIS_PULL_REQUEST_IS_DRAFT)
+    - script: sleep 10
