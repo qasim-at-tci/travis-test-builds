@@ -1,6 +1,11 @@
-os: osx
-osx_image: xcode14.2
-
+os: linux
+dist: focal
 language: shell
 
+install: skip
 script: sleep 10
+
+jobs:
+  include:
+    - if: $TRAVIS_PULL_REQUEST_IS_DRAFT = "true"
+    - if: $TRAVIS_PULL_REQUEST_IS_DRAFT != "true"
