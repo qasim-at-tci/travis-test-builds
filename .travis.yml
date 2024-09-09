@@ -22,6 +22,7 @@ install:
   - bundle config build.strscan --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle config build.stackprof --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle config build.puma --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+  - bundle config build.websocket-driver --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle install
 script: sleep 10
 
