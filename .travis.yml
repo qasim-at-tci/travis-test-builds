@@ -7,32 +7,10 @@ language: ruby
 #  - gem install bundler:2.2.33
 
 install:
+  - rvm uninstall 3.0.7
   - rvm install 3.0.7 --disable-binary
   - rvm use 3.0.7
   - gem install bundler:2.2.33
-  - sudo which gcc
-  - which gcc
-  - ruby -rrbconfig -e'p RbConfig::CONFIG["CC"]'
-  - sudo apt-get update && sudo apt-get install build-essential -y
-  - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.racc --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.nio4r --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.date --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.rbtree3 --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.eventmachine --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.unf_ext --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.ffi --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.rbtree --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.byebug --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.strscan --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.stackprof --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.puma --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.websocket-driver --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.bcrypt --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.bindex --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.cgi --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.json --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  - bundle config build.byebug --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle install
 script: sleep 10
 
@@ -42,7 +20,7 @@ jobs:
     #  dist: xenial
     #- ruby: 3.0.7
     #  dist: bionic
-    - ruby: 2.7.8
+    - ruby: 3.0.7
       dist: focal
     #- ruby: 3.0.7
     #  dist: jammy
