@@ -2,7 +2,6 @@ os: linux
 dist: focal
 
 language: ruby
-ruby: 3.0.7
 
 before_install:
   - gem install bundler:2.2.33
@@ -14,10 +13,10 @@ script: sleep 10
 jobs:
   include:
     - ruby: 3.0.7
-      dist: focal
-    - ruby: 3.2.4
+      dist: xenial
+    - ruby: 3.0.7
+      dist: bionic
+    - ruby: 3.0.7
       dist: focal
     - ruby: 3.0.7
-      dist: jammy
-    - ruby: 3.2.4
       dist: jammy
