@@ -7,6 +7,8 @@ before_install:
   - gem install bundler:2.2.33
 
 install:
+  - sudo which gcc
+  - which gcc
   - ruby -rrbconfig -e'p RbConfig::CONFIG["CC"]'
   - sudo apt-get update && sudo apt-get install build-essential -y
   - bundle config build.RedCloth --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
