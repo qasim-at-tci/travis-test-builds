@@ -7,6 +7,7 @@ before_install:
   - gem install bundler:2.2.33
 
 install:
+  - sudo apt-get update && sudo apt-get install build-essential -y
   - bundle install
 script: sleep 10
 
