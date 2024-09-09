@@ -8,6 +8,7 @@ language: ruby
 
 install:
   - rvm install 3.0.7 --disable-binary
+  - rvm use 3.0.7
   - gem install bundler:2.2.33
   - sudo which gcc
   - which gcc
