@@ -27,7 +27,7 @@ install:
   - bundle config build.bindex --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle config build.cgi --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle config build.json --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
-  #- bundle config build.cgi --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
+  - bundle config build.byebug --with-cflags=\'-Wdiv-by-zero -Wextra-semi\'
   - bundle install
 script: sleep 10
 
