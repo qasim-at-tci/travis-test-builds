@@ -3,7 +3,7 @@ def next?
 end
 source 'https://rubygems.org'
 
-ruby '3.0.7'
+#ruby '3.0.7'
 
 gem 'rails', '6.1.7.6'
 
