@@ -936,5 +936,8 @@ DEPENDENCIES
   will_paginate-bootstrap (= 1.0.2)
   yt (= 0.33.4)
 
+RUBY VERSION
+   ruby 3.0.7p220
+
 BUNDLED WITH
    2.2.33
