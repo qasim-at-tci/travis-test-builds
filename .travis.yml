@@ -3,11 +3,6 @@ dist: focal
 
 language: ruby
 
-before_install:
-  - rvm uninstall 3.0.7
-  - rvm install 3.0.7 --disable-binary
-  - rvm use 3.0.7
-
 install:
   - gem install bundler:2.2.33
   - bundle install
@@ -19,7 +14,7 @@ jobs:
     #  dist: xenial
     #- ruby: 3.0.7
     #  dist: bionic
-    - ruby: 2.7.8
+    - ruby: 3.0.7
       dist: focal
     #- ruby: 3.0.7
     #  dist: jammy
