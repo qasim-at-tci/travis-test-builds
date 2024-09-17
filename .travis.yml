@@ -9,7 +9,7 @@ script: sleep 10
 
 deploy:
 - provider: s3
-  edge: true
+  #edge: true
   region: eu-central-1
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
