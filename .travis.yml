@@ -1,6 +1,24 @@
-os: osx
-osx_image: xcode14.2
+os: linux
+dist: jammy
 
-language: shell
+language: node_js
+node_js: lts/*
 
+install: skip
 script: sleep 10
+
+deploy:
+- provider: s3
+  edge: true
+  region: eu-central-1
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: s3buck
+  cache_control: "public, max-age=31536000: *.js, *.css, *.png, *.jpg, *.gif, *.eot, *.svg, *.ttf, *.woff, *.woff2, *.ico"
+  expires: "$(date -u +'%Y-%m-%d %H:%M:%S -0000' --date 'next Year'): *.{js,css,png,jpg,gif,eot,svg,ttf,woff,woff2,ico}"
+  detect_encoding: true
+  upload_dir: $APP_PATH
+  acl: public_read
+  local_dir: ./out
+  on:
+    all_branches: true
