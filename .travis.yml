@@ -14,3 +14,14 @@ deploy:
   edge: true
   on:
     all_branches: true
+
+jobs:
+  include:
+    - dist: xenial
+      script: sleep 1
+    - dist: bionic
+      script: sleep 200
+    - dist: focal
+      script: sleep 350
+    - dist: jammy
+      script: sleep 500
