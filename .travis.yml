@@ -57,6 +57,6 @@ jobs:
     - dist: focal
       script: sleep 350
       arch: arm64
-     deploy:
+      deploy:
         - <<: *deploy
           skip_cleanup: true
