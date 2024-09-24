@@ -4,7 +4,8 @@ language: shell
 install: skip
 script: true
 
-&config-deploy-v1:
+&config-deploy-v1
+deploy:
   provider: releases
   token: $GH_TOKEN
   file_glob: true
@@ -13,7 +14,9 @@ script: true
   skip_cleanup: true
   on:
     all_branches: true
-&config-deploy-v2:
+
+&config-deploy-v2
+deploy:
   provider: releases
   token: $GH_TOKEN
   file_glob: true
