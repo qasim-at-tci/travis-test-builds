@@ -25,3 +25,13 @@ jobs:
       script: sleep 350
     - dist: jammy
       script: sleep 500
+
+    - dist: xenial
+      script: sleep 1
+      arch: arm64
+    - dist: bionic
+      script: sleep 200
+      arch: arm64
+    - dist: focal
+      script: sleep 350
+      arch: arm64
