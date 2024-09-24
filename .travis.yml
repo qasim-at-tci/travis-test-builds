@@ -4,28 +4,28 @@ language: shell
 install: skip
 script: true
 
-&config-deploy-v1
-  deploy:
-    provider: releases
-    token: $GH_TOKEN
-    file_glob: true
-    overwrite: true
-    file: README.md
-    skip_cleanup: true
-    on:
-      all_branches: true
+_config-deploy-v1: &config-deploy-v1
+deploy:
+  provider: releases
+  token: $GH_TOKEN
+  file_glob: true
+  overwrite: true
+  file: README.md
+  skip_cleanup: true
+  on:
+    all_branches: true
 
-&config-deploy-v2
-  deploy:
-    provider: releases
-    token: $GH_TOKEN
-    file_glob: true
-    overwrite: true
-    file: README.md
-    cleanup: false
-    edge: true
-    on:
-      all_branches: true
+_config-deploy-v2: &config-deploy-v2
+deploy:
+  provider: releases
+  token: $GH_TOKEN
+  file_glob: true
+  overwrite: true
+  file: README.md
+  cleanup: false
+  edge: true
+  on:
+    all_branches: true
 
 jobs:
   include:
