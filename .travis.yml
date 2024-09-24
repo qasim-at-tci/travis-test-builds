@@ -1,3 +1,5 @@
+# Xenial on amd64 and all arm64 jobs to use deploy tool v1
+
 os: linux
 dist: xenial
 language: shell
@@ -51,12 +53,10 @@ jobs:
       arch: arm64
       deploy:
         - <<: *deploy
-          edge: true
-          cleanup: false
+          skip_cleanup: true
     - dist: focal
       script: sleep 350
       arch: arm64
-      deploy:
+     deploy:
         - <<: *deploy
-          edge: true
-          cleanup: false
+          skip_cleanup: true
