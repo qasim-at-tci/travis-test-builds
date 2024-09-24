@@ -4,53 +4,59 @@ language: shell
 install: skip
 script: true
 
-_config-deploy-v1: &config-deploy-v1
 deploy:
-  provider: releases
-  token: $GH_TOKEN
-  file_glob: true
-  overwrite: true
-  file: README.md
-  skip_cleanup: true
-  on:
-    all_branches: true
-
-_config-deploy-v2: &config-deploy-v2
-deploy:
-  provider: releases
-  token: $GH_TOKEN
-  file_glob: true
-  overwrite: true
-  file: README.md
-  cleanup: false
-  edge: true
-  on:
-    all_branches: true
+  - &deploy
+    provider: releases
+    token: $GH_TOKEN
+    file_glob: true
+    overwrite: true
+    file: README.md
+    on:
+      all_branches: true
 
 jobs:
   include:
     - dist: xenial
       script: sleep 1
-      <<: *config-deploy-v1
+      deploy:
+        - <<: *deploy
+          skip_cleanup: true
     - dist: bionic
       script: sleep 200
-      <<: *config-deploy-v2
+      deploy:
+        - <<: *deploy
+          edge: true
+          cleanup: false
     - dist: focal
       script: sleep 350
-      <<: *config-deploy-v2
+      deploy:
+        - <<: *deploy
+          edge: true
+          cleanup: false
     - dist: jammy
       script: sleep 500
-      <<: *config-deploy-v2
+      deploy:
+        - <<: *deploy
+          edge: true
+          cleanup: false
 
     - dist: xenial
       script: sleep 1
       arch: arm64
-      <<: *config-deploy-v1
+      deploy:
+        - <<: *deploy
+          skip_cleanup: true
     - dist: bionic
       script: sleep 200
       arch: arm64
-      <<: *config-deploy-v2
+      deploy:
+        - <<: *deploy
+          edge: true
+          cleanup: false
     - dist: focal
       script: sleep 350
       arch: arm64
-      <<: *config-deploy-v2
+      deploy:
+        - <<: *deploy
+          edge: true
+          cleanup: false
