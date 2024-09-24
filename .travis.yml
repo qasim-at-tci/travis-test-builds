@@ -20,23 +20,27 @@ jobs:
   include:
     - dist: xenial
       script: sleep 1
+      # Use deploy tool v1 i.e. without edge: true
       deploy:
         - <<: *deploy
           skip_cleanup: true
     - dist: bionic
       script: sleep 200
+      # Use deploy tool v2 i.e. with edge: true
       deploy:
         - <<: *deploy
           edge: true
           cleanup: false
     - dist: focal
       script: sleep 350
+      # Use deploy tool v2 i.e. with edge: true
       deploy:
         - <<: *deploy
           edge: true
           cleanup: false
     - dist: jammy
       script: sleep 500
+      # Use deploy tool v2 i.e. with edge: true
       deploy:
         - <<: *deploy
           edge: true
@@ -45,18 +49,21 @@ jobs:
     - dist: xenial
       script: sleep 1
       arch: arm64
+      # Use deploy tool v1 i.e. without edge: true
       deploy:
         - <<: *deploy
           skip_cleanup: true
     - dist: bionic
       script: sleep 200
       arch: arm64
+      # Use deploy tool v1 i.e. without edge: true
       deploy:
         - <<: *deploy
           skip_cleanup: true
     - dist: focal
       script: sleep 350
       arch: arm64
+      # Use deploy tool v1 i.e. without edge: true
       deploy:
         - <<: *deploy
           skip_cleanup: true
