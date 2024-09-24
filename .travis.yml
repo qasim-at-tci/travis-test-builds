@@ -4,14 +4,13 @@ language: shell
 install: skip
 script: true
 
-deploy:
+&config-deploy:
   provider: releases
   token: $GH_TOKEN
   file_glob: true
   overwrite: true
   file: README.md
   skip_cleanup: true
-  edge: true
   on:
     all_branches: true
 
@@ -21,10 +20,16 @@ jobs:
       script: sleep 1
     - dist: bionic
       script: sleep 200
+      <<: *config-deploy
+        edge: true
     - dist: focal
       script: sleep 350
+      <<: *config-deploy
+        edge: true
     - dist: jammy
       script: sleep 500
+      <<: *config-deploy
+        edge: true
 
     - dist: xenial
       script: sleep 1
@@ -32,6 +37,10 @@ jobs:
     - dist: bionic
       script: sleep 200
       arch: arm64
+      <<: *config-deploy
+        edge: true
     - dist: focal
       script: sleep 350
       arch: arm64
+      <<: *config-deploy
+        edge: true
