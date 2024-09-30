@@ -2,7 +2,7 @@ os: linux
 dist: jammy
 
 language: go
-go: "1.19"
+go: "1.19.x"
 
 install: skip
 script: sleep 10
