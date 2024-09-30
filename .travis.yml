@@ -1,12 +1,8 @@
 os: linux
 dist: jammy
 
-cache:
-  directories:
-    - /home/travis/.nvm/
-
-language: node_js
-node_js: lts/*
+language: go
+go: "1.19"
 
 install: skip
 script: sleep 10
