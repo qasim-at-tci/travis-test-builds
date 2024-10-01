@@ -9,3 +9,10 @@ before_install:
   - gobrew use 1.19
 install: skip
 script: go version
+
+jobs:
+  include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+    - dist: jammy
