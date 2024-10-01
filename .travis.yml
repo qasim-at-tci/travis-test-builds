@@ -6,6 +6,6 @@ language: shell
 before_install:
   - curl -sL https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.sh | bash
   - export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
-  - gobrew use 1.16
+  - gobrew use 1.19
 install: skip
 script: go version
