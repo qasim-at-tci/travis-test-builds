@@ -1,8 +1,11 @@
 os: linux
 dist: jammy
 
-language: go
-go: "1.19.x"
+language: shell
 
+before_install:
+  - curl -sL https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.sh | bash
+  - export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
+  - gobrew use 1.16
 install: skip
-script: sleep 10
+script: go version
