@@ -1,15 +1,15 @@
 os: linux
-dist: jammy
+dist: bionic
 
-language: go
-go: "1.19"
+language: ruby
+ruby: 3.4.0-preview2
 
 install: skip
-script: go version
+script: ruby -v
 
-jobs:
-  include:
-    - dist: xenial
-    - dist: bionic
-    - dist: focal
-    - dist: jammy
+#jobs:
+#  include:
+#    - dist: xenial
+#    - dist: bionic
+#    - dist: focal
+#    - dist: jammy
