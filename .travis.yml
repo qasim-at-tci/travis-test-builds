@@ -1,15 +1,20 @@
 os: linux
-dist: bionic
+dist: xenial
 
-language: ruby
-ruby: 3.4.0-preview2
+language: shell
 
 install: skip
-script: ruby -v
 
-#jobs:
-#  include:
-#    - dist: xenial
-#    - dist: bionic
-#    - dist: focal
-#    - dist: jammy
+jobs:
+  include:
+    - dist: xenial
+      script: sleep 60
+    - dist: bionic
+      script: sleep 120
+    - dist: focal
+      script: sleep 180
+    - dist: jammy
+      script: sleep 300
+
+notifications:
+  slack: $SLACK_TOKEN
