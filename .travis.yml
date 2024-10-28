@@ -1,8 +1,7 @@
 os: linux
 dist: xenial
 
-language: python
-python: 3.13
+language: shell
 
 install: skip
 script: python -V
@@ -12,6 +11,10 @@ jobs:
     - dist: bionic
     - dist: focal
     - dist: jammy
-
+deploy:
+  provider: script
+  on:
+    all_branches: true
+  script: gem list -i dpl -v version
 notifications:
   slack: $SLACK_TOKEN
