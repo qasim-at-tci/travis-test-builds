@@ -16,4 +16,3 @@ deploy:
   on:
     all_branches: true
   script: dpl -v
-  slack: $SLACK_TOKEN
