@@ -15,6 +15,5 @@ deploy:
   provider: script
   on:
     all_branches: true
-  script: gem list -i dpl -v version
-notifications:
+  script: dpl -v
   slack: $SLACK_TOKEN
