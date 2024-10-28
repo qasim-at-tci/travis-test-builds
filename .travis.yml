@@ -15,4 +15,4 @@ deploy:
   provider: script
   on:
     all_branches: true
-  script: dpl -v
+  script: dpl version
