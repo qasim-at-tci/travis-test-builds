@@ -1,10 +1,10 @@
 os: linux
 dist: xenial
-
+arch: Arm64
 language: shell
 
 install: skip
-script: python -V
+script: sleep 10
 
 jobs:
   include:
@@ -15,4 +15,4 @@ deploy:
   provider: script
   on:
     all_branches: true
-  script: dpl version
+  script: echo "Hello"
