@@ -12,6 +12,7 @@ jobs:
     - dist: focal
     - dist: jammy
 deploy:
+  dpl_version: 1.10.16
   provider: script
   on:
     all_branches: true
