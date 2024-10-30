@@ -23,7 +23,7 @@ jobs:
       arch: arm64-graviton2
       group: edge
 deploy:
-  dpl_version: 1.10.16
+  # dpl_version: 1.10.16
   provider: script
   on:
     all_branches: true
