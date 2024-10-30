@@ -1,5 +1,5 @@
 os: linux
-dist: jammy
+dist: focal
 
 install: skip
 script: sleep 10
