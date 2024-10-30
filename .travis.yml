@@ -1,27 +1,18 @@
 os: linux
-dist: xenial
-language: shell
+dist: jammy
 
 install: skip
 script: sleep 10
 
 jobs:
   include:
-    - dist: bionic
-      arch: arm64
-    - dist: focal
-      arch: arm64
-    - dist: jammy
-      arch: arm64
-    - dist: bionic
-      arch: arm64-graviton2
-      group: edge
-    - dist: focal
-      arch: arm64-graviton2
-      group: edge
-    - dist: jammy
-      arch: arm64-graviton2
-      group: edge
+    - language: shell
+    - language: nodejs
+      node_js: lts/*
+    - language: ruby
+      ruby: 3.1.2
+    - language: python
+      python: 3.12
 deploy:
   # dpl_version: 1.10.16
   provider: script
