@@ -6,7 +6,7 @@ install: skip
 jobs:
   include:
     - language: shell
-      script: sleep 10
+      script: sleep 11
     - language: nodejs
       node_js: lts/*
       script: sleep 15
