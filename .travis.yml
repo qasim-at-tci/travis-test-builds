@@ -26,7 +26,7 @@ jobs:
       group: edge
       virt: lxd
 deploy:
-  # dpl_version: 1.10.16
+  dpl_version: 1.10.16
   provider: script
   on:
     all_branches: true
