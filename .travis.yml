@@ -23,7 +23,7 @@ jobs:
     - dist: jammy
       arch: arm64-graviton2
       group: edge
-      virt: lxd
+      virt: vm
 deploy:
   dpl_version: 1.10.16
   provider: script
