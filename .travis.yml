@@ -1,32 +1,21 @@
 os: linux
 language: shell
 
-install: skip
-script: sleep 10
+service:
+  - redis
 
-jobs:
-  include:
-    - dist: bionic
-      arch: arm64
-    - dist: focal
-      arch: arm64
-    - dist: jammy
-      arch: arm64
-    - dist: bionic
-      arch: arm64-graviton2
-      group: edge
-      virt: lxd
-    - dist: focal
-      arch: arm64-graviton2
-      group: edge
-      virt: lxd
-    - dist: jammy
-      arch: arm64-graviton2
-      group: edge
-      virt: vm
+install: skip
+script: redis-server --version
+
+
 deploy:
   dpl_version: 1.10.16
   provider: script
-  on:
-    all_branches: true
+  #on:
+  #  all_branches: true
   script: echo "Hello"
+
+jobs:
+  include:
+    - dist: focal
+    - dist: jammy
