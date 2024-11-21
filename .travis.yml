@@ -13,10 +13,12 @@ install: skip
 
 jobs:
   include:
-    - script:
+    - name: "Docker build within pipeline"
+      script:
         - docker build -t test:0.1 .
         - docker images
-    - script:
+    - name: "Docker build from bash script"
+      script:
         - chmod +x ./build
         - ./build
         - docker images
