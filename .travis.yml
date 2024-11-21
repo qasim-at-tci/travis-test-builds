@@ -10,4 +10,13 @@ git:
 cache:
   pip: true
 install: skip
-script: docker build -t test:0.1 .
+
+jobs:
+  include:
+    - script:
+        - docker build -t test:0.1 .
+        - docker images
+    - script:
+        - chmod +x ./build
+        - ./build
+        - docker images
