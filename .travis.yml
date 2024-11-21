@@ -1,21 +1,13 @@
+language: python
+python:
+- 3.10.8
 os: linux
-language: shell
-
-service:
-  - redis
-
+dist: jammy
+services:
+- docker
+git:
+  submodules: false
+cache:
+  pip: true
 install: skip
-script: redis-server --version
-
-
-deploy:
-  dpl_version: 1.10.16
-  provider: script
-  #on:
-  #  all_branches: true
-  script: echo "Hello"
-
-jobs:
-  include:
-    - dist: focal
-    - dist: jammy
+script: docker build -t test:0.1 .
