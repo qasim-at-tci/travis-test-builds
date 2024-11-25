@@ -7,7 +7,8 @@ before_install:
   #- sdk list java
   - sdk install java 11.0.25-tem 
   - sdk use java 11.0.25-tem
-  - rm /usr/local/maven-*
+  - unset M2_HOME
+  - unset MAVEN_HOME
   - sdk install maven
 install: skip
 
