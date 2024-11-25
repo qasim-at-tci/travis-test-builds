@@ -14,17 +14,17 @@ jobs:
   include:
     - dist: xenial
       script: 
-        - java -v
+        - java -version
         - mvn -v
     - dist: bionic
       script: 
-        - java -v
+        - java -version
         - mvn -v
     - dist: focal
       script: 
-        - java -v
+        - java -version
         - mvn -v
     - dist: jammy
       script: 
-        - java -v
+        - java -version
         - mvn -v
