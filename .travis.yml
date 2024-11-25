@@ -7,8 +7,7 @@ before_install:
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - sdk install java 11.0.25-tem 
   - sdk use java 11.0.25-tem
-  - unset M2_HOME
-  - unset MAVEN_HOME
+  - unset M2_HOME MAVEN_HOME
   - sdk install maven 3.9.9
   - sdk use maven 3.9.9
 install: skip
@@ -18,3 +17,7 @@ script:
   - mvn -v
   - echo $M2_HOME
   - echo $MAVEN_HOME
+jobs:
+  include:
+    - language: java
+    - language: shell
