@@ -1,24 +1,15 @@
-language: python
-python:
-- 3.10.8
+language: java
 os: linux
-dist: jammy
-services:
-- docker
-git:
-  submodules: false
-cache:
-  pip: true
+dist: xenial
 install: skip
 
 jobs:
   include:
-    - name: "Docker build within pipeline"
-      script:
-        - docker build -t test:0.1 .
-        - docker images
-    - name: "Docker build from bash script"
-      script:
-        - chmod +x ./build
-        - ./build
-        - docker images
+    - dist: xenial
+      script: mvn -v
+    - dist: bionic
+      script: mvn -v
+    - dist: focal
+      script: mvn -v
+    - dist: jammy
+      script: mvn -v
