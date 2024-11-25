@@ -2,6 +2,7 @@ language: shell
 os: linux
 dist: xenial
 before_install:
+  - which mvn
   - curl -s "https://get.sdkman.io" | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   #- sdk list java
