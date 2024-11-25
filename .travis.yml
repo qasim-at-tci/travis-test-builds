@@ -9,8 +9,8 @@ before_install:
   - sdk use java 11.0.25-tem
   - unset M2_HOME
   - unset MAVEN_HOME
-  - sdk install maven
-  - sdk use maven
+  - sdk install maven 3.9.9
+  - sdk use maven 3.9.9
 install: skip
 
 jobs:
