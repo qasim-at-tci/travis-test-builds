@@ -10,6 +10,7 @@ before_install:
   - unset M2_HOME
   - unset MAVEN_HOME
   - sdk install maven
+  - sdk use maven
 install: skip
 
 jobs:
