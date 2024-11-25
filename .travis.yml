@@ -1,15 +1,28 @@
 language: java
 os: linux
 dist: xenial
+before_install:
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk install java 11.0.21-open
+  - sdk use java 11.0.21-open
 install: skip
 
 jobs:
   include:
     - dist: xenial
-      script: mvn -v
+      script: 
+        - java -v
+        - mvn -v
     - dist: bionic
-      script: mvn -v
+      script: 
+        - java -v
+        - mvn -v
     - dist: focal
-      script: mvn -v
+      script: 
+        - java -v
+        - mvn -v
     - dist: jammy
-      script: mvn -v
+      script: 
+        - java -v
+        - mvn -v
