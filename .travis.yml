@@ -6,6 +6,7 @@ install: skip
 script: sleep 10
 
 deploy:
+  dpl_version: 1.10.16
   provider: releases
   token: $GH_TOKEN
   file: README.md
