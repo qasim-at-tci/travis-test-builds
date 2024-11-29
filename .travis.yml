@@ -1,23 +1,13 @@
 language: shell
 os: linux
 dist: xenial
-before_install:
-  - sudo rm -rf /usr/local/maven-3.9.4
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk install java 11.0.25-tem 
-  - sdk use java 11.0.25-tem
-  - unset M2_HOME MAVEN_HOME
-  - sdk install maven 3.9.9
-  - sdk use maven 3.9.9
 install: skip
 
-script: 
-  - java -version
-  - mvn -v
-  - echo $M2_HOME
-  - echo $MAVEN_HOME
-jobs:
-  include:
-    - language: java
-    - language: shell
+script: sleep 10
+
+deploy:
+  provider: releases
+  token: $GH_TOKEN
+  file: README.md
+  on:
+    all_branches: true
