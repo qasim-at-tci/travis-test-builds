@@ -8,7 +8,7 @@ script: sleep 10
 deploy:
   dpl_version: 1.10.16
   provider: releases
-  token: $GH_TOKEN
+  api_key: $GH_TOKEN
   file: README.md
   on:
     all_branches: true
