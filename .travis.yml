@@ -1,6 +1,6 @@
 language: shell
 os: linux
-dist: xenial
+dist: focal
 install: skip
 
 script: sleep 10
