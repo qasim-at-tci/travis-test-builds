@@ -11,4 +11,4 @@ deploy:
   api_key: $GH_TOKEN
   file: README.md
   on:
-    all_branches: true
+    tags: true
