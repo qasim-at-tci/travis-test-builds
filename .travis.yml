@@ -1,69 +1,14 @@
-# Xenial on amd64 and all arm64 jobs to use deploy tool v1
-
-os: linux
-dist: xenial
 language: shell
+os: linux
+dist: focal
 install: skip
-script: true
+
+script: sleep 10
 
 deploy:
-  - &deploy
-    provider: releases
-    token: $GH_TOKEN
-    file_glob: true
-    overwrite: true
-    file: README.md
-    on:
-      tags: true
-
-jobs:
-  include:
-    - dist: xenial
-      script: sleep 1
-      # Use deploy tool v1 i.e. without edge: true
-      deploy:
-        - <<: *deploy
-          skip_cleanup: true
-    - dist: bionic
-      script: sleep 200
-      # Use deploy tool v2 i.e. with edge: true
-      deploy:
-        - <<: *deploy
-          edge: true
-          cleanup: false
-    - dist: focal
-      script: sleep 350
-      # Use deploy tool v2 i.e. with edge: true
-      deploy:
-        - <<: *deploy
-          edge: true
-          cleanup: false
-    - dist: jammy
-      script: sleep 500
-      # Use deploy tool v2 i.e. with edge: true
-      deploy:
-        - <<: *deploy
-          edge: true
-          cleanup: false
-
-    - dist: xenial
-      script: sleep 1
-      arch: arm64
-      # Use deploy tool v1 i.e. without edge: true
-      deploy:
-        - <<: *deploy
-          skip_cleanup: true
-    - dist: bionic
-      script: sleep 200
-      arch: arm64
-      # Use deploy tool v1 i.e. without edge: true
-      deploy:
-        - <<: *deploy
-          skip_cleanup: true
-    - dist: focal
-      script: sleep 350
-      arch: arm64
-      # Use deploy tool v1 i.e. without edge: true
-      deploy:
-        - <<: *deploy
-          skip_cleanup: true
+  dpl_version: 1.10.16
+  provider: releases
+  api_key: $GH_TOKEN
+  file: README.md
+  on:
+    all_branches: true
