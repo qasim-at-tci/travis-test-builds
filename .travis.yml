@@ -1,7 +1,7 @@
 language: minimal
 os: windows
 
-before_install: .\goinstall.ps1 -version 1.22.3
+before_install: powershell .\goinstall.ps1 -version 1.22.3
 install: skip
 
 script: go version
