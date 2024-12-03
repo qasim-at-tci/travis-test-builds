@@ -3,7 +3,7 @@ os: windows
 
 before_install:
   - powershell
-  - .\goinstall.ps1 -version 1.22.3
+  - ./goinstall.ps1 -version 1.22.3
 install: skip
 
 script: go version
