@@ -1,14 +1,10 @@
 language: shell
 os: linux
 dist: focal
+
+before_install:
+  - Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.ps1'))
+  - gobrew use latest
 install: skip
 
-script: sleep 10
-
-deploy:
-  dpl_version: 1.10.16
-  provider: releases
-  api_key: $GH_TOKEN
-  file: README.md
-  on:
-    all_branches: true
+script: go version
