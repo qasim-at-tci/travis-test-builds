@@ -1,8 +1,6 @@
-language: minimal
+language: go
 os: windows
 
-before_install:
-  - powershell -executionpolicy bypass -File C:\Users\travis\build\test-runs-tci\travis-test-builds\goinstall.ps1 -version 1.22.3
 install: skip
 
 script: go version
