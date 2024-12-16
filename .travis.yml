@@ -8,6 +8,20 @@ script: sleep 10
 jobs:
   include:
     - arch: arm64
+      dist: xenial
+    - arch: arm64
+      dist: bionic
+    - arch: arm64
+      dist: focal
     - arch: arm64-graviton2
       virt: lxd
+      dist: xenial
+      group: edge
+    - arch: arm64-graviton2
+      virt: lxd
+      dist: bionic
+      group: edge
+    - arch: arm64-graviton2
+      virt: lxd
+      dist: focal
       group: edge
