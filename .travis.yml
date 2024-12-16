@@ -3,7 +3,7 @@ os: linux
 
 install: skip
 
-script: sleep 10
+script: sleep 12
 
 jobs:
   include:
