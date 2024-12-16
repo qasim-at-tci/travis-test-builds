@@ -1,6 +1,12 @@
-language: go
-os: windows
+language: shell
+os: linux
 
 install: skip
 
-script: go version
+script: sleep 10
+
+jobs:
+  include:
+    - arch: arm64
+    - arch: arm64-graviton2
+      virt: lxd
