@@ -5,4 +5,4 @@ dist: jammy
 
 install: skip
 
-script: bundle install foreman
+script: gem install foreman
