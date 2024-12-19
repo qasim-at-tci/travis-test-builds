@@ -1,27 +1,8 @@
-language: shell
+language: ruby
+ruby: 3.3.4
 os: linux
+dist: jammy
 
 install: skip
 
-script: sleep 12
-
-jobs:
-  include:
-    - arch: arm64
-      dist: xenial
-    - arch: arm64
-      dist: bionic
-    - arch: arm64
-      dist: focal
-    - arch: arm64-graviton2
-      virt: lxd
-      dist: xenial
-      group: edge
-    - arch: arm64-graviton2
-      virt: lxd
-      dist: bionic
-      group: edge
-    - arch: arm64-graviton2
-      virt: lxd
-      dist: focal
-      group: edge
+script: bundle install foreman
